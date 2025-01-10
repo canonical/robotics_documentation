@@ -13,5 +13,5 @@ Robotics packaging how-to guides
    Configure a snap: pull a configuration from a server <config-a-snap-pull-from-a-server.md>
    Configure a snap: using a content snap <config-a-snap-using-content-snap.md>
    Configure a snap: Make the snap configuration overwritable <config-a-snap-make-config-overwritable.md>
-   debugging snap applications<debugging-snap-applications.md>
+
 

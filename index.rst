@@ -56,7 +56,7 @@ Get involved by:
 Our projects are going to continue growing with our community. If you want to get involved:
 
 * `Code of conduct <https://ubuntu.com/community/ethos/code-of-conduct>`_
-* `Get support <https://discourse.ubuntu.com/c/project/robotics>`_
+* `Get support <https://discourse.ubuntu.com/c/project/robotics/121>`_
 
 Thinking about using one of these product for your next project? `Get in touch! <https://ubuntu.com/core/contact-us>`_
 

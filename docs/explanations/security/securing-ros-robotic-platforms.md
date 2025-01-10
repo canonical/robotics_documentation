@@ -64,7 +64,7 @@ Then [set up your connectivity](https://netplan.readthedocs.io/en/stable/example
 
 ### Installing Ubuntu Core
 
-There are 2 ways to start using Ubuntu Core. The first is to download, for testing purposes, an Ubuntu Core reference [image](https://cdimage.ubuntu.com/ubuntu-core/22/stable/current/?_ga=2.165645756.240069934.1696393446-1765477109.1661347272), and follow the [installation steps](https://ubuntu.com/core/docs/getting-started#heading--general). Once you have finished the installation, you will be able to access your device via Secure Shell (SSH) and install your desired applications. As a reference image, this method is for those developers looking at testing Ubuntu Core.
+There are 2 ways to start using Ubuntu Core. The first is to download, for testing purposes, an Ubuntu Core reference [image](https://cdimage.ubuntu.com/ubuntu-core/22/stable/current/?_ga=2.165645756.240069934.1696393446-1765477109.1661347272), and follow the [installation steps](https://ubuntu.com/core/docs/get-started). Once you have finished the installation, you will be able to access your device via Secure Shell (SSH) and install your desired applications. As a reference image, this method is for those developers looking at testing Ubuntu Core.
 
 The second option is to build your production-grade image. This is the intended way of using Ubuntu Core; creating a production image with your final application on it. To achieve this, you will need to create a model assertion, which is a digitally signed document that describes the content of your image. Then, using [ubuntu-image](https://github.com/canonical/ubuntu-image), you can create your own production image ready to be installed under manufacturer requirements in production lines.
 

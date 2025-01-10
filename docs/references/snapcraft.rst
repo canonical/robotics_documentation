@@ -1,8 +1,12 @@
-Snapcraft real title
-====================
+References
+==========
 
 .. toctree::
    :maxdepth: 3
    :caption: snapcraft
 
-   Plugins <fake-page>
+   Plugins <plugins.md>
+   Extensions <extensions.md>
+   FAQ & Troubleshooting <faq.md>
+
+

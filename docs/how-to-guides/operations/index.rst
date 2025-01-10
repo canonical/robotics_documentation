@@ -9,5 +9,6 @@ Robotics operations how-to guides
    Setting up a server to receive and store your telemetry data <set-up-server-to-receive-and-store-telemetry-data.md>
    Advanced configuration for your telemetry snaps <advanced-config-telemetry-snaps.md>
    Advanced configuration for your telemetry server <advanced-config-telemetry-server.md>
+   Debugging Snap Applications <debugging-snap-applications.md>
 
 
