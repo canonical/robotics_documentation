@@ -144,6 +144,7 @@ custom_linkcheck_anchors_ignore_for_url = [
     r"https://ubuntu.com/core/docs/getting-started/*",
     r"https://ubuntu.com/robotics#get-in-touch",
     r"https://ubuntu.com/core/docs/build-write-image#heading--write",
+    r"https://ubuntu.com/robotics/ros-esm#get-in-touch",
 ]
 
 ############################################################
