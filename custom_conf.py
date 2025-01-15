@@ -140,6 +140,7 @@ linkcheck_ignore = [
 
 # Pages on which to ignore anchors
 # (This list will be appended to linkcheck_anchors_ignore_for_url)
+
 custom_linkcheck_anchors_ignore_for_url = [
     r"https://snapcraft.io/docs/.*",
     r"https://ubuntu.com/tutorials/.*",
