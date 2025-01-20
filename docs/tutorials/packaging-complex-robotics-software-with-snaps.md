@@ -160,7 +160,7 @@ To start snapping our stack we first need to [identify the various functionaliti
 
 We are going to apply the methodology to the TurtleBot3. This way, we will have a clear example of the functionalities and snap entries for a robot, as well as the process to identify these entries.
 
-For this guide, we will focus on the monolithic snap approach since it is the simplest for a first robot snap. All the possible architectures for ROS snap applications are described [in the documentation](https://snapcraft.io/docs/ros-architectures-with-snaps).
+For this guide, we will focus on the monolithic snap approach since it is the simplest for a first robot snap. All the possible architectures for ROS snap applications are described [in the documentation](/docs/explanations/snaps/ros-architectures-with-snaps).
 
 ### Functionalities of our robot snap
 
