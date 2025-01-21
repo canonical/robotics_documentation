@@ -3,18 +3,18 @@ Robotics Documentation
 
 
 .. toctree::
-   :hidden:
-   :maxdepth: 3
+  :hidden:
+  :maxdepth: 3
 
-   Tutorials <docs/tutorials>
-   How-to guides <docs/how-to-guides>
-   References <docs/references>
-   Explanations <docs/explanations>
+  Tutorials <docs/tutorials>
+  How-to guides <docs/how-to-guides>
+  References <docs/references>
+  Explanations <docs/explanations>
 
 
 From development to deployment, all you need in one single platform. Ubuntu provides robotics companies with a worldwide-use infrastructure to deploy and maintain your robot.
 
-`Ubuntu Core Docs <https://ubuntu.com/core/docs>`__ and `Snaps <https://snapcraft.io/docs/robotics>`__ are the tools used by global organisations to deploy and manage their software on embedded devices. 
+`Ubuntu Core <https://ubuntu.com/core/docs>`__ and `Snaps <https://snapcraft.io/docs/robotics>`__ are the tools used by global organisations to deploy and manage their software on embedded devices. 
 Ubuntu Core is the optimised version of Ubuntu for edge devices and robotics. s
 Snaps, the de facto container for packaging software on Ubuntu, enhanced to support ROS applications. Finally, together with the `IoT App Store <https://ubuntu.com/internet-of-things/appstore>`_, businesses can manage software updates in their fleet of devices using a globally distributed and reliable infrastructure.
 

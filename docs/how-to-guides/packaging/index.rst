@@ -7,6 +7,7 @@ Robotics packaging how-to guides
 
 
    Build and publish a snap with GitHub Actions <build-and-publish-snap-with-github-actions.md>
+   Debugging Snap Applications <debugging-snap-applications.md>
    Migrate from Docker to Snap <migrate_from_docker_to_snap.md>
    ROS 2 shared memory in snaps <ros-2-shared-memory-in-snaps.md>
    ROS distributions with no extensions <ros-distributions-with-no-extensions.md>

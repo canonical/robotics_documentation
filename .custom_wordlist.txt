@@ -37,6 +37,7 @@ Dockerfile
 Dockerfiles
 emphasize
 entrypoint
+esm
 ESM
 ethernet
 executables
