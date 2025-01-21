@@ -160,7 +160,7 @@ To start snapping our stack we first need to [identify the various functionaliti
 
 We are going to apply the methodology to the TurtleBot3. This way, we will have a clear example of the functionalities and snap entries for a robot, as well as the process to identify these entries.
 
-For this guide, we will focus on the monolithic snap approach since it is the simplest for a first robot snap. All the possible architectures for ROS snap applications are described [in the documentation](https://snapcraft.io/docs/ros-architectures-with-snaps).
+For this guide, we will focus on the monolithic snap approach since it is the simplest for a first robot snap. All the possible architectures for ROS snap applications are described [in the documentation](/docs/explanations/snaps/ros-architectures-with-snaps).
 
 ### Functionalities of our robot snap
 
@@ -1115,7 +1115,7 @@ Now that we have learned the ins and outs of the TurtleBot3 snap, we can apply s
 >Below is a how-to guide focusing on debugging the snap itself and troubleshooting any issues with how the snap is packaged and how its components interact, rather than debugging the code behaviour or compilation errors. This will help us identify any potential problems with the snap’s configuration and ensure a smooth user experience.
 >
 
->What we achieved here is perfectly working. If you would like to learn more about how to debug possible issues, please refer to the [How-to Guide: Debugging Snap Applications](/docs/how-to-guides/operations/debugging-snap-applications).
+>What we achieved here is perfectly working. If you would like to learn more about how to debug possible issues, please refer to the [How-to Guide: Debugging Snap Applications](/docs/how-to-guides/packaging/debugging-snap-applications).
 
 ## Conclusion
 

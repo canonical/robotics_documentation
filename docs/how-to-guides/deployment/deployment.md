@@ -1,2 +1,0 @@
-Packaging how-to guide
-======================

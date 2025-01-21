@@ -56,7 +56,7 @@ The majority of the applications implementing functionalities are going to be st
 
 #### Snap architecture
 
-Finally, while the simplest snap architecture is one snap containing all our applications, we could also have a multi-snap architecture in order to distribute our application across multiple snaps. All the possible architectures for a ROS application are described [in the documentation](https://snapcraft.io/docs/ros-architectures-with-snaps) for further investigation.
+Finally, while the simplest snap architecture is one snap containing all our applications, we could also have a multi-snap architecture in order to distribute our application across multiple snaps. All the possible architectures for a ROS application are described [in the documentation](/docs/explanations/snaps/ros-architectures-with-snaps) for further investigation.
 
 
 #### Example

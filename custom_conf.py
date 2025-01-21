@@ -131,19 +131,25 @@ redirects = {}
 # Links to ignore when checking links
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
-    "https://ubuntu.com/robotics#get-in-touch",
     "https://linux.die.net/man/1/curl",
+    "https://ubuntu.com/robotics#get-in-touch",
     "https://www.vesiluoma.com/exploiting-with-badusb-meterpreter-digispark/",
+    "https://ubuntu.com/robotics/ros-esm#get-in-touch",
+    "https://ubuntu.com/core/docs/build-write-image#heading--write",
 ]
 
 # Pages on which to ignore anchors
 # (This list will be appended to linkcheck_anchors_ignore_for_url)
+
 custom_linkcheck_anchors_ignore_for_url = [
-    r"https://ubuntu.com/tutorials/*",
-    r"https://ubuntu.com/core/features/secure-boot/.*",
+    r"https://snapcraft.io/docs/.*",
+    r"https://ubuntu.com/tutorials/.*",
+    r"https://ubuntu.com/core/features/.*",
     r"https://ubuntu.com/core/docs/getting-started/*",
     r"https://ubuntu.com/robotics#get-in-touch",
     r"https://ubuntu.com/core/docs/build-write-image#heading--write",
+    r"https://ubuntu.com/robotics/ros-esm#get-in-touch",
+    r"https://ubuntu.com/core/features/secure-boot/.*",
 ]
 
 ############################################################
