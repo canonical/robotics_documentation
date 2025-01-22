@@ -11,6 +11,7 @@ automatize
 backdoors
 bootable
 bringup
+BringUp
 CANBus
 CIs
 CMake
