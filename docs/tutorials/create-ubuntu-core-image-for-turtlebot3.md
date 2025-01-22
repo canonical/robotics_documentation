@@ -45,7 +45,7 @@ The model is a recipe that describes the components that comprise a complete ima
 The model contains:
 
 * Identification information, such as the developer-id and model name.
-* Which[essential snaps](https://ubuntu.com/core/docs/components#heading--system) make up the device system.
+* Which [essential snaps](https://ubuntu.com/core/docs/elements#heading--system) make up the device system.
 * Other required or optional snaps that implement the device functionalities.
 
 In our case, we will build a Raspberry Pi 4 image, and we will pick core20 as the version of the Ubuntu Core image. While the Ubuntu Core version can be chosen independently of the base version of the snaps, it will still include the corresponding version of the base snap. In this example, all of our snaps are using core20 since we are using ROS Noetic. We thus pick the corresponding Ubuntu Core image, core20, to spare the installation of a different core snap.
@@ -97,7 +97,7 @@ Here, the snap ID is `DLqre5XGLbDqg9jPtiAhRRjDuPVa5X1q`.
 
 #### TurtleBot3c snaps
 
-Let’s add the TurlteBot3c snaps to our `turtlebot3c-model.json`:
+Let’s add the TurtleBot3c snaps to our `turtlebot3c-model.json`:
 
 ```json
     {
@@ -240,7 +240,7 @@ In the `snapcraft.yaml` of the pi-gadget snap that we’ve just cloned, change t
 +name: turtlebot3c-pi
 ```
 
-Note that at the end of the `snapcraft.yaml`, all the slots available are declared (serial, spi, i2c, etc.). For security consideration, we should remove the one that we don’t need. However, we leave this as an exercise to the reader.
+Note that at the end of the `snapcraft.yaml`, all the slots available are declared (serial, `spi`, `i2c`, etc.). For security consideration, we should remove the one that we don’t need. However, we leave this as an exercise to the reader.
 
 We can now proceed with the gadget connections customisation.
 
@@ -271,11 +271,11 @@ Doing so, all the interfaces of our snap stack are automatically plugged for thi
 
 ### Configurations
 
-The Wi-Fi hotspot snap requires some configurations. More specifically, we want to configure a custom SSID and password, as well as the Wi-Fi interface.
+The WiFi hotspot snap requires some configurations. More specifically, we want to configure a custom `SSID` and password, as well as the WiFi interface.
 
 Similarly, we refer to the snap by their unique ID.
 
-In the `gadget.yaml`, we configure the hotspot with the SSID “turtlebot3c” and the password “turtlebot3c”:
+In the `gadget.yaml`, we configure the hotspot with the `SSID` “turtlebot3c” and the password “turtlebot3c”:
 
 ```diff
 connections:
@@ -332,7 +332,7 @@ Since we modified the model, let’s sign it again:
 snap sign -k turtlebot3c-key turtlebot3c-model.json > turtlebot3c.model
 ```
 
-The Ubuntu Core model is now fully customised for the TurtletBot3c.
+The Ubuntu Core model is now fully customised for the TurtleBot3c.
 
 As we see in the following diagram, we have in the image the basic `snapd`, `turltebot3c-pi` and `pi-kernel` snaps. Additionally, we have the `network-manager`, `avahi` and `wifi-hotspot-config` snaps to set up and manage the network. Finally, we have the `ros-noetic-robot` snap providing the ROS libraries to our `turtlebot3c-bringup`, `turtlebot3c-teleop` and `turtlebot3c-nav` snaps.
 
@@ -358,7 +358,7 @@ This generates the `pi.img` file. The image file already contains all the snaps 
 
 ### Write the image
 
-To flash the image on the SD card, we use [rpi-imager](https://snapcraft.io/rpi-imager) which is conveniently distributed as a snap.
+To flash the image on the SD card, we use [`rpi-imager`](https://snapcraft.io/rpi-imager) which is conveniently distributed as a snap.
 
 To install it:
 
@@ -366,12 +366,12 @@ To install it:
 snap install rpi-imager
 ```
 
-Next, insert an SD card in your computer and start the rpi-imager.
+Next, insert an SD card in your computer and start the `rpi-imager`.
 
 We choose raspberry-pi 4 as the device.
 For the OS, go down the list and select “use custom”:
 
-![rpi-imager](https://assets.ubuntu.com/v1/55dfe56f-rpi-imager.png)
+![`rpi-imager`](https://assets.ubuntu.com/v1/55dfe56f-rpi-imager.png)
 
 Then select the `pi.img` file we’ve just created.
 
@@ -393,7 +393,7 @@ In case we still want to monitor the logs and what’s happening during the boot
 
 We can also connect a serial to USB adaptors for monitoring purposes.
 
-To do so, connect the ground, Rx and Tx from your adaptor respectively [to the pins 6, 8 and 10 of the Raspberry pi](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio).
+To do so, connect the ground, `Rx` and `Tx` from your adaptor respectively [to the pins 6, 8 and 10 of the Raspberry pi](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio).
 
 We use `picocom` to monitor the serial, we can install it with:
 
@@ -409,11 +409,11 @@ picocom /dev/ttyUSB0 -b 115200
 
 ### Connect to the robot
 
-The first boot creates the filesystem as well as decompresses the snaps and configures them. Meaning that the first boot can take up to 2 mins.
+The first boot creates the filesystem as well as decompresses the snaps and configures them. Meaning that the first boot can take up to 2 minutes.
 
-Once finished, we can find the Wi-Fi hotspot “turtlebot3c” available and connect to it with the password “turtlebot3c”.
+Once finished, we can find the WiFi hotspot “turtlebot3c” available and connect to it with the password “turtlebot3c”.
 
-Make sure to have `avahi-daemon` installed on your host machine and once connected to the Wi-Fi hotspot, we can ping our robot with the command:
+Make sure to have `avahi-daemon` installed on your host machine and once connected to the WiFi hotspot, we can ping our robot with the command:
 
 ```bash
 ping turtlebot3c.local
@@ -454,9 +454,9 @@ We have now tested our custom Ubuntu Core image with success.
 ## Conclusion
 
 When we booted the robot the first time no manual intervention was necessary, everything was planned in advance by the means of the gadget snap and the model.
-We have seen not only how to preinstall our application on an Ubuntu Core image, but also how to customise the image and our application for a specific use case.
+We have seen not only how to pre-install our application on an Ubuntu Core image, but also how to customise the image and our application for a specific use case.
 Ubuntu Core is meant for devices in production.
 
-Thanks to the [security and sandboxing features](https://ubuntu.com/core/docs/security-and-sandboxing), Ubuntu Core is not only lightweight and customised but also secured, making it ready for an industrial application. Combined with [landscape](https://ubuntu.com/landscape/docs), it offers the perfect solution to deploy robot software at scale.
+Thanks to the [security and `sandboxing` features](https://ubuntu.com/core/docs/security-and-sandboxing), Ubuntu Core is not only lightweight and customised but also secured, making it ready for an industrial application. Combined with [landscape](https://ubuntu.com/landscape/docs), it offers the perfect solution to deploy robot software at scale.
 
 > More generic documentation about Ubuntu Core can be found on [ubuntu.com/core/docs](http://ubuntu.com/core/docs).

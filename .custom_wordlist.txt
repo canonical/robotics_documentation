@@ -8,6 +8,7 @@ Armor
 artifact
 ASLR
 automatize
+Avahi
 backdoors
 bootable
 bringup
@@ -53,6 +54,8 @@ gmapping
 GPG
 GPIO
 Hawksbill
+hostname
+hotspot
 howto
 https
 IDEs
@@ -63,6 +66,7 @@ iot
 IoT
 IPv
 Jalisco
+kickstart
 LDS
 libpulsecommon
 LiDAR
@@ -152,6 +156,7 @@ usb
 Vcstool
 vel
 vscode
+Wifi
 wirelessly
 xml
 yaml
