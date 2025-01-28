@@ -606,3 +606,12 @@ Conclusion
 In this developer guide, we went through the creation of a basic ROS 2 snap. But in the process, we learned the basics to create our own ROS snap as well. We have covered the basic concepts of a snap, how to build and run them. We also shared the benefits and good development practices. There are more features and advanced development tips that we have yet to cover. The [turtlebot3 snap example](https://ubuntu.com/blog/how-to-set-up-turtlebot3-in-minutes-with-snaps) shows how we can use snap to make your robot software easily installable.
 
 Visit the [robotics documentation](/index) to go further. If you have any questions or need help, you can visit and post your question on the [ubuntu robotics forum](https://discourse.ubuntu.com/c/project/robotics/121).
+
+
+```{eval-rst}
+
+   .. toctree::
+      :maxdepth: 1
+
+      Part 1 exercise </docs/tutorials/exercises/exercise_1.md>
+```
