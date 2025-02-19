@@ -1,7 +1,7 @@
-ROS-ESM user introduction
+Registering and activating ROS-ESM
 =========================
 
-As part of [Ubuntu Pro](https://ubuntu.com/pro/beta) for Applications subscription, [ROS ESM](https://ubuntu.com/robotics/ros-esm) gives you a hardened and long-term supported ROS system for robots and its applications. Even if your ROS distribution hasn’t reached its end-of-life `(EOL)`, you can count on `backports` for critical security updates and `CVEs` fixes for your environment. In addition, all upstream changes are evaluated by hand to minimise breaking changes. By enabling our repositories, you will get trusted and stable binaries for your environment. If you are a standard or advanced customer, you also get ROS support. This provides you with a single point of contact to log ROS bugs.
+As part of [Ubuntu Pro](https://ubuntu.com/pro/tutorial) for Applications subscription, [ROS ESM](https://ubuntu.com/robotics/ros-esm) gives you a hardened and long-term supported ROS system for robots and its applications. Even if your ROS distribution hasn’t reached its end-of-life `(EOL)`, you can count on `backports` for critical security updates and `CVEs` fixes for your environment. In addition, all upstream changes are evaluated by hand to minimise breaking changes. By enabling our repositories, you will get trusted and stable binaries for your environment. If you are a standard or advanced customer, you also get ROS support. This provides you with a single point of contact to log ROS bugs.
 
 ## Benefits
 
@@ -14,7 +14,11 @@ ROS ESM provides four key benefits:
 
 For more information, please visit [Ubuntu Pro Service Description, Extended Security Maintenance (ESM) page,](https://ubuntu.com/security/esm) and [ROS ESM Specialist service description](https://ubuntu.com/legal/ubuntu-pro-description/ros-esm-service-description) or [contact us for more information](https://ubuntu.com/robotics/ros-esm#get-in-touch).
 
-## How to enable ROS ESM
+After you finish this tutorial you may want to look at more specific how-to guides on day-to-day usages of ROS ESM, such as TODO and TODO.
+
+-------------------------------
+
+## Enabling ROS ESM
 
 ROS ESM builds on two Canonical ESM products: ESM-infra and ESM-apps. As a result, there are three steps to enabling ROS ESM:
 
@@ -26,13 +30,14 @@ Note that ESM-infra and ESM-apps are required dependencies of ROS ESM.
 
 ### Obtain your authentication token
 
-Access to ESM is controlled by a token associated with your Ubuntu Single Sign-on `(SSO)` account. If you already purchased ROS ESM, then you will have the token and you can review it on:
+Access to ESM is controlled by a token associated with your Ubuntu Single Sign-on `(SSO)` account. 
+To obtain a token go to this page <https://ubuntu.com/pro/subscribe>.
+You can register for free up to 5 tokens to try out Ubuntu Pro and ROS ESM.
+If you already purchased ROS ESM or Ubuntu Pro, then you will have the token and you can review it on:
 
 <https://ubuntu.com/pro>
 
-Ubuntu Advantage is now Ubuntu Pro. Ubuntu Pro expands our famous ten-year security coverage to an additional 23,000 packages beyond the main operating system.
-
-If you haven’t purchased ROS ESM yet, please [contact us](https://ubuntu.com/robotics/ros-esm#get-in-touch) and a sales representative will get in touch with you.
+[Get in touch with us](https://ubuntu.com/robotics/ros-esm#get-in-touch) if you need a personalized offer.
 
 ### Enabling ESM-infra and ESM-apps
 
@@ -43,14 +48,16 @@ In order to enable these services, you will need:
 * An email address, or an existing Ubuntu One account
 * Ubuntu Pro client version 27.11.2 or newer
 
-Once you have your contract token, make sure your Pro client is up to date:
+Once you have your Ubuntu Pro token, make sure your Pro client is up to date:
+
+TODO make a readthedocs dropdown for different ubuntu versions, from 20.04 it's ubuntu-pro-client TODO
 
 ```bash
 sudo apt update && sudo apt upgrade
 sudo apt install -y ubuntu-advantage-tools
 ```
 
-For more information, please visit [Ubuntu Pro Client Guide](https://discourse.ubuntu.com/t/ubuntu-pro-client/31027).
+For more information, please visit [Ubuntu Pro Client Guide](https://ubuntu.com/pro/tutorial).
 
 #### Confirm your Ubuntu Pro client version
 
@@ -69,21 +76,24 @@ Use the client to attach this machine to your contract using your token:
 ```bash
 sudo pro attach YOUR_TOKEN
 ```
-
-Note, if you had previously attached a `UA token`, you might see a message like this:
-
-```bash
-This machine is already attached to YOUR_EMAIL
-To use a different subscription first run: sudo pro detach.
- ```
-
-In that case, detach your token as indicated, and try attaching your Ubuntu Pro token again.
-
-You should see some of the Ubuntu Pro services, such as Expanded Security Maintenance for Infrastructure `(esm-infra)` automatically enabled, while others will remain disabled until you switch them on. You can check this with:
+In order to see which Ubuntu Pro services are enabled you can run 
 
 ```bash
 sudo pro status
 ```
+TODO show ouput in a box
+$ pro status
+SERVICE          ENTITLED  STATUS       DESCRIPTION
+anbox-cloud      yes       disabled     Scalable Android in the cloud
+esm-apps         yes       enabled      Expanded Security Maintenance for Applications
+esm-infra        yes       enabled      Expanded Security Maintenance for Infrastructure
+fips             yes       disabled     NIST-certified FIPS crypto packages
+fips-updates     yes       disabled     FIPS compliant crypto packages with stable security updates
+livepatch        yes       enabled      Canonical Livepatch service
+ros              yes       disabled     Security Updates for the Robot Operating System
+usg              yes       disabled     Security compliance and audit tools
+
+You should see some of the Ubuntu Pro services, such as Expanded Security Maintenance for Infrastructure `(esm-infra)` automatically enabled, while others will remain disabled until you switch them on. 
 
 If it’s not, enter the following:
 
@@ -94,7 +104,7 @@ sudo pro enable esm-infra
 Then, enable ESM Apps with:
 
 ```bash
-sudo pro enable esm-apps --beta
+sudo pro enable esm-apps
 ```
 
 At any time, you can check how many deb packages are installed on your machine and from which source using:
@@ -109,8 +119,6 @@ Congratulations, you now have ESM-infra and ESM-apps enabled! Run an upgrade to 
 sudo apt update
 sudo apt upgrade
 ```
-
-More information at: <https://ubuntu.com/security/esm>
 
 ### Enabling ROS ESM
 
