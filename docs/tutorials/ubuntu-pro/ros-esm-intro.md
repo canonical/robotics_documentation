@@ -136,7 +136,7 @@ Then, let’s make sure that your token is entitled to enabling ROS ESM with:
 sudo pro status --all
 ```
 
-You should now see the following ROS ESM services: ‘ros’ and ‘ros-updates’. Make sure that the ‘entitled’ column displays a ‘yes’ in front of these services.  If not, please reach out to customer service as shown in your welcome email.
+You should now see the following ROS ESM services: ‘ros’ and ‘ros-updates’. Make sure that the ‘entitled’ column displays a ‘yes’ in front of these services.  If not, please reach out to customer service.
 
 Now you have everything needed to enable ROS ESM. There are two suites available:
 
@@ -146,40 +146,32 @@ Now you have everything needed to enable ROS ESM. There are two suites available
 **To enable the ROS security updates**, run the following command:
 
 ```bash
-sudo pro enable ros --beta
+sudo pro enable ros
 ```
 
 **To enable non-security updates**, run the following command:
 
 ```bash
-sudo pro enable ros-updates --beta
+sudo pro enable ros-updates
 ```
 
 Note that if you enter directly:
 
 ```bash
-sudo pro enable ros-updates --beta
+sudo pro enable ros-updates
 ```
 
 You will be prompted to enable the ‘ros’ service first, as ‘ros-updates’ depends on ‘ros’.
 
 ## Using ROS ESM
 
-Congratulations, you’re now set up to use ROS ESM! From there, you can either install the complete ROS distro variant offered by ROS ESM (ros_base), or you can use rosdep to install the specific dependencies required by your ROS project. Let's quickly explore both options.
+Congratulations, you’re now set up to use ROS ESM! From there, you can either install the complete ROS distro variant offered by ROS ESM (ros_base), or you can use rosdep to install the specific dependencies required by your ROS project. Let's quickly explore the first option for this tutorial.
 
-### Installing ROS ESM base variant
-
-ROS ESM offers the upstream `metapackage` variant called `ros_base`, which facilitates the installation of all ROS packages included in this variant.  For example, if you are working with `Xenial` and its corresponding version ROS Kinetic, run the command:
-
-```bash
-sudo apt install ros-kinetic-ros-base
-```
-
-> ℹ️ You have to remember that the Ubuntu version and ROS version are co-dependent, so you have to choose a pair. For example, Ubuntu 16.04 LTS and ROS Kinetic, Ubuntu 18.04 LTS and ROS Melodic, Ubuntu 20.04 LTS and ROS 2 Foxy. Here you can find more information for [ROS distributions](http://wiki.ros.org/Distributions) and [ROS 2 distributions](https://docs.ros.org/en/foxy/Releases.html).
+!!!Proposal: expand the following concept in a separate explanation page and link from here. !!!
 
 ### Note on rosdep set up
 
-Note that ROS ESM is its own ROS distribution, and thus provides its own distribution and `rosdep` files. If you already have upstream ROS installed and initialised (e.g. you previously ran `sudo rosdep init`), you’ll need to make sure you install `rosdep` from ESM. and Re-initialise it as follows:
+Note that ROS ESM is its own ROS distribution, and thus provides its own distribution and `rosdep` files. If you already have upstream ROS installed and initialised (e.g. you previously ran `sudo rosdep init`), you’ll need to make sure you install `rosdep` from ESM and re-initialise it as follows:
 
 ```bash
 sudo apt install python-rosdep
@@ -187,6 +179,20 @@ sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
 sudo rosdep init
 rosdep update
 ```
+
+### Installing ROS ESM base variant
+
+ROS ESM offers the upstream `metapackage` variant called `ros_base`, which facilitates the installation of all ROS packages included in this variant.  For example, if you are working with `20.04 Focal` and its corresponding version ROS Noetic, run the command:
+
+```bash
+sudo apt install ros-noetic-ros-base
+```
+
+> ℹ️ You have to remember that the Ubuntu version and ROS version are co-dependent, so you have to choose a pair. For example, Ubuntu 16.04 LTS and ROS Kinetic, Ubuntu 18.04 LTS and ROS Melodic, Ubuntu 20.04 LTS and ROS 2 Foxy or ROS 1 Noetic. Here you can find more information for [ROS distributions](http://wiki.ros.org/Distributions) and [ROS 2 distributions](https://docs.ros.org/en/foxy/Releases.html).
+
+For a more personalized installation of specific packages and to see how you can mix ROS-ESM with upstream packages please take a look at TODO and TODO pages.
+
+!!! Proposal to move this in a separate how-to
 
 ### Installing ROS ESM project-specific dependencies
 
