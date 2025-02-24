@@ -163,15 +163,9 @@ sudo pro enable ros-updates
 
 You will be prompted to enable the ‘ros’ service first, as ‘ros-updates’ depends on ‘ros’.
 
-## Using ROS ESM
+### Rosdep set up
 
-Congratulations, you’re now set up to use ROS ESM! From there, you can either install the complete ROS distro variant offered by ROS ESM (ros_base), or you can use rosdep to install the specific dependencies required by your ROS project. Let's quickly explore the first option for this tutorial.
-
-!!!Proposal: expand the following concept in a separate explanation page and link from here. !!!
-
-### Note on rosdep set up
-
-Note that ROS ESM is its own ROS distribution, and thus provides its own distribution and `rosdep` files. If you already have upstream ROS installed and initialised (e.g. you previously ran `sudo rosdep init`), you’ll need to make sure you install `rosdep` from ESM and re-initialise it as follows:
+ROS ESM provides its own distribution and `rosdep` files. Let's make sure you install `rosdep` from ESM and re-initialise it as follows:
 
 ```bash
 sudo apt install python-rosdep
@@ -179,6 +173,12 @@ sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
 sudo rosdep init
 rosdep update
 ```
+
+## Using ROS ESM
+
+Congratulations, you’re now set up to use ROS ESM! From there, you can either install the complete ROS distro variant offered by ROS ESM (ros_base), or you can use rosdep to install the specific dependencies required by your ROS project. Let's quickly explore the two options for this tutorial.
+
+For more information on what happens behind the scenes take a look at [link to explanations ros-esm-ppa-rosdep](TODO).
 
 ### Installing ROS ESM base variant
 
@@ -192,8 +192,6 @@ sudo apt install ros-noetic-ros-base
 
 For a more personalized installation of specific packages and to see how you can mix ROS-ESM with upstream packages please take a look at TODO and TODO pages.
 
-!!! Proposal to move this in a separate how-to
-
 ### Installing ROS ESM project-specific dependencies
 
 Typically, when utilising ROS ESM, your ROS workspace would already be configured with the relevant source code. In such cases, it is highly recommended to accurately define the dependencies of your packages in the package.xml file and proceed by installing all the required ROS ESM dependencies by executing the following command:
@@ -205,67 +203,10 @@ rosdep install –ignore-src –from-paths src
 
 By doing so, the packages required for your project will be fetched and installed from the `ROS ESM ppa`, ensuring smooth operation.
 
+Congratulations! You can now compile your private packages as usual with catkin or colcon and the output binaries will be based on top of our ROS ESM, so that you can extend the lifetime of your robots by 5 more years!
+
 ### ESM and non-ESM components
 
 A given ROS distribution includes a huge number of packages with wildly varying levels of quality. ROS ESM does not attempt to support them all (such a thing would be disingenuous), and instead focuses on core functionality. Besides, it’s not unusual for upstream ROS components to break backward compatibility, while ESM will not. One ramification of this is that ROS packages in ESM might fall behind their upstream counterparts in order to retain stability.
 
 We of course realise that everyone’s needs are different, and are very open to receiving feedback about anything that should be added to ROS ESM. While such additions will need to pass some scrutiny, we fully expect the number of ROS packages included in ESM to grow over time.
-
-### Combining ESM and upstream ROS components
-
-We don't support enabling both ROS ESM as well as the upstream ROS Debian repository. This means that every ROS component you use must either be from ESM, or built from source against ESM.
-
-There is tooling that makes this fairly straightforward, called rosinstall_generator, that will generate a rosinstall file containing the desired package(s) and all dependencies not already satisfied.
-
-In a sourced ROS ESM environment, execute the following:
-
-```bash
-sudo apt install python-rosinstall-generator
-export ROSDISTRO_INDEX_URL="https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml"
-rosinstall_generator <package>  --rosdistro <ros-distro>  --deps-up-to RPP > ~/extra-stuff.rosinstall
-```
-
-For example:
-
-```bash
-rosinstall_generator desktop_full --rosdistro kinetic --deps-up-to RPP > ~/extra-stuff.rosinstall
-```
-
-Once that file is obtained, there are a few steps left to have the software usable.
-
-First, if there isn’t a workspace already, this needs to be created:
-
-``` bash
-mkdir -p ~/ros_ws/src
-```
-
-If not already installed, install `wstool` with the following command:
-
-```bash
-sudo apt-get install python-wstool
-```
-
-Then the `repos` in the rosinstall file need to be fetched into the workspace with the following command:
-
-``` bash
-cd ~/ros_ws
-wstool init src ~/extra-stuff.rosinstall
-```
-
-Now dependencies of the workspace need to be installed:
-
-```bash
-cd ~/ros_ws
-rosdep install --ignore-src --from-paths src
-```
-
-Finally, the workspace needs to be built:
-
-``` bash
-cd ~/ros_ws
-catkin_make_isolated
-```
-
-That builds the required software against the ESM ROS release, where ABI will not break. Once the process is complete, the required software is available in the workspace.
-
-> ℹ️  Since ROS Groovy, not all packages belonging to the `desktop_full` `metapackage` have been `catkinized`. As a result, when using `rosinstall_generator`, it is necessary to compile the workspace using `catkin_make_isolated`.
