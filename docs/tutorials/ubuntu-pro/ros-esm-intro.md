@@ -1,5 +1,4 @@
-Registering and activating ROS-ESM
-=========================
+# Registering and activating ROS-ESM
 
 As part of [Ubuntu Pro](https://ubuntu.com/pro/tutorial) for Applications subscription, [ROS ESM](https://ubuntu.com/robotics/ros-esm) gives you a hardened and long-term supported ROS system for robots and its applications. Even if your ROS distribution hasn’t reached its end-of-life `(EOL)`, you can count on `backports` for critical security updates and `CVEs` fixes for your environment. In addition, all upstream changes are evaluated by hand to minimise breaking changes. By enabling our repositories, you will get trusted and stable binaries for your environment. If you are a standard or advanced customer, you also get ROS support. This provides you with a single point of contact to log ROS bugs.
 
@@ -7,16 +6,16 @@ As part of [Ubuntu Pro](https://ubuntu.com/pro/tutorial) for Applications subscr
 
 ROS ESM provides four key benefits:
 
-* 10 year LTS release lifetime for ROS bringing the highest level of security and compliance
-* Security patching for over 25,000 packages in ROS, Ubuntu Universe and Ubuntu main
-* Better security `KPIs` as critical `CVEs` patches are applied on average in less than 24h
-* Single point of contact to log bugs and propose fixes to guarantee timely and quality fixes
+- 10 year LTS release lifetime for ROS bringing the highest level of security and compliance
+- Security patching for over 25,000 packages in ROS, Ubuntu Universe and Ubuntu main
+- Better security `KPIs` as critical `CVEs` patches are applied on average in less than 24h
+- Single point of contact to log bugs and propose fixes to guarantee timely and quality fixes
 
 For more information, please visit [Ubuntu Pro Service Description, Extended Security Maintenance (ESM) page,](https://ubuntu.com/security/esm) and [ROS ESM Specialist service description](https://ubuntu.com/legal/ubuntu-pro-description/ros-esm-service-description) or [contact us for more information](https://ubuntu.com/robotics/ros-esm#get-in-touch).
 
-After you finish this tutorial you may want to look at more specific how-to guides on day-to-day usages of ROS ESM, such as TODO and TODO.
+After you finish this tutorial you may want to look at more specific how-to guides on day-to-day usages of ROS ESM, such as `TODO` and `TODO`.
 
--------------------------------
+---
 
 ## Enabling ROS ESM
 
@@ -30,34 +29,52 @@ Note that ESM-infra and ESM-apps are required dependencies of ROS ESM.
 
 ### Obtain your authentication token
 
-Access to ESM is controlled by a token associated with your Ubuntu Single Sign-on `(SSO)` account. 
+Access to ESM is controlled by a token associated with your Ubuntu Single Sign-on `(SSO)` account.
 To obtain a token go to this page <https://ubuntu.com/pro/subscribe>.
 You can register for free up to 5 tokens to try out Ubuntu Pro and ROS ESM.
 If you already purchased ROS ESM or Ubuntu Pro, then you will have the token and you can review it on:
 
 <https://ubuntu.com/pro>
 
-[Get in touch with us](https://ubuntu.com/robotics/ros-esm#get-in-touch) if you need a personalized offer.
+[Get in touch with us](https://ubuntu.com/robotics/ros-esm#get-in-touch) if you need a personalised offer.
 
 ### Enabling ESM-infra and ESM-apps
 
 In order to enable these services, you will need:
 
-* An Ubuntu LTS machine with a version similar to or above 16.04 LTS
-* Sudo access
-* An email address, or an existing Ubuntu One account
-* Ubuntu Pro client version 27.11.2 or newer
+- An Ubuntu LTS machine with a version similar to or above 16.04 LTS
+- Sudo access
+- An email address, or an existing Ubuntu One account
+- Ubuntu Pro client version `27.11.2` or newer
 
 Once you have your Ubuntu Pro token, make sure your Pro client is up to date:
 
-TODO make a readthedocs dropdown for different ubuntu versions, from 20.04 it's ubuntu-pro-client TODO
+``````{tabs}
+
+`````{tab}  Ubuntu 20.04 and later
+
+```bash
+
+sudo apt update && sudo apt upgrade
+sudo apt install -y ubuntu-pro-client
+```
+
+This is because the `ubuntu-advantage-tools` package has been deprecated in favour of the `ubuntu-pro-client` package.
+
+> See More: For more information, please visit [Ubuntu Pro Client Guide](https://ubuntu.com/pro/tutorial).
+
+`````
+
+`````{tab} Ubuntu 18.04 and below
 
 ```bash
 sudo apt update && sudo apt upgrade
 sudo apt install -y ubuntu-advantage-tools
 ```
 
-For more information, please visit [Ubuntu Pro Client Guide](https://ubuntu.com/pro/tutorial).
+`````
+
+``````
 
 #### Confirm your Ubuntu Pro client version
 
@@ -76,12 +93,14 @@ Use the client to attach this machine to your contract using your token:
 ```bash
 sudo pro attach YOUR_TOKEN
 ```
-In order to see which Ubuntu Pro services are enabled you can run 
+
+In order to see which Ubuntu Pro services are enabled you can run
 
 ```bash
 sudo pro status
 ```
-TODO show ouput in a box
+
+```bash
 $ pro status
 SERVICE          ENTITLED  STATUS       DESCRIPTION
 anbox-cloud      yes       disabled     Scalable Android in the cloud
@@ -92,8 +111,9 @@ fips-updates     yes       disabled     FIPS compliant crypto packages with stab
 livepatch        yes       enabled      Canonical Livepatch service
 ros              yes       disabled     Security Updates for the Robot Operating System
 usg              yes       disabled     Security compliance and audit tools
+```
 
-You should see some of the Ubuntu Pro services, such as Expanded Security Maintenance for Infrastructure `(esm-infra)` automatically enabled, while others will remain disabled until you switch them on. 
+You should see some of the Ubuntu Pro services, such as Expanded Security Maintenance for Infrastructure `(esm-infra)` automatically enabled, while others will remain disabled until you switch them on.
 
 If it’s not, enter the following:
 
@@ -136,12 +156,12 @@ Then, let’s make sure that your token is entitled to enabling ROS ESM with:
 sudo pro status --all
 ```
 
-You should now see the following ROS ESM services: ‘ros’ and ‘ros-updates’. Make sure that the ‘entitled’ column displays a ‘yes’ in front of these services.  If not, please reach out to customer service.
+You should now see the following ROS ESM services: `ros` and `ros-updates`. Make sure that the `entitled` column displays a `yes` in front of these services. If not, please reach out to customer service.
 
 Now you have everything needed to enable ROS ESM. There are two suites available:
 
-* **ros**: only security-related updates for ROS-related software.
-* **ros-updates**: security and non-security-related updates for ROS-related software. These are security updates and bug fixes.
+- **ros**: only security-related updates for ROS-related software.
+- **ros-updates**: security and non-security-related updates for ROS-related software. These are security updates and bug fixes.
 
 **To enable the ROS security updates**, run the following command:
 
@@ -161,7 +181,7 @@ Note that if you enter directly:
 sudo pro enable ros-updates
 ```
 
-You will be prompted to enable the ‘ros’ service first, as ‘ros-updates’ depends on ‘ros’.
+You will be prompted to enable the `ros` service first, as `ros-updates` depends on `ros`.
 
 ### Rosdep set up
 
@@ -178,19 +198,22 @@ rosdep update
 
 Congratulations, you’re now set up to use ROS ESM! From there, you can either install the complete ROS distro variant offered by ROS ESM (ros_base), or you can use rosdep to install the specific dependencies required by your ROS project. Let's quickly explore the two options for this tutorial.
 
-For more information on what happens behind the scenes take a look at [link to explanations ros-esm-ppa-rosdep](TODO).
+For more information on what happens behind the scenes take a look at [`TODO: link to explanations ros-esm-ppa-rosdep`]('#').
 
 ### Installing ROS ESM base variant
 
-ROS ESM offers the upstream `metapackage` variant called `ros_base`, which facilitates the installation of all ROS packages included in this variant.  For example, if you are working with `20.04 Focal` and its corresponding version ROS Noetic, run the command:
+ROS ESM offers the upstream `metapackage` variant called `ros_base`, which facilitates the installation of all ROS packages included in this variant. For example, if you are working with `20.04 Focal` and its corresponding version ROS Noetic, run the command:
 
 ```bash
 sudo apt install ros-noetic-ros-base
 ```
 
-> ℹ️ You have to remember that the Ubuntu version and ROS version are co-dependent, so you have to choose a pair. For example, Ubuntu 16.04 LTS and ROS Kinetic, Ubuntu 18.04 LTS and ROS Melodic, Ubuntu 20.04 LTS and ROS 2 Foxy or ROS 1 Noetic. Here you can find more information for [ROS distributions](http://wiki.ros.org/Distributions) and [ROS 2 distributions](https://docs.ros.org/en/foxy/Releases.html).
+```{important}
+You have to remember that the Ubuntu version and ROS version are co-dependent, so you have to choose a pair. For example, Ubuntu 16.04 LTS and ROS Kinetic, Ubuntu 18.04 LTS and ROS Melodic, Ubuntu 20.04 LTS and ROS 2 Foxy or ROS 1 Noetic. Here you can find more information for [ROS distributions](http://wiki.ros.org/Distributions) and [ROS 2 distributions](https://docs.ros.org/en/foxy/Releases.html).
 
-For a more personalized installation of specific packages and to see how you can mix ROS-ESM with upstream packages please take a look at TODO and TODO pages.
+```
+
+For a more personalised installation of specific packages and to see how you can mix ROS-ESM with upstream packages please take a look at `TODO` and `TODO` pages.
 
 ### Installing ROS ESM project-specific dependencies
 
