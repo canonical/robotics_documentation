@@ -17,8 +17,10 @@ The file is called `ubuntu-ros.list` and tells apt to fetch packages from [esm.u
 Our ESM packages can be distinguished because their version follows the pattern `X.Y.Z+<ubuntu-version>-<counter>` where X.Y.Z is the usual ROS versioning system, <ubuntu-version> is an LTS name such as 20.04.1 and counter is a single integer. 
 After enabling ROS ESM you can inspect a package with apt-cache. For example:
 
-```
+```bash
 apt-cache policy ros-foxy-std-msgs
+```
+```bash
 ros-foxy-std-msgs:
   Installed: 2.0.5-1focal.20230527.044919
   Candidate: 2.0.5+20.04.1-0
@@ -34,9 +36,18 @@ This shows that ros.org has a version of ros-foxy-std-msgs at `2.0.5-1focal` whi
 
 Apt automatically decides to upgrade from upstream ros.org to ROS ESM if both are available, you can confirm this by running
 
-```
+``` bash
 apt list --upgradable
+```
+```bash
 ros-foxy-std-msgs/focal-security 2.0.5+20.04.1-0 amd64 [upgradable from: 2.0.5-1focal.20230527.044919]
+```
+
+If you want to be sure you no longer consume any End-of-life upstream packages you should remove the ros-latest.list and ros2.list files and update your apt cache.
+
+```bash
+sudo rm /etc/apt/ros-latest.list /etc/apt/ros2.list
+sudo apt update
 ```
 
 # Changes to rosdep
