@@ -1,5 +1,4 @@
-Combining ESM and upstream ROS components
-======================0
+# Combining ESM and upstream ROS components
 
 We don't support enabling both ROS ESM as well as the upstream ROS Debian repository. This means that every ROS component you use must either be from ESM, or built from source against ESM.
 
@@ -56,4 +55,7 @@ catkin_make_isolated
 
 That builds the required software against the ESM ROS release, where ABI will not break. Once the process is complete, the required software is available in the workspace.
 
-> ℹ️  Since ROS Groovy, not all packages belonging to the `desktop_full` `metapackage` have been `catkinized`. As a result, when using `rosinstall_generator`, it is necessary to compile the workspace using `catkin_make_isolated`.
+```{important}
+Since ROS Groovy, not all packages belonging to the `desktop_full` `metapackage` have been `catkinized`. As a result, when using `rosinstall_generator`, it is necessary to compile the workspace using `catkin_make_isolated`.
+
+```
