@@ -177,7 +177,7 @@ Snaps are defined in a single `YAML` file placed in our project. Let’s explore
 
 ### Metadata
 
-The `snapcraft.yaml` file starts with a small amount of human-readable metadata, which usually can be lifted from the GitHub description or project README.md. This data is used in the presentation of our app in the Snap Store (for example, see [PlotJuggler front page](https://snapcraft.io/plotjuggler)).
+The `snapcraft.yaml` file starts with a small amount of human-readable metadata, which usually can be lifted from the GitHub description or project `README.md`. This data is used in the presentation of our app in the Snap Store (for example, see [PlotJuggler front page](https://snapcraft.io/plotjuggler)).
 
 ```yaml
 name: ros2-talker-listener
