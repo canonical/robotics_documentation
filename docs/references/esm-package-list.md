@@ -2,7 +2,10 @@ List of ROS ESM packages
 =========================
 
 In this page you will find the list of the ROS packages that are supported in the Extended Maintenance Support from Canonical under the Ubuntu Pro offering.
-In general the packages that we support from the first day after each ROS version goes end-of-life are the ones required from the metapackage `ros-base` (see [REP142](https://www.ros.org/reps/rep-0142.html#ros-base) and [REP2001](https://www.ros.org/reps/rep-2001.html#ros-base)).
+In general the packages that we support from the first day after each ROS version goes end-of-life are the ones required from the meta-package `ros-base` (see [REP142](https://www.ros.org/reps/rep-0142.html#ros-base) and [REP2001](https://www.ros.org/reps/rep-2001.html#ros-base)).
+
+
+<div class="spellexception">
 
 ## ROS 1 Noetic
 * ***ros-noetic-ros-base***
@@ -87,6 +90,9 @@ In general the packages that we support from the first day after each ROS versio
 * ros-noetic-trajectory-msgs
 * ros-noetic-visualization-msgs
 * ros-noetic-xmlrpcpp
+</div>
+
+<div class="spellexception">
 
 ## ROS 1 Melodic
 * ***ros-melodic-ros-base***
@@ -170,6 +176,10 @@ In general the packages that we support from the first day after each ROS versio
 * ros-melodic-trajectory-msgs
 * ros-melodic-visualization-msgs
 * ros-melodic-xmlrpcpp
+
+</div>
+
+<div class="spellexception">
 
 ## ROS 2 Foxy
 * ***ros-foxy-ros-base***
@@ -386,4 +396,6 @@ In general the packages that we support from the first day after each ROS versio
 * ros-foxy-visualization-msgs
 * ros-foxy-yaml-cpp-vendor
 * ros-foxy-zstd-vendor
+
+</div>
 
