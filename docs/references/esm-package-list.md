@@ -1,13 +1,14 @@
 List of ROS ESM packages
 =========================
 
-In this page you will find the list of the ROS packages that are supported in the Extended Maintenance Support from Canonical under the Ubuntu Pro offering.
-In general the packages that we support from the first day after each ROS version goes end-of-life are the ones required from the meta-package `ros-base` (see [REP142](https://www.ros.org/reps/rep-0142.html#ros-base) and [REP2001](https://www.ros.org/reps/rep-2001.html#ros-base)).
+In this page you will find the list of the ROS packages that are supported in the Extended Maintenance Support(ESM)from Canonical under the Ubuntu Pro offering.
+In general, the packages that we support from the first day after each ROS version goes end-of-life are the ones required from the meta-package `ros-base` (see [REP142](https://www.ros.org/reps/rep-0142.html#ros-base) and [REP2001](https://www.ros.org/reps/rep-2001.html#ros-base)).
 
+
+## ROS 1 Noetic
 
 <div class="spellexception">
 
-## ROS 1 Noetic
 * ***ros-noetic-ros-base***
 * ***ros-noetic-ros-core***
 * ros-noetic-actionlib
@@ -92,9 +93,10 @@ In general the packages that we support from the first day after each ROS versio
 * ros-noetic-xmlrpcpp
 </div>
 
+## ROS 1 Melodic
+
 <div class="spellexception">
 
-## ROS 1 Melodic
 * ***ros-melodic-ros-base***
 * ***ros-melodic-ros-core***
 * ros-melodic-actionlib
@@ -179,9 +181,9 @@ In general the packages that we support from the first day after each ROS versio
 
 </div>
 
+## ROS 2 Foxy
 <div class="spellexception">
 
-## ROS 2 Foxy
 * ***ros-foxy-ros-base***
 * ***ros-foxy-ros-core***
 * ros-foxy-action-msgs
