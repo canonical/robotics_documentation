@@ -6,6 +6,7 @@ References
    :maxdepth: 3
 
    Snapcraft <references/snapcraft>
+   Ubuntu Pro and ROS ESM <references/esm-package-list>
 
 
 
