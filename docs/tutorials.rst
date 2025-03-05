@@ -7,6 +7,7 @@ Robotics tutorials
 
    Snapcraft <tutorials/snapcraft>
    Ubuntu Pro <tutorials/ubuntu-pro.rst>
+   Observability <tutorials/observability/index.rst>
 
 This section of our documentation contains step-by-step tutorials to help outline what Canonical robotics solutions are capable of while helping you achieve specific aims.
 
