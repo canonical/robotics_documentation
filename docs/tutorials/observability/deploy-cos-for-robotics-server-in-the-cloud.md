@@ -23,32 +23,32 @@ This tutorial assumes you have a Juju controller bootstrapped on a MicroK8s clou
 #### Install MicroK8s
 
 Install the microk8s snap with:
-```
+```bash
 sudo snap install microk8s --channel 1.31-strict
 ```
 
 Add the user to the microk8s group for unprivileged access and give use permission to read the `~/.kube` director:
 
-```
+```bash
 sudo adduser $USER snap_microk8s
 sudo chown -f -R $USER ~/.kube
 ```
 
 Wait for microk8s to finish initialising with:
 
-```
+```bash
 sudo microk8s status --wait-ready
 ```
 
 Enable the storage and dns addons which are required for the Juju controller:
 
-```
+```bash
 sudo microk8s enable hostpath-storage dns
 ```
 
 Finally, ensure your new group membership is apparent in the current terminal (Not required once you have logged out and back in again):
 
-```
+```bash
 newgrp snap_microk8s
 ```
 
@@ -112,7 +112,7 @@ juju deploy cos-lite --trust --overlay ./robotics-overlay.yaml
 
 Now you can sit back and watch the deployment take place:
 
-```
+```bash
 juju status --watch 5s --color --relations
 ```
 
@@ -122,15 +122,15 @@ COS will  be ready to use when the juju status shows all the machines active and
 
 Now COS for Robotics is good to go: you can register devices to it to begin the monitoring!
 Browse endpoints and catalogue
-When all the charms are deployed, you can head over to browse their built-in web-UIs. You can find out their addresses from the [`show-proxied-endpoints`](https://charmhub.io/traefik-k8s/actions#show-proxied-endpoints) Traefik action. In your terminal type:
+When all the charms are deployed, you can head over to browse their built-in web-UIs. You can find out their addresses from the [`show-proxied-endpoints`](https://charmhub.io/traefik-k8s/actions#show-proxied-endpoints) `Traefik` action. In your terminal type:
 
-```
+```bash
 juju run traefik/0 show-proxied-endpoints
 ```
 
-The catalogue endpoint can be visualized on your browser and it will list the catalogue of applications offered by COS for Robotics. From the proxied endpoints, the catalogue URL should be similar to:
+The catalogue endpoint can be visualised on your browser and it will list the catalogue of applications offered by COS for Robotics. From the proxied endpoints, the catalogue URL should be similar to:
 
-```
+```bash
 "catalogue":{"url": http://<cos-robotics-server-ip>/cos-robotics-model-catalogue"}
 ```
 
@@ -147,7 +147,7 @@ Clicking on the **Grafana** application will prompt you for username and passwor
 
 The default password for Grafana is automatically generated for every installation. To access Grafana’s web interface, use the username `admin`, and the password obtained from the `[get-admin-password](https://charmhub.io/grafana-k8s/actions)` action as follows:
 
-```
+```bash
 juju run grafana/0 get-admin-password
 ```
 
