@@ -135,6 +135,7 @@ linkcheck_ignore = [
     "https://www.vesiluoma.com/exploiting-with-badusb-meterpreter-digispark/",
     "https://ubuntu.com/robotics/ros-esm#get-in-touch",
     "https://ubuntu.com/core/docs/build-write-image#heading--write",
+    "https://ubuntu.com/core/docs/elements#heading--system",
     # r'.*#.*'   → ignores all URLs with ‘#’ in them
 ]
 
@@ -148,6 +149,7 @@ linkcheck_anchors_ignore_for_url = [
     r"https://ubuntu.com/robotics#get-in-touch",
     r"https://ubuntu.com/core/docs/build-write-image#heading--write",
     r"https://ubuntu.com/robotics/ros-esm#get-in-touch",
+    r"https://ubuntu.com/core/docs/elements#heading--system",
 ]
 
 
