@@ -1,5 +1,7 @@
 
-Ubuntu Robotics how-to guides
+:sequential_nav: none
+
+Ubuntu robotics how-to guides
 =============================
 
 .. toctree::
