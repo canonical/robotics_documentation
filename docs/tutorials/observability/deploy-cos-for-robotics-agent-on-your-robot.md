@@ -2,6 +2,10 @@
 
 ## Overview
 
+**Requirements**:
+Before starting this tutorial, make sure to have the server side working
+[from the previous tutorial](./deploy-cos-for-robotics-server-in-the-cloud.md)
+
 In order for a device to register and interact with the COS registration server and its application the following snaps have to be installed:
 
 - [rob-cos-demo-configuration](https://snapcraft.io/rob-cos-demo-configuration):contains the configuration of the robot.
