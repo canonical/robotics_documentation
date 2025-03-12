@@ -1104,7 +1104,16 @@ We have now presented every single step to snap a TurtleBot3 software stack. We 
 
 ## Exercise
 
-Now that we have learned the ins and outs of the TurtleBot3 snap, we can apply some of our fresh knowledge for a quick exercise. The exercise as well as the solution are available in the [Developer guide part 2 - exercise](https://ubuntu.com/robotics/docs/developer-guide-part-2-exercise).
+Now that we have learned the ins and outs of the TurtleBot3 snap, we can apply some of our fresh knowledge for a quick exercise. The exercise as well as the solution are available in the [Developer guide part 2 - exercise](/docs/tutorials/exercises/exercise_2.md).
+
+
+```{eval-rst}
+
+   .. toctree::
+      :maxdepth: 1
+
+      Part 2 exercise </docs/tutorials/exercises/exercise_2.md>
+```
 
 -----------------------------
 

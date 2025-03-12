@@ -9,9 +9,11 @@ Armor
 artifact
 ASLR
 automatize
+Avahi
 backdoors
 bootable
 bringup
+BringUp
 CANBus
 CIs
 CMake
@@ -54,6 +56,8 @@ GPG
 GPIO
 Grafana
 Hawksbill
+hostname
+hotspot
 howto
 https
 IDEs
@@ -64,6 +68,7 @@ iot
 IoT
 IPv
 Jalisco
+kickstart
 LDS
 libpulsecommon
 LiDAR
@@ -157,6 +162,7 @@ vel
 VPN
 vscode
 websocket
+Wifi
 wirelessly
 xml
 yaml
