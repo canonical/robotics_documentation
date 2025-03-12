@@ -21,6 +21,7 @@ matrix:
       - pre
       - spellexception
       - link
+      - div:is(.spellexception) 
       - title
       - div.relatedlinks
       - strong.command

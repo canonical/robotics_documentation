@@ -31,4 +31,5 @@ Explanation Links
      - :doc:`Ubuntu Core <explanations/ubuntu-core>`
    * - IoT App Store
      - :doc:`IoT App Store <explanations/iot-app-store>`
-
+   * - Security
+     - :doc:`Security of robotics platforms <explanations/security/index>`
