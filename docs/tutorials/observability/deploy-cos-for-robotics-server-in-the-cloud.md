@@ -159,7 +159,7 @@ Now COS for Robotics is good to go: you can register devices to it to begin the 
 
 ### Verify the deployment
 
-When all the charms are deployed, you can head over to browse their built-in web user interfaces. You can find out their addresses from the [`show-proxied-endpoints`](https://charmhub.io/traefik-k8s/actions#show-proxied-endpoints) `Traefik` action. In your terminal type:
+When all the charms are deployed, you can head over to browse their built-in web user interfaces. You can find out their addresses from the [`show-proxied-endpoints`](https://charmhub.io/traefik-k8s/actions) `Traefik` action. In your terminal type:
 
 ```bash
 juju run traefik/0 show-proxied-endpoints
