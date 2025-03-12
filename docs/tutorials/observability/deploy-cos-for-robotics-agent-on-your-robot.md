@@ -8,7 +8,7 @@ In order for a device to register and interact with the COS registration server 
 - [cos-registration-agent](https://snapcraft.io/cos-registration-agent): responsible for registering the robot on the [COS-registration-server](https://charmhub.io/cos-registration-server-k8s) as well as uploading robot specific data to the server (dashboard, foxglove layouts, `UID`, etc).
 - [ros2-exporter-agent](https://snapcraft.io/ros2-exporter-agent): responsible for recording data on the robot and syncing them to the [`Ros2BagFileserver`](https://charmhub.io/ros2bag-fileserver-k8s).
 - [`grafana-agent`](https://snapcraft.io/grafana-agent): responsible for sending metrics, logs, and trace data to the Grafana charm.
-- [foxglove-bridge](https://snapcraft.io/foxglove-bridge): bridge to visualise live ROS data via the Foxglove websocket connection.
+- [foxglove-bridge](https://snapcraft.io/foxglove-bridge): bridge to visualize live ROS data via the Foxglove websocket connection.
 - [rob-cos-data-sharing](https://snapcraft.io/rob-cos-data-sharing): data sharing snap for on device cos robotics snaps.
 
 ## Verify connectivity
@@ -16,7 +16,7 @@ In order for a device to register and interact with the COS registration server 
 Before diving into the device setup, let’s ensure that the device can connect to the server.
 To connect devices across different networks a VPN between the robots and the server could be used but is not mandatory. Let’s do so by initiating a ping from the device to the server:
 
-```
+```bash
 ping <cos-robotics-server-ip>
 ```
 
@@ -33,13 +33,13 @@ curl -L https://raw.githubusercontent.com/canonical/rob-cos-device-setup/main/se
 
 And run it with:
 
-``` bash
+```bash
 sudo bash setup-robcos-device.sh
 ```
 
 The script will initiate prompts for the robot `UID` and the rob-cos-server URL. While the robot `UID` is optional, the URL is mandatory, serving as the designated address for the rob-cos server where the device registration occurs. The queries and response will look as follows:
 
-```
+```bash
 Please enter the device-uid:
 robot_1
 ```
@@ -47,7 +47,7 @@ robot_1
 Please enter the `rob-cos-server-url`:
 `http://<cos-robotics-server-ip>/cos-robotics-model`
 
-The script will now proceed with the installation of all the required snaps. Upon completion, the device and its corresponding dashboards will be registered and available for visualisation on the COS for Robotics server.
+The script will now proceed with the installation of all the required snaps. Upon completion, the device and its corresponding dashboards will be registered and available for visualization on the COS for Robotics server.
 
 ## Verify Installation
 
@@ -61,13 +61,13 @@ By clicking on the robot `UID`, a page will open, displaying all the links to th
 
 ![image](https://assets.ubuntu.com/v1/4f023ed9-application_links.png)
 
-From this page, each link will redirect you to the corresponding dashboard for the specific data category and device, ensuring easy and intuitive visualisation.
+From this page, each link will redirect you to the corresponding dashboard for the specific data category and device, ensuring easy and intuitive visualization.
 
-An example visualisation of Grafana linux-system dashboard is provided below:
+An example visualization of Grafana linux-system dashboard is provided below:
 
 ![image](https://assets.ubuntu.com/v1/272088f7-grafana_data_dashboard_cos.png)
 
-The Bag Files link will redirect you to the list of bag files, which can be selected and copied into Foxglove Studio for visualisation and analysis. The bag files will look as follows:
+The Bag Files link will redirect you to the list of bag files, which can be selected and copied into Foxglove Studio for visualization and analysis. The bag files will look as follows:
 
 ![image](https://assets.ubuntu.com/v1/4f0967c9-rosbag_list_cos.png)
 

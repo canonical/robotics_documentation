@@ -4,7 +4,8 @@
 
 In this tutorial, we will walk through the process of deploying the **Canonical Observability Stack (COS) for Robotics** on a cloud-based server. By the end of this tutorial, you will have a fully functional observability stack tailored for robotics, enabling you to monitor ROS devices efficiently.  
 
-COS for Robotics is a lightweight, highly integrated observability stack designed to run on Kubernetes, offering a plug and play observability solution tailored for monitoring robotics devices. The server infrastructure integrates robotics-specific applications with the ones provided by [COS-lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite).  
+COS for Robotics is a lightweight, highly integrated observability stack designed to run on Kubernetes, offering a plug and play observability solution tailored for monitoring robotics devices. The server infrastructure integrates robotics-specific applications with the ones provided by [COS-lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite).
+Moreover, it is designed with customization in mind. It offers the flexibility to add new applications in the form of charms or Open Container Initiative (OCI) images and enhance existing ones.
 
 ```{note}
 The server side is designed for the Edge and capable of running alongside `MicroK8s` and Juju with limited computing resources (around 8 GB of memory).
@@ -31,13 +32,13 @@ By following this tutorial, you will:
 
 The **COS for Robotics lite bundle** is a Juju-based observability stack running on **Kubernetes**. It includes the following key components:  
 
-- [Foxglove Studio](https://charmhub.io/foxglove-studio-k8s) – A visualisation tool for robotics data.  
+- [Foxglove Studio](https://charmhub.io/foxglove-studio-k8s) – A visualization tool for robotics data.  
 - [`Ros2BagFileserver`](https://charmhub.io/ros2bag-fileserver-k8s) – Handles ROS 2 bag file storage.  
 - [COS-registration-server](https://charmhub.io/cos-registration-server-k8s) – Manages device registration.  
 - [Prometheus](https://charmhub.io/prometheus-k8s) – Collects and stores metrics.  
 - [Loki](https://charmhub.io/loki-k8s) – Handles logging for robotics devices.  
 - [`Alertmanager`](https://charmhub.io/alertmanager-k8s) – Manages alerts and notifications.  
-- [Grafana](https://charmhub.io/grafana-k8s) – Provides dashboards for visualisation.  
+- [Grafana](https://charmhub.io/grafana-k8s) – Provides dashboards for visualization.  
 
 In the next section, we will go step by step through the deployment process.
 
@@ -196,4 +197,4 @@ juju run grafana/0 get-admin-password
 
 Now that the server is set up, let’s see how to deploy and register a device for monitoring.
 
-> **Note**: The device setup is covered in a how-to guide. You can find it [here](/docs/how-to-guides/observe/deploy-cos-for-robotics-agent-on-your-robot.md).
+> **Note**: The device setup is covered in a the next tutorial. You can find it [here](deploy-cos-for-robotics-agent-on-your-robot.md).
