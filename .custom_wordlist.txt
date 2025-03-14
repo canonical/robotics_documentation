@@ -1,3 +1,4 @@
+
 ABI
 activatable
 AMCL
@@ -53,6 +54,7 @@ githubusercontent
 gmapping
 GPG
 GPIO
+Grafana
 Hawksbill
 hostname
 hotspot
@@ -77,6 +79,7 @@ localization
 LXD
 macOS
 md
+MicroK8s
 middleware
 minimize
 modularity
@@ -106,6 +109,7 @@ roboticists
 Robotis
 ros
 ROS
+Ros2BagFileserver
 rosdep
 rosinstall
 roslaunch
@@ -155,7 +159,9 @@ URDF
 usb
 Vcstool
 vel
+VPN
 vscode
+websocket
 Wifi
 wirelessly
 xml
