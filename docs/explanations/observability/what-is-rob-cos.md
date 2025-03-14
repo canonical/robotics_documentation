@@ -40,15 +40,17 @@ the server side is running reliably alongside [MicroK8s](https://microk8s.io/) a
 bringing stability, security and scalability.
 
 Every application running in Juju is a
-[charmed operator (charm)](https://juju.is/docs/juju/charmed-operator).
+[charmed operator (charm)](https://canonical-juju.readthedocs-hosted.com/en/latest/user/reference/charm/).
 This means the server side can also benefit from [charmhub.io](https://charmhub.io/)
 to get seamless updates over time.
 
-The ROB COS consists of a [Juju bundle](https://juju.is/docs/juju/bundle)
-ready to be deployed on any [Juju k8s machine](https://juju.is/docs/juju/kubernetes-in-juju).
+The ROB COS consists of a
+[Juju bundle](https://canonical-juju.readthedocs-hosted.com/en/latest/user/reference/bundle/)
+ready to be deployed on any
+[Juju k8s machine](https://canonical-juju.readthedocs-hosted.com/en/latest/user/explanation/kubernetes-in-juju/).
 
 This bundle can easily be extended by the mean of an
-[overlay](https://juju.is/docs/sdk/charm-bundles#heading--overlay-bundle).
+[overlay](https://canonical-juju.readthedocs-hosted.com/en/latest/user/reference/bundle/).
 
 Charms bundled in the ROB COS are responsible for data visualization and data storage.
 The applications expected on the servers can be:
