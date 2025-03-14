@@ -11,6 +11,7 @@ Explanations
    Ubuntu Core <explanations/ubuntu-core.md>
    Security <explanations/security/index>
    IoT App Store <explanations/iot-app-store>
+   Observability <explanations/observability>
 
 
 
