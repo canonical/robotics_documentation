@@ -118,9 +118,13 @@ reusability
 Reusability
 roboticists
 Robotis
+synchronize
 ros
+analytics
+visualize
 ROS
-Ros2BagFileserver
+BagFileserver
+customization
 rosdep
 rosinstall
 roslaunch
@@ -182,3 +186,9 @@ Wifi
 wirelessly
 xml
 yaml
+visualization
+charmhub
+superset
+organization
+deployable
+scalable
