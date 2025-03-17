@@ -1,3 +1,5 @@
+:sequential_nav: next
+
 Robotics packaging how-to guides 
 ================================
 
