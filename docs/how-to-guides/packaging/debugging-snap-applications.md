@@ -495,7 +495,7 @@ sudo snap start turtlebot3c.navigation
 ```
 
 This time we will see that the logs look fine.
-We can then run `RViz` and see if we can navigate. `RViz` is a debug/visualisation tool, so it doesn’t have to be included inside our snap.
+We can then run `RViz` and see if we can navigate. `RViz` is a debug/visualization tool, so it doesn’t have to be included inside our snap.
 We can run `RViz` with the TurtleBot3 configuration with the following command:
 
 ```bash
