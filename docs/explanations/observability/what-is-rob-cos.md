@@ -19,8 +19,7 @@ On the following drawing, we can see the fleet devices using snaps to push data 
 
 ## ROB COS
 
-The ROB COS can be separated in two: the server side, overlaying the
-[COS Lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite) and the device side,
+The ROB COS can be separated in two: the server side, overlaying COS Lite and the device side,
 consisting of a set of snaps.
 
 The ROB COS is already including a set of applications on the server and device side.
@@ -28,15 +27,11 @@ By the modular nature of [COS](https://charmhub.io/topics/canonical-observabilit
 you can easily select a subset of applications or even extend it with open source or even proprietary
 applications.
 
-The ROB COS is extending the
-[COS Lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite) in the sense that it can
-handle robotics data and that the clients can be deployed on devices via snaps.
+The ROB COS is extending COS Lite in the sense that it can handle robotics data and that the clients can be deployed on devices via snaps.
 
 ### The server side
 
-Since ROB COS is extending the
-[COS Lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite),
-the server side is running reliably alongside [MicroK8s](https://microk8s.io/) and [Juju](https://juju.is/)
+Since ROB COS is extending COS Lite,the server side is running reliably alongside [`MicroK8s`](https://microk8s.io/) and [Juju](https://juju.is/)
 bringing stability, security and scalability.
 
 Every application running in Juju is a
@@ -54,6 +49,7 @@ This bundle can easily be extended by the mean of an
 
 Charms bundled in the ROB COS are responsible for data visualization and data storage.
 The applications expected on the servers can be:
+
 - Data processing
 - Data analytics and visualization
 - Monitoring system and data models
@@ -65,7 +61,7 @@ The applications expected on the servers can be:
 
 ### The device side
 
-On devices, the ROB COS consists of a set of [snaps](https://snapcraft.io/docs) packages.
+On devices, the ROB COS consists of a set of [snap](https://snapcraft.io/docs) packages.
 Snaps packages are particularly suited for [robotics](https://ubuntu.com/robotics/docs)
 and their limited resources reducing the need for on device operations.
 Installed snaps will benefit from seamless updates and rollback from the
@@ -79,6 +75,7 @@ By the mean of configuration,
 device’s snaps could collect and synchronize data according to the bandwidth and storage available.
 
 The applications expected on the devices can be:
+
 - Telemetry collectors
 - Data collectors (i.e: ROS 2 data)
 - Logs collectors
@@ -99,8 +96,7 @@ meaning anyone can deploy ROB COS as a secure, scalable and resilient server.
 The typical use case of ROB COS is for a company to deploy a complete observability stack
 for a fleet of devices.
 
-Being deployable on a self-hosted or cloud infrastructure,
-ROB COS will meet all needs required by an organization.
+Whether deployed on self-hosted infrastructure or in the cloud, ROB COS can meet all the observability needs of an organization.
 
 Additionally, Canonical offers a managed version of ROB COS so you can focus on your business.
 We will run the best-in-class open source monitoring tools you need for the observability

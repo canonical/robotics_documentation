@@ -1,7 +1,7 @@
 :sequential_nav: none
 
 Explanations
-=============
+============
 
 .. toctree::
    :hidden:
@@ -11,7 +11,7 @@ Explanations
    Ubuntu Core <explanations/ubuntu-core.md>
    Security <explanations/security/index>
    IoT App Store <explanations/iot-app-store>
-   Observability <explanations/observability>
+   Observability <explanations/observability/index>
 
 
 
