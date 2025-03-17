@@ -33,7 +33,7 @@ By following this tutorial, you will:
 The **COS for Robotics lite bundle** is a Juju-based observability stack running on **Kubernetes**. It includes the following key components:  
 
 - [Foxglove Studio](https://charmhub.io/foxglove-studio-k8s) – A visualization tool for robotics data.
-- [Ros2BagFileserver](https://charmhub.io/ros2bag-fileserver-k8s) – Handles ROS 2 bag file storage.
+- [`Ros2BagFileserver`](https://charmhub.io/ros2bag-fileserver-k8s) – Handles ROS 2 bag file storage.
 - [COS-registration-server](https://charmhub.io/cos-registration-server-k8s) – Manages device registration.
 - [Prometheus](https://charmhub.io/prometheus-k8s) – Collects and stores metrics.
 - [Loki](https://charmhub.io/loki-k8s) – Handles logging for robotics devices.
