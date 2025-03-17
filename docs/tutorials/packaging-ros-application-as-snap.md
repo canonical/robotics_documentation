@@ -204,7 +204,7 @@ base: core22
 
 ### Security model
 
-Following, we will see the `confinement` keyword. Snaps are containerised to ensure predictable application behaviour and to provide greater security. We will [review this topic](#confinement-types) later in this guide.
+Following, we will see the `confinement` keyword. Snaps are containerized to ensure predictable application behaviour and to provide greater security. We will [review this topic](#confinement-types) later in this guide.
 
 To get started, we won’t confine this application. Unconfined applications are specified with `devmode`.
 
@@ -343,7 +343,7 @@ Our application was installed in `devmode`. This means that our snap can access 
 
 In this section we will explore the confinement types, grades and interfaces available. Then, we will strictly confine our application.  
 
-### Confinement types
+## Confinement types
 
 So far, in our `snapcraft.yaml`, we only declared:
 

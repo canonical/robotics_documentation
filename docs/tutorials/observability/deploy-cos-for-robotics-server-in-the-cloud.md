@@ -5,7 +5,7 @@
 In this tutorial, we will walk through the process of deploying the **Canonical Observability Stack (COS) for Robotics** on a cloud-based server. By the end of this tutorial, you will have a fully functional observability stack tailored for robotics, enabling you to monitor ROS devices efficiently.  
 
 COS for Robotics is a lightweight, highly integrated observability stack designed to run on Kubernetes, offering a plug and play observability solution tailored for monitoring robotics devices. The server infrastructure integrates robotics-specific applications with the ones provided by [COS-lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite).
-Moreover, it is designed with customization in mind. It offers the flexibility to add new applications in the form of charms or Open Container Initiative (OCI) images and enhance existing ones.
+Moreover, it is designed with customization in mind. It offers the flexibility to add new applications in the form of charms or Open Container Initiative (`OCI`) images and enhance existing ones.
 
 ```{note}
 The server side is designed for the Edge and capable of running alongside `MicroK8s` and Juju with limited computing resources (around 8 GB of memory).
