@@ -101,7 +101,7 @@ html_context = {
     "github_issues": "enabled",
     # Controls the existence of Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
-    "sequential_nav": "none",
+    "sequential_nav": "both",
     # Controls if to display the contributors of a file or not
     "display_contributors": True,
     # Controls time frame for showing the contributors

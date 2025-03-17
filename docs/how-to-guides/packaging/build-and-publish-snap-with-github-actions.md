@@ -1,3 +1,8 @@
+---
+sequential_nav: next
+---
+
+
 Build and publish a snap with GitHub Actions
 ============================================
 
