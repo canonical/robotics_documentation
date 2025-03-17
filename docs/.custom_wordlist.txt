@@ -27,6 +27,7 @@ cmd
 CMD
 colcon
 config
+containerized
 cpp
 cryptographically
 customizable
@@ -92,6 +93,7 @@ md
 MicroK8s
 middleware
 minimize
+minimizing
 modularity
 Multipass
 mux
