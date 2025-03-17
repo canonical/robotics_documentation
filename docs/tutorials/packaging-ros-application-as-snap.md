@@ -1,45 +1,44 @@
-Tutorial 1: Packaging our first ROS application as a snap
-========================================================
+# Tutorial 1: Packaging our first ROS application as a snap
 
 Robotics developers know app development inside-out, but deploying a robotics application can be challenging. It's not uncommon to compile the code on robots, copy/paste compiled packages and end up with unknown versions of software. Even worse, one can experience the infamous “It works on my machine” syndrome.
 
 Robotics software should benefit from a controlled and stable environment, with the same portability and reliability as any other software application. Achieving this reliability should be simple, even if our software relies on hundreds of dependencies.
 
-What we will learn
-------------------
+## What we will learn
 
 This developer guide will take us through the process of packaging our first ROS application as a snap.
 
-Snaps offer a solution to build and distribute containerised robotics applications or any software. It is the de facto distribution tool for companies deploying software on Ubuntu, including Microsoft, Google, Spotify and more. As such, we will be able to leverage the same tooling and global infrastructure for our application.
+Snaps offer a solution to build and distribute containerized robotics applications or any software. It is the de-facto distribution tool for companies deploying software on `Ubuntu`, including `Microsoft`, `Google`, `Spotify` and more. As such, we will be able to leverage the same tooling and global infrastructure for our application.
 
 Throughout this developer guide, we will cover the basics of snap creation for ROS and ROS 2 applications. By introducing the main concepts behind snaps, we will see how to confine our robotics application and make it installable on dozens of Linux distributions.
 
-Requirements
-------------
+## Requirements
 
-We will need an up and running Ubuntu (or similar) operating system (20.04 being the minimum version as it is still under maintenance). The installation could be native or in a VM. If using a container, we must be sure that we can install and run systemd, snapd and snaps.
+We will need an up and running Ubuntu 20.04 LTS or similar operating system.
 
-In addition, we will need basic knowledge about ROS or ROS 2 as well as some basic understanding of the Linux environment (Ubuntu).
+``` {note}
+Ubuntu 20.04 LTS should be the minimum version as it is still under maintenance. The installation could be native or in a VM. If using a container, we must be sure that we can install and run systemd, snapd and snaps.
+```
+
+In addition, we will need basic knowledge about ROS or ROS 2 as well as some basic understanding of the Linux environment (`Ubuntu`).
 
 This developer guide has been tailored for robotics developers looking for a solution to deploy their robotics software and applications. No previous experience with snaps is necessary.
 
-What is a snap?
----------------
+## What is a snap?
 
 [Snaps](https://snapcraft.io/docs) are the perfect solution for software deployment in embedded Linux devices.
 
-Snaps are containers that bundle an application and all its dependencies, offering roboticists:
+Snaps are containers that bundle an application and all its dependencies, offering `roboticists`:
 
-* **A containerised solution**: snaps bundle all our dependencies and assets in one package, making our application installable on dozens of Linux distributions and across distro versions. We won’t even have to install anything else on our robots’ operating system, no dependencies, not even [ROS](https://ubuntu.com/robotics/what-is-ros) if we are using it.
+* **A containerized solution**: snaps bundle all our dependencies and assets in one package, making our application installable on dozens of Linux distributions and across distro versions. We won’t even have to install anything else on our robots’ operating system, no dependencies, not even [ROS](https://ubuntu.com/robotics/what-is-ros) if we are using it.
 * **Strict confinement**: snaps are designed to be [secure and isolated](https://snapcraft.io/docs/snap-confinement) from the underlying system and other applications, with [dedicated interfaces](https://snapcraft.io/docs/supported-interfaces) to access specific resources of the host machine, or of other snaps.
 * **CI/CD integration**: the creation of snaps can be integrated into our CI pipeline, making the updates effortless.
-* **OTA and delta updates**: snaps can update [automatically and transactionally](https://snapcraft.io/docs/managing-updates), making sure the device is never broken.
+* **OTA and delta updates**: snaps can update [automatically and `transactionally`](https://snapcraft.io/docs/managing-updates), making sure the device is never broken.
 * **Multi-architecture**: snaps come with a [multi-architecture feature](https://snapcraft.io/docs/architectures), allowing us to build our snap package for multiple architectures.
 * **Managing updates**: snaps can be [updated automatically, or we can control the update](https://snapcraft.io/docs/managing-updates) options (update hours, update holds, update history). It also comes with [multiple release channels](https://snapcraft.io/docs/channels) for role-based access controls and application versioning.
 * **Reduce boot time**: We can configure a snap application as a daemon, so it starts automatically at boot.
 
-What can snaps do for our robotics applications?
-------------------------------------------------
+### What can snaps do for our robotics applications?
 
 Snaps are meant to deploy software that has been developed and tested.
 
@@ -47,8 +46,7 @@ Snaps offer a solution to deploy and distribute our software. It’s an alternat
 
 As such, a snap is a solution to deploy our robotics applications.
 
-What can’t snaps do for our robotics applications?
---------------------------------------------------
+### What can’t snaps do for our robotics applications?
 
 Snaps are not meant for testing and debugging.
 
@@ -58,14 +56,13 @@ Snaps were designed for embedded Linux applications, with optimisations for ROS 
 
 ---
 
-Install snapd, snapcraft and LXD
------------------------------------
+## Install snapd, Snapcraft and LXD
 
 ### Snapd
 
 *Snapd is a daemon required to download, install and run snaps. Snapd also includes the snap command, used to communicate with snapd.*
 
-Installing `snapd` is straightforward in most Linux distributions. `Snapd` comes pre-installed on most  Ubuntu flavours.
+Installing `snapd` is straightforward in most Linux distributions. `Snapd` comes pre-installed on most  `Ubuntu` flavours.
 In most cases, `snapd` can be installed with:
 
 ```bash
@@ -114,9 +111,9 @@ Commonly used commands can be classified as follows:
 
 While `snapd` is used to download and run snaps, `snapcraft` is the tool we need to build snaps.
 
-If we installed snapcraft as a .deb package previously, we will have to uninstall it, the Debian package is no longer updated. To do so, just run: `sudo apt remove snapcraft --purge`
+If we installed Snapcraft as a `.deb` package previously, we will have to uninstall it, the Debian package is no longer updated. To do so, just run: `sudo apt remove snapcraft --purge`
 
-To install snapcraft simply run:
+To install Snapcraft simply run:
 
 ```bash
 sudo snap install snapcraft --classic
@@ -158,13 +155,11 @@ $ lxc profile list
 +---------+---------------------+---------+
 ```
 
-First ROS 2 snap
--------------------
+## First `ROS 2` snap
 
-Our first snap will be a basic ROS 2 Humble talker-listener. We are going to use [ros2_demos: demo_nodes_cpp](https://github.com/ros2/demos/tree/humble/demo_nodes_cpp). It contains a talker publishing a message and a listener subscribing to it. Both nodes can be launched with the help of the [`talker_listener.launch.py`](https://github.com/ros2/demos/blob/humble/demo_nodes_cpp/launch/topics/talker_listener.launch.py).
+Our first snap will be a basic ROS 2 Humble talker-listener. We are going to use [`ros2_demos: demo_nodes_cpp`](https://github.com/ros2/demos/tree/humble/demo_nodes_cpp). It contains a talker publishing a message and a listener subscribing to it. Both nodes can be launched with the help of the [`talker_listener.launch.py`](https://github.com/ros2/demos/blob/humble/demo_nodes_cpp/launch/topics/talker_listener.launch.py).
 
-Understanding the snapcraft.yaml file
--------------------------------------
+### Understanding the `snapcraft.yaml` file
 
 First clone the package [from GitHub](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap.git):
 
@@ -205,7 +200,7 @@ base: core22
 
 [core22](https://snapcraft.io/core22) is the current standard base for snap building and is based on[Ubuntu 22.04 LTS](http://releases.ubuntu.com/22.04/). It is therefore the base for ROS 2 Humble snaps.
 
-* For more information about core versions, please refer to the [snapcraft `base` documentation](https://snapcraft.io/docs/base-snaps).
+* For more information about core versions, please refer to the [Snapcraft `base` documentation](https://snapcraft.io/docs/base-snaps).
 
 ### Security model
 
@@ -235,14 +230,14 @@ parts:
 
 Snapcraft relies on well known and well established ROS tools such as, in this example, [`colcon`](https://snapcraft.io/docs/colcon-plugin). [Plugins](https://snapcraft.io/docs/snapcraft-plugins) allow us to identify such tools.
 
-The packages we’re building must have `install` rules, or else `snapcraft` won’t know which components to place into the snap. We should make sure we install binaries, libraries, header files, launch files, etc. Here, we selected the `humble` branch of [ros2-demos github repository](https://github.com/ros2/demos/tree/humble) as `source-branch`.
+The packages we’re building must have `install` rules, or else Snapcraft won’t know which components to place into the snap. We should make sure we install binaries, libraries, header files, launch files, etc. Here, we selected the `humble` branch of [ros2-demos Github repository](https://github.com/ros2/demos/tree/humble) as `source-branch`.
 Since `ros2-demos` contains multiple packages, we select `demo_nodes_cpp` with the `source-subdir` entry.
 
-We notice that `ros-humble-ros2launch` is listed as a `stage-packages`. Stage packages are packages required to run the `part`. Usually this exec dependency is missing from the `package.xml` hence we must specify it. The rest of the dependencies are going to be automatically downloaded with rosdep based on the `package.xml`.
+We notice that `ros-humble-ros2launch` is listed as a `stage-packages`. Stage packages are packages required to run the `part`. Usually this exec dependency is missing from the `package.xml` hence we must specify it. The rest of the dependencies are going to be automatically downloaded with `rosdep` based on the `package.xml`.
 
 * For more information about general parts metadata, see [parts-metadata](https://snapcraft.io/docs/snapcraft-yaml-schema).
 
-* For more information about plugins, please refer to the [`snapcraft` documentation](https://snapcraft.io/docs/snapcraft-plugins).
+* For more information about plugins, please refer to the [Snapcraft documentation](https://snapcraft.io/docs/snapcraft-plugins).
 
 ### Apps
 
@@ -267,10 +262,9 @@ Then, after the `app` name, we find the `command` entry. This specifies the path
 
 Finally, the [`ros2-humble extension`](https://snapcraft.io/docs/ros2-humble-extension) will set our ROS 2 humble build and runtime environment. This way we don’t have to source manually our ROS 2 environment.
 
-* For more information about ROS extensions, please refer to the [`snapcraft` documentation](https://snapcraft.io/docs/snapcraft-extensions).
+* For more information about ROS extensions, please refer to the [Snapcraft documentation](https://snapcraft.io/docs/snapcraft-extensions).
 
-Building, installing and running a snap
----------------------------------------
+## Building, installing and running a snap
 
 Now that our `snapcraft.yaml` is ready, we will describe how to build our package. In this section, we will also cover how to install and run the created snap.
 
@@ -301,7 +295,7 @@ This `.snap` file is our packaged application.
 
 ### Installing
 
-If we could install `snapd` on our current distribution, it means that we can install our freshly built snap. We don’t need to be running Ubuntu 22.04 to run this ROS 2 Humble snap. We don’t even need to install ROS on our host system to install and run the snap.
+If we could install `snapd` on our current distribution, it means that we can install our freshly built snap. We don’t need to be running Ubuntu 22.04 LTS to run this ROS 2 Humble snap. We don’t even need to install ROS on our host system to install and run the snap.
 
 Snaps bundle all their dependencies as well as their “`core`” which make them host-agnostic.
 
@@ -343,14 +337,13 @@ installed:    0.1 (x1) 64MB devmode
 
 We can see all kinds of metadata as well as the commands available from the snap.
 
-Confining our first snap application
---------------------------------------
+## Confining our first snap application
 
 Our application was installed in `devmode`. This means that our snap can access every resource from our host system (files, devices, etc.). For security, snaps are meant to be run and distributed as strictly confined applications.
 
 In this section we will explore the confinement types, grades and interfaces available. Then, we will strictly confine our application.  
 
-## Confinement types
+### Confinement types
 
 So far, in our `snapcraft.yaml`, we only declared:
 
@@ -360,13 +353,13 @@ confinement: devmode
 
 Let’s have a closer look at the types of confinement:
 
-* #### Devmode
+* #### `Devmode`
 
   A special mode for snap creators and developers. A `devmode` snap runs as a strictly confined snap with full access to system resources, and produces debug output to identify unspecified interfaces. Installation requires the `--devmode` command line argument.
 
 * #### Classic
 
-  Allows access to our system’s resources in much the same way traditional packages do. To safeguard against abuse, publishing a classic snap requires[manual approval](https://snapcraft.io/docs/reviewing-classic-confinement-snaps), and installation requires the `--classic` command line argument. The typical applications allowed with classic confinement are IDEs (vscode, qtcreator).
+  Allows access to our system’s resources in much the same way traditional packages do. To safeguard against abuse, publishing a classic snap requires[manual approval](https://snapcraft.io/docs/reviewing-classic-confinement-snaps), and installation requires the `--classic` command line argument. The typical applications allowed with classic confinement are IDEs (`vscode`, `qtcreator`).
 
 * #### Strict
 
@@ -380,13 +373,13 @@ confinement: strict
 
 * For more information about security models, please see [choosing security models](https://snapcraft.io/docs/choosing-a-security-model).
 
-## Grade
+### Grade
 
 By adding the `grade` keyword, we can declare the quality of our snap. By defining the grade, we can make sure that a development version never goes into a stable channel.
 
 There are only two grades possible:
 
-* #### Devel
+* #### `Devel`
 
   A `devel` snap indicates that this is a development version, and it is not meant to be released on either a stable or candidate channel.
 
@@ -400,8 +393,7 @@ For this example, let’s add the grade keyword and select `stable`:
 grade: stable
 ```
 
-Interfaces
-----------
+## Interfaces
 
 Interfaces enable resources from one snap to be shared with another or with the system. An interface consists of a connection between a slot and a plug. The slot is the provider of the interface while the plug is the consumer, and a slot can support multiple plug connections.
 
@@ -419,10 +411,9 @@ plugs: [network, network-bind]
 
 * For more information about interfaces, please see the [online documentation](https://snapcraft.io/docs/supported-interfaces).
 
-Confining and rebuilding our snap
----------------------------------
+## Confining and rebuilding our snap
 
-By changing the confinement level and adding the `grade` and `plugs`, in our snapcraft.yaml. We will confine our application.
+By changing the confinement level and adding the `grade` and `plugs`, in our `snapcraft.yaml`. We will confine our application.
 
 We can find the updated code from the[confined branch](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap/tree/confined).
 
@@ -493,15 +484,14 @@ The error that we see is related to the [shared memory transport not being able 
 
 Apart from our shared memory error message, our snap is now running strictly confined with only access to our network.
 
-Run our snap as a daemon
-------------------------
+## Run our snap as a daemon
 
 One of the advantages of using snaps is that they can turn our application into a [service (or a daemon)](https://snapcraft.io/docs/services-and-daemons) in an incredibly easy way. Once we have turned our application into a service, it can automatically start at boot and end when the machine is shut down. We can also start and stop on demand through socket activation.
 
 A daemon can take different forms, where the first two daemons are the most used forms:
 
 * **simple**: Run for as long as the service is active - this is typically the default option.
-* **oneshot**: Run once and exit after completion, notifying systemd.
+* **`oneshot`**: Run once and exit after completion, notifying systemd.
 * **forking**: The configured command calls fork() as part of its start-up, and the parent process is then expected to exit when start-up is complete.
 * **notify**: Assumes the command will send a signal to systemd to indicate its running state.
 
@@ -555,8 +545,7 @@ Our command is now listed as a service and marked enabled and active. This means
 
 `Active` means the talker-listener is now running in the background. And enabled means that it will automatically start at boot and restart in case of failure.
 
-Log our service
----------------
+## Log our service
 
 We can inspect the log of our running service with the `snap` tool. To inspect our snap log run:
 
@@ -600,12 +589,11 @@ Now our service won’t start again. We can verify the result of our actions by 
 
 We have seen how to stop/disable our service, but of course we also have the corresponding start/enable command. Please visit the documentation to know more about [service-management](https://snapcraft.io/docs/service-management).
 
-Conclusion
-----------
+## Conclusion
 
 In this developer guide, we went through the creation of a basic ROS 2 snap. But in the process, we learned the basics to create our own ROS snap as well. We have covered the basic concepts of a snap, how to build and run them. We also shared the benefits and good development practices. There are more features and advanced development tips that we have yet to cover. The [turtlebot3 snap example](https://ubuntu.com/blog/how-to-set-up-turtlebot3-in-minutes-with-snaps) shows how we can use snap to make your robot software easily installable.
 
-Visit the [robotics documentation](/index) to go further. If you have any questions or need help, you can visit and post your question on the [ubuntu robotics forum](https://discourse.ubuntu.com/c/project/robotics/121).
+Visit the [robotics documentation](/index) to go further. If you have any questions or need help, you can visit and post your question on the [`Ubuntu` robotics forum](https://discourse.ubuntu.com/c/project/robotics/121).
 
 ```{eval-rst}
 
