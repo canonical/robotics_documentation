@@ -109,6 +109,8 @@ exclude_patterns = [
     "Thumbs.db",
     ".DS_Store",
     ".sphinx",
+    "content",
+    "docs/content",
 ]
 exclude_patterns.extend(custom_excludes)
 
