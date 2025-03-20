@@ -32,13 +32,13 @@ By following this tutorial, you will:
 
 The **COS for Robotics lite bundle** is a Juju-based observability stack running on **Kubernetes**. It includes the following key components:  
 
-- [Foxglove Studio](https://charmhub.io/foxglove-studio-k8s) – A visualization tool for robotics data.
+- [`Foxglove Studio`](https://charmhub.io/foxglove-studio-k8s) – A visualization tool for robotics data.
 - [`Ros2BagFileserver`](https://charmhub.io/ros2bag-fileserver-k8s) – Handles ROS 2 bag file storage.
-- [COS-registration-server](https://charmhub.io/cos-registration-server-k8s) – Manages device registration.
-- [Prometheus](https://charmhub.io/prometheus-k8s) – Collects and stores metrics.
-- [Loki](https://charmhub.io/loki-k8s) – Handles logging for robotics devices.
-- [Alertmanager](https://charmhub.io/alertmanager-k8s) – Manages alerts and notifications.
-- [Grafana](https://charmhub.io/grafana-k8s) – Provides dashboards for visualization.
+- [`COS-registration-server`](https://charmhub.io/cos-registration-server-k8s) – Manages device registration.
+- [`Prometheus`](https://charmhub.io/prometheus-k8s) – Collects and stores metrics.
+- [`Loki`](https://charmhub.io/loki-k8s) – Handles logging for robotics devices.
+- [`Alert Manager`](https://charmhub.io/alertmanager-k8s) – Manages alerts and notifications.
+- [`Grafana`](https://charmhub.io/grafana-k8s) – Provides dashboards for visualization.
 
 In the next section, we will go step by step through the deployment process.
 
@@ -124,9 +124,9 @@ Then, enable `metallb` with the following command:
 sudo microk8s enable metallb:$IPADDR-$IPADDR
 ```
 
-### `Deploy the COS for Robotics Lite bundle`
+### Deploy the COS for the robotics lite bundle
 
-Now, let’s create a dedicated model for the COS Lite bundle with the following:
+Now, let’s create a dedicated model for the `COS Lite` bundle with the following:
 
 ```bash
 juju add-model cos-robotics-model
@@ -151,7 +151,7 @@ Now you can sit back and watch the deployment take place:
 juju status --watch 5s --color --relations
 ```
 
-COS will  be ready to use when the `juju status` shows all the machines active and the agents idle as follow:
+COS will be ready to use when the `juju status` shows all the machines active and the agents idle as follow:
 
 ![image](https://assets.ubuntu.com/v1/97b37234-juju_status.png)
 
