@@ -1,4 +1,5 @@
 /*env*/
+venv/
 .sphinx/venv/
 .sphinx/requirements.txt
 .sphinx/warnings.txt
