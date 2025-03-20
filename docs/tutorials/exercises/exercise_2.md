@@ -1,7 +1,7 @@
 Part-2 - exercise: Clean old unused maps over time
 ==================================================
 
-> This exercise requires having followed the [Tutorial 2: ](/docs/tutorials/packaging-complex-robotics-software-with-snaps.md).
+> This exercise requires having followed the [Tutorial 2:](../packaging-complex-robotics-software-with-snaps.md).
 
 This exercise is meant for developers to train on solving a problem with snaps. One can apply the freshly learned knowledge to a practical problem.
 
