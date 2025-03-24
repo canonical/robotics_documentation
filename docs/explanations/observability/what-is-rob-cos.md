@@ -15,7 +15,7 @@ and solution for devices.
 
 On the following drawing, we can see a fleet of devices using snaps to push data to the ROB COS server, which is then available to the user for visualization.
 
-[!image](https://assets.ubuntu.com/v1/f4e74173-What_is_ROB_COS.png)
+![image](https://assets.ubuntu.com/v1/f4e74173-What_is_ROB_COS.png)
 
 ## How ROB COS works
 
