@@ -37,7 +37,7 @@ The **COS for Robotics lite bundle** is a Juju-based observability stack running
 - [COS-registration-server](https://charmhub.io/cos-registration-server-k8s) – Manages device registration.
 - [Prometheus](https://charmhub.io/prometheus-k8s) – Collects and stores metrics.
 - [Loki](https://charmhub.io/loki-k8s) – Handles logging for robotics devices.
-- [Alert Manager](https://charmhub.io/alertmanager-k8s) – Manages alerts and notifications.
+- [Alertmanager](https://charmhub.io/alertmanager-k8s) – Manages alerts and notifications.
 - [Grafana](https://charmhub.io/grafana-k8s) – Provides dashboards for visualization.
 
 In the next section, we will go step by step through the deployment process.

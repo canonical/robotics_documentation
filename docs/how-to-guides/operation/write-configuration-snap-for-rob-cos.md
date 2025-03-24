@@ -4,7 +4,7 @@
 ROB COS is composed a various snaps. These snaps must be configured for your robots, needs and setup.
 
 In this How-To-Guide,
-you will learn the different steps to define your aplications configuration
+you will learn the different steps to define your applications configuration
 and how to ship them all in one snap.
 
 This way all you ROB COS snap services are configured with one snap.
@@ -47,7 +47,8 @@ file is necessary under the name `grafana-agent.river`.
 #### [`ros2-exporter-agent`](https://snapcraft.io/ros2-exporter-agent)
 
 The snap expects a `ros2-data-exporter.yaml` file to specify the recording configurations.
-The YAML file is a one to one match from the [snap parameters available](ros2-data-exporter.yaml).
+The YAML file is a one to one match from the
+[snap parameters available](https://github.com/canonical/ros2-exporter-agent/?tab=readme-ov-file#snap-parameters).
 
 
 #### [`foxglove-bridge`](https://snapcraft.io/foxglove-bridge)
