@@ -6,6 +6,7 @@ Observability
    :caption: observability
 
    What is ROB COS? <what-is-rob-cos.md>
+   Alert rules configuration from device <alert-rules-configuration-from-device.md>
 
 
 ROB COS stands for Robotics Canonical Observability Stack and is a superset of
