@@ -1,24 +1,26 @@
 # Write a configuration snap for ROB COS
 
 
-ROB COS is composed a various snaps. These snaps must be configured for your robots, needs and setup.
+ROB COS is composed of various snaps. These snaps must be configured for your robots,
+your needs and your setup.
 
 In this How-To-Guide,
 you will learn the different steps to define your applications configuration
-and how to ship them all in one snap.
+and how to deploy them all in one snap.
 
 This way all you ROB COS snap services are configured with one snap.
 
-For the rest of the guide the presented configuration has been extracted from
+For the rest of the guide,
+the presented configuration has been inspired from
 [`rob-cos-demo-configuration`](https://github.com/canonical/rob-cos-demo-configuration/tree/main/snap/local/configuration).
 
 ## The configuration in ROB COS
 
-For ROB COS snaps, the configuration is done by sharing files via a
+For ROB COS snaps, the configuration is done by sharing files with a
 [`content` interface](https://snapcraft.io/docs/content-interface).
 
-In this How-To you will ship all configuration in one snap and share them with one interface.
-This way the various snaps will pick the configuration they need.
+In this How-To you will deploy all configurations in one snap and share them with one interface.
+This way the various snaps will pick the configurations they need.
 
 ### Snaps to configure
 
@@ -62,7 +64,7 @@ The YAML file is a one to one match from the [`foxglove-bridge` configuration](h
 In order to have a match between what the different snaps are expecting and your configurations,
 you must follow the format from the content sharing interface.
 
-You must expose a content interface [slot](https://snapcraft.io/docs/interface-management)
+Expose a content interface [slot](https://snapcraft.io/docs/interface-management)
 with all the configuration at root of the slot content.
 
 ```YAML
@@ -155,9 +157,9 @@ confinement: strict
 
 ### Add the configurations to the snap
 
-Now, under the folder `snap/local/configuration`, add all the configuration files.
+Under the folder `snap/local/configuration`, add all the configuration files.
 
-Next append the following part to your `snapcraft.yaml`:
+Next, append the following part to your `snapcraft.yaml`:
 
 ```YAML
 parts:
@@ -172,7 +174,7 @@ The configurations files will now be added to your snap.
 
 ### Expose the configuration with the content interface
 
-You can now expose the configurations shipped in the snap by adding the content interface.
+Expose the configurations shipped in the snap by adding the content interface.
 
 To do so, add the following to your `snapcraft.yaml`:
 
@@ -186,15 +188,15 @@ slots:
 
 ### Use the configuration snap
 
-Before using the configuration snap, you must build and install it:
+Before using the configuration snap, build and install it:
 
 ```BASH
 snapcraft
 snap install my-rob-cos-configuration*.snap --dangerous
 ```
 
-You can now connect it to the various applications you want to configure.
-As an example you can connect it to the `cos-registration-agent` with:
+It can be be connected to the various applications you want to configure.
+As an example, connect it to the `cos-registration-agent` with:
 
 ```BASH
 snap connect cos-registration-agent:configuration-read my-rob-cos-configuration:configuration-read
