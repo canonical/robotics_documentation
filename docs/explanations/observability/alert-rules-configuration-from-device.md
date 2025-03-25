@@ -3,7 +3,7 @@
 Alerts rule file can be defined in Prometheus and Loki to trigger notifications on the Alertmanager.
 
 These alert rule files can be provided by the devices directly and then hosted on the
-[`COS-registartion-server`](https://charmhub.io/cos-registration-server-k8s).
+[`COS-registration-server`](https://charmhub.io/cos-registration-server-k8s).
 
 This way, devices can deploy the alert configurations they need specifically
 or configurations that could be used by any other device.
