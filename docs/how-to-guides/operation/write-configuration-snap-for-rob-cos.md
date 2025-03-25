@@ -28,7 +28,8 @@ Before starting, let's present the snaps that are using the content interface:
 
 #### [`cos-registration-agent`](https://snapcraft.io/cos-registration-agent)
 
-The snap expects a `device.yaml` file to specify device specific information to the server.
+The snap expects a `device.yaml` file to specify device specific information
+to the server. This file requires the UID of the device as well as the URL of the server.
 Details about this file
 [can be found on GitHub](https://github.com/canonical/cos-registration-agent?tab=readme-ov-file#config).
 
@@ -201,6 +202,8 @@ As an example, connect it to the `cos-registration-agent` with:
 ```BASH
 snap connect cos-registration-agent:configuration-read my-rob-cos-configuration:configuration-read
 ```
+
+This connection will automatically trigger the registration on the `cos-registration-agent` side.
 
 You can apply the same connections to all the snaps.
 
