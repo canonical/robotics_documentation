@@ -1,4 +1,4 @@
-# What is ROB COS?
+# What is ROB COS
 
 ROB COS stands for Robotics Canonical Observability Stack and is a superset of
 [COS Lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite).
@@ -9,17 +9,19 @@ When deploying robots, the need to collect data arises sooner than expected. One
 live or previously stored data. The necessity for data can have multiple causes: debugging, statistics
 analysis, monitoring, data collection for machine learning, etc.
 
-Over the deployment of new devices, the observability capacity has to scale effortlessly.
-This is for all these reasons that the ROB COS has been developed, offering an observability infrastructure
+Moreover, as new devices are deployed, the observability capacity has to scale effortlessly.
+For all these reasons ROB COS has been developed, offering an observability infrastructure
 and solution for devices.
 
-On the following drawing, we can see the fleet devices using snaps to push data to the ROB COS server and then the user
+On the following drawing, we can see a fleet of devices using snaps to push data to the ROB COS server, which is then available to the user for visualization.
 
 [!image](https://assets.ubuntu.com/v1/f4e74173-What_is_ROB_COS.png)
 
-## ROB COS
+## How ROB COS works
 
-The ROB COS can be separated in two: the server side, overlaying COS Lite and the device side,
+The ROB COS consists of two main components:
+- the server side: which hosts applications for monitoring, analysis and visualisation extending COS lite.
+- the device side: a set of snaps that allow the robot to interface and communicate with the server.
 consisting of a set of snaps.
 
 The ROB COS is already including a set of applications on the server and device side.
@@ -31,7 +33,7 @@ The ROB COS is extending COS Lite in the sense that it can handle robotics data 
 
 ### The server side
 
-Since ROB COS is extending COS Lite,the server side is running reliably alongside [`MicroK8s`](https://microk8s.io/) and [Juju](https://juju.is/)
+The server side (which can run on the cloud, a laptop, or any capable machine) [Juju](https://juju.is/docs/juju/tutorial), an open source orchestration engine, to easily deploy applications at any scale and [Microk8s](https://microk8s.io/docs/getting-started), a lightweight Kubernetes cluster.
 bringing stability, security and scalability.
 
 Every application running in Juju is a
@@ -57,7 +59,6 @@ The applications expected on the servers can be:
 - Logs aggregator
 - Anomaly detector
 - VPN server
-- Etc
 
 ### The device side
 
@@ -67,7 +68,7 @@ and their limited resources reducing the need for on device operations.
 Installed snaps will benefit from seamless updates and rollback from the
 [Snap Store](https://snapcraft.io/store).
 Additionally,
-the device side can run completely from the [Ubuntu Core](https://ubuntu.com/core/docs)
+thanks to snaps, the device side can run completely from the [Ubuntu Core](https://ubuntu.com/core/docs)
 Operating system engineered for IoT and embedded.
 
 Snaps running on the device are responsible for collecting data and syncing them to the server side.
@@ -81,9 +82,8 @@ The applications expected on the devices can be:
 - Logs collectors
 - VPN client
 - Device manager client
-- Etc
 
-## For who?
+## Who is ROB COS for
 
 The ROB COS stack is fully open source, so anyone can use it.
 Since the ROB COS is meant to observe devices,
