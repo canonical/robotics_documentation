@@ -73,7 +73,7 @@ route:
 
 The [receiver attribute](https://prometheus.io/docs/alerting/latest/configuration/#receiver-integration-settings)
 defines the integration with specific receivers (email, chat, web-hooks, etc).
-Receivers usually require an authentification token,
+Receivers usually require an authentication token,
 which is the app password in the case of Gmail.
 
 In the receiver you must declare what email it is from (the one associated to the app password),
