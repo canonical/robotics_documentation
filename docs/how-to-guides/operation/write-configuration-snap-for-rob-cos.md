@@ -40,22 +40,22 @@ Additionally, the agent can upload application specific data to the server:
 
 #### [`rob-cos-grafana-agent`](https://snapcraft.io/rob-cos-grafana-agent)
 
-Since the snap is wrapping the [`grafana-agent`](https://grafana.com/docs/agent/latest/)
-in [flow mode](https://grafana.com/docs/agent/latest/flow/),
+This snap is wrapping the [`grafana-agent`](https://grafana.com/docs/agent/latest/)
+in [flow mode](https://grafana.com/docs/agent/latest/flow/), hence
 a single [`river`](https://grafana.com/docs/agent/latest/flow/concepts/config-language/)
 file is necessary under the name `grafana-agent.river`.
 
 
 #### [`ros2-exporter-agent`](https://snapcraft.io/ros2-exporter-agent)
 
-The snap expects a `ros2-data-exporter.yaml` file to specify the recording configurations.
+This snap expects a `ros2-data-exporter.yaml` file to specify the ros2bags recording configurations.
 The YAML file is a one to one match from the
 [snap parameters available](https://github.com/canonical/ros2-exporter-agent/?tab=readme-ov-file#snap-parameters).
 
 
 #### [`foxglove-bridge`](https://snapcraft.io/foxglove-bridge)
 
-The snap expects a `foxglove-bridge.yaml` file to specify the bridge configurations.
+This snap expects a `foxglove-bridge.yaml` file to specify the bridge configurations.
 The YAML file is a one to one match from the [`foxglove-bridge` configuration](https://github.com/foxglove/ros-foxglove-bridge?tab=readme-ov-file#configuration).
 
 
@@ -65,7 +65,7 @@ In order to have a match between what the different snaps are expecting and your
 you must follow the format from the content sharing interface.
 
 Expose a content interface [slot](https://snapcraft.io/docs/interface-management)
-with all the configuration at root of the slot content.
+with all the configuration placed at the root of the slot's content, as shown below:
 
 ```YAML
 slots:
@@ -78,7 +78,7 @@ slots:
 #### Configuration files layout
 
 Once the configuration is accessible to a snap,
-the various service are expecting the configuration files in specific locations.
+the various services are expecting the configuration files in specific locations.
 
 All the configuration files are relative to the root of the configuration.
 
@@ -195,7 +195,7 @@ snapcraft
 snap install my-rob-cos-configuration*.snap --dangerous
 ```
 
-It can be be connected to the various applications you want to configure.
+It can now be connected to the various applications you want to configure.
 As an example, connect it to the `cos-registration-agent` with:
 
 ```BASH
@@ -209,5 +209,5 @@ Additionally, you could add more features to your configuration snap to make it 
 A complete example of such snap can be found on GitHub:
 [github.com/canonical/rob-cos-demo-configuration](https://github.com/canonical/rob-cos-demo-configuration/tree/main).
 
-You can also find set of example configuration for the various ROB COS server applications on GitHub:
+You can also find a collection of example configurations for the various ROB COS server applications on GitHub:
 [github.com/canonical/ROB-COS-configurations](https://github.com/canonical/ROB-COS-configurations/).
