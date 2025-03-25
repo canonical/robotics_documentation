@@ -1,0 +1,63 @@
+# ROB COS FAQ
+
+## Can I use ROB COS without Juju and charms?
+
+While this is not a supported use case, you can redeploy the server side without Juju and charms by deploying and integrating all the server side applications manually.
+
+## Can I use ROB COS without snaps?
+
+While this is not a supported use case, you can redeploy the device side without snaps by repackaging and managing yourself the installation, configuration and orchestration of the different agents on the device.
+
+## Is Canonical maintaining Foxglove Studio 1?
+
+No, we are not. The development of ROB COS started before Foxglove Studio 1 got discontinued. We are only providing a packaged version of the latest open source Foxglove studio 1 release, along with a patch to support passing layout by URL. We are not guaranteeing the support of our packaged version of Foxglove studio.
+
+## Is ROB COS compatible with Foxglove Studio 2?
+
+No, Foxglove Studio 2 is not currently supported in ROB COS. Since it’s closed source it’s up to the Foxglove company to integrate it if they want.
+
+## Is Canonical providing a managed instance of ROB COS?
+
+Yes, in the future, Canonical will be providing a service of managed instances of ROB COS for companies.
+
+## Is ROB COS going to be deployable completely open source?
+
+Yes, all the charms and snaps are open source.
+
+## Can I integrate a custom/private application in ROB COS?
+
+Yes, in the case of a server side application, the application [must be charmed](https://juju.is/docs/sdk/from-zero-to-hero-write-your-first-kubernetes-charm). Depending on the desired visibility of your charm, you might upload it to charmhub.io or by [deploying your own charmstore](https://github.com/juju/charmstore). Additionally, you could keep your charm local.
+
+In the case of a device application, the application [must be snapped](https://snapcraft.io/docs/snapcraft-tutorials). It can then be deployed publicly to the [Snap Store](https://snapcraft.io/store) or privately on the [dedicated Snap Store](https://ubuntu.com/core/docs/dedicated-snap-stores).
+
+## How can I suggest features to the ROB COS?
+
+You can reach <robotics@lists.canonical.com>. Once publicly released, suggestions can be made on <https://discourse.ubuntu.com/> as well as with tickets in the different repositories.
+
+## Who is maintaining the charms and snaps?
+
+The robotics team at Canonical. All contributions and suggestions are welcome in all the repositories.
+
+## For how long, ROB COS is going to be maintained?
+
+We commit only to 5 years with Ubuntu Pro. Also see security updates.
+
+## When is ROB COS going to be publicly released?
+
+The first public release of ROB COS will happen in the 6 months after the closing of the private beta testing.
+
+## Are old revisions of charms and snaps going to receive security updates?
+
+No, all the charms and snaps are only going to be updated on their latest version. Thanks to Juju and snapd, all the updates will be seamless and automatic.
+
+## Can I use another VPN than NetBird?
+
+Yes you can, multiple VPNs are available on the Snap Store. The role of the VPN is to secure the connections and provide direct connectivity between the devices and the server.
+
+## Does my device need to use Ubuntu?
+
+No, although ROB COS is recommended for [Ubuntu Core](https://ubuntu.com/core). ROB COS is supported on Ubuntu Server, Desktop and all the Linux distributions [supporting the snapd daemon](https://snapcraft.io/docs/installing-snapd).
+
+## Does my server need to use Ubuntu?
+
+No, although ROB COS is recommended for Ubuntu server. ROB COS is supported on all the Linux distributions [supporting the snapd daemon](https://snapcraft.io/docs/installing-snapd).
