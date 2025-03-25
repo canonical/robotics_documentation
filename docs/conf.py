@@ -305,3 +305,6 @@ rst_prolog = """
 
 if "discourse_prefix" not in html_context and "discourse" in html_context:
     html_context["discourse_prefix"] = html_context["discourse"] + "/t/"
+
+
+myst_heading_anchors = 2

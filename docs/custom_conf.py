@@ -226,6 +226,3 @@ rst_prolog = """
 .. role:: h2
     :class: hclass2
 """
-
-
-myst_heading_anchors = 2
