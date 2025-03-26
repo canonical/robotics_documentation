@@ -1,5 +1,6 @@
 
 
+
 ABI
 activatable
 AMCL
@@ -17,6 +18,8 @@ bootable
 bringup
 BringUp
 CANBus
+Canonical's
+catkin_tools
 CIs
 CMake
 cmd
@@ -30,6 +33,7 @@ customization
 customize
 de
 debian
+demo_nodes_cpp
 Dev
 devel
 Devmode
@@ -125,6 +129,7 @@ Rospack
 runtime
 sandboxed
 scalability
+sequential_nav
 SHA
 snapcore
 snapcraft
@@ -175,4 +180,3 @@ Wifi
 wirelessly
 xml
 yaml
-demo_nodes_cpp
