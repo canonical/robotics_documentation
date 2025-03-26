@@ -136,6 +136,7 @@ linkcheck_ignore = [
     "https://www.vesiluoma.com/exploiting-with-badusb-meterpreter-digispark/",
     "https://ubuntu.com/robotics/ros-esm#get-in-touch",
     "https://ubuntu.com/core/docs/build-write-image#heading--write",
+    "https://ubuntu.com/core/features/secure-boot#get-in-touch"
 ]
 
 # Pages on which to ignore anchors

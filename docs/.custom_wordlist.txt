@@ -11,6 +11,7 @@ ASLR
 automatize
 Avahi
 backdoors
+BagFileserver
 bootable
 bringup
 BringUp
@@ -24,6 +25,7 @@ config
 cpp
 cryptographically
 customizable
+customization
 customize
 de
 debian
@@ -54,6 +56,7 @@ githubusercontent
 gmapping
 GPG
 GPIO
+grafana
 Grafana
 Hawksbill
 hostname
@@ -159,6 +162,8 @@ URDF
 usb
 Vcstool
 vel
+visualization
+visualize
 VPN
 vscode
 websocket

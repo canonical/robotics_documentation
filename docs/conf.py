@@ -170,8 +170,8 @@ html_context = {
 
 # Template and asset locations
 
-html_static_path = [".sphinx/_static"]
-templates_path = [".sphinx/_templates"]
+# html_static_path = [".sphinx/_static"]
+# templates_path = [".sphinx/_templates"]
 
 
 #############
@@ -198,12 +198,25 @@ redirects = {}
 #
 # TODO: Remove or adjust the ACME entry after you update the contributing guide
 
-linkcheck_ignore = ["http://127.0.0.1:8000", "https://github.com/canonical/ACME/*"]
+linkcheck_ignore = ["http://127.0.0.1:8000", 
+"https://github.com/canonical/ACME/*",
+"https://linux.die.net/man/1/curl",
+"https://ubuntu.com/robotics/ros-esm#get-in-touch",
+"https://ubuntu.com/core/features/secure-boot#get-in-touch",
+"https://ubuntu.com/robotics#get-in-touch"
+]
 
 
 # A regex list of URLs where anchors are ignored by 'make linkcheck'
 
-linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
+linkcheck_anchors_ignore_for_url = [
+    r"https://github\.com/.*",
+    r"https://snapcraft.io/docs/.*",
+    r"https://ubuntu.com/robotics#get-in-touch",
+    r"https://ubuntu.com/robotics/ros-esm#get-in-touch",
+    r"https://ubuntu.com/core/features/secure-boot#get-in-touch",
+
+]
 
 # give linkcheck multiple tries on failure
 # linkcheck_timeout = 30
