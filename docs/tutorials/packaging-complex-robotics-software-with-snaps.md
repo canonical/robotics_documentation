@@ -1,5 +1,4 @@
-Packaging complex robotics software with snaps
-==============================================
+# Packaging complex robotics software with snaps
 
 > **⚠️  Before you start**
 >
@@ -160,7 +159,7 @@ To start snapping our stack we first need to [identify the various functionaliti
 
 We are going to apply the methodology to the TurtleBot3. This way, we will have a clear example of the functionalities and snap entries for a robot, as well as the process to identify these entries.
 
-For this guide, we will focus on the monolithic snap approach since it is the simplest for a first robot snap. All the possible architectures for ROS snap applications are described [in the documentation](/docs/explanations/snaps/ros-architectures-with-snaps).
+For this guide, we will focus on the monolithic snap approach since it is the simplest for a first robot snap. All the possible architectures for ROS snap applications are described [in the documentation](../explanations/snaps/ros-architectures-with-snaps).
 
 ### Functionalities of our robot snap
 
@@ -242,7 +241,7 @@ This is the [official repository from Robotis](https://github.com/ROBOTIS-GIT/tu
 
 - [Turtlebot3_bringup](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_bringup): Contains robot launch files for different configurations.
 - [Turtlebot3_description](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_description): Contains URDF files as well as meshes.
-- [Turtlebot3_navigation](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_navigation): Contains launch files and parameters for navigation algorithm and ROS packages (AMCL, move_base).
+- [Turtlebot3_navigation](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_navigation): Contains launch files and parameters for navigation algorithm and ROS packages (AMCL, `move_base`).
 - [Turtlebot3_slam](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_slam): Contains launch files and configurations for the different SLAM algorithm (gmapping, hector slam, etc.).
 - [Turtlebot3_teleop](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_teleop): Containing the node to control TurtleBot3 with a keyboard.
 
@@ -1104,15 +1103,14 @@ We have now presented every single step to snap a TurtleBot3 software stack. We 
 
 ## Exercise
 
-Now that we have learned the ins and outs of the TurtleBot3 snap, we can apply some of our fresh knowledge for a quick exercise. The exercise as well as the solution are available in the [Developer guide part 2 - exercise](/docs/tutorials/exercises/exercise_2.md).
-
+Now that we have learned the ins and outs of the TurtleBot3 snap, we can apply some of our fresh knowledge for a quick exercise. The exercise as well as the solution are available in the [Developer guide part 2 - exercise](../tutorials/exercises/exercise_2.md).
 
 ```{eval-rst}
 
    .. toctree::
       :maxdepth: 1
 
-      Part 2 exercise </docs/tutorials/exercises/exercise_2.md>
+      Part 2 exercise <exercises/exercise_2.md>
 ```
 
 -----------------------------
@@ -1124,7 +1122,7 @@ Now that we have learned the ins and outs of the TurtleBot3 snap, we can apply s
 >Below is a how-to guide focusing on debugging the snap itself and troubleshooting any issues with how the snap is packaged and how its components interact, rather than debugging the code behaviour or compilation errors. This will help us identify any potential problems with the snap’s configuration and ensure a smooth user experience.
 >
 
->What we achieved here is perfectly working. If you would like to learn more about how to debug possible issues, please refer to the [How-to Guide: Debugging Snap Applications](/docs/how-to-guides/packaging/debugging-snap-applications).
+>What we achieved here is perfectly working. If you would like to learn more about how to debug possible issues, please refer to the [How-to Guide: Debugging Snap Applications](../how-to-guides/packaging/debugging-snap-applications).
 
 ## Conclusion
 
