@@ -607,11 +607,10 @@ In this developer guide, we went through the creation of a basic ROS 2 snap. But
 
 Visit the [robotics documentation](/index) to go further. If you have any questions or need help, you can visit and post your question on the [ubuntu robotics forum](https://discourse.ubuntu.com/c/project/robotics/121).
 
-
 ```{eval-rst}
 
    .. toctree::
       :maxdepth: 1
 
-      Part 1 exercise </docs/tutorials/exercises/exercise_1.md>
+      Part 1 exercise <exercises/exercise_1.md>
 ```

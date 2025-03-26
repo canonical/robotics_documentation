@@ -2,7 +2,6 @@
 
 Since snap is meant to deploy applications, we must define our robot applications. Our robot applications are meant to fulfil the functionalities of a robotics product.
 
-
 ## Robot functionalities
 
 The robot functionalities are defined by the product. They refer to how a person/customer can use a product or what they can do with it. These functionalities are defined by the person in charge of the product definition. The functionalities usually come from the customer's needs.
@@ -22,13 +21,11 @@ In the following drawing, we represented the two functionalities: “Clean the f
 
 ## Snap applications
 
-
 ### What are snap applications?
 
 Applications can be programs to call from a terminal or daemons if we need them to start automatically at boot or as background services. One snap can contain one or multiple applications.
 
 An example would be the “bring up”. This application will be responsible for running the robot model and motor controllers. This application would be a background service available for other applications.
-
 
 ### Define the role and the scope of the applications
 
@@ -39,7 +36,6 @@ Designing our snap is very much like designing a library. We must first define w
 **Think about the final user.** When distributing our software, we want to keep it as simple as possible for the user to use it. Seeing our robotics application from the user perspective will guide us toward our snap designing decisions.
 
 Reusing our supermarket robot cleaner example, all our functionalities require the same base (the same bring-up) to control the robot, etc. We will define one background service to start all the basic controls etc and two different applications for our robot use cases.
-
 
 #### Define the applications
 
@@ -53,11 +49,9 @@ We must also identify what applications must be started automatically at boot an
 
 The majority of the applications implementing functionalities are going to be started as daemons at boot, but we might want some calibration routines to be only started manually from the terminal.
 
-
 #### Snap architecture
 
-Finally, while the simplest snap architecture is one snap containing all our applications, we could also have a multi-snap architecture in order to distribute our application across multiple snaps. All the possible architectures for a ROS application are described [in the documentation](/docs/explanations/snaps/ros-architectures-with-snaps) for further investigation.
-
+Finally, while the simplest snap architecture is one snap containing all our applications, we could also have a multi-snap architecture in order to distribute our application across multiple snaps. All the possible architectures for a ROS application are described [in the documentation](ros-architectures-with-snaps) for further investigation.
 
 #### Example
 

@@ -27,8 +27,6 @@ In this guide, we will learn:
 * How to update the snap and distribute the update.
 * Ways for the final user or device to benefit from the updates.
 
-
-
 While covering the theoretical aspects of distributing ROS snaps, we will apply all this knowledge to the [ROS 2 Humble talker-listener example](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap/tree/confined) as a practical use case.
 
 We will cover the use of the public Snap Store in this developer guide. Dedicated Snap Stores are also available under a commercial licence. They include all the features from the public Snap Store along with additional resources described in the [dedicated Snap Store documentation](https://ubuntu.com/core/docs/dedicated-snap-stores).
@@ -142,7 +140,7 @@ Let’s remove the snap now, as we will now use the Snap Store:
 sudo snap remove yourname-test-ros2-snapstore
 ```
 
-If you had issues following any of the previous steps, please, review the developer guide [part 1](/docs/tutorials/packaging-ros-application-as-snap.md) again.
+If you had issues following any of the previous steps, please, review the developer guide [part 1](packaging-ros-application-as-snap.md) again.
 
 #### Register our snap
 
@@ -207,13 +205,13 @@ For our application, we will use the default track (latest) and the stable risk-
 
 To release our snap `*yourname-test-ros2-snapstore*` revision 1 on `latest/stable` we will use:
 
-```bash 
+```bash
 snapcraft release yourname-test-ros2-snapstore 1 latest/stable
 ```
 
 Additionally, we could have combined the upload and the release with the following command:
 
-```bash 
+```bash
 snapcraft upload --release=latest/stable yourname-test-ros2-snapstore_0.1_amd64.snap
 ```
 
@@ -225,7 +223,7 @@ We can now verify our snap is on the store by searching for it on[https://snapcr
 
 Since our snap won’t be useful to others, let’s change the visibility from public to unlisted. To do so, we must go to[our snap list](https://snapcraft.io/snaps), select our snap. Then in the "Settings" tab, we can select "Unlisted".
 
-While we are doing all this process manually here, all of this can be integrated into a CI workflow. We can find more information in the [ROS snap with GitHub Actions](/docs/how-to-guides/packaging/build-and-publish-snap-with-github-actions.md) documentation.
+While we are doing all this process manually here, all of this can be integrated into a CI workflow. We can find more information in the [ROS snap with GitHub Actions](../how-to-guides/packaging/build-and-publish-snap-with-github-actions.md) documentation.
 
 #### Download our snap
 

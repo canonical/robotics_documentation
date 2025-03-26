@@ -157,7 +157,7 @@ You will be prompted to enable the ‘ros’ service first, as ‘ros-updates’
 
 ## Using ROS ESM
 
-Congratulations, you’re now set up to use ROS ESM! From there, you can either install the complete ROS distro variant offered by ROS ESM (ros_base), or you can use rosdep to install the specific dependencies required by your ROS project. Let's quickly explore both options.
+Congratulations, you’re now set up to use ROS ESM! From there, you can either install the complete ROS distro variant offered by ROS ESM (`ros_base`), or you can use rosdep to install the specific dependencies required by your ROS project. Let's quickly explore both options.
 
 ### Installing ROS ESM base variant
 
@@ -201,7 +201,7 @@ We of course realise that everyone’s needs are different, and are very open to
 
 We don't support enabling both ROS ESM as well as the upstream ROS Debian repository. This means that every ROS component you use must either be from ESM, or built from source against ESM.
 
-There is tooling that makes this fairly straightforward, called rosinstall_generator, that will generate a rosinstall file containing the desired package(s) and all dependencies not already satisfied.
+There is tooling that makes this fairly straightforward, called `rosinstall_generator`, that will generate a rosinstall file containing the desired package(s) and all dependencies not already satisfied.
 
 In a sourced ROS ESM environment, execute the following:
 
