@@ -241,7 +241,7 @@ This is the [official repository from Robotis](https://github.com/ROBOTIS-GIT/tu
 
 - [Turtlebot3_bringup](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_bringup): Contains robot launch files for different configurations.
 - [Turtlebot3_description](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_description): Contains URDF files as well as meshes.
-- [Turtlebot3_navigation](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_navigation): Contains launch files and parameters for navigation algorithm and ROS packages (AMCL, move_base).
+- [Turtlebot3_navigation](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_navigation): Contains launch files and parameters for navigation algorithm and ROS packages (AMCL, `move_base`).
 - [Turtlebot3_slam](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_slam): Contains launch files and configurations for the different SLAM algorithm (gmapping, hector slam, etc.).
 - [Turtlebot3_teleop](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_teleop): Containing the node to control TurtleBot3 with a keyboard.
 

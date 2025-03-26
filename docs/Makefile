@@ -117,7 +117,8 @@ clean-doc:
 spellcheck: spellcheck-install
 	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
 
-spelling: html spellcheck
+# spelling: html spellcheck
+spelling: vale-spelling  # Use Vale for spelling check
 
 linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(BUILDDIR)/output.txt"; exit 1; }

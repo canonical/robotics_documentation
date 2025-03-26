@@ -15,7 +15,7 @@ For this how-to-guide, we use the example [ubuntu-robotics/snap_configuration](h
 
 The repository consists of the `snapcraft.yaml` file from which the snap is built, as well as a launcher script.
 
-The repository contains a standard snap package providing the [key_teleop](https://github.com/ros-teleop/teleop_tools/tree/master/key_teleop) application from the [teleop_tool](https://github.com/ros-teleop/teleop_tools/tree/master) ROS 2 package. The goal here is to be able to configure the application using content-sharing, thus without having to update the application snap. The `key_teleop` node can be configured for its forward_rate, backward_rate and rotational_rate parameters. These are the parameters we will be configuring from the configuration snap.
+The repository contains a standard snap package providing the [`key_teleop`](https://github.com/ros-teleop/teleop_tools/tree/master/key_teleop) application from the [teleop_tool](https://github.com/ros-teleop/teleop_tools/tree/master) ROS 2 package. The goal here is to be able to configure the application using content-sharing, thus without having to update the application snap. The `key_teleop` node can be configured for its `forward_rate`, `backward_rate` and `rotational_rate` parameters. These are the parameters we will be configuring from the configuration snap.
 
 ## Requirements
 
@@ -28,7 +28,6 @@ An up and running Ubuntu (minimum 20.04) with [snapcraft](https://snapcraft.io/s
 In addition to an application snap containing our teleoperation, we will also distribute an independent configuration snap, only responsible for configuring our application. The configuration snap will simply contain the YAML file and make it available for the application snap via a [content interface](https://snapcraft.io/docs/content-interface).
 
 ![Configure a snap content sharing config](https://assets.ubuntu.com/v1/00144290-configure-a-snap-content-sharing-config.jpg)
-
 
 ### Create the configuration snap
 
@@ -63,7 +62,6 @@ parts:
 
 The snap only contains one part, dumping local YAML files inside the snap. There is no application defined, since we don’t need one.
 
-
 ### Define the configuration
 
 Now let’s create the configuration file that our snap will be sharing.
@@ -83,7 +81,6 @@ key_teleop:
 ```
 
 This configuration file only overwrites one value from the default one. This is the configuration that our application snap will use.
-
 
 ### Declare the content slot
 
@@ -113,7 +110,6 @@ sudo snap install my-configuration_*.snap --dangerous
 
 Our configuration snap is installed and ready to provide configurations!
 
-
 ## Application snap
 
 At the beginning of this guide, we introduced the [ubuntu-robotics/snap_configuration](https://github.com/ubuntu-robotics/snap_configuration). We start from this snap and modify it so that it uses our shared configuration.
@@ -124,7 +120,6 @@ git clone https://github.com/ubuntu-robotics/snap_configuration.git
 ```
 
 This repository already contains a snap package for the `key_teleop` package. There is a launcher script in `snap/local/teleop_launcher.bash` and the `snap/snapcraft.yaml`.
-
 
 ### Declare the content plug
 
@@ -155,7 +150,6 @@ Our application has now enough privilege to access the shared YAML file.
 Before rebuilding our snap, we still need to actually use this file in our launcher.
 Let’s see how to do that.
 
-
 ### Use the content shared configuration
 
 Even if we can access the shared configuration file, our launcher is still using the default configuration.
@@ -181,7 +175,6 @@ We modify the file `snap/teleop_launcher.bash` as follows:
 As we can see, the content shared was entirely mounted in our target location.
 
 Our application is now loading the YAML from our configuration snap!
-
 
 #### Ensure content-interface connection between snaps
 
@@ -211,7 +204,6 @@ sudo snap install my-ros2-teleop-test_*.snap --dangerous
 ```
 
 We are now all set!
-
 
 ## Test the snaps together
 

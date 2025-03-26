@@ -1,4 +1,5 @@
 
+
 ABI
 activatable
 AMCL
@@ -40,6 +41,7 @@ DNS
 Docker's
 Dockerfile
 Dockerfiles
+download_config
 emphasize
 entrypoint
 esm
@@ -144,6 +146,7 @@ systemd
 TCP
 TCP
 teleop
+teleop_tool
 teleoperate
 Teleoperate
 teleoperated
@@ -166,8 +169,10 @@ visualization
 visualize
 VPN
 vscode
+waffle_pi
 websocket
 Wifi
 wirelessly
 xml
 yaml
+demo_nodes_cpp
