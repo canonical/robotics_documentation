@@ -1,10 +1,8 @@
-
-
-
 ABI
 activatable
 AMCL
 ament
+Alertmanager
 AppArmor
 appstore
 Armor
@@ -158,6 +156,8 @@ teleoperated
 teleoperating
 teleoperation
 Teleoperation
+templated
+Templated
 transactionality
 transactionally
 turtlebot
