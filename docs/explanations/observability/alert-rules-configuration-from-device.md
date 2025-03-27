@@ -8,10 +8,10 @@ These alert rule files can be provided by the devices directly and then hosted o
 This way, devices can deploy the alert configurations they need specifically
 or configurations that could be used by any other device.
 
-## Rules uploaded on the `COS-registration-server`
+## Rules uploaded on the COS-registration-server
 
 The `COS-registration-server` can host alert rule files.
-The supported rule files applications are: Prometheus, Loki.
+The supported rule files applications are Prometheus and Loki.
 
 The server currently supports two types of rules:
 - standard alert rule files: directly passed to the corresponding applications
@@ -47,12 +47,12 @@ groups:
       labels:
         severity: critical
 ```
-
-Note that the name of the group as well as the name of the alert must be templated to
+``` {note}
+The name of the **group** as well as the name of the alert must be templated to
 ensure its uniqueness.
+```
 
-
-## Alert rule files' flow from device to `COS-registrations-server` and the applications
+## Alert rule files' flow from device to COS-registration-server and the applications
 
 In the following diagram, we can see that the alert rule files distributed with the "Device-1"
 are getting uploaded to the `COS-registration-server` by the `COS-registration-agent`.
