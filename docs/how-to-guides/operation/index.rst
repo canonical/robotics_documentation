@@ -8,4 +8,4 @@ Observe how-to guides
    :caption: observe
 
 
-   Write a configuration snap for ROB COS <write-configuration-snap-for-rob-cos.md>
+   Write a configuration snap for COS for robotics <write-configuration-snap-for-cos-for-robotics.md>
