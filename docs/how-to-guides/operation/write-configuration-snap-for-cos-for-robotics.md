@@ -1,22 +1,22 @@
-# Write a configuration snap for ROB COS
+# Write a configuration snap for COS for robotics
 
 
-ROB COS is composed of various snaps. These snaps must be configured for your robots,
+COS for robotics is composed of various snaps. These snaps must be configured for your robots,
 your needs and your setup.
 
 In this How-To-Guide,
 you will learn the different steps to define your applications configuration
 and how to deploy them all in one snap.
 
-This way all you ROB COS snap services are configured with one snap.
+This way all you COS for robotics snap services are configured with one snap.
 
 For the rest of the guide,
 the presented configuration has been inspired from
 [`rob-cos-demo-configuration`](https://github.com/canonical/rob-cos-demo-configuration/tree/main/snap/local/configuration).
 
-## The configuration in ROB COS
+## The configuration in COS for robotics
 
-For ROB COS snaps, the configuration is done by sharing files with a
+For COS for robotics snaps, the configuration is done by sharing files with a
 [`content` interface](https://snapcraft.io/docs/content-interface).
 
 In this How-To you will deploy all configurations in one snap and share them with one interface.
@@ -212,5 +212,5 @@ Additionally, you could add more features to your configuration snap to make it 
 A complete example of such snap can be found on GitHub:
 [github.com/canonical/rob-cos-demo-configuration](https://github.com/canonical/rob-cos-demo-configuration/tree/main).
 
-You can also find a collection of example configurations for the various ROB COS server applications on GitHub:
+You can also find a collection of example configurations for the various COS for robotics server applications on GitHub:
 [github.com/canonical/ROB-COS-configurations](https://github.com/canonical/ROB-COS-configurations/).
