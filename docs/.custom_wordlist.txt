@@ -11,9 +11,7 @@ Armor
 artifact
 ASLR
 automatize
-Avahi
 backdoors
-BagFileserver
 bootable
 bringup
 BringUp
