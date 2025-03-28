@@ -469,7 +469,7 @@ ros2-talker-listener
 
 We will now face this log:
 
-```bash
+```{terminal}
 [talker-1] 2022-07-13 15:47:10.570 [RTPS_TRANSPORT_SHM Error] Failed to create segment cbbe40933e75c60a: Permission denied -> Function compute_per_allocation_extra_size
 [listener-2] 2022-07-13 15:47:10.654 [RTPS_TRANSPORT_SHM Error] Failed to create segment 59f8e836a0800439: Permission denied -> Function compute_per_allocation_extra_size
 [talker-1] 2022-07-13 15:47:10.657 [RTPS_MSG_OUT Error] Permission denied -> Function init
@@ -557,6 +557,18 @@ ros2-talker-listener.ros2-talker-listener[970635]: [talker-1] [INFO] [1657724117
 ros2-talker-listener.ros2-talker-listener[970635]: [listener-2] [INFO] [1657724121.996731460] [listener]: I heard: [Hello World: 961]
 ```
 
+```{terminal}
+   :user: root
+
+
+:input: sudo snap logs ros2-talker-listener
+ros2-talker-listener.ros2-talker-listener[970635]: [talker-1] [INFO] [1657724117.996643358] [talker]: Publishing: 'Hello World: 957'
+...
+ros2-talker-listener.ros2-talker-listener[970635]: [listener-2] [INFO] [1657724121.996731460] [listener]: I heard: [Hello World: 961]
+:input: command 2
+output 2
+```
+
 We can also add the `-f` flag if we want to wait for new lines and print them as they come in.
 
 Snap logs are actually available in the `systemd` journal. Hence, we can log a snap service directly from the `journalctl` command:
@@ -600,5 +612,5 @@ Visit the [robotics documentation](/index) to go further. If you have any questi
    .. toctree::
       :maxdepth: 1
 
-      Part 1 exercise </docs/tutorials/exercises/exercise_1.md>
+      Part 1 exercise <exercises/exercise_1>
 ```

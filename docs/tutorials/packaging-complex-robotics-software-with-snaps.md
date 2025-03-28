@@ -4,14 +4,12 @@
 
  **Before you start**
 
-1. Make sure you have completed [Tutorial 1: Packaging our first ROS application as a snap](packaging-ros-application-as-snap.md) before starting this tutorial. This tutorial builds on key concepts introduced earlier, including the benefits of snaps for ROS applications and the essential features of Snapcraft.
+1. Make sure you have completed [**Tutorial 1: Packaging our first ROS application as a snap**](packaging-ros-application-as-snap.md) before starting this tutorial. This tutorial builds on key concepts introduced earlier, including the benefits of snaps for ROS applications and the essential features of Snapcraft.
 
 2. This guide is meant for ROS snap beginners and advanced users looking for guidelines.
 
 3. This is not a quick guide  nor a ROS tutorial. A new developer will take approximately **one full day** to cover the entire guide.
 ```
-
----------------------------------------------------------
 
 The first step for deploying a robotics application is to package it. Snaps are specifically designed to confine embedded Linux applications, making it easier to install and manage software versions. They offer useful features for deployment, such as over-the-air (OTA) updates, delta updates, automatic rollback, security policies, and more. While bundling all software dependencies, snaps provide a comprehensive deployment infrastructure for robotics software.
 
@@ -73,8 +71,6 @@ With the running Ubuntu 20.04, follow the next step to install all the dependenc
   
   `sudo apt install -y ros-noetic-turtlebot3-gazebo`
 - Make sure [snapd](https://snapcraft.io/docs/installing-snapd) and [snapcraft](https://snapcraft.io/snapcraft) are installed
-- Jump to the `Setup check` section below.
-
 
 ```
 
@@ -84,52 +80,54 @@ With the running Ubuntu 20.04, follow the next step to install all the dependenc
 
   ##### Install Multipass
 
-  On Ubuntu, the installation of Multipass is straightforward:
+  - On Ubuntu, the installation of Multipass is straightforward:
 
-  ```bash
-  sudo snap install multipass
-  ```
+    ```bash
+    sudo snap install multipass
+    ```
 
-  We can also install it on Windows and macOS by following the [documentation](https://multipass.run/install).
+  - We can also install it on Windows and macOS by following the [documentation](https://multipass.run/install).
 
   ##### Launch the VM
 
-  To launch the VM, we are going to use a [cloud-init](https://canonical-cloud-init.readthedocs-hosted.com/en/latest/) configuration stored in GitHub. In essence, we will launch the VM, and install ROS Noetic along with the TurtleBot3 simulation automatically. Note that this might take some time depending on our configuration (~15 minutes).
+  - To launch the VM, we are going to use a [cloud-init](https://canonical-cloud-init.readthedocs-hosted.com/en/latest/) configuration stored in GitHub. In essence, we will launch the VM, and install ROS Noetic along with the TurtleBot3 simulation automatically. Note that this might take some time depending on our configuration (~15 minutes).
 
-```bash
-multipass launch --cpus 2 --disk 20G --memory 4G --cloud-init https://raw.githubusercontent.com/canonical/ros_snap_workshop_part2_multipass/main/cloud-init.yaml 20.04 --name workshop-part2 --timeout 10000
-```
+    ```bash
+    multipass launch --cpus 2 --disk 20G --memory 4G --cloud-init https://raw.githubusercontent.com/canonical/ros_snap_workshop_part2_multipass/main/cloud-init.yaml 20.04 --name workshop-part2 --timeout 10000
+    ```
 
-The VM must now be up and running. We can verify that with:
+  - The VM must now be up and running. We can verify that with:
 
-```bash
-$ multipass list
+    ```bash
+    $ multipass list
 
-Name           State   IPv4       Image
+    Name           State   IPv4       Image
 
-workshop-part2 Running 10.26.1.87 Ubuntu 20.04 LTS
-```
+    workshop-part2 Running 10.26.1.87 Ubuntu 20.04 LTS
+    ```
 
-##### Attach to the VM
+  ##### Attach to the VM
 
-Multipass offers a way to attach a shell to the VM with:
+  - Multipass offers a way to attach a shell to the VM with:
 
-  ```bash
-  multipass shell workshop-part2
-  ```
+    ```bash
+    multipass shell workshop-part2
+    ```
 
-Unfortunately, with this solution, we cannot forward X11 (for graphic applications).
+  - Unfortunately, with this solution, we cannot forward X11 (for graphic applications).
 
-We can connect with ssh into the VM with X11 forwarding with the command:
+  - We can connect with ssh into the VM with X11 forwarding with the command:
 
-  ```{code-block} bash
-  ssh -X ubuntu@$(multipass list --format csv | awk -F, '$1=="workshop-part2"{print $3}')
-  ```
-The password for the Ubuntu user is simply: Ubuntu.
+    ```{code-block} bash
+    ssh -X ubuntu@$(multipass list --format csv | awk -F, '$1=="workshop-part2"{print $3}')
+    ```
+  - The password for the Ubuntu user is simply: Ubuntu.
 
-> *Disclaimer: Using a VM with a pre-saved password is not a good practice in general. Here we only do so to make it simple to follow the developer guide. If you wish to use a VM for anything else please change the password.*
+    ```{caution}
+    Using a VM with a pre-saved password is not a good practice in general. Here we only do so to make it simple to follow the developer guide. If you wish to use a VM for anything else please change the password.*
+    ```
 
-In the case of a VM setup, all the commands and instructions from this guide must be executed in the VM.
+  - In the case of a VM setup, all the commands and instructions from this guide must be executed in the VM.
 
 ```
 ````
@@ -1117,8 +1115,9 @@ Now that we have learned the ins and outs of the TurtleBot3 snap, we can apply s
 ```{eval-rst}
 
    .. toctree::
+      :hidden:
       :maxdepth: 1
-
+      
       Part 2 exercise <exercises/exercise_2.md>
 ```
 

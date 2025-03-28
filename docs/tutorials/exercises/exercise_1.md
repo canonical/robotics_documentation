@@ -1,7 +1,7 @@
 # Part 1 - exercise: Add additional application to the snap
 
 ``` {important}
-This exercise requires having followed the [Tutorial 1: Packaging our first ROS application as a snap](/docs/tutorials/packaging-ros-application-as-snap.md).
+This exercise requires having followed the [Tutorial 1: Packaging our first ROS application as a snap](../packaging-ros-application-as-snap.md).
 ```
 
 Let’s do a little exercise. Right now, our talker-listener only has one application. How about you add another one? Having the ROS 2 topic tools inside our snap would be great for some introspection.

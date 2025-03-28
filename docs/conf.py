@@ -142,7 +142,7 @@ html_context = {
     "repo_folder": "/docs/",
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
-    # "sequential_nav": "both",
+    "sequential_nav": "both",
     # TODO: To enable listing contributors on individual pages, set to True
     "display_contributors": False,
     # Required for feedback button
@@ -198,12 +198,13 @@ redirects = {}
 #
 # TODO: Remove or adjust the ACME entry after you update the contributing guide
 
-linkcheck_ignore = ["http://127.0.0.1:8000", 
-"https://github.com/canonical/ACME/*",
-"https://linux.die.net/man/1/curl",
-"https://ubuntu.com/robotics/ros-esm#get-in-touch",
-"https://ubuntu.com/core/features/secure-boot#get-in-touch",
-"https://ubuntu.com/robotics#get-in-touch"
+linkcheck_ignore = [
+    "http://127.0.0.1:8000",
+    "https://github.com/canonical/ACME/*",
+    "https://linux.die.net/man/1/curl",
+    "https://ubuntu.com/robotics/ros-esm#get-in-touch",
+    "https://ubuntu.com/core/features/secure-boot#get-in-touch",
+    "https://ubuntu.com/robotics#get-in-touch",
 ]
 
 
@@ -215,7 +216,6 @@ linkcheck_anchors_ignore_for_url = [
     r"https://ubuntu.com/robotics#get-in-touch",
     r"https://ubuntu.com/robotics/ros-esm#get-in-touch",
     r"https://ubuntu.com/core/features/secure-boot#get-in-touch",
-
 ]
 
 # give linkcheck multiple tries on failure
