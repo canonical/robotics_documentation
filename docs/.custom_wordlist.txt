@@ -11,6 +11,7 @@ Armor
 artifact
 ASLR
 automatize
+Avahi
 backdoors
 bootable
 bringup
