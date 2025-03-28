@@ -6,12 +6,11 @@ sequential_nav: next
 Build and publish a snap with GitHub Actions
 ============================================
 
-
 When deploying a [robotics application with snap](https://ubuntu.com/robotics/docs), keeping the deployment synchronised with development progress is a high priority. It’s best accomplished with a CI/CD pipeline that will automatically deploy your latest developments to your devices.
 
 In this post, we will explore how to automatically build and publish your ROS snap using [GitHub Actions](https://docs.github.com/en/actions), so that your snap always stays up-to-date on the [snapstore](https://snapcraft.io/store).
 
-For this example, we will use a simple ROS2 Foxy application publishing some dummy data, whose source code can be found on [GitHub ](https://github.com/ubuntu-robotics/ros_snap_github_action). Of course, the same principle can be applied to a ROS package or another release of ROS 2.
+For this example, we will use a simple ROS2 Foxy application publishing some mock data, whose source code can be found on [GitHub](https://github.com/ubuntu-robotics/ros_snap_github_action). Of course, the same principle can be applied to a ROS package or another release of ROS 2.
 
 ## Adding a Snap GitHub Action
 
@@ -29,7 +28,7 @@ Our example project is called *snapped_ros2_pkg* and it has a typical ROS 2 pack
 ├── snap
 │  └── snapcraft.yaml # Snapcraft entry point
 └── src
-   └── snapped_ros2_pkg_node.cpp # Source of the node publishing the dummy data
+   └── snapped_ros2_pkg_node.cpp # Source of the node publishing the mock data
 ```
 
 GitHub’s workflows are located in .github/workflows/ in our project tree:
@@ -95,7 +94,7 @@ jobs:
         release: ${{ startsWith(github.ref, 'refs/tags/') && 'candidate' || 'edge'}}
 ```
 
-This workflow is already in use, and you can see the results [here ](https://github.com/ubuntu-robotics/ros_snap_github_action/actions).
+This workflow is already in use, and you can see the results [here](https://github.com/ubuntu-robotics/ros_snap_github_action/actions).
 
 ### Workflow conditions
 
@@ -191,7 +190,7 @@ Now that our snap is generated and tested, we will upload it as an artifact. Thi
 
 ```
 
-We are now using the [actions/upload-artifact ](https://github.com/marketplace/actions/upload-a-build-artifact). Note that before the steps, we defined snap-file: `${{ steps.build-snap.outputs.snap }}` in the output section. Later, we will refer to our uploaded artifact (our snap) as `snap-file`.
+We are now using the [actions/upload-artifact](https://github.com/marketplace/actions/upload-a-build-artifact). Note that before the steps, we defined snap-file: `${{ steps.build-snap.outputs.snap }}` in the output section. Later, we will refer to our uploaded artifact (our snap) as `snap-file`.
 
 ### Publish job
 
@@ -260,7 +259,7 @@ To add the secret to the project, we will need to:
 * Click on “New repository secret”.
 * Setting the name of the secret as `STORE_LOGIN`, and paste the contents of `exported.txt` as the value.
 
-We are all good to go now. The actions can be checked on the [Actions tab ](https://github.com/ubuntu-robotics/ros_snap_github_action/actions) of the project. And the published snap can be seen on the [snapstore page](https://snapcraft.io/gbeuzeboc-snapped-ros2-pkg).
+We are all good to go now. The actions can be checked on the [Actions tab](https://github.com/ubuntu-robotics/ros_snap_github_action/actions) of the project. And the published snap can be seen on the [snapstore page](https://snapcraft.io/gbeuzeboc-snapped-ros2-pkg).
 
 You can of course create a more complex release behaviour, making use of all the [channels](https://snapcraft.io/docs/channels) features of the snapstore.
 
