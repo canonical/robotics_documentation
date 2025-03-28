@@ -1,4 +1,4 @@
-# Deploying COS for Robotics Server in the Cloud
+# Deploying COS for Robotics server in the cloud
 
 ## Introduction  
 
@@ -17,7 +17,7 @@ Each robot in your fleet can be set up with the snap agents, registered and obse
 
 ![image](https://assets.ubuntu.com/v1/64dae60b-cos-for-robotics.png)
 
-## What You Will Learn
+## What you will learn
 
 By following this tutorial, you will:  
 
@@ -28,17 +28,17 @@ By following this tutorial, you will:
 
 ---
 
-## Server Side
+## Server side
 
 The **COS for Robotics lite bundle** is a Juju-based observability stack running on **Kubernetes**. It includes the following key components:  
 
-- [Foxglove Studio](https://charmhub.io/foxglove-studio-k8s) – A visualization tool for robotics data.  
-- [`Ros2BagFileserver`](https://charmhub.io/ros2bag-fileserver-k8s) – Handles ROS 2 bag file storage.  
-- [COS-registration-server](https://charmhub.io/cos-registration-server-k8s) – Manages device registration.  
-- [Prometheus](https://charmhub.io/prometheus-k8s) – Collects and stores metrics.  
-- [Loki](https://charmhub.io/loki-k8s) – Handles logging for robotics devices.  
-- [`Alertmanager`](https://charmhub.io/alertmanager-k8s) – Manages alerts and notifications.  
-- [Grafana](https://charmhub.io/grafana-k8s) – Provides dashboards for visualization.  
+- [Foxglove Studio](https://charmhub.io/foxglove-studio-k8s) – A visualization tool for robotics data.
+- [Ros2BagFileserver](https://charmhub.io/ros2bag-fileserver-k8s) – Handles ROS 2 bag file storage.
+- [COS-registration-server](https://charmhub.io/cos-registration-server-k8s) – Manages device registration.
+- [Prometheus](https://charmhub.io/prometheus-k8s) – Collects and stores metrics.
+- [Loki](https://charmhub.io/loki-k8s) – Handles logging for robotics devices.
+- [Alert Manager](https://charmhub.io/alertmanager-k8s) – Manages alerts and notifications.
+- [Grafana](https://charmhub.io/grafana-k8s) – Provides dashboards for visualization.
 
 In the next section, we will go step by step through the deployment process.
 
@@ -71,7 +71,7 @@ Wait for `microk8s` to finish initialising with:
 sudo microk8s status --wait-ready
 ```
 
-Enable the storage and `dns` addons which are required for the Juju controller:
+Enable the storage and `dns` `addons` which are required for the Juju controller:
 
 ```bash
 sudo microk8s enable hostpath-storage dns
@@ -124,7 +124,7 @@ Then, enable `metallb` with the following command:
 sudo microk8s enable metallb:$IPADDR-$IPADDR
 ```
 
-### Deploy the COS for Robotics Lite bundle
+### `Deploy the COS for Robotics Lite bundle`
 
 Now, let’s create a dedicated model for the COS Lite bundle with the following:
 
@@ -175,14 +175,14 @@ Now by navigating to the catalogue URL in your browser, the catalogue of all the
 
 ![image](https://assets.ubuntu.com/v1/32e58421-catalogue.png)
 
-#### Grafana Login
+#### Grafana login
 
 Clicking on the **Grafana** application will prompt you for username and password as follows:
 
 ```{figure} https://assets.ubuntu.com/v1/bf1fa2db-grafana_welcome.png
    :alt: Grafana Dashboard
 
-   Grafana Login Page
+   Grafana login page
 ```
 
 The default password for Grafana is automatically generated for every installation. To access `Grafana's` web interface, use the username `admin`, and the password obtained from the [get-admin-password](https://charmhub.io/grafana-k8s/actions) action as follows:
@@ -193,7 +193,7 @@ juju run grafana/0 get-admin-password
 
 -----------------------------------
 
-## Next Steps : Device setup
+## Next steps: device setup
 
 Now that the server is set up, let’s see how to deploy and register a device for monitoring.
 

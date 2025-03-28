@@ -13,7 +13,7 @@ For this how-to-guide, we use the example [ubuntu-robotics/snap_configuration](h
 
 The repository consists of the snapcraft.yaml file from which the snap is built, as well as a launcher script.
 
-The repository contains a standard snap package providing the [key_teleop](https://github.com/ros-teleop/teleop_tools/tree/master/key_teleop) application from the [teleop_tool](https://github.com/ros-teleop/teleop_tools/tree/master) ROS 2 package. The goal here is to be able to configure the application without having to update the snap. The `key_teleop` node can be configured for its forward_rate, backward_rate and rotational_rate parameters. They are the parameters present in the configuration file that are overwritable.
+The repository contains a standard snap package providing the [`key_teleop`](https://github.com/ros-teleop/teleop_tools/tree/master/key_teleop) application from the [teleop_tool](https://github.com/ros-teleop/teleop_tools/tree/master) ROS 2 package. The goal here is to be able to configure the application without having to update the snap. The `key_teleop` node can be configured for its `forward_rate`, `backward_rate` and `rotational_rate` parameters. They are the parameters present in the configuration file that are overwritable.
 
 ## Requirements
 
@@ -30,7 +30,7 @@ First, we clone the repository:
 git clone https://github.com/ubuntu-robotics/snap_configuration.git
 ```
 
-This repository already contains a snap package for the key_teleop package. There is a launcher script in `snap/local/teleop_launcher.bash` and the `snap/snapcraft.yaml`.
+This repository already contains a snap package for the `key_teleop` package. There is a launcher script in `snap/local/teleop_launcher.bash` and the `snap/snapcraft.yaml`.
 
 ### Import the default configuration
 
@@ -74,7 +74,7 @@ The `teleop_launcher.bash` is currently not using any configuration file. Let’
 +ros2 run key_teleop key_teleop --ros-args --params-file $CONFIG_FILE_PATH
 ```
 
-Our key_teleop ROS application is now using the default configuration file.
+Our `key_teleop` ROS application is now using the default configuration file.
 
 In the next section, we will see how to let the user customize this configuration file.
 
@@ -206,7 +206,7 @@ key_teleop:
     rotation_rate: 1.0
 ```
 
-We can edit (with root privileges) this file with a custom value (1.234 for forward_rate).
+We can edit (with root privileges) this file with a custom value (1.234 for `forward_rate`).
 
 Now we launch the application:
 

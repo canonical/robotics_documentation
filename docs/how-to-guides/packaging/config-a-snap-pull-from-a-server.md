@@ -13,7 +13,7 @@ For this how-to-guide, we use the example [ubuntu-robotics/snap_configuration](h
 
 The repository consists of the `snapcraft.yaml` file from which the snap is built, as well as a launcher script.
 
-The repository contains a standard snap package providing the [`key_teleop`](https://github.com/ros-teleop/teleop_tools/tree/master/key_teleop) application from the [teleop_tool](https://github.com/ros-teleop/teleop_tools/tree/master) ROS 2 package. The goal here is to be able to configure the application without having to update the snap. The `key_teleop` node can be configured for its forward_rate, backward_rate and rotational_rate parameters. They are the parameters we will be configuring from the server.
+The repository contains a standard snap package providing the [`key_teleop`](https://github.com/ros-teleop/teleop_tools/tree/master/key_teleop) application from the [teleop_tool](https://github.com/ros-teleop/teleop_tools/tree/master) ROS 2 package. The goal here is to be able to configure the application without having to update the snap. The `key_teleop` node can be configured for its `forward_rate`, `backward_rate` and `rotational_rate` parameters. They are the parameters we will be configuring from the server.
 
 ## Requirements
 
@@ -28,7 +28,6 @@ An up and running Ubuntu (minimum 20.04) with [snapcraft](https://snapcraft.io/s
 To get the initial configuration, we will use the snap [`install` hook](https://snapcraft.io/docs/supported-snap-hooks#heading--install). The following diagram shows how the `install` hook will pull the configuration from a server and place it in [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage). Once this is done, our snap will be installed and configured.
 
 ![Configuration Diagram](https://assets.ubuntu.com/v1/eef74552-configure-a-snap-pull-config.jpg)
-
 
 ### Host a configuration file
 
@@ -66,10 +65,7 @@ Our configuration file is now available online. By looking for it on GitHub and 
 
 With the original repository, the URL is:
 
-https://raw.githubusercontent.com/ubuntu-robotics/snap_configuration/howto/pull_configuration_from_a_server/key_teleop.yaml
-
-
-
+<https://raw.githubusercontent.com/ubuntu-robotics/snap_configuration/howto/pull_configuration_from_a_server/key_teleop.yaml>
 
 ### Download and place the file
 
@@ -103,7 +99,7 @@ local-files:
     '*.bash': bin/
 ```
 
-The download_config script will be called from the [`install` hook](https://snapcraft.io/docs/supported-snap-hooks#heading--install).
+The `download_config` script will be called from the [`install` hook](https://snapcraft.io/docs/supported-snap-hooks#heading--install).
 Let’s create the hook:
 
 ```Bash
@@ -134,7 +130,6 @@ Finally, we must grant network access to our hooks so it can reach our server. W
 +    plugs: [network]
 ```
 
-
 ### Use the file
 
 We are just missing a small detail: using the configuration file.
@@ -156,11 +151,9 @@ When launching our application with the command `my-ros2-teleop-test` we can see
 
 ![Teleop Forward](https://assets.ubuntu.com/v1/3ffab8b5-teleop_forward.jpg)
 
-
 ## Keeping the configuration up to date
 
 Now that our snap is pulling its configuration on install, let’s keep the configuration up to date over time.
-
 
 ### Automatic configuration update
 
