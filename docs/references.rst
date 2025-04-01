@@ -9,7 +9,7 @@ References
 
    Snapcraft <references/snapcraft>
    Ubuntu Pro and ROS ESM <references/esm-package-list>
-   ROB COS FAQ <references/rob-cos-faq.md>
+   COS for Robotics FAQ <references/rob-cos-faq.md>
 
 
 
