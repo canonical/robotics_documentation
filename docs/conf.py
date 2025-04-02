@@ -321,3 +321,7 @@ if "discourse_prefix" not in html_context and "discourse" in html_context:
 
 
 myst_heading_anchors = 2
+
+myst_substitutions = {
+  "COS_ROB": "COS for robotics"
+}
