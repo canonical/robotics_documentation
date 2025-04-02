@@ -1,17 +1,17 @@
-# Deploying COS for Robotics server in the cloud
+# Deploying {{ COS_ROB }} server in the cloud
 
 ## Introduction  
 
-In this tutorial, we will walk through the process of deploying the **Canonical Observability Stack (COS) for Robotics** on a cloud-based server. By the end of this tutorial, you will have a fully functional observability stack tailored for robotics, enabling you to monitor ROS devices efficiently.  
+In this tutorial, we will walk through the process of deploying the **Canonical Observability Stack (COS) for robotics** on a cloud-based server. By the end of this tutorial, you will have a fully functional observability stack tailored for robotics, enabling you to monitor ROS devices efficiently.  
 
-COS for Robotics is a lightweight, highly integrated observability stack designed to run on Kubernetes, offering a plug and play observability solution tailored for monitoring robotics devices. The server infrastructure integrates robotics-specific applications with the ones provided by [COS-lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite).
+{{ COS_ROB }} is a lightweight, highly integrated observability stack designed to run on Kubernetes, offering a plug and play observability solution tailored for monitoring robotics devices. The server infrastructure integrates robotics-specific applications with the ones provided by [COS-lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite).
 Moreover, it is designed with customization in mind. It offers the flexibility to add new applications in the form of charms or Open Container Initiative (`OCI`) images and enhance existing ones.
 
 ```{note}
 The server side is designed for the Edge and capable of running alongside `MicroK8s` and Juju with limited computing resources (around 8 GB of memory).
 ```
 
-On the **server side**, COS for Robotics runs a suite of observability tools that collect and process data from connected devices. On the **device side**, lightweight agents (packaged as **Snaps**) simplify device registration and enable real-time monitoring. This allows you to connect each robot in your fleet to the observability stack and immediately start collecting insights.  
+On the **server side**, {{ COS_ROB }} runs a suite of observability tools that collect and process data from connected devices. On the **device side**, lightweight agents (packaged as **Snaps**) simplify device registration and enable real-time monitoring. This allows you to connect each robot in your fleet to the observability stack and immediately start collecting insights.  
 
 Each robot in your fleet can be set up with the snap agents, registered and observed, allowing for efficient management across an entire fleet.
 
@@ -21,16 +21,16 @@ Each robot in your fleet can be set up with the snap agents, registered and obse
 
 By following this tutorial, you will:  
 
-- Deploy COS for Robotics on a cloud-based Kubernetes environment using **Juju** and **`MicroK8s`**.  
+- Deploy {{ COS_ROB }} on a cloud-based Kubernetes environment using **Juju** and **`MicroK8s`**.  
 - Register a ROS 2 device with the server.  
 - Begin monitoring robotic devices using **Prometheus, Grafana, Loki, and Foxglove Studio**.  
-- Understand how COS for Robotics can be customised with additional applications and integrations.  
+- Understand how {{ COS_ROB }} can be customized with additional applications and integrations.  
 
 ---
 
 ## Server side
 
-The **COS for Robotics lite bundle** is a Juju-based observability stack running on **Kubernetes**. It includes the following key components:  
+The **{{ COS_ROB }} lite bundle** is a Juju-based observability stack running on **Kubernetes**. It includes the following key components:  
 
 - [`Foxglove Studio`](https://charmhub.io/foxglove-studio-k8s) – A visualization tool for robotics data.
 - [`Ros2BagFileserver`](https://charmhub.io/ros2bag-fileserver-k8s) – Handles ROS 2 bag file storage.
@@ -65,7 +65,7 @@ sudo adduser $USER snap_microk8s
 sudo chown -f -R $USER ~/.kube
 ```
 
-Wait for `microk8s` to finish initialising with:
+Wait for `microk8s` to finish initializing with:
 
 ```bash
 sudo microk8s status --wait-ready
@@ -124,7 +124,7 @@ Then, enable `metallb` with the following command:
 sudo microk8s enable metallb:$IPADDR-$IPADDR
 ```
 
-### Deploy the COS for robotics bundle
+### Deploy the {{ COS_ROB }} bundle
 
 Now, let’s create a dedicated model for the `COS Lite` bundle with the following:
 
@@ -155,7 +155,7 @@ COS will be ready to use when the `juju status` shows all the machines active an
 
 ![image](https://assets.ubuntu.com/v1/97b37234-juju_status.png)
 
-Now COS for Robotics is good to go: you can register devices to it to begin the monitoring!
+Now {{ COS_ROB }} is good to go: you can register devices to it to begin the monitoring!
 
 ### Verify the deployment
 
@@ -165,7 +165,7 @@ When all the charms are deployed, you can head over to browse their built-in web
 juju run traefik/0 show-proxied-endpoints
 ```
 
-The catalogue endpoint can be visualised on your browser and it will list the catalogue of applications offered by COS for Robotics. From the `proxied` endpoints, the catalogue URL should be similar to:
+The catalogue endpoint can be visualized on your browser and it will list the catalogue of applications offered by {{ COS_ROB }}. From the `proxied` endpoints, the catalogue URL should be similar to:
 
 ```{code-block} json
 "catalogue":{"url": "http://<cos-robotics-server-ip>/cos-robotics-model-catalogue"}
