@@ -24,7 +24,6 @@ which is then available to the user for visualization.
 The {{ COS_ROB }} consists of two main components:
 - the server side: which hosts applications for monitoring, analysis and visualization extending COS lite.
 - the device side: a set of snaps that allow the robot to interface and communicate with the server.
-consisting of a set of snaps.
 
 The {{ COS_ROB }} is already including a set of applications on the server and device side.
 By the modular nature of [COS](https://charmhub.io/topics/canonical-observability-stack),
@@ -35,8 +34,12 @@ The {{ COS_ROB }} is extending COS Lite in the sense that it can handle robotics
 
 ### The server side
 
-The server side (which can run on the cloud, a laptop, or any capable machine) [Juju](https://juju.is/docs/juju/tutorial), an open source orchestration engine, to easily deploy applications at any scale and [Microk8s](https://microk8s.io/docs/getting-started), a lightweight Kubernetes cluster.
-bringing stability, security and scalability.
+The server side (which can run on the cloud, a laptop,
+or any capable machine) relies on [Juju](https://juju.is/docs/juju/tutorial),
+an open source orchestration engine,
+to easily deploy applications at any scale and [Microk8s](https://microk8s.io/docs/getting-started),
+a lightweight Kubernetes cluster bringing stability,
+security and scalability.
 
 Every application running in Juju is a
 [charmed operator (charm)](https://canonical-juju.readthedocs-hosted.com/en/latest/user/reference/charm/).
