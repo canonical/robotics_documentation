@@ -13,7 +13,8 @@ ASLR
 automatize
 Avahi
 backdoors
-BagFileserver
+blocklisting
+blocklisted
 bootable
 bringup
 BringUp
