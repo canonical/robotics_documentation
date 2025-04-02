@@ -1,4 +1,4 @@
-# Deploy COS for robotics agent on your robot
+# Deploy {{ COS_ROB }} agent on your robot
 
 ## Overview
 
@@ -52,7 +52,7 @@ robot_1
 Please enter the `rob-cos-server-url`:
 `http://<cos-robotics-server-ip>/cos-robotics-model`
 
-The script will now proceed with the installation of all the required snaps. Upon completion, the device and its corresponding dashboards will be registered and available for visualization on the COS for Robotics server.
+The script will now proceed with the installation of all the required snaps. Upon completion, the device and its corresponding dashboards will be registered and available for visualization on the {{ COS_ROB }} server.
 
 ## Verify Installation
 
@@ -88,4 +88,4 @@ The service can then be enabled with:
 sudo snap start ros2-exporter-agent.recorder
 ```
 
-This is it, now your device is registered and being correctly monitored via COS for Robotics!
+This is it, now your device is registered and being correctly monitored via {{ COS_ROB }}!
