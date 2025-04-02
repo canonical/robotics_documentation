@@ -124,7 +124,7 @@ Then, enable `metallb` with the following command:
 sudo microk8s enable metallb:$IPADDR-$IPADDR
 ```
 
-### Deploy the COS for the robotics lite bundle
+### Deploy the COS for robotics bundle
 
 Now, let’s create a dedicated model for the `COS Lite` bundle with the following:
 
