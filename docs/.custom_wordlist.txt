@@ -119,7 +119,7 @@ roboticists
 Robotis
 ros
 ROS
-Ros2BagFileserver
+BagFileserver
 rosdep
 rosinstall
 roslaunch
@@ -181,3 +181,7 @@ Wifi
 wirelessly
 xml
 yaml
+Charmhub
+superset
+deployable
+scalable
