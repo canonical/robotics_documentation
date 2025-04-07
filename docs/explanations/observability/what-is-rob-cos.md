@@ -1,6 +1,6 @@
 # What is {{ COS_ROB }}
 
-{{ COS_ROB }} stands for Robotics Canonical Observability Stack and is a superset of
+{{ COS_ROB }} stands for Canonical Observability Stack for robotics and is a superset of
 [COS Lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite).
 {{ COS_ROB }} brings [observability](https://ubuntu.com/observability/what-is-observability)
 to your robots and devices.
