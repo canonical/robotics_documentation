@@ -33,7 +33,7 @@ to the server. This file requires the UID of the device as well as the URL of th
 Details about this file
 [can be found on GitHub](https://github.com/canonical/cos-registration-agent?tab=readme-ov-file#config).
 
-Additionally, the agent can upload application specific data to the server:
+Additionally, the agent can upload application-specific data to the server:
 - [Grafana dashboards](https://grafana.com/grafana/dashboards/)
 - [Foxglove layouts](https://docs.foxglove.dev/docs/visualization/layouts)
 - [Prometheus alerts rule files](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)
