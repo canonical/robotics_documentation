@@ -1,6 +1,6 @@
 :sequential_nav: next
 
-Observe how-to guides
+Operation how-to guides
 ================================
 
 .. toctree::
@@ -8,4 +8,4 @@ Observe how-to guides
    :caption: observe
 
 
-   Write a configuration snap for COS for robotics <write-configuration-snap-for-cos-for-robotics.md>
+   write-configuration-snap-for-cos-for-robotics
