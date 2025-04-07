@@ -60,7 +60,7 @@ This snap expects a `foxglove-bridge.yaml` file to specify the bridge configurat
 The YAML file is a one to one match from the [`foxglove-bridge` configuration](https://github.com/foxglove/ros-foxglove-bridge?tab=readme-ov-file#configuration).
 
 
-### The content sharing interface
+### The content sharing interface
 
 In order to have a match between what the different snaps are expecting and your configurations,
 you must follow the format from the content sharing interface.
