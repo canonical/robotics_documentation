@@ -29,3 +29,4 @@
 
 .. SHORTCUTS
 .. |RST| replace:: :abbr:`reST (reStructuredText)`
+.. |COS_ROB| replace:: COS for robotics
