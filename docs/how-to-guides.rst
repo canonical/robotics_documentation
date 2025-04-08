@@ -9,6 +9,7 @@ Ubuntu robotics how-to guides
    :caption: snapcraft
 
    Packaging <how-to-guides/packaging/index>
+   Operation <how-to-guides/operation/index>
 
    
 
