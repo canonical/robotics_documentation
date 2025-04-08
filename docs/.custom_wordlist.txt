@@ -1,5 +1,6 @@
 ABI
 activatable
+Alertmanager
 AMCL
 ament
 Alertmanager
@@ -11,13 +12,14 @@ ASLR
 automatize
 Avahi
 backdoors
-BagFileserver
+blocklisting
+blocklisted
 bootable
 bringup
 BringUp
 CANBus
-Canonical's
-catkin_tools
+charmhub
+charmstore
 CIs
 CMake
 cmd
@@ -32,6 +34,7 @@ customize
 de
 debian
 demo_nodes_cpp
+deployable
 Dev
 devel
 Devmode
@@ -94,6 +97,7 @@ Multipass
 mux
 nav
 Nav
+NetBird
 Ninjemys
 noetic
 Noetic
@@ -173,6 +177,7 @@ vel
 visualization
 visualize
 VPN
+VPNs
 vscode
 waffle_pi
 websocket
