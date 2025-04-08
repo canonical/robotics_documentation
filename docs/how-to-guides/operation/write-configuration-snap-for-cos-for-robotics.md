@@ -8,7 +8,7 @@ In this How-To-Guide,
 you will learn the different steps to define your applications configuration
 and how to deploy them all in one snap.
 
-This way all you {{ COS_ROB }} snap services are configured with one snap.
+This way all your {{ COS_ROB }} snap services are configured with one snap.
 
 For the rest of the guide,
 the presented configuration has been inspired from
