@@ -1,4 +1,4 @@
-# Deploy COS for robotics agent on your robot
+# Deploy {{ COS_ROB }} agent on your robot
 
 ## Overview
 
@@ -8,12 +8,12 @@ Before starting this tutorial, make sure to have the server side working
 
 In order for a device to register and interact with the COS registration server and its application the following snaps have to be installed:
 
-- [rob-cos-demo-configuration](https://snapcraft.io/rob-cos-demo-configuration): contains the configuration of the robot.
-- [cos-registration-agent](https://snapcraft.io/cos-registration-agent): responsible for registering the robot on the [COS-registration-server](https://charmhub.io/cos-registration-server-k8s) as well as uploading robot specific data to the server (dashboard, foxglove layouts, `UID`, etc).
-- [ros2-exporter-agent](https://snapcraft.io/ros2-exporter-agent): responsible for recording data on the robot and syncing them to the [`Ros2BagFileserver`](https://charmhub.io/ros2bag-fileserver-k8s).
-- [grafana-agent](https://snapcraft.io/grafana-agent): responsible for sending metrics, logs, and trace data to the Grafana charm.
-- [foxglove-bridge](https://snapcraft.io/foxglove-bridge): bridge to visualize live ROS data via the Foxglove websocket connection.
-- [rob-cos-data-sharing](https://snapcraft.io/rob-cos-data-sharing): data sharing snap for on device cos robotics snaps.
+- [`rob-cos-demo-configuration`](https://snapcraft.io/rob-cos-demo-configuration): contains the configuration of the robot.
+- [`cos-registration-agent`](https://snapcraft.io/cos-registration-agent): responsible for registering the robot on the [`COS-registration-server`](https://charmhub.io/cos-registration-server-k8s) as well as uploading robot specific data to the server (dashboard, foxglove layouts, `UID`, etc).
+- [`ros2-exporter-agent`](https://snapcraft.io/ros2-exporter-agent): responsible for recording data on the robot and syncing them to the [`Ros2BagFileserver`](https://charmhub.io/ros2bag-fileserver-k8s).
+- [`grafana-agent`](https://snapcraft.io/grafana-agent): responsible for sending metrics, logs, and trace data to the Grafana charm.
+- [`foxglove-bridge`](https://snapcraft.io/foxglove-bridge): bridge to visualize live ROS data via the Foxglove websocket connection.
+- [`rob-cos-data-sharing`](https://snapcraft.io/rob-cos-data-sharing): data sharing snap for on device cos robotics snaps.
 
 ## Verify connectivity
 
@@ -51,7 +51,7 @@ robot_1
 Please enter the `rob-cos-server-url`:
 `http://<cos-robotics-server-ip>/cos-robotics-model`
 
-The script will now proceed with the installation of all the required snaps. Upon completion, the device and its corresponding dashboards will be registered and available for visualization on the COS for Robotics server.
+The script will now proceed with the installation of all the required snaps. Upon completion, the device and its corresponding dashboards will be registered and available for visualization on the {{ COS_ROB }} server.
 
 ## Verify Installation
 
@@ -87,4 +87,4 @@ The service can then be enabled with:
 sudo snap start ros2-exporter-agent.recorder
 ```
 
-This is it, now your device is registered and being correctly monitored via COS for Robotics!
+This is it, now your device is registered and being correctly monitored via {{ COS_ROB }}!
