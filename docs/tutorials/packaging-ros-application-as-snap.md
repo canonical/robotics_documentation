@@ -359,7 +359,7 @@ Let’s have a closer look at the types of confinement:
 
 * #### Classic
 
-  Allows access to our system’s resources in much the same way traditional packages do. To safeguard against abuse, publishing a classic snap requires[manual approval](https://snapcraft.io/docs/reviewing-classic-confinement-snaps), and installation requires the `--classic` command line argument. The typical applications allowed with classic confinement are IDEs (`vscode`, `qtcreator`).
+  Allows access to our system’s resources in much the same way traditional packages do. To safeguard against abuse, publishing a classic snap requires[manual approval](https://snapcraft.io/docs/reviewing-classic-confinement-snaps), and installation requires the `--classic` command line argument. The typical applications allowed with classic confinement are IDEs (VS Code, Qt Creator).
 
 * #### Strict
 
