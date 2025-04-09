@@ -204,7 +204,7 @@ linkcheck_ignore = [
     "https://linux.die.net/man/1/curl",
     "https://ubuntu.com/robotics/ros-esm#get-in-touch",
     "https://ubuntu.com/core/features/secure-boot#get-in-touch",
-    "https://ubuntu.com/robotics#get-in-touch"
+    "https://ubuntu.com/robotics#get-in-touch",
     "https://canonical-juju.readthedocs-hosted.com/en/latest/user/explanation/kubernetes-in-juju/",
 ]
 
