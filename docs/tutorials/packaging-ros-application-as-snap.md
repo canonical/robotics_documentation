@@ -230,7 +230,7 @@ parts:
 
 Snapcraft relies on well known and well established ROS tools such as, in this example, [`colcon`](https://snapcraft.io/docs/colcon-plugin). [Plugins](https://snapcraft.io/docs/snapcraft-plugins) allow us to identify such tools.
 
-The packages we’re building must have `install` rules, or else Snapcraft won’t know which components to place into the snap. We should make sure we install binaries, libraries, header files, launch files, etc. Here, we selected the `humble` branch of [ros2-demos Github repository](https://github.com/ros2/demos/tree/humble) as `source-branch`.
+The packages we’re building must have `install` rules, or else Snapcraft won’t know which components to place into the snap. We should make sure we install binaries, libraries, header files, launch files, etc. Here, we selected the `humble` branch of [ros2-demos GitHub repository](https://github.com/ros2/demos/tree/humble) as `source-branch`.
 Since `ros2-demos` contains multiple packages, we select `demo_nodes_cpp` with the `source-subdir` entry.
 
 We notice that `ros-humble-ros2launch` is listed as a `stage-packages`. Stage packages are packages required to run the `part`. Usually this exec dependency is missing from the `package.xml` hence we must specify it. The rest of the dependencies are going to be automatically downloaded with `rosdep` based on the `package.xml`.
