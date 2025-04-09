@@ -11,3 +11,7 @@ Ubuntu Core is great for robotics developers since it unlocks a complete infrast
 [Learn more about Ubuntu Core](https://ubuntu.com/core/docs)
 
 [Download Ubuntu Core certified images for different boards](https://ubuntu.com/certified)
+
+[Learn more about the security features of Ubuntu Core and Snaps](https://ubuntu.com/core/docs/security-and-sandboxing)
+
+[Review guidelines for hardening Ubuntu Core on your robot](https://canonical-robotics.readthedocs-hosted.com/en/latest/explanations/security/securing-ros-robotic-platforms)
