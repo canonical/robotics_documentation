@@ -230,7 +230,7 @@ parts:
 
 Snapcraft relies on well known and well established ROS tools such as, in this example, [`colcon`](https://snapcraft.io/docs/colcon-plugin). [Plugins](https://snapcraft.io/docs/snapcraft-plugins) allow us to identify such tools.
 
-The packages we’re building must have `install` rules, or else Snapcraft won’t know which components to place into the snap. We should make sure we install binaries, libraries, header files, launch files, etc. Here, we selected the `humble` branch of [ros2-demos Github repository](https://github.com/ros2/demos/tree/humble) as `source-branch`.
+The packages we’re building must have `install` rules, or else Snapcraft won’t know which components to place into the snap. We should make sure we install binaries, libraries, header files, launch files, etc. Here, we selected the `humble` branch of [ros2-demos GitHub repository](https://github.com/ros2/demos/tree/humble) as `source-branch`.
 Since `ros2-demos` contains multiple packages, we select `demo_nodes_cpp` with the `source-subdir` entry.
 
 We notice that `ros-humble-ros2launch` is listed as a `stage-packages`. Stage packages are packages required to run the `part`. Usually this exec dependency is missing from the `package.xml` hence we must specify it. The rest of the dependencies are going to be automatically downloaded with `rosdep` based on the `package.xml`.
@@ -353,13 +353,13 @@ confinement: devmode
 
 Let’s have a closer look at the types of confinement:
 
-* #### `Devmode`
+* #### Devmode
 
   A special mode for snap creators and developers. A `devmode` snap runs as a strictly confined snap with full access to system resources, and produces debug output to identify unspecified interfaces. Installation requires the `--devmode` command line argument.
 
 * #### Classic
 
-  Allows access to our system’s resources in much the same way traditional packages do. To safeguard against abuse, publishing a classic snap requires[manual approval](https://snapcraft.io/docs/reviewing-classic-confinement-snaps), and installation requires the `--classic` command line argument. The typical applications allowed with classic confinement are IDEs (VS Code, QT Creator).
+  Allows access to our system’s resources in much the same way traditional packages do. To safeguard against abuse, publishing a classic snap requires[manual approval](https://snapcraft.io/docs/reviewing-classic-confinement-snaps), and installation requires the `--classic` command line argument. The typical applications allowed with classic confinement are IDEs (VS Code, Qt Creator).
 
 * #### Strict
 
