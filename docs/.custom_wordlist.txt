@@ -12,13 +12,17 @@ ASLR
 automatize
 Avahi
 backdoors
-blocklisting
+BagFileserver
 blocklisted
+blocklisting
 bootable
 bringup
 BringUp
 CANBus
+Canonical
+catkin_tools
 charmhub
+Charmhub
 charmstore
 CIs
 CMake
@@ -34,6 +38,7 @@ customize
 de
 debian
 demo_nodes_cpp
+deployable
 deployable
 Dev
 devel
@@ -120,7 +125,6 @@ roboticists
 Robotis
 ros
 ROS
-BagFileserver
 rosdep
 rosinstall
 roslaunch
@@ -131,6 +135,7 @@ Rospack
 runtime
 sandboxed
 scalability
+scalable
 sequential_nav
 SHA
 snapcore
@@ -145,6 +150,7 @@ Spotify
 subdirectory
 subfolder
 sudo
+superset
 symlink
 syslog
 systemctl
