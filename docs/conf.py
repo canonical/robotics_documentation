@@ -198,12 +198,14 @@ redirects = {}
 #
 # TODO: Remove or adjust the ACME entry after you update the contributing guide
 
-linkcheck_ignore = ["http://127.0.0.1:8000", 
-"https://github.com/canonical/ACME/*",
-"https://linux.die.net/man/1/curl",
-"https://ubuntu.com/robotics/ros-esm#get-in-touch",
-"https://ubuntu.com/core/features/secure-boot#get-in-touch",
-"https://ubuntu.com/robotics#get-in-touch"
+linkcheck_ignore = [
+    "http://127.0.0.1:8000",
+    "https://github.com/canonical/ACME/*",
+    "https://linux.die.net/man/1/curl",
+    "https://ubuntu.com/robotics/ros-esm#get-in-touch",
+    "https://ubuntu.com/core/features/secure-boot#get-in-touch",
+    "https://ubuntu.com/robotics#get-in-touch"
+    "https://canonical-juju.readthedocs-hosted.com/en/latest/user/explanation/kubernetes-in-juju/",
 ]
 
 
@@ -215,7 +217,6 @@ linkcheck_anchors_ignore_for_url = [
     r"https://ubuntu.com/robotics#get-in-touch",
     r"https://ubuntu.com/robotics/ros-esm#get-in-touch",
     r"https://ubuntu.com/core/features/secure-boot#get-in-touch",
-
 ]
 
 # give linkcheck multiple tries on failure
@@ -322,6 +323,4 @@ if "discourse_prefix" not in html_context and "discourse" in html_context:
 
 myst_heading_anchors = 2
 
-myst_substitutions = {
-  "COS_ROB": "COS for robotics"
-}
+myst_substitutions = {"COS_ROB": "COS for robotics"}

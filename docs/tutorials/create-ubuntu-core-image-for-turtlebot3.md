@@ -126,7 +126,7 @@ Let’s add the TurtleBot3c snaps to our `turtlebot3c-model.json`:
    }
 ```
 
-Note that we’ve also added the `ros-noetic-robot` snap. We need it since we are using the TurtleBot3c [ROS snap content-sharing approach](https://ubuntu.com/robotics/docs/ros-architectures-with-snaps#heading--multi-snaps-content-sharing) that depends on `ros-noetic-robot` to provide the ROS libraries.
+Note that we’ve also added the `ros-noetic-robot` snap. We need it since we are using the TurtleBot3c [ROS snap content-sharing approach](https://canonical-robotics.readthedocs-hosted.com/en/latest/explanations/snaps/ros-architectures-with-snaps/#multi-snaps-using-content-sharing) that depends on `ros-noetic-robot` to provide the ROS libraries.
 
 #### Networking snaps
 
