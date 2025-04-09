@@ -76,6 +76,7 @@ PlotJuggler
 PYTHONPATH
 qtcreator
 reusability
+roboticists
 Robotis
 ROS
 rosdep
@@ -124,4 +125,3 @@ vscode
 waffle_pi
 websocket
 wirelessly
-roboticists
