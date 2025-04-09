@@ -8,7 +8,7 @@ Robotics software should benefit from a controlled and stable environment, with 
 
 This developer guide will take us through the process of packaging our first ROS application as a snap.
 
-Snaps offer a solution to build and distribute containerized robotics applications or any software. It is the de-facto distribution tool for companies deploying software on `Ubuntu`, including `Microsoft`, `Google`, `Spotify` and more. As such, we will be able to leverage the same tooling and global infrastructure for our application.
+Snaps offer a solution to build and distribute containerized robotics applications or any software. It is the de-facto distribution tool for companies deploying software on Ubuntu, including `Microsoft`, `Google`, `Spotify` and more. As such, we will be able to leverage the same tooling and global infrastructure for our application.
 
 Throughout this developer guide, we will cover the basics of snap creation for ROS and ROS 2 applications. By introducing the main concepts behind snaps, we will see how to confine our robotics application and make it installable on dozens of Linux distributions.
 
@@ -20,7 +20,7 @@ We will need an up and running Ubuntu 20.04 LTS or similar operating system.
 Ubuntu 20.04 LTS should be the minimum version as it is still under maintenance. The installation could be native or in a VM. If using a container, we must be sure that we can install and run systemd, snapd and snaps.
 ```
 
-In addition, we will need basic knowledge about ROS or ROS 2 as well as some basic understanding of the Linux environment (`Ubuntu`).
+In addition, we will need basic knowledge about ROS or ROS 2 as well as some basic understanding of the Linux environment (Ubuntu).
 
 This developer guide has been tailored for robotics developers looking for a solution to deploy their robotics software and applications. No previous experience with snaps is necessary.
 
@@ -62,7 +62,7 @@ Snaps were designed for embedded Linux applications, with optimisations for ROS 
 
 *Snapd is a daemon required to download, install and run snaps. Snapd also includes the snap command, used to communicate with snapd.*
 
-Installing `snapd` is straightforward in most Linux distributions. `Snapd` comes pre-installed on most  `Ubuntu` flavours.
+Installing `snapd` is straightforward in most Linux distributions. `Snapd` comes pre-installed on most  Ubuntu flavours.
 In most cases, `snapd` can be installed with:
 
 ```bash
@@ -359,7 +359,7 @@ Let’s have a closer look at the types of confinement:
 
 * #### Classic
 
-  Allows access to our system’s resources in much the same way traditional packages do. To safeguard against abuse, publishing a classic snap requires[manual approval](https://snapcraft.io/docs/reviewing-classic-confinement-snaps), and installation requires the `--classic` command line argument. The typical applications allowed with classic confinement are IDEs (`vscode`, `qtcreator`).
+  Allows access to our system’s resources in much the same way traditional packages do. To safeguard against abuse, publishing a classic snap requires[manual approval](https://snapcraft.io/docs/reviewing-classic-confinement-snaps), and installation requires the `--classic` command line argument. The typical applications allowed with classic confinement are IDEs (VS Code, QT Creator).
 
 * #### Strict
 
@@ -491,7 +491,7 @@ One of the advantages of using snaps is that they can turn our application into 
 A daemon can take different forms, where the first two daemons are the most used forms:
 
 * **simple**: Run for as long as the service is active - this is typically the default option.
-* **`oneshot`**: Run once and exit after completion, notifying systemd.
+* **oneshot**: Run once and exit after completion, notifying systemd.
 * **forking**: The configured command calls fork() as part of its start-up, and the parent process is then expected to exit when start-up is complete.
 * **notify**: Assumes the command will send a signal to systemd to indicate its running state.
 
@@ -605,7 +605,7 @@ We have seen how to stop/disable our service, but of course we also have the cor
 
 In this developer guide, we went through the creation of a basic ROS 2 snap. But in the process, we learned the basics to create our own ROS snap as well. We have covered the basic concepts of a snap, how to build and run them. We also shared the benefits and good development practices. There are more features and advanced development tips that we have yet to cover. The [turtlebot3 snap example](https://ubuntu.com/blog/how-to-set-up-turtlebot3-in-minutes-with-snaps) shows how we can use snap to make your robot software easily installable.
 
-Visit the [robotics documentation](/index) to go further. If you have any questions or need help, you can visit and post your question on the [`Ubuntu` robotics forum](https://discourse.ubuntu.com/c/project/robotics/121).
+Visit the [robotics documentation](/index) to go further. If you have any questions or need help, you can visit and post your question on the [Ubuntu robotics forum](https://discourse.ubuntu.com/c/project/robotics/121).
 
 ```{eval-rst}
 

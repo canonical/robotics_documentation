@@ -40,7 +40,7 @@ By the end of this exercise, you will have a new command available:
     +   stage-packages: [ros-humble-ros2launch, ros-humble-ros2topic]
     ```
 
-  * We add our dependency (`ros-humble-ros2topic`) to the `stage-packages` list. `Stage-packages` are packages that are required to run the part. Here we decided to add our dependency to our already existing `ros-demos` part for simplicity. Alternatively, we could have created an additional empty part simply to add our `stage-packages` dependency.
+    - We add our dependency (`ros-humble-ros2topic`) to the `stage-packages` list. `Stage-packages` are packages that are required to run the part. Here we decided to add our dependency to our already existing `ros-demos` part for simplicity. Alternatively, we could have created an additional empty part simply to add our `stage-packages` dependency.
 
   * Add an additional app:
 
@@ -58,7 +58,7 @@ By the end of this exercise, you will have a new command available:
     +   extensions: [ros2-humble]
     ```
 
-  * We added another application entry to our snap. We kept the plugs and extensions and simply exposed the `ros2 topic` command.
+    - We added another application entry to our snap. We kept the plugs and extensions and simply exposed the `ros2 topic` command.
 
   * Build and install the new snap:
 
