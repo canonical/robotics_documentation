@@ -73,6 +73,7 @@ GPG
 GPIO
 grafana
 Grafana
+hardening
 Hawksbill
 hostname
 hotspot
@@ -139,6 +140,8 @@ runtime
 sandboxed
 scalability
 scalable
+security
+security-docs
 sequential_nav
 SHA
 snapcore
