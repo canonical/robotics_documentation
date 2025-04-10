@@ -22,6 +22,8 @@ CIs
 CMake
 CMD
 colcon
+config
+containerized
 cpp
 de
 debian
@@ -44,6 +46,7 @@ githubusercontent
 gmapping
 GPG
 Grafana
+hardening
 Hawksbill
 hostname
 hotspot
@@ -61,6 +64,9 @@ LXD
 macOS
 MicroK8s
 middleware
+minimize
+minimizing
+modularity
 Multipass
 mux
 Nav
@@ -86,6 +92,10 @@ roslog
 rosnode
 rospack
 sandboxed
+scalability
+scalable
+security
+security-docs
 sequential_nav
 SHA
 snapcore
@@ -124,4 +134,7 @@ VPNs
 vscode
 waffle_pi
 websocket
+Wifi
 wirelessly
+xml
+yaml
