@@ -23,7 +23,7 @@ import datetime
 #
 # TODO: Update with the official name of your project or product
 
-project = "Documentation starter pack"
+project = "Robotics"
 author = "Canonical Ltd."
 
 
@@ -69,7 +69,7 @@ copyright = "%s CC-BY-SA, %s" % (datetime.date.today().year, author)
 # NOTE: The Open Graph Protocol (OGP) enhances page display in a social graph
 #       and is used by social media platforms; see https://ogp.me/
 
-ogp_site_url = "https://canonical-starter-pack.readthedocs-hosted.com/"
+ogp_site_url = "https://canonical-robotics.readthedocs-hosted.com/"
 
 
 # Preview name of the documentation website
@@ -105,7 +105,7 @@ html_context = {
     # TODO: If there's no such website,
     #       remove the {{ product_page }} link from the page header template
     #       (usually .sphinx/_templates/header.html; also, see README.rst).
-    "product_page": "documentation.ubuntu.com",
+    "product_page": "ubuntu.com/robotics",
     # Product tag image; the orange part of your logo, shown in the page header
     #
     # TODO: To add a tag image, uncomment and update as needed.
@@ -142,7 +142,7 @@ html_context = {
     "repo_folder": "/docs/",
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
-    # "sequential_nav": "both",
+    "sequential_nav": "both",
     # TODO: To enable listing contributors on individual pages, set to True
     "display_contributors": False,
     # Required for feedback button
@@ -198,12 +198,14 @@ redirects = {}
 #
 # TODO: Remove or adjust the ACME entry after you update the contributing guide
 
-linkcheck_ignore = ["http://127.0.0.1:8000", 
-"https://github.com/canonical/ACME/*",
-"https://linux.die.net/man/1/curl",
-"https://ubuntu.com/robotics/ros-esm#get-in-touch",
-"https://ubuntu.com/core/features/secure-boot#get-in-touch",
-"https://ubuntu.com/robotics#get-in-touch"
+linkcheck_ignore = [
+    "http://127.0.0.1:8000",
+    "https://github.com/canonical/ACME/*",
+    "https://linux.die.net/man/1/curl",
+    "https://ubuntu.com/robotics/ros-esm#get-in-touch",
+    "https://ubuntu.com/core/features/secure-boot#get-in-touch",
+    "https://ubuntu.com/robotics#get-in-touch",
+    "https://canonical-juju.readthedocs-hosted.com/en/latest/user/explanation/kubernetes-in-juju/",
 ]
 
 
@@ -215,7 +217,6 @@ linkcheck_anchors_ignore_for_url = [
     r"https://ubuntu.com/robotics#get-in-touch",
     r"https://ubuntu.com/robotics/ros-esm#get-in-touch",
     r"https://ubuntu.com/core/features/secure-boot#get-in-touch",
-
 ]
 
 # give linkcheck multiple tries on failure
@@ -322,6 +323,4 @@ if "discourse_prefix" not in html_context and "discourse" in html_context:
 
 myst_heading_anchors = 2
 
-myst_substitutions = {
-  "COS_ROB": "COS for robotics"
-}
+myst_substitutions = {"COS_ROB": "COS for robotics"}

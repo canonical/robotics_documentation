@@ -5,7 +5,8 @@ Observability
    :maxdepth: 3
    :caption: observability
 
-   what-is-rob-cos
+   what-is-cos-for-robotics
+   alert-rules-configuration-from-device
 
 
 |COS_ROB| stands for Canonical Observability Stack for robotics and is a superset of
