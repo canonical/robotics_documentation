@@ -1,12 +1,10 @@
 :sequential_nav: next
 
-Robotics packaging how-to guides 
-================================
+Packaging how-to guides
+=======================
 
 .. toctree::
-   :maxdepth: 3
-   :caption: snapcraft
-
+   :maxdepth: 1
 
    Build and publish a snap with GitHub Actions <build-and-publish-snap-with-github-actions.md>
    Debugging Snap Applications <debugging-snap-applications.md>

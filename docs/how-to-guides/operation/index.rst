@@ -1,11 +1,9 @@
 :sequential_nav: next
 
 Operation how-to guides
-================================
+=======================
 
 .. toctree::
-   :maxdepth: 3
-   :caption: observe
-
+   :maxdepth: 1
 
    write-configuration-snap-for-cos-for-robotics
