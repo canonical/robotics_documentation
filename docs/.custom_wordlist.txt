@@ -3,6 +3,7 @@ activatable
 Alertmanager
 AMCL
 ament
+Alertmanager
 AppArmor
 Armor
 ASLR
@@ -118,6 +119,9 @@ Teleoperate
 teleoperated
 teleoperating
 teleoperation
+Teleoperation
+templated
+Templated
 transactionality
 transactionally
 TurtleBot
@@ -138,3 +142,7 @@ Wifi
 wirelessly
 xml
 yaml
+Charmhub
+superset
+deployable
+scalable
