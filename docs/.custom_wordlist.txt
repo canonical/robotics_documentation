@@ -17,6 +17,7 @@ BringUp
 CANBus
 Canonical
 catkin_tools
+charmhub
 Charmhub
 charmstore
 CIs
@@ -30,6 +31,8 @@ de
 debian
 demo_nodes_cpp
 deployable
+deployable
+Dev
 devel
 Devmode
 DevOps
@@ -108,6 +111,7 @@ SoCs
 Spotify
 subfolder
 sudo
+superset
 symlink
 syslog
 systemctl
