@@ -9,13 +9,13 @@ Alertmanager can be configured to send notifications on multiple
 In this How-To-Guide,
 you will configure the Alertmanager application to send emails on alerts.
 
-# Alertmanager configuration
+## Alertmanager configuration
 
 The configuration of Alertmanager is done by a YAML file later loaded in the application.
 The YAML file follows the
 [scheme defined in the official documentation](https://prometheus.io/docs/alerting/latest/configuration/#file-layout-and-global-settings).
 
-## Get the app password
+### Get the app password
 
 Before configuring the Alertmanager, you must get a token called "app password",
 to let Alertmanager send emails from your account.
@@ -27,7 +27,7 @@ and create a new app password.
 Make sure to copy the created code, and place it in the `alert-manager.yaml`
 configuration file.
 
-## Write the configurations file for Alertmanager
+### Write the configurations file for Alertmanager
 
 Alertmanager is configured via a YAML file.
 To get a starting point for the file,
@@ -39,7 +39,7 @@ In the "status" tab, you will find at the bottom, the actual config to use as a 
 In addition to the default configuration,
 you will add two entry: `route` and `receivers`.
 
-### Route
+#### Route
 
 The [route attribute](https://prometheus.io/docs/alerting/latest/configuration/#route-related-settings) defines where and how the alerts are dispatched.
 Here, the idea is to group alerts not only from devices but also from Juju applications.
@@ -69,7 +69,7 @@ route:
       continue: true
 ```
 
-### Receiver
+#### Receiver
 
 The [receiver attribute](https://prometheus.io/docs/alerting/latest/configuration/#receiver-integration-settings)
 defines the integration with specific receivers (email, chat, web-hooks, etc).
@@ -93,7 +93,7 @@ receivers:
         auth_identity: 'user.name@gmail.com'
 ```
 
-## Apply the Alertmanager configuration
+### Apply the Alertmanager configuration
 
 With the previously defined Alertmanager configuration in an `alert-manager.yaml`,
 you can apply the configuration to the Juju application.
@@ -109,7 +109,7 @@ You can verify that the configuration got applied by going in the status tab of 
 Since the Alertmanager Juju application has a watchdog alert, you will receive your first alert right after.
 
 
-# Email alert template
+## Email alert template
 
 Now that the configuration of the application is done,
 you can also configure the [email notification template](https://prometheus.io/docs/alerting/latest/notifications/#notification-template-reference)
