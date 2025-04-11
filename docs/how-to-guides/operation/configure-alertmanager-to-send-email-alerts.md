@@ -4,9 +4,9 @@ Once an alert is triggered by Prometheus or Loki,
 the alert is received and distributed by Alertmanager.
 
 Alertmanager can be configured to send notifications on multiple
-[receiver](https://prometheus.io/docs/alerting/latest/configuration/#general-receiver-related-settings)
+[receivers](https://prometheus.io/docs/alerting/latest/configuration/#general-receiver-related-settings)
 
-In this How-To-Guide,
+In this how-to guide,
 you will configure the Alertmanager application to send emails on alerts.
 
 ## Alertmanager configuration
@@ -20,7 +20,7 @@ The YAML file follows the
 Before configuring the Alertmanager, you must get a token called "app password",
 to let Alertmanager send emails from your account.
 
-With a Gmail logged in account,
+While logged into your Gmail account, go to the [App passwords page](https://myaccount.google.com/apppasswords) and generate a new app password.
 visit the [Gmail app password page](https://myaccount.google.com/apppasswords),
 and create a new app password.
 
