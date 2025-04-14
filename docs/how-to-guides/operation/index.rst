@@ -7,3 +7,4 @@ Operation how-to guides
    :maxdepth: 1
 
    write-configuration-snap-for-cos-for-robotics
+   configure-alertmanager-to-send-email-alerts
