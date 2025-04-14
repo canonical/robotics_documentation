@@ -1,9 +1,9 @@
 ABI
 activatable
 Alertmanager
+Alertmanager
 AMCL
 ament
-Alertmanager
 AppArmor
 Armor
 ASLR
@@ -19,6 +19,7 @@ Canonical
 catkin_tools
 charmhub
 Charmhub
+Charmhub
 charmstore
 CIs
 CMake
@@ -30,6 +31,7 @@ cpp
 de
 debian
 demo_nodes_cpp
+deployable
 deployable
 deployable
 Dev
@@ -99,6 +101,8 @@ rospack
 sandboxed
 scalability
 scalable
+scalable
+SDKs
 security
 security-docs
 sequential_nav
@@ -112,6 +116,7 @@ SoCs
 Spotify
 subfolder
 sudo
+superset
 superset
 symlink
 syslog
@@ -147,7 +152,3 @@ Wifi
 wirelessly
 xml
 yaml
-Charmhub
-superset
-deployable
-scalable
