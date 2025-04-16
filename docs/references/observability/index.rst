@@ -18,3 +18,4 @@ to your robots and devices.
    :caption: observability
 
    rob-cos-faq
+   cos-registration-server-api
