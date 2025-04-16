@@ -111,7 +111,7 @@ we must know 'relate' them through Juju
 [relations](https://documentation.ubuntu.com/juju/latest/reference/relation/).
 
 Since the stacks live in separate models, we must establish a so called
-[coss-model relations](https://documentation.ubuntu.com/juju/latest/reference/relation/index.html#cross-model).
+[coss-model relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/#cross-model).
 These are two folds, firstly we need to expose some applications from one model to the other,
 secondly we can relate applications as we normally would using Juju.
 
