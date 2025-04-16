@@ -26,7 +26,7 @@ There are multiple strategies for the topology of this double deployment.
 For the sake of this how-to, we assume that that {{ COS }} and {{ COS_ROB }} live
 in their respective models and that both are controlled by the same Juju controller.
 Make sure to read Juju's documentation about
-[coss-model relations](https://documentation.ubuntu.com/juju/latest/reference/relation/index.html#cross-model)
+[coss-model relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/#cross-model)
 as we are using this feature and since it may impact the very boostrapping of the controllers
 depending on the topology.
 ```
