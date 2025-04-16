@@ -8,11 +8,11 @@ This document is intended for developers and engineers working with the Canonica
 
 ## Canonical Robotics Stack Overview
 
-![ref architecture](./ref_architecture.jpg)
+![ref architecture](./reference_architecture.jpg)
 
 The Canonical robotics stack streamlines the lifecycle of robotics applications through the following key phases:
 
-1. **Development and Packaging**: Developers use tools like Workshop, SDKs and Snapcraft to create and package robotics applications into secure, portable snaps, tested in isolated LXD containers.
+1. **Development and Packaging**: Developers use Snapcraft to create and package robotics applications into secure, portable snaps, tested in isolated LXD containers.
 2. **Distribution**: Packaged snaps are uploaded to the Snap Store, serving as the central repository for robot devices and observability systems.
 3. **Deployment and Operations**: Applications and observability agents run on Ubuntu Core-based robot devices, ensuring a reliable and secure runtime environment.
 4. **Observability and Monitoring**: The Canonical Observability Stack (COS), managed by Juju, collects and visualizes performance data from robots, enabling effective monitoring and troubleshooting.
@@ -47,7 +47,7 @@ We have implemented an observability stack ({{COS_ROB}}) purposefully for ROS sn
 
 ## Summary of the entire workflow
 
-1. Developers write and package applications using SDKs and Snapcraft.
+1. Developers write and package applications using Snapcraft.
 2. The snaps are uploaded to the Snap Store.
 3. The robot devices fetch ROS snaps and observability agents from the Snap Store.
 4. Observability data is sent to the COS Server, which is deployed via charms from Charmhub.
