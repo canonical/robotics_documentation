@@ -107,7 +107,7 @@ Alright, we're all setup and we can get to relating the stacks.
 ## Deploy the Grafana agent
 
 With both {{ COS_ROB }} and {{ COS }} deployed in their respective models,
-we must know 'relate' them through Juju
+we must now 'relate' them through Juju
 [relations](https://documentation.ubuntu.com/juju/latest/reference/relation/).
 
 Since the stacks live in separate models, we must establish a so called
