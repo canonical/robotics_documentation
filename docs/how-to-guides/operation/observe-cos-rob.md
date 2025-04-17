@@ -23,7 +23,7 @@ for probing of endpoints.
 
 ```{note}
 There are multiple strategies for the topology of this double deployment.
-For the sake of this how-to, we assume that that {{ COS }} and {{ COS_ROB }} live
+For the sake of this how-to, we assume that {{ COS }} and {{ COS_ROB }} live
 in their respective models and that both are controlled by the same Juju controller.
 Make sure to read Juju's documentation about
 [coss-model relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/#cross-model)
