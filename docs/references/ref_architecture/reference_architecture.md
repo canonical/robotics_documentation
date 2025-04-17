@@ -22,6 +22,7 @@ The Canonical robotics stack streamlines the lifecycle of robotics applications 
 - **Snapcraft**: The tool used to package applications into snaps. Developers use it to create confined, secure, and portable packages.
     > Get started with [Snapcraft tutorials for packaging and distributing ROS snap applications](../../tutorials/snapcraft.rst)
 - **[LXD Containers](https://documentation.ubuntu.com/lxd/en/stable-5.21/)**: Lightweight containers used to test applications in isolated environments before deployment.
+- **[Colcon in-container](https://github.com/canonical/colcon-in-container)**: `colcon` extension to build, test and release inside a fresh and isolated ROS environment and transfer the results back to the host.
 
 ### Packaging and Publishing
 
