@@ -199,7 +199,7 @@ redirects = {
     "docs/how-to-guides/": "/how-to-guides/",
     "docs/how-to-guides/packaging/build-and-publish-snap-with-github-actions/": "/how-to-guides/packaging/build-and-publish-snap-with-github-actions/",
     "docs/how-to-guides/packaging/migrate_from_docker_to_snap": "how-to-guides/packaging/migrate_from_docker_to_snap",
-    "docs/how-to-guides/packaging/ros-2-shared-memory-in-snaps": "../how-to-guides/packaging/ros-2-shared-memory-in-snaps",
+    "docs/how-to-guides/packaging/ros-2-shared-memory-in-snaps": "../../../../how-to-guides/packaging/ros-2-shared-memory-in-snaps",
     "docs/how-to-guides/packaging/ros-distributions-with-no-extensions/": "../../../../how-to-guides/packaging/ros-distributions-with-no-extensions/",
     "docs/how-to-guides/packaging/config-a-snap-pull-from-a-server.html": "../../../../how-to-guides/packaging/config-a-snap-pull-from-a-server.html",
     "docs/how-to-guides/packaging/config-a-snap-using-content-snap": "../../../how-to-guides/packaging/config-a-snap-using-content-snap/",
