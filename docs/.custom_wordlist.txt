@@ -1,7 +1,6 @@
 ABI
 activatable
 Alertmanager
-Alertmanager
 AMCL
 ament
 AppArmor
@@ -19,7 +18,6 @@ Canonical
 catkin_tools
 charmhub
 Charmhub
-Charmhub
 charmstore
 CIs
 CMake
@@ -31,8 +29,6 @@ cpp
 de
 debian
 demo_nodes_cpp
-deployable
-deployable
 deployable
 Dev
 devel
