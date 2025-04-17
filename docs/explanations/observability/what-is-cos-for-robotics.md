@@ -17,7 +17,7 @@ On the following drawing,
 we can see a fleet of devices using snaps to push data to the {{ COS_ROB }} server,
 which is then available to the user for visualization.
 
-[!image](https://assets.ubuntu.com/v1/5d37e875-what-is-rob-cos.jpg)
+![image](https://assets.ubuntu.com/v1/5d37e875-what-is-rob-cos.jpg)
 
 ## How {{ COS_ROB }} works
 
