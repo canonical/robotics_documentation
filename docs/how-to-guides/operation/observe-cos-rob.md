@@ -129,7 +129,7 @@ This setup is depicted in [the following diagram](#cos-cosrob-diagram):
 :config: {"fontFamily": "ubuntu", "theme": "dark"}
 :align: center
 graph LR;
-    subgraph Cloud 1 [COS ROB]
+    subgraph Cloud 1 [COS for Robotics]
         A(Grafana)
         B(Prometheus)
         C(Foxglove Studio)
