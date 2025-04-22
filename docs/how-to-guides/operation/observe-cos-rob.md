@@ -145,7 +145,7 @@ graph LR;
         C --> E
     end
 
-    subgraph Cloud 2 [{{ COS }}]
+    subgraph Cloud 2 [COS Lite]
         F(Grafana)
         H(Prometheus)
         G(Loki)
