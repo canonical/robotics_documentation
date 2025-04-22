@@ -14,6 +14,7 @@ blocklisted
 blocklisting
 bootable
 BringUp
+Caddy
 CANBus
 Canonical
 catkin_tools
