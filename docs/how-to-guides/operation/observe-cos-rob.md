@@ -113,7 +113,7 @@ we must now 'relate' them through Juju
 Since the stacks live in separate models, we must establish a so called
 [coss-model relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/#cross-model).
 These are two folds, firstly, we need to expose some applications from one model to the other,
-secondly we can relate applications as we normally would using Juju.
+secondly, we can relate applications as we normally would using Juju.
 
 To ease the setup, we deploy the [Grafana agent](https://charmhub.io/grafana-agent-k8s)
 in the {{ COS_ROB }} model.
