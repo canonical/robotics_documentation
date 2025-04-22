@@ -10,6 +10,7 @@ ASLR
 Avahi
 backdoors
 BagFileserver
+Blackbox
 blocklisted
 blocklisting
 bootable

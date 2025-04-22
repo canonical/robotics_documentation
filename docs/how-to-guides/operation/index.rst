@@ -8,3 +8,4 @@ Operation how-to guides
 
    write-configuration-snap-for-cos-for-robotics
    configure-alertmanager-to-send-email-alerts
+   observe-cos-rob

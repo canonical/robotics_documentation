@@ -292,6 +292,7 @@ extensions = [
     "canonical_sphinx",
     "sphinxcontrib.cairosvgconverter",
     "sphinx_last_updated_by_git",
+    "sphinxcontrib.mermaid",
 ]
 
 # Excludes files or directories from processing
@@ -357,4 +358,11 @@ if "discourse_prefix" not in html_context and "discourse" in html_context:
 
 myst_heading_anchors = 2
 
-myst_substitutions = {"COS_ROB": "COS for robotics"}
+myst_substitutions = {"COS_ROB": "COS for robotics", "COS": "COS Lite"}
+
+# This doesn't work atm.
+# It is thus necessary to set the theme for each mermaid block
+# mermaid_init_js = "mermaid.initialize({startOnLoad:false,theme:'dark'});"
+
+# Those parameters are used by other builders than html (e.g. pdf)
+# mermaid_params = ["--theme", "dark"]
