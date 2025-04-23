@@ -11,6 +11,6 @@ Canonical robotics solutions and help you understand how things fit together.
 
    Snaps <explanations/snaps/index>
    Ubuntu Core <explanations/ubuntu-core.md>
-   Security <explanations/security/index>
+   Security <explanations/security/securing-ros-robotic-platforms>
    IoT App Store <explanations/iot-app-store>
    Observability <explanations/observability/index>
