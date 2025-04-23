@@ -57,9 +57,9 @@ Next, let’s configure a custom Grafana dashboard to visualize the probed devic
 
 ## Deploy COS configuration charm
 
-By default, the Blackbox Exporter charm includes a [standard Grafana dashboard template](https://github.com/canonical/blackbox-exporter-k8s-operator/blob/main/src/grafana_dashboards/blackbox.json.tmpl). However, this dashboard does not include the visualization of devices UIDs as labels.
+By default, the Blackbox Exporter charm includes a [standard Grafana dashboard template](https://github.com/canonical/blackbox-exporter-k8s-operator/blob/main/src/grafana_dashboards/blackbox.json.tmpl). However, this dashboard does not include the visualization of devices UUID as labels.
 
-To visualize the status of devices along with their uids, we are going to use the [cos-configuration-k8s operator](https://github.com/canonical/cos-configuration-k8s-operator) charm, which enables syncing and applying custom dashboards from a Git repository.
+To visualize the status of devices along with their UUID, we are going to use the [cos-configuration-k8s operator](https://github.com/canonical/cos-configuration-k8s-operator) charm, which enables syncing and applying custom dashboards from a Git repository.
 
 A custom Grafana dashboard template is available at https://github.com/canonical/robotics-cos-k8s-config/blob/feat/blackbox-grafana-dashboard/dashboards/grafana/blackbox/blackbox.json.tmpl.
 
@@ -79,7 +79,7 @@ Finally, relate the configuration charm to Grafana to visualise the dashboard:
 juju relate cos-configuration-k8s grafana
 ```
 
-Now, by navigating to Grafana via the Catalogue UI, select the Blackbox Exporter dashboard, and you will see a list of the probed devices with their uid and the status colour:
+Now, by navigating to Grafana via the Catalogue UI, select the Blackbox Exporter dashboard, and you will see a list of the probed devices with their UUID and the status colour:
 
 ![image](https://assets.ubuntu.com/v1/db94992a-blackbox-exporter-monitoring-dashboard-device.png)
 
