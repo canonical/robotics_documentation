@@ -1,7 +1,7 @@
 :sequential_nav: next
 
-Snapcraft Tutorials
-===================
+From zero to hero: deploy a robot with snaps and Ubuntu Core
+============================================================
 
 .. toctree::
    :hidden:
