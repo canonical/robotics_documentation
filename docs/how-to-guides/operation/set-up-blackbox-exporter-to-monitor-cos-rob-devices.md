@@ -11,7 +11,7 @@ by Prometheus and visualized in Grafana.
 
 In this guide we assume that {{ COS_ROB }} has been deployed following the instructions available in [this tutorial](https://canonical-robotics.readthedocs-hosted.com/en/latest/tutorials/observability/deploy-cos-for-robotics-server-in-the-cloud/).
 
-## Deploy Blackbox Exporter K8s charm
+## Deploy Blackbox Exporter charm
 
 Let's start by deploying the Blackbox Exporter charm as part of our {{ COS_ROB }} with:
 
@@ -49,13 +49,13 @@ To enable this, relate Blackbox Exporter to the registration server as follows:
 juju relate blackbox-exporter-k8s:probes cos-registration-server:probes-devices
 ```
 
-To confirm everything is working, open the Blackbox panel in the Catalogue UI and check that the registered devices appear in the list of probes.
+To confirm everything is working, open the Blackbox panel in the Catalogue UI and check that the registered devices appear in the list of recent probes as shown below:
 
-![image](https://assets.ubuntu.com/v1/647024d7-blackbox-device-probe.png)
+<img src="https://assets.ubuntu.com/v1/647024d7-blackbox-device-probe.png" width="80%" style="margin: 20px auto; display: block;">
 
 Next, let’s configure a custom Grafana dashboard to visualize the probed devices with labels and status indicators.
 
-## Deploy cos configuration charm
+## Deploy COS configuration charm
 
 By default, the Blackbox Exporter charm includes a [standard Grafana dashboard template](https://github.com/canonical/blackbox-exporter-k8s-operator/blob/main/src/grafana_dashboards/blackbox.json.tmpl). However, this dashboard does not include the visualization of devices UIDs as labels.
 
@@ -79,6 +79,8 @@ Finally, relate the configuration charm to Grafana to visualise the dashboard:
 juju relate cos-configuration-k8s grafana
 ```
 
-Now, by navigating to Grafana via the Catalogue UI, select the Blackbox Exporter dashboard, and you will see a list of the probed devices labelled as shown below:
+Now, by navigating to Grafana via the Catalogue UI, select the Blackbox Exporter dashboard, and you will see a list of the probed devices with their uid and the status colour:
 
-![image]()
+![image](https://assets.ubuntu.com/v1/db94992a-blackbox-exporter-monitoring-dashboard-device.png)
+
+And that's it! You're now all set to easily monitor the health of your devices!
