@@ -1,3 +1,5 @@
+:sequential_nav: none
+
 Tutorials
 ==================
 
