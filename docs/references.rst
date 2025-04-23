@@ -11,5 +11,5 @@ environment variables description, tool usage etc.
    :includehidden:
 
    Snapcraft <references/snapcraft>
-   Ubuntu Pro and ROS ESM <references/esm-package-list>
+   ROS ESM <references/esm-package-list>
    Observability <references/observability/index>
