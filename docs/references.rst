@@ -8,6 +8,7 @@ environment variables description, tool usage etc.
 
 .. toctree::
    :maxdepth: 2
+   :includehidden:
 
    Snapcraft <references/snapcraft>
    Ubuntu Pro and ROS ESM <references/esm-package-list>
