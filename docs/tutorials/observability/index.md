@@ -1,5 +1,5 @@
 
-# Monitor your robot fleet in-situ
+# Monitor your robot fleet in the field
 
 * [Deploy {{COS_ROB}} for Robotics server-side](deploy-cos-for-robotics-server-in-the-cloud)
 

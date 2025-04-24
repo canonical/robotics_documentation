@@ -14,4 +14,4 @@ They are also be a good place to start learning.
 
    From zero to hero: deploy a robot with snaps and Ubuntu Core <tutorials/snapcraft>
    Getting started with ROS-ESM <tutorials/ubuntu-pro/ros-esm-intro.md>
-   Monitor your robot fleet in-situ <tutorials/observability/index.rst>
+   Monitor your robot fleet in the field <tutorials/observability/index.rst>
