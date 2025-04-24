@@ -8,7 +8,7 @@ As such, snaps offer a solution to build and distribute containerized
 robotics applications or any software.
 
 Snaps are ideal for robotics developers,
-developers as they bundle all your dependencies and assets in one package,
+ as they bundle all your dependencies and assets in one package,
 making applications installable on dozens of Linux distributions and across distributions versions.
 You won't even have to install anything else on your robots' operating system,
 no dependencies, not even ROS if you are using it.
