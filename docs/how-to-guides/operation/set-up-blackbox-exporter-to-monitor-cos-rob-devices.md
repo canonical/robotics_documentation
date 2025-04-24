@@ -6,10 +6,10 @@ over protocols such as HTTP, TCP and ICMP.
 This guide explains how to use the [blackbox-exporter-k8s-operator charm](https://github.com/canonical/blackbox-exporter-k8s-operator)
 to monitor a fleet of {{ COS_ROB }} devices and display their status in a Grafana dashboard.
 
-Blackbox Exporter works by receiving a list of targets to probe and returning metrics about their availability, which can then be scraped
-by Prometheus and visualized in Grafana.
+Blackbox Exporter works by receiving a list of targets to probe and returning metrics about their availability,
+which can then be scraped by Prometheus and visualized in Grafana.
 
-In this guide we assume that {{ COS_ROB }} has been deployed following the instructions available in [this tutorial](https://canonical-robotics.readthedocs-hosted.com/en/latest/tutorials/observability/deploy-cos-for-robotics-server-in-the-cloud/).
+In this guide we assume that {{ COS_ROB }} has been deployed following the instructions available in [this tutorial](../../tutorials/observability/deploy-cos-for-robotics-server-in-the-cloud.md).
 
 ## Deploy Blackbox Exporter charm
 
@@ -22,7 +22,7 @@ juju deploy blackbox-exporter-k8s
 Verify the deployment status with:
 
 ```bash
-juju status --relations --storage --color
+juju status
 ```
 
 ## Relating Blackbox Exporter to {{ COS_ROB }} charms
@@ -41,7 +41,8 @@ You should now see the `blackbox-exporter-k8s` app listed in the Catalogue UI as
 
 ## Probing devices
 
-The COS registration server holds the list of devices to be probed by Blackbox. Any device registered is then automatically targeted by Blackbox for ICMP probing.
+The COS registration server holds the list of devices to be probed by Blackbox.
+Any device registered is then automatically targeted by Blackbox for ICMP probing.
 
 To enable this, relate Blackbox Exporter to the registration server as follows:
 
@@ -49,7 +50,8 @@ To enable this, relate Blackbox Exporter to the registration server as follows:
 juju relate blackbox-exporter-k8s:probes cos-registration-server:probes-devices
 ```
 
-To confirm everything is working, open the Blackbox panel in the Catalogue UI and check that the registered devices appear in the list of recent probes as shown below:
+To confirm everything is working,
+open the Blackbox panel in the Catalogue UI to check the list of probed devices as shown below:
 
 <img src="https://assets.ubuntu.com/v1/647024d7-blackbox-device-probe.png" width="80%" style="margin: 20px auto; display: block;">
 
@@ -57,9 +59,12 @@ Next, let’s configure a custom Grafana dashboard to visualize the probed devic
 
 ## Deploy COS configuration charm
 
-By default, the Blackbox Exporter charm includes a [standard Grafana dashboard template](https://github.com/canonical/blackbox-exporter-k8s-operator/blob/main/src/grafana_dashboards/blackbox.json.tmpl). However, this dashboard does not include the visualization of devices UUID as labels.
+By default, the Blackbox Exporter charm includes a [standard Grafana dashboard template](https://github.com/canonical/blackbox-exporter-k8s-operator/blob/main/src/grafana_dashboards/blackbox.json.tmpl).  
+However, this dashboard does not include the visualization of devices UUID as labels.
 
-To visualize the status of devices along with their UUID, we are going to use the [cos-configuration-k8s operator](https://github.com/canonical/cos-configuration-k8s-operator) charm, which enables syncing and applying custom dashboards from a Git repository.
+To visualize the status of devices along with their UUID,
+we are going to use the [cos-configuration-k8s operator](https://github.com/canonical/cos-configuration-k8s-operator) charm,
+which enables syncing and applying custom dashboards from a Git repository.
 
 A custom Grafana dashboard template is available at https://github.com/canonical/robotics-cos-k8s-config/blob/feat/blackbox-grafana-dashboard/dashboards/grafana/blackbox/blackbox.json.tmpl.
 
@@ -79,7 +84,8 @@ Finally, relate the configuration charm to Grafana to visualise the dashboard:
 juju relate cos-configuration-k8s grafana
 ```
 
-Now, by navigating to Grafana via the Catalogue UI, select the Blackbox Exporter dashboard, and you will see a list of the probed devices with their UUID and the status colour:
+Now, by navigating to Grafana via the Catalogue UI, select the Blackbox Exporter dashboard,
+and you will see a list of the probed devices with their UUID and the status colour:
 
 ![image](https://assets.ubuntu.com/v1/db94992a-blackbox-exporter-monitoring-dashboard-device.png)
 
