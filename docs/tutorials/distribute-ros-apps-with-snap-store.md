@@ -235,7 +235,7 @@ sudo snap install yourname-test-ros2-snapstore
 
 Notice how the `--dangerous` flag is no longer required. This change is a result of our snap being uploaded to the Store and undergoing the revision and signing process. With the snap now public and available in the Store, it becomes accessible to anyone worldwide!
 
-The same command can be used on our robots, we can already start deploying our own snaps in our robotic fleet! If you want to create production grade images, we recommend using Ubuntu Core. For more information, please read the documentation about [Creating Custom Images](https://ubuntu.com/core/docs/custom-images).
+The same command can be used on our robots, we can already start deploying our own snaps in our robotic fleet! If you want to create production grade images, we recommend using Ubuntu Core. For more information, please read the documentation about [Creating Custom Images](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/).
 
 #### Update-our-snap
 
