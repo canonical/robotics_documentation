@@ -1,7 +1,7 @@
 :sequential_nav: none
 
 Tutorials
-==================
+=========
 
 **Thorough tutorials** detailing what Canonical robotics solutions are.
 
