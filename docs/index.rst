@@ -8,7 +8,7 @@ Robotics Documentation
 
   Tutorials <tutorials/index>
   How-to guides <how-to-guides/index>
-  References <references>
+  References <references/index>
   Explanations <explanations/index>
 
 
