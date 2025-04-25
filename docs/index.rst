@@ -9,7 +9,7 @@ Robotics Documentation
   Tutorials <tutorials/index>
   How-to guides <how-to-guides/index>
   References <references>
-  Explanations <explanations>
+  Explanations <explanations/index>
 
 
 From development to deployment, all you need in one single platform. Ubuntu provides robotics companies with a worldwide-use infrastructure to deploy and maintain your robot.
