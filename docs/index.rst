@@ -6,7 +6,7 @@ Robotics Documentation
   :hidden:
   :maxdepth: 3
 
-  Tutorials <tutorials>
+  Tutorials <tutorials/index>
   How-to guides <how-to-guides>
   References <references>
   Explanations <explanations>
