@@ -1,7 +1,7 @@
 :sequential_nav: next
 
-Snaps Explanations
-==================
+Snaps
+=====
 
 Snaps are containers that bundle an application and all its dependencies.
 As such, snaps offer a solution to build and distribute containerized
@@ -26,12 +26,12 @@ developed and maintained by Canonical.
 .. toctree::
    :maxdepth: 1
 
-   ROS architectures with snaps <ros-architectures-with-snaps.md>
-   Identify functionalities and applications of a robotics snap <identify-functionalities-and-apps-of-robotics-snap.md>
-   Snap configurations and hooks <snap-configurations-and-hooks>
-   Snap data and file storage <snap-data-and-file-storage>
-   Snap environment variables <snap-environment-variables>
-   Application orchestration <application-orchestration>
-   Vcstool and rosinstall file <vcstool-and-rosinstall-file>
-   Debug the build of a snap <debug-the-build-of-a-snap>
-   Debug a snap application <debug-a-snap-application>
+   ros-architectures-with-snaps.md
+   identify-functionalities-and-apps-of-robotics-snap.md
+   snap-configurations-and-hooks
+   snap-data-and-file-storage
+   snap-environment-variables
+   application-orchestration
+   vcstool-and-rosinstall-file
+   debug-the-build-of-a-snap
+   debug-a-snap-application

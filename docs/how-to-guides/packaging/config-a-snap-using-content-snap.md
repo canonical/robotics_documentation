@@ -1,5 +1,4 @@
-Configure a snap: using a content snap
-======================================
+# Configure a snap: using a content snap
 
 When a robotics application is snapped, one might want to use it on multiple different robots.
 

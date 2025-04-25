@@ -1,5 +1,4 @@
-How to Debug A Snap Application
-===============================
+# Debugging Snap Applications
 
 > **⚠️  Before you start**
 >

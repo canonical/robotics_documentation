@@ -16,5 +16,5 @@ to your robots and devices.
 .. toctree::
    :maxdepth: 3
 
-   COS registration server API <cos-registration-server-api>
-   FAQ <rob-cos-faq>
+   cos-registration-server-api
+   rob-cos-faq

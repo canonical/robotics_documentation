@@ -1,5 +1,3 @@
-
-
 Snap configurations and hooks
 =============================
 
@@ -8,7 +6,7 @@ Snaps have the capabilities to trigger actions depending on ``snapd`` hooks. The
 As an example for a robotics snap this could be used to select the right LIDAR device.
 
 What are hooks?
-------------------
+---------------
 
 A hook is an executable file that runs within a snap’s confined environment when a certain action occurs.
 
