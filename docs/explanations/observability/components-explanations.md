@@ -79,7 +79,7 @@ The snaps that make up {{ COS_ROB }} are available on the Snap Store.
 - [`rob-cos-grafana-agent`](https://snapcraft.io/rob-cos-grafana-agent)
 - [`rob-cos-demo-configuration`](https://snapcraft.io/rob-cos-demo-configuration)
 
-Additionally, you can [package your own device application as a snap and deploy it along {{ COS_ROB }} snaps](../../tutorials/snapcraft.rst).
+Additionally, you can [package your own device application as a snap and deploy it along {{ COS_ROB }} snaps](/tutorials/snaps-core/index.rst).
 
 ### `cos-registration-agent`
 

@@ -255,7 +255,7 @@ The entry under apps is the app name that should be exposed to the end users. In
 In snap, an application is usually prefixed by the snap name so that the application `my-app` from the snap `my-snap` can be executed by calling `my-snap.my-app`.
 However, if both the snap and the app are called the same, as is the case in our ROS 2 example, the execution command collapses to avoid the tediousness of writing twice the same words.
 
-As a result, the command `ros2-talker-listener.ros2-talker-listener` simply becomes `ros2-talker-listener`. We will see this when [we run the snap]().
+As a result, the command `ros2-talker-listener.ros2-talker-listener` simply becomes `ros2-talker-listener`. We will see this when we run the snap.
 
 Multiple apps can be defined within the same `snapcraft.yaml`. Our snap will then expose multiple commands.
 Then, after the `app` name, we find the `command` entry. This specifies the path to the binary to be run, along with arguments. This is resolved relative to the root of our snap contents (hence there is no ‘`/`’ before `opt`).
