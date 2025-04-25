@@ -34,7 +34,7 @@ If you cannot find an answer to your question here, feel free to ask it on [the 
 
 ## Can my snap save data on the host?
 
-* The snap define some [environment variables for data and file storage](../explanations/snaps/snap-data-and-file-storage.rst) pointing to different locations that a snap can write to depending on the use case of your data.
+* The snap define some [environment variables for data and file storage](/explanations/snaps/snap-data-and-file-storage.rst) pointing to different locations that a snap can write to depending on the use case of your data.
 * You can save data that are common across revisions of a snap. These directories **won’t be backed-up** and restored across revisions:
   * `$SNAP_COMMON`, typical value: `/var/snap/hello-world/common`. Owned by `root`
   * `$SNAP_USER_COMMON`, typical value: `/home/$USER/snap/hello-world/common`. Owned by `$USER`
@@ -88,7 +88,7 @@ If you see something similar to:
 [RTPS_MSG_OUT Error] Permission denied -> Function init
 ```
 
-* ROS 2 communication library is trying to use the shared memory mechanism. Don’t worry, even if you see this error, the messages are going to be transmitted (just not through shared memory). If you want to use the shared memory of ROS 2 within snap, visit: [ROS 2 shared memory in snap](../how-to-guides/packaging/ros-2-shared-memory-in-snaps.md)
+* ROS 2 communication library is trying to use the shared memory mechanism. Don’t worry, even if you see this error, the messages are going to be transmitted (just not through shared memory). If you want to use the shared memory of ROS 2 within snap, visit: [ROS 2 shared memory in snap](/how-to-guides/packaging/ros-2-shared-memory-in-snaps.md)
 
 ## At runtime, the snap shows an error similar to
 
@@ -129,5 +129,5 @@ GPG key server: keyserver.ubuntu.com
 
 ## ROS snap with shared memory doesn't receive or send data on topic
 
-* If you have properly followed the [ROS snap and shared memory how to guide](../how-to-guides/packaging/ros-2-shared-memory-in-snaps.md) but still have problem, make sure that the different processes publishing/subscribing ROS 2 data over shared memory are using the same `USER`.  [FastDDS shared memory can generate communication problems](https://github.com/eProsima/Fast-DDS-docs/blob/master/docs/fastdds/transport/shared_memory/shared_memory.rst?plain=1#L71:L78) if access from different users.
+* If you have properly followed the [ROS snap and shared memory how to guide](/how-to-guides/packaging/ros-2-shared-memory-in-snaps.md) but still have problem, make sure that the different processes publishing/subscribing ROS 2 data over shared memory are using the same `USER`.  [FastDDS shared memory can generate communication problems](https://github.com/eProsima/Fast-DDS-docs/blob/master/docs/fastdds/transport/shared_memory/shared_memory.rst?plain=1#L71:L78) if access from different users.
 * Keep in mind that snap services are running with the `root` user while CLI applications might use a less privileged user (i.e: `ubuntu`) causing the FastDDS shared memory communication problems.
