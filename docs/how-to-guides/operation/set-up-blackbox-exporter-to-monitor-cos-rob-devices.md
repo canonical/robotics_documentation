@@ -78,7 +78,7 @@ juju deploy cos-configuration-k8s \
   --config grafana_dashboards_path=dashboards/grafana/blackbox
 ```
 
-Finally, relate the configuration charm to Grafana to visualise the dashboard:
+Finally, relate the configuration charm to Grafana to visualize the dashboard:
 
 ```bash
 juju relate cos-configuration-k8s grafana
