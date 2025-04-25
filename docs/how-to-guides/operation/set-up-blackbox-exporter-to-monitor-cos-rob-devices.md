@@ -9,7 +9,7 @@ to monitor a fleet of {{ COS_ROB }} devices and display their status in a Grafan
 Blackbox Exporter works by receiving a list of targets to probe and returning metrics about their availability,
 which can then be scraped by Prometheus and visualized in Grafana.
 
-In this guide we assume that {{ COS_ROB }} has been deployed following the instructions available in [this tutorial](../../tutorials/observability/deploy-cos-for-robotics-server-in-the-cloud.md).
+In this guide, we assume that {{ COS_ROB }} has been deployed following the instructions available in [this tutorial](../../tutorials/observability/deploy-cos-for-robotics-server-in-the-cloud.md).
 
 ## Deploy Blackbox Exporter charm
 
@@ -85,7 +85,7 @@ juju relate cos-configuration-k8s grafana
 ```
 
 Now, by navigating to Grafana via the Catalogue UI, select the Blackbox Exporter dashboard,
-and you will see a list of the probed devices with their UUID and the status colour:
+and you will see a list of the probed devices with their UUID and the status color:
 
 ![image](https://assets.ubuntu.com/v1/db94992a-blackbox-exporter-monitoring-dashboard-device.png)
 
