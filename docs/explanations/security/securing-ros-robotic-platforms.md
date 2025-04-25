@@ -68,7 +68,7 @@ There are 2 ways to start using Ubuntu Core. The first is to download, for testi
 
 The second option is to build your production-grade image. This is the intended way of using Ubuntu Core; creating a production image with your final application on it. To achieve this, you will need to create a model assertion, which is a digitally signed document that describes the content of your image. Then, using [ubuntu-image](https://github.com/canonical/ubuntu-image), you can create your own production image ready to be installed under manufacturer requirements in production lines.
 
-For more information see [Build your own Ubuntu Core image Documentation](https://ubuntu.com/core/docs/build-an-image) and [Build and write an image | Ubuntu Core](https://ubuntu.com/core/docs/build-write-image#heading--write).
+For more information see [Build your own Ubuntu Core image Documentation](https://ubuntu.com/core/docs/build-an-image) and [Build and write an image | Ubuntu Core](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/build-the-image/index.html#write-the-image).
 
 As you can see, _Ubuntu Core is not an environment for development, but an OS for deploying production devices._
 
