@@ -131,7 +131,7 @@ html_context = {
     #
     # NOTE: If set, links for viewing the documentation source files
     #       and creating GitHub issues are added at the bottom of each page.
-    "github_url": "https://github.com/canonical/sphinx-docs-starter-pack",
+    "github_url": "https://github.com/canonical/robotics_documentation/",
     # Docs branch in the repo; used in links for viewing the source files
     #
     # TODO: To customise the branch, uncomment and update as needed.
@@ -188,39 +188,39 @@ html_context = {
 #       the sphinx_reredirects extension will be disabled.
 
 redirects = {
-    "docs/tutorials/": "/tutorials/",
-    "docs/tutorials/snapcraft/#": "/tutorials/snapcraft/#",
-    "docs/tutorials/packaging-ros-application-as-snap/": "/tutorials/packaging-ros-application-as-snap/",
-    "docs/tutorials/packaging-complex-robotics-software-with-snaps/": "/tutorials/packaging-complex-robotics-software-with-snaps/",
-    "docs/tutorials/distribute-ros-apps-with-snap-store/": "/tutorials/distribute-ros-apps-with-snap-store/",
-    "docs/tutorials/building-ros-snaps-with-content-sharing/": "/tutorials/building-ros-snaps-with-content-sharing/",
-    "docs/tutorials/create-ubuntu-core-image-for-turtlebot3/": "/tutorials/create-ubuntu-core-image-for-turtlebot3/",
-    "docs/tutorials/ubuntu-pro/ros-esm-intro/": "/tutorials/ubuntu-pro/ros-esm-intro/",
-    "docs/how-to-guides/": "/how-to-guides/",
-    "docs/how-to-guides/packaging/build-and-publish-snap-with-github-actions/": "/how-to-guides/packaging/build-and-publish-snap-with-github-actions/",
-    "docs/how-to-guides/packaging/migrate_from_docker_to_snap/": "/how-to-guides/packaging/migrate_from_docker_to_snap/",
-    "docs/how-to-guides/packaging/ros-2-shared-memory-in-snaps/": "/how-to-guides/packaging/ros-2-shared-memory-in-snaps/",
-    "docs/how-to-guides/packaging/ros-distributions-with-no-extensions/": "/how-to-guides/packaging/ros-distributions-with-no-extensions/",
-    "docs/how-to-guides/packaging/config-a-snap-pull-from-a-server/": "/how-to-guides/packaging/config-a-snap-pull-from-a-server/",
-    "docs/how-to-guides/packaging/config-a-snap-using-content-snap/": "/how-to-guides/packaging/config-a-snap-using-content-snap/",
-    "docs/how-to-guides/packaging/config-a-snap-make-config-overwritable/": "/how-to-guides/packaging/config-a-snap-make-config-overwritable/",
-    "docs/references/snapcraft/": "/references/snapcraft/",
-    "docs/references/plugins/": "/references/plugins/",
-    "docs/references/extensions/": "/references/extensions/",
-    "docs/references/faq/": "/references/faq/",
-    "docs/explanations/": "/explanations/",
-    "docs/explanations/ubuntu-core/": "/explanations/ubuntu-core/",
-    "docs/explanations/security/securing-ros-robotic-platforms/": "/explanations/security/securing-ros-robotic-platforms/",
-    "docs/explanations/snaps/ros-architectures-with-snaps/": "/explanations/snaps/ros-architectures-with-snaps/",
-    "docs/explanations/snaps/identify-functionalities-and-apps-of-robotics-snap/": "/explanations/snaps/identify-functionalities-and-apps-of-robotics-snap/",
-    "docs/explanations/snaps/snap-configurations-and-hooks/": "/explanations/snaps/snap-configurations-and-hooks/",
-    "docs/explanations/snaps/snap-data-and-file-storage/": "/explanations/snaps/snap-data-and-file-storage/",
-    "docs/explanations/snaps/snap-environment-variables/": "/explanations/snaps/snap-environment-variables/",
-    "docs/explanations/snaps/application-orchestration/": "/explanations/snaps/application-orchestration/",
-    "docs/explanations/snaps/vcstool-and-rosinstall-file/": "/explanations/snaps/vcstool-and-rosinstall-file/",
-    "docs/explanations/snaps/debug-the-build-of-a-snap/": "/explanations/snaps/debug-the-build-of-a-snap/",
-    "docs/explanations/snaps/debug-a-snap-application/": "/explanations/snaps/debug-a-snap-application/",
-    "docs/explanations/iot-app-store/": "/explanations/iot-app-store/",
+    "docs/tutorials/":                                                  "../../tutorials/",
+    "docs/tutorials/snapcraft/#":                                       "../../../tutorials/snapcraft/#",
+    "docs/tutorials/packaging-ros-application-as-snap/":                "../../../tutorials/packaging-ros-application-as-snap/",
+    "docs/tutorials/packaging-complex-robotics-software-with-snaps/":   "../../../tutorials/packaging-complex-robotics-software-with-snaps/",
+    "docs/tutorials/distribute-ros-apps-with-snap-store/":              "../../../tutorials/distribute-ros-apps-with-snap-store/",
+    "docs/tutorials/building-ros-snaps-with-content-sharing/":          "../../../tutorials/building-ros-snaps-with-content-sharing/",
+    "docs/tutorials/create-ubuntu-core-image-for-turtlebot3/":          "../../../tutorials/create-ubuntu-core-image-for-turtlebot3/",
+    "docs/tutorials/ubuntu-pro/ros-esm-intro/":                         "../../../../tutorials/ubuntu-pro/ros-esm-intro/",
+    "docs/how-to-guides/":                                                      "../../how-to-guides/",
+    "docs/how-to-guides/packaging/build-and-publish-snap-with-github-actions/": "../../../../how-to-guides/packaging/build-and-publish-snap-with-github-actions/",
+    "docs/how-to-guides/packaging/migrate_from_docker_to_snap":                 "../../../../how-to-guides/packaging/migrate_from_docker_to_snap",
+    "docs/how-to-guides/packaging/ros-2-shared-memory-in-snaps":                "../../../../how-to-guides/packaging/ros-2-shared-memory-in-snaps",
+    "docs/how-to-guides/packaging/ros-distributions-with-no-extensions/":       "../../../../how-to-guides/packaging/ros-distributions-with-no-extensions/",
+    "docs/how-to-guides/packaging/config-a-snap-pull-from-a-server.html":       "../../../../how-to-guides/packaging/config-a-snap-pull-from-a-server.html",
+    "docs/how-to-guides/packaging/config-a-snap-using-content-snap":            "../../../../how-to-guides/packaging/config-a-snap-using-content-snap/",
+    "docs/how-to-guides/packaging/config-a-snap-make-config-overwritable":      "../../../../how-to-guides/packaging/config-a-snap-make-config-overwritable/",
+    "docs/references/snapcraft/":  "../../../references/snapcraft/",
+    "docs/references/plugins/":    "../../../references/plugins/",
+    "docs/references/extensions/": "../../../references/extensions/",
+    "docs/references/faq/":        "../../../references/faq/",
+    "docs/explanations/":                                                          "../../explanations/",
+    "docs/explanations/ubuntu-core/":                                              "../../../explanations/ubuntu-core/",
+    "docs/explanations/security/securing-ros-robotic-platforms/":                  "../../../../explanations/security/securing-ros-robotic-platforms/",
+    "docs/explanations/snaps/ros-architectures-with-snaps/":                       "../../../../explanations/snaps/ros-architectures-with-snaps/",
+    "docs/explanations/snaps/identify-functionalities-and-apps-of-robotics-snap/": "../../../../explanations/snaps/identify-functionalities-and-apps-of-robotics-snap/",
+    "docs/explanations/snaps/snap-configurations-and-hooks/":                      "../../../../explanations/snaps/snap-configurations-and-hooks/",
+    "docs/explanations/snaps/snap-data-and-file-storage/":                         "../../../../explanations/snaps/snap-data-and-file-storage/",
+    "docs/explanations/snaps/snap-environment-variables/":                         "../../../../explanations/snaps/snap-environment-variables/",
+    "docs/explanations/snaps/application-orchestration/":                          "../../../../explanations/snaps/application-orchestration/",
+    "docs/explanations/snaps/vcstool-and-rosinstall-file/":                        "../../../../explanations/snaps/vcstool-and-rosinstall-file/",
+    "docs/explanations/snaps/debug-the-build-of-a-snap/":                          "../../../../explanations/snaps/debug-the-build-of-a-snap/",
+    "docs/explanations/snaps/debug-a-snap-application/":                           "../../../../explanations/snaps/debug-a-snap-application/",
+    "docs/explanations/iot-app-store/":                                            "../../../explanations/iot-app-store/",
 }
 
 
@@ -292,6 +292,7 @@ extensions = [
     "canonical_sphinx",
     "sphinxcontrib.cairosvgconverter",
     "sphinx_last_updated_by_git",
+    "sphinxcontrib.mermaid",
 ]
 
 # Excludes files or directories from processing
@@ -357,4 +358,11 @@ if "discourse_prefix" not in html_context and "discourse" in html_context:
 
 myst_heading_anchors = 2
 
-myst_substitutions = {"COS_ROB": "COS for robotics"}
+myst_substitutions = {"COS_ROB": "COS for robotics", "COS": "COS Lite"}
+
+# This doesn't work atm.
+# It is thus necessary to set the theme for each mermaid block
+# mermaid_init_js = "mermaid.initialize({startOnLoad:false,theme:'dark'});"
+
+# Those parameters are used by other builders than html (e.g. pdf)
+# mermaid_params = ["--theme", "dark"]

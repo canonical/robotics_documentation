@@ -108,7 +108,7 @@ mkdir -p ~/.local/share
 Now bootstrap a Juju controller into your `MicroK8s`
 
 ```bash
-juju bootstrap microk8s rob-cos-controller.
+juju bootstrap microk8s rob-cos-controller
 ```
 
 If successful the terminal will show the following message:
