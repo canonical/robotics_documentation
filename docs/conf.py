@@ -189,12 +189,12 @@ html_context = {
 
 redirects = {
     "docs/tutorials/":                                                  "../../tutorials/",
-    "docs/tutorials/snapcraft/#":                                       "../../../tutorials/snapcraft/#",
-    "docs/tutorials/packaging-ros-application-as-snap/":                "../../../tutorials/packaging-ros-application-as-snap/",
-    "docs/tutorials/packaging-complex-robotics-software-with-snaps/":   "../../../tutorials/packaging-complex-robotics-software-with-snaps/",
-    "docs/tutorials/distribute-ros-apps-with-snap-store/":              "../../../tutorials/distribute-ros-apps-with-snap-store/",
-    "docs/tutorials/building-ros-snaps-with-content-sharing/":          "../../../tutorials/building-ros-snaps-with-content-sharing/",
-    "docs/tutorials/create-ubuntu-core-image-for-turtlebot3/":          "../../../tutorials/create-ubuntu-core-image-for-turtlebot3/",
+    "docs/tutorials/snapcraft/#":                                       "../../../tutorials/snaps-core/#",
+    "docs/tutorials/packaging-ros-application-as-snap/":                "../../../tutorials/snaps-core/packaging-ros-application-as-snap/",
+    "docs/tutorials/packaging-complex-robotics-software-with-snaps/":   "../../../tutorials/snaps-core/packaging-complex-robotics-software-with-snaps/",
+    "docs/tutorials/distribute-ros-apps-with-snap-store/":              "../../../tutorials/snaps-core/distribute-ros-apps-with-snap-store/",
+    "docs/tutorials/building-ros-snaps-with-content-sharing/":          "../../../tutorials/snaps-core/building-ros-snaps-with-content-sharing/",
+    "docs/tutorials/create-ubuntu-core-image-for-turtlebot3/":          "../../../tutorials/snaps-core/create-ubuntu-core-image-for-turtlebot3/",
     "docs/tutorials/ubuntu-pro/ros-esm-intro/":                         "../../../../tutorials/ubuntu-pro/ros-esm-intro/",
     "docs/tutorials/ubuntu-pro/":                                       "../../../tutorials/ubuntu-pro/ros-esm-intro/",
     "docs/how-to-guides/":                                                      "../../how-to-guides/",
