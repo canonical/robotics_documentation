@@ -27,7 +27,7 @@ Ubuntu Core is the OS for anyone building embedded Linux devices. Snaps are the 
    * - `Tutorials <tutorials>`__
        
        Get started - hands-on introductions for robotics to the different product
-     - `How-to guides <how-to-guides>`_
+     - `How-to guides <how-to-guides>`__
 
        Step-by-step guides covering key operations and common tasks
 
