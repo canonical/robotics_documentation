@@ -1,5 +1,13 @@
 # Deploying {{ COS_ROB }} server in the cloud
 
+```{warning}
+
+      Beta Notice: The observability documentation is currently in `beta`. 
+      Content and features may change, and some functionality may be incomplete 
+      or experimental. 
+      Feedback is welcome as we continue to improve.
+```
+
 ## Introduction  
 
 In this tutorial, we will walk through the process of deploying the **Canonical Observability Stack (COS) for robotics** on a cloud-based server. By the end of this tutorial, you will have a fully functional observability stack tailored for robotics, enabling you to monitor ROS devices efficiently.  

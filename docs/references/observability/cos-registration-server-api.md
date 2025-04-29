@@ -1,7 +1,16 @@
 # COS registration server API
 
+```{warning}
+
+      Beta Notice: The observability documentation is currently in `beta`. 
+      Content and features may change, and some functionality may be incomplete 
+      or experimental. 
+      Feedback is welcome as we continue to improve.
+```
+
 The `cos-registration-server` exposes a public API.
 The API potential usages are:
+
 - Devices can register, upload dashboards etc.
 - Operators can manipulate the database to modify a device, dashboard etc.
 - The `cos-registration-server-k8s` uses the API to retrieve data later shared with [integrations](https://documentation.ubuntu.com/juju/latest/reference/relation/index.html).
@@ -9,6 +18,7 @@ The API potential usages are:
 The use of the API is only recommended from outside of Juju.
 Within Juju,
 [`cos-registration-server-k8s` integrations](https://charmhub.io/cos-registration-server-k8s/integrations) are recommended.
+
 ## API endpoints
 
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" ></link>
@@ -93,4 +103,3 @@ window.onload = function() {
   ]);
 }
 </script>
-
