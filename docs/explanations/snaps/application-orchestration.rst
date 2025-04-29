@@ -1,7 +1,8 @@
-Application orchestration
-=========================
+Applications orchestration
+==========================
 
-Snap robotics applications can be called from the terminal but also run in the background as daemons. Snap and snapcraft offer orchestration features that can become handy for robotics applications.
+Snap robotics applications can be called from the terminal but also run in the background as daemons.
+Snap and snapcraft offer orchestration features that can become handy for robotics applications.
 
 Command-chain
 -------------
@@ -9,7 +10,6 @@ Command-chain
 *Valid for CLI: Yes*
 
 *Valid for daemon: Yes*
-
 
 The ``command-chain`` keyword allows us to list commands to be executed before our main command. The `ros1-noetic extension <https://snapcraft.io/docs/ros-noetic>`_ is actually using this mechanism. Thanks to it, we don’t have to worry about sourcing the ROS environment in the snap.
 

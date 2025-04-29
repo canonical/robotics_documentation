@@ -1,14 +1,14 @@
 :sequential_nav: next
 
-Snapcraft references
-====================
+Snapcraft
+=========
 
 .. toctree::
    :hidden:
 
-   Plugins <plugins.md>
-   Extensions <extensions.md>
-   FAQ & Troubleshooting <faq.md>
+   Plugins <plugins>
+   Extensions <extensions>
+   faq
 
 * :doc:`Plugins <./plugins>`
    The Snapcraft plugins to build ROS parts.

@@ -1,16 +1,14 @@
 Robotics Documentation
 ======================
 
-
 .. toctree::
   :hidden:
   :maxdepth: 3
 
-  Tutorials <tutorials/index>
-  How-to guides <how-to-guides/index>
-  References <references/index>
-  Explanations <explanations/index>
-
+  tutorials/index
+  how-to-guides/index
+  references/index
+  explanations/index
 
 From development to deployment, all you need in one single platform. Ubuntu provides robotics companies with a worldwide-use infrastructure to deploy and maintain your robot.
 

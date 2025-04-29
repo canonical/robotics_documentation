@@ -9,5 +9,5 @@ How-to guides
 .. toctree::
    :maxdepth: 2
 
-   Packaging <packaging/index>
-   Operation <operation/index>
+   packaging/index
+   operation/index

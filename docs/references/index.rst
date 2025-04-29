@@ -10,7 +10,7 @@ environment variables description, tool usage etc.
    :maxdepth: 2
    :includehidden:
 
-   Snapcraft <snapcraft/index>
+   snapcraft/index
    ROS ESM <esm-package-list>
-   Observability <observability/index>
-   Robotics reference architecture <ref_architecture/reference_architecture>
+   observability/index
+   ref_architecture/reference_architecture
