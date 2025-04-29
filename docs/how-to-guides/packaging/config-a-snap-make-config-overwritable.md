@@ -1,5 +1,4 @@
-Configure a snap: Make the snap configuration overwritable
-==========================================================
+# Configure a snap: Make the snap configuration overwritable
 
 When a robotics application is snapped, one might want to use it on multiple different robots.
 
