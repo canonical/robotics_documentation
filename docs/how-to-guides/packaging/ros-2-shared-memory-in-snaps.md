@@ -2,7 +2,7 @@
 
 Strictly confined ROS 2 snaps shows an access error regarding shared memory. If you see something similar to:
 
-```txt
+```output
 [RTPS_TRANSPORT_SHM Error] Failed to create segment 86bb3c83d0835208: Permission denied -> Function compute_per_allocation_extra_size
 [RTPS_MSG_OUT Error] Permission denied -> Function init
 ```
