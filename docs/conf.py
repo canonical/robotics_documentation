@@ -196,7 +196,7 @@ redirects = {
     "docs/tutorials/building-ros-snaps-with-content-sharing/":          "../../../tutorials/building-ros-snaps-with-content-sharing/",
     "docs/tutorials/create-ubuntu-core-image-for-turtlebot3/":          "../../../tutorials/create-ubuntu-core-image-for-turtlebot3/",
     "docs/tutorials/ubuntu-pro/ros-esm-intro/":                         "../../../../tutorials/ubuntu-pro/ros-esm-intro/",
-    "docs/tutorials/ubuntu-pro":                                        "../../../tutorials/ubuntu-pro/ros-esm-intro/",
+    "docs/tutorials/ubuntu-pro/":                                       "../../../tutorials/ubuntu-pro/ros-esm-intro/",
     "docs/how-to-guides/":                                                      "../../how-to-guides/",
     "docs/how-to-guides/packaging/build-and-publish-snap-with-github-actions/": "../../../../how-to-guides/packaging/build-and-publish-snap-with-github-actions/",
     "docs/how-to-guides/packaging/migrate_from_docker_to_snap":                 "../../../../how-to-guides/packaging/migrate_from_docker_to_snap",
