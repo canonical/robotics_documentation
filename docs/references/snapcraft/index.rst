@@ -16,7 +16,7 @@ Snapcraft
 * :doc:`Extensions <./extensions>`
    The Snapcraft extensions to help you snap ROS applications.
 
-* :doc:`Faq & Troubleshooting <./faq>`
+* :doc:`FAQ & Troubleshooting <./faq>`
    ROS & ROS 2 snap common questions and troubleshooting.
 
 See Also
