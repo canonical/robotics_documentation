@@ -26,8 +26,8 @@ developed and maintained by Canonical.
 .. toctree::
    :maxdepth: 1
 
-   ros-architectures-with-snaps.md
-   identify-functionalities-and-apps-of-robotics-snap.md
+   ros-architectures-with-snaps
+   identify-functionalities-and-apps-of-robotics-snap
    snap-configurations-and-hooks
    snap-data-and-file-storage
    snap-environment-variables

@@ -10,7 +10,7 @@ Canonical robotics solutions and help you understand how things fit together.
    :maxdepth: 2
 
    snaps/index
-   ubuntu-core.md
+   ubuntu-core
    Security <security/securing-ros-robotic-platforms>
    iot-app-store
    observability/index

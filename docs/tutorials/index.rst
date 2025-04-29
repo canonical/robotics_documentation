@@ -13,5 +13,5 @@ They are also be a good place to start learning.
    :maxdepth: 2
 
    snaps-core/index
-   ubuntu-pro/ros-esm-intro.md
-   observability/index.rst
+   ubuntu-pro/ros-esm-intro
+   observability/index
