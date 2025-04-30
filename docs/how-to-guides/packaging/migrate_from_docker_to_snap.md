@@ -1,13 +1,11 @@
 
-Migrate from docker to snap
-===========================
-
+# Migrate from docker to snap
 
 Docker has greatly facilitated robotics software development by providing a way to package applications and their dependencies into portable containers. However, due to its cloud-oriented design, Docker poses some difficulties for developers when it comes to deploying software on a robotic device.
 
 In this document, we are going to see when and how to migrate a ROS application currently deployed with Docker to a Snap.
 
-##  When to migrate
+## When to migrate
 
 The software life cycle for a robotics application typically consists of four stages: development, testing, deployment, and maintenance.
 

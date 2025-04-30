@@ -1,4 +1,4 @@
-# Deploying {{ COS_ROB }} server in the cloud
+# Deploy {{ COS_ROB }} server in the cloud
 
 ## Introduction  
 

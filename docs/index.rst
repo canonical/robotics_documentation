@@ -1,16 +1,14 @@
 Robotics Documentation
 ======================
 
-
 .. toctree::
   :hidden:
   :maxdepth: 3
 
-  Tutorials <tutorials>
-  How-to guides <how-to-guides>
-  References <references>
-  Explanations <explanations>
-
+  tutorials/index
+  how-to-guides/index
+  references/index
+  explanations/index
 
 From development to deployment, all you need in one single platform. Ubuntu provides robotics companies with a worldwide-use infrastructure to deploy and maintain your robot.
 
@@ -29,8 +27,8 @@ Ubuntu Core is the OS for anyone building embedded Linux devices. Snaps are the 
    * - `Tutorials <tutorials>`__
        
        Get started - hands-on introductions for robotics to the different product
-     - :doc:`How-to guides </how-to-guides>`
-       
+     - `How-to guides <how-to-guides>`__
+
        Step-by-step guides covering key operations and common tasks
 
    * - `Explanation <explanations>`__

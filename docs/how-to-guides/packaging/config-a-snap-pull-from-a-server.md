@@ -1,5 +1,4 @@
-Configure a snap: pull a configuration from a server
-====================================================
+# Configure a snap: pull a configuration from a server
 
 When a robotics application is snapped, one might want to use it on multiple different robots.
 

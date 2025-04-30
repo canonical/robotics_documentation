@@ -1,4 +1,4 @@
-# {{ COS_ROB }} FAQ
+# FAQ & Troubleshooting
 
 ## Can I use {{ COS_ROB }} without Juju and charms?
 

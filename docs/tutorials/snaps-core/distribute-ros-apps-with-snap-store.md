@@ -223,7 +223,7 @@ We can now verify our snap is on the store by searching for it on[https://snapcr
 
 Since our snap won’t be useful to others, let’s change the visibility from public to unlisted. To do so, we must go to[our snap list](https://snapcraft.io/snaps), select our snap. Then in the "Settings" tab, we can select "Unlisted".
 
-While we are doing all this process manually here, all of this can be integrated into a CI workflow. We can find more information in the [ROS snap with GitHub Actions](../how-to-guides/packaging/build-and-publish-snap-with-github-actions.md) documentation.
+While we are doing all this process manually here, all of this can be integrated into a CI workflow. We can find more information in the [ROS snap with GitHub Actions](/how-to-guides/packaging/build-and-publish-snap-with-github-actions.md) documentation.
 
 #### Download our snap
 

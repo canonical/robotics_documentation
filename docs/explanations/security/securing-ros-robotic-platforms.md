@@ -1,5 +1,4 @@
-Securing ROS robotic platforms
-==============================
+# Securing ROS robotic platforms
 
 ## Executive summary
 

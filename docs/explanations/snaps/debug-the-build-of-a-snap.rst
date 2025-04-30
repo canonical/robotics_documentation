@@ -1,9 +1,12 @@
 Debug the build of a snap
 =========================
 
-Before the snap is built, things can already go wrong. The parts could fail to build, or the application declaration might even fail, etc.
+Before the snap is built, things can already go wrong.
+The parts could fail to build, or the application declaration might even fail, etc.
 
-When snapcraft is building our snap, it’s first starting a VM or a container. This way everything is built in an isolated environment. We can step into this environment in order to find out why our snap is not building.
+When snapcraft is building our snap, it's first starting a VM or a container.
+This way everything is built in an isolated environment.
+We can step into this environment in order to find out why our snap is not building.
 
 Snapcraft environment
 ---------------------

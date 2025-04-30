@@ -2,9 +2,7 @@
 sequential_nav: next
 ---
 
-
-Build and publish a snap with GitHub Actions
-============================================
+# Build and publish a snap with GitHub Actions
 
 When deploying a [robotics application with snap](https://ubuntu.com/robotics/docs), keeping the deployment synchronised with development progress is a high priority. It’s best accomplished with a CI/CD pipeline that will automatically deploy your latest developments to your devices.
 

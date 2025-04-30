@@ -9,7 +9,6 @@ The IoT App Store supports robotics deployment and management by providing compa
 
 No network? No problem. The Store comes with a proxy to allow devices with restricted network access to connect to the global store, even through a firewall. We also provide the air-gapped mode of the Store Proxy, allowing devices to be completely disconnected from the internet to receive updates.
 
-
 .. note::
 
    `Learn more about the IoT App Store <https://ubuntu.com/internet-of-things/appstore>`_.
