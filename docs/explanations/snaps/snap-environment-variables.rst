@@ -1,12 +1,12 @@
 Snap environment variables
 ==========================
 
-Environment variables are widely used across Linux to provide convenient access to system and application properties. Both ``snapcraft`` and ``snapd`` consume, set, and pass-through specific environment variables to support building and running snaps.
+Environment variables are widely used across Linux to provide convenient access to system and application properties.
+Both ``snapcraft`` and ``snapd`` consume, set, and pass-through specific environment variables to support building and running snaps.
 
 All the following examples are assuming the snap ``hello-world`` revision 27.
 
 Snap makes available certain environment variables to identify the snap at run-time.
-
 
 SNAP
 ----

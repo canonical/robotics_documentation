@@ -27,3 +27,9 @@ to your robots and devices.
 
    `Learn more about observability <https://ubuntu.com/observability/what-is-observability>`_.
 
+.. toctree::
+   :maxdepth: 2
+
+   what-is-cos-for-robotics
+   alert-rules-configuration-from-device
+   components-explanations

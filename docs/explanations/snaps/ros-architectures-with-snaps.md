@@ -1,5 +1,4 @@
-ROS architectures with snaps
-============================
+# ROS architectures with snaps
 
 This documentation is meant to present the different snap architectures that developers can adopt for their ROS applications.
 

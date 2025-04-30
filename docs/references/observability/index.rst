@@ -23,7 +23,6 @@ to your robots and devices.
 
 .. toctree::
    :maxdepth: 3
-   :caption: observability
 
-   rob-cos-faq
    cos-registration-server-api
+   rob-cos-faq

@@ -1,4 +1,4 @@
-# {{ COS_ROB }} FAQ
+# FAQ & Troubleshooting
 
 ```{warning}
 **Beta Notice**: The observability documentation is currently in `beta`. 

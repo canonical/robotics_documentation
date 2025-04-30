@@ -1,7 +1,7 @@
 :sequential_nav: next
 
-Operation how-to guides
-=======================
+Operation
+=========
 
 
 .. warning::

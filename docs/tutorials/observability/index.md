@@ -1,5 +1,13 @@
 
-# Observability tutorials
+# Monitor your robot fleet in the field
+
+* [Deploy {{COS_ROB}} for Robotics server-side](deploy-cos-for-robotics-server-in-the-cloud)
+
+   Deploy and set up the server-side of {{COS_ROB}}.
+
+* [Deploy {{COS_ROB}} agent on your robot](deploy-cos-for-robotics-agent-on-your-robot)
+
+   Install and configure {{COS_ROB}} agent on a robot.
 
 ```{warning}
 **Beta Notice**: The observability documentation is currently in `beta`. 
@@ -15,9 +23,3 @@ Feedback is welcome as we continue to improve.
       deploy-cos-for-robotics-server-in-the-cloud
       deploy-cos-for-robotics-agent-on-your-robot
 ```
-
-* [Deploy {{COS_ROB}} for Robotics server-side](deploy-cos-for-robotics-server-in-the-cloud)  
-   Deploy and set up the server-side of {{COS_ROB}}.
-
-* [Deploy {{COS_ROB}} agent on your robot](deploy-cos-for-robotics-agent-on-your-robot)  
-   Install and configure {{COS_ROB}} agent on a robot.
