@@ -188,8 +188,9 @@ html_context = {
 #       the sphinx_reredirects extension will be disabled.
 
 redirects = {
+    # The migration from Discourse to ReadTheDoc stripped the 'docs/' prefix
     "docs/tutorials/":                                                  "../../tutorials/",
-    "docs/tutorials/snapcraft/#":                                       "../../../tutorials/snapcraft/#",
+    "docs/tutorials/snapcraft/":                                        "../../../tutorials/snapcraft/",
     "docs/tutorials/packaging-ros-application-as-snap/":                "../../../tutorials/packaging-ros-application-as-snap/",
     "docs/tutorials/packaging-complex-robotics-software-with-snaps/":   "../../../tutorials/packaging-complex-robotics-software-with-snaps/",
     "docs/tutorials/distribute-ros-apps-with-snap-store/":              "../../../tutorials/distribute-ros-apps-with-snap-store/",
@@ -221,6 +222,22 @@ redirects = {
     "docs/explanations/snaps/debug-the-build-of-a-snap/":                          "../../../../explanations/snaps/debug-the-build-of-a-snap/",
     "docs/explanations/snaps/debug-a-snap-application/":                           "../../../../explanations/snaps/debug-a-snap-application/",
     "docs/explanations/iot-app-store/":                                            "../../../explanations/iot-app-store/",
+
+    # The snaps/core tutorials were moved to a subfolder
+    "tutorials/snapcraft/":                                         "../../tutorials/snaps-core/",
+    "tutorials/packaging-ros-application-as-snap/":                 "../../tutorials/snaps-core/packaging-ros-application-as-snap/",
+    "tutorials/packaging-complex-robotics-software-with-snaps/":    "../../tutorials/snaps-core/packaging-complex-robotics-software-with-snaps/",
+    "tutorials/distribute-ros-apps-with-snap-store/":               "../../tutorials/snaps-core/distribute-ros-apps-with-snap-store/",
+    "tutorials/building-ros-snaps-with-content-sharing/":           "../../tutorials/snaps-core/building-ros-snaps-with-content-sharing/",
+    "tutorials/create-ubuntu-core-image-for-turtlebot3/":           "../../tutorials/snaps-core/create-ubuntu-core-image-for-turtlebot3/",
+
+    # These intermediate pages were removed
+    "tutorials/ubuntu-pro/":    "../../tutorials/ubuntu-pro/ros-esm-intro/",
+    "explanations/security/":   "../../explanations/security/securing-ros-robotic-platforms/",
+
+    # The snapcraft references were moved to a subfolder
+    "references/plugins/":      "../../references/snapcraft/plugins/",
+    "references/extensions/":   "../../references/snapcraft/extensions/",
 }
 
 

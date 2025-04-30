@@ -1,5 +1,4 @@
-ROS distributions with no extensions
-====================================
+# ROS distributions with no extensions
 
 The snapcraft ROS extensions help you snap ROS applications for the different ROS distributions. However, this does not mean that you cannot build a snap for a ROS distribution that does not have a dedicated extension. In this document, you will see how to do that.
 

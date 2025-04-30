@@ -1,13 +1,14 @@
 Snap data and file storage
 ==========================
 
-
-Environment variables are widely used across Linux to provide convenient access to system and application properties. Both ``snapcraft`` and ``snapd`` consume, set, and pass-through specific environment variables to support building and running snaps.
+Environment variables are widely used across Linux to provide convenient access to system and application properties.
+Both ``snapcraft`` and ``snapd`` consume, set, and pass-through specific environment variables to support building and running snaps.
 
 Snap makes available certain environment variables to identify data and file storage location at run-time.
 
-Snaps runs in a custom environment specifically made for them. Additionally, our snap is strictly confined and immutable. As a result, they have dedicated locations where they can write data. Data environment variables provide different locations for snaps to write data depending on the purpose and lifespan of those data.
-
+Snaps runs in a custom environment specifically made for them. Additionally, our snap is strictly confined and immutable.
+As a result, they have dedicated locations where they can write data.
+Data environment variables provide different locations for snaps to write data depending on the purpose and lifespan of those data.
 
 +---------------------------------------------------------------------------------------------------------+-----------------------------+------------------------+------------------------------+-----------------------------+
 |                                          Environment variable                                           | Data backed up over updates | Data kept over updates |     Accessible from host     | Accessible from other snaps |
