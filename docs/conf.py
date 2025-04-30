@@ -347,7 +347,13 @@ rst_prolog = """
     :class: woke-ignore
 .. role:: vale-ignore
     :class: vale-ignore
+
 """
+
+# conf.py
+rst_prolog = """
+"""
+
 
 # Workaround for https://github.com/canonical/canonical-sphinx/issues/34
 

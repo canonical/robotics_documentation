@@ -16,11 +16,11 @@ From development to deployment, all you need in one single platform. Ubuntu prov
 
 `Ubuntu Core <https://ubuntu.com/core/docs>`__ and `Snaps <https://snapcraft.io/docs/robotics>`__ are the tools used by global organisations to deploy and manage their software on embedded devices. 
 Ubuntu Core is the optimised version of Ubuntu for edge devices and robotics. s
-Snaps, the de facto container for packaging software on Ubuntu, enhanced to support ROS applications. Finally, together with the `IoT App Store <https://ubuntu.com/internet-of-things/appstore>`_, businesses can manage software updates in their fleet of devices using a globally distributed and reliable infrastructure.
+Snaps, the de facto container for packaging software on Ubuntu, enhanced to support ROS applications. Finally, together with the `Dedicated Snap Store <https://ubuntu.com/internet-of-things/appstore>`_, businesses can manage software updates in their fleet of devices using a globally distributed and reliable infrastructure.
 
 Robotics developers know app development inside-out, but deploying a robotics application can be challenging. It's not uncommon to compile the code on robots, copy/paste compiled packages and end up with unknown versions of software. Implementing an infrastructure to track and deploy software updates increases overhead and time, not guaranteeing a reliable and widely tested infrastructure. Providing security to each phase of deployment just increases the difficulty of the task. Our open source tools provide a complete DevOps infrastructure, secure, globally used and easy, and really easy to use.
 
-Ubuntu Core is the OS for anyone building embedded Linux devices. Snaps are the best way of packaging and distributing software compatible with dozens of Linux distributions. IoT App Store is the platform for companies looking for a production-grade software management solution.
+Ubuntu Core is the OS for anyone building embedded Linux devices. Snaps are the best way of packaging and distributing software compatible with dozens of Linux distributions. Dedicated Snap Store is the platform for companies looking for a production-grade software management solution.
 
 .. list-table::
    :header-rows: 0
