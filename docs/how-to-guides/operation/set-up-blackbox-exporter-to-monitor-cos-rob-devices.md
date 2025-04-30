@@ -1,11 +1,9 @@
 # Set up Blackbox Exporter to monitor {{ COS_ROB }} devices
 
 ```{warning}
-
-      Beta Notice: The observability documentation is currently in `beta`. 
-      Content and features may change, and some functionality may be incomplete 
-      or experimental. 
-      Feedback is welcome as we continue to improve.
+**Beta Notice**: The observability documentation is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
 ```
 
 [Blackbox Exporter](https://github.com/prometheus/blackbox_exporter) allows active monitoring of devices and endpoints by probing them

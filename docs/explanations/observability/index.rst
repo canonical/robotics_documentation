@@ -1,6 +1,11 @@
 Observability
 =============
 
+.. warning::
+   **Beta Notice**: The observability documentation is currently in `beta`. 
+   Content and features may change, and some functionality may be incomplete or experimental. 
+   Feedback is welcome as we continue to improve.
+
 .. toctree::
    :maxdepth: 3
    :caption: observability
@@ -8,6 +13,8 @@ Observability
    what-is-cos-for-robotics
    alert-rules-configuration-from-device
    components-explanations
+
+
 
 
 |COS_ROB| stands for Canonical Observability Stack for robotics and is a superset of

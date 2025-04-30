@@ -1,11 +1,10 @@
+
 # Observe {{ COS_ROB }}
 
 ```{warning}
-
-      Beta Notice: The observability documentation is currently in `beta`. 
-      Content and features may change, and some functionality may be incomplete 
-      or experimental. 
-      Feedback is welcome as we continue to improve.
+**Beta Notice**: The observability documentation is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
 ```
 
 {{ COS_ROB }} provides valuable insights about one's fleet of devices.

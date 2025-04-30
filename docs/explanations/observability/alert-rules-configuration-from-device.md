@@ -1,5 +1,11 @@
 # Alert rules configuration from device
 
+```{warning}
+**Beta Notice**: The observability documentation is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
+```
+
 Alerts rule file can be defined in Prometheus and Loki to trigger notifications on the Alertmanager.
 
 These alert rule files can be provided by the devices directly and then hosted on the
@@ -14,6 +20,7 @@ The `COS-registration-server` can host alert rule files.
 The supported rule files applications are Prometheus and Loki.
 
 The server currently supports two types of rules:
+
 - standard alert rule files: directly passed to the corresponding applications
 - templated alert rule files: Jinja2 templated rule file to render against specific devices
 
@@ -47,6 +54,7 @@ groups:
       labels:
         severity: critical
 ```
+
 ``` {note}
 The name of the **group** as well as the name of the alert must be templated to
 ensure its uniqueness.

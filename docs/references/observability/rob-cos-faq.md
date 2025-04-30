@@ -1,11 +1,9 @@
 # {{ COS_ROB }} FAQ
 
 ```{warning}
-
-      Beta Notice: The observability documentation is currently in `beta`. 
-      Content and features may change, and some functionality may be incomplete 
-      or experimental. 
-      Feedback is welcome as we continue to improve.
+**Beta Notice**: The observability documentation is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
 ```
 
 ## Can I use {{ COS_ROB }} without Juju and charms?
