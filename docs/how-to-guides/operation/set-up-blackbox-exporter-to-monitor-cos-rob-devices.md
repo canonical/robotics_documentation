@@ -1,5 +1,11 @@
 # Set up Blackbox Exporter to monitor {{ COS_ROB }} devices
 
+```{warning}
+**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
+```
+
 [Blackbox Exporter](https://github.com/prometheus/blackbox_exporter) allows active monitoring of devices and endpoints by probing them
 over protocols such as HTTP, TCP and ICMP.
 
@@ -66,7 +72,7 @@ To visualize the status of devices along with their UUID,
 we are going to use the [cos-configuration-k8s operator](https://github.com/canonical/cos-configuration-k8s-operator) charm,
 which enables syncing and applying custom dashboards from a Git repository.
 
-A custom Grafana dashboard template is available at https://github.com/canonical/robotics-cos-k8s-config/blob/feat/blackbox-grafana-dashboard/dashboards/grafana/blackbox/blackbox.json.tmpl.
+A custom Grafana dashboard template is available at <https://github.com/canonical/robotics-cos-k8s-config/blob/feat/blackbox-grafana-dashboard/dashboards/grafana/blackbox/blackbox.json.tmpl>.
 
 Let's now deploy the configuration charm with the appropriate flags to pull in this dashboard:
 

@@ -1,5 +1,11 @@
 # Configure Alertmanager to send email alerts
 
+```{warning}
+**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
+```
+
 Once an alert is triggered by Prometheus or Loki,
 the alert is received and distributed by Alertmanager.
 
@@ -107,7 +113,6 @@ juju config alertmanager config_file='@./alert-manager.yaml'
 You can verify that the configuration got applied by going in the status tab of Alertmanager.
 
 Since the Alertmanager Juju application has a watchdog alert, you will receive your first alert right after.
-
 
 ## Email alert template
 

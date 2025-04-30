@@ -1,5 +1,11 @@
 # FAQ & Troubleshooting
 
+```{warning}
+**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
+```
+
 ## Can I use {{ COS_ROB }} without Juju and charms?
 
 While this is not a supported use case,

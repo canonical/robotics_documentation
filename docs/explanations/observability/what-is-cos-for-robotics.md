@@ -1,5 +1,11 @@
 # What is {{ COS_ROB }}
 
+```{warning}
+**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
+```
+
 {{ COS_ROB }} stands for Canonical Observability Stack for robotics and is a superset of
 [COS Lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite).
 {{ COS_ROB }} brings [observability](https://ubuntu.com/observability/what-is-observability)
@@ -22,6 +28,7 @@ which is then available to the user for visualization.
 ## How {{ COS_ROB }} works
 
 The {{ COS_ROB }} consists of two main components:
+
 - the server side: which hosts applications for monitoring, analysis and visualization extending COS lite.
 - the device side: a set of snaps that allow the robot to interface and communicate with the server.
 
