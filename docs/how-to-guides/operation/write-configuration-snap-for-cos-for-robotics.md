@@ -1,5 +1,10 @@
 # Write a configuration snap for {{ COS_ROB }}
 
+```{warning}
+**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
+```
 
 {{ COS_ROB }} is composed of various snaps. These snaps must be configured for your robots,
 your needs and your setup.
@@ -34,6 +39,7 @@ Details about this file
 [can be found on GitHub](https://github.com/canonical/cos-registration-agent?tab=readme-ov-file#config).
 
 Additionally, the agent can upload application-specific data to the server:
+
 - [Grafana dashboards](https://grafana.com/grafana/dashboards/)
 - [Foxglove layouts](https://docs.foxglove.dev/docs/visualization/layouts)
 - [Prometheus alerts rule files](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)
@@ -46,19 +52,16 @@ in [flow mode](https://grafana.com/docs/agent/latest/flow/), hence
 a single [`river`](https://grafana.com/docs/agent/latest/flow/concepts/config-language/)
 file is necessary under the name `grafana-agent.river`.
 
-
 #### [`ros2-exporter-agent`](https://snapcraft.io/ros2-exporter-agent)
 
 This snap expects a `ros2-data-exporter.yaml` file to specify the ros2bags recording configurations.
 The YAML file is a one to one match from the
 [snap parameters available](https://github.com/canonical/ros2-exporter-agent/?tab=readme-ov-file#snap-parameters).
 
-
 #### [`foxglove-bridge`](https://snapcraft.io/foxglove-bridge)
 
 This snap expects a `foxglove-bridge.yaml` file to specify the bridge configurations.
 The YAML file is a one to one match from the [`foxglove-bridge` configuration](https://github.com/foxglove/ros-foxglove-bridge?tab=readme-ov-file#configuration).
-
 
 ### The content sharing interface
 

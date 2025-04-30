@@ -1,5 +1,11 @@
 # {{ COS_ROB }} components
 
+```{warning}
+**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
+```
+
 The {{ COS_ROB }} is meant to monitor your devices.
 This means that we have a server hosting all our applications and devices sending data to our server.
 
@@ -94,7 +100,7 @@ The `foxglove-bridge` snap is meant to directly communicate with the `foxglove-s
 The snap is packaging the official [`ros-foxglove-bridge`](https://github.com/foxglove/ros-foxglove-bridge).
 It is reading its configuration from the `rob-cos-demo-configuration`.
 
-### `ros2-exporter-agent`
+###  `ros2-exporter-agent`
 
 The `ros2-exporter-agent` snap is recording ROS 2 bags and sending them to the `ros2bag-fileserver-k8s`.
 The snap takes care of recording bag, sending them to the server and then clean old ROS bags.

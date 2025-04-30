@@ -1,4 +1,11 @@
+
 # Observe {{ COS_ROB }}
+
+```{warning}
+**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
+```
 
 {{ COS_ROB }} provides valuable insights about one's fleet of devices.
 Maybe more importantly it also alerts the fleet operators should anything dysfunction.

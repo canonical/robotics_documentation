@@ -1,6 +1,12 @@
 
 # Monitor your robot fleet in the field
 
+```{warning}
+**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
+Content and features may change, and some functionality may be incomplete or experimental. 
+Feedback is welcome as we continue to improve.
+```
+
 * [Deploy {{COS_ROB}} for Robotics server-side](deploy-cos-for-robotics-server-in-the-cloud)
 
    Deploy and set up the server-side of {{COS_ROB}}.
