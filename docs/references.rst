@@ -10,6 +10,7 @@ References
    Snapcraft <references/snapcraft>
    Ubuntu Pro and ROS ESM <references/esm-package-list>
    Observability <references/observability/index>
+   Robotics reference architecture <references/ref_architecture/reference_architecture>
 
 
 

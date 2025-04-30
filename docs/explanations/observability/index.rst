@@ -7,6 +7,7 @@ Observability
 
    what-is-cos-for-robotics
    alert-rules-configuration-from-device
+   components-explanations
 
 
 |COS_ROB| stands for Canonical Observability Stack for robotics and is a superset of

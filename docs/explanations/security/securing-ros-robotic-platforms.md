@@ -68,7 +68,7 @@ There are 2 ways to start using Ubuntu Core. The first is to download, for testi
 
 The second option is to build your production-grade image. This is the intended way of using Ubuntu Core; creating a production image with your final application on it. To achieve this, you will need to create a model assertion, which is a digitally signed document that describes the content of your image. Then, using [ubuntu-image](https://github.com/canonical/ubuntu-image), you can create your own production image ready to be installed under manufacturer requirements in production lines.
 
-For more information see [Build your own Ubuntu Core image Documentation](https://ubuntu.com/core/docs/build-an-image) and [Build and write an image | Ubuntu Core](https://ubuntu.com/core/docs/build-write-image#heading--write).
+For more information see [Build your own Ubuntu Core image Documentation](https://ubuntu.com/core/docs/build-an-image) and [Build and write an image | Ubuntu Core](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/build-the-image/index.html#write-the-image).
 
 As you can see, _Ubuntu Core is not an environment for development, but an OS for deploying production devices._
 
@@ -195,7 +195,7 @@ $ systemctl disable bluetooth.service
 
 #### *No Bluetooth connectivity by default on Ubuntu Core*
 
-If you are using Ubuntu Core, Bluetooth will be disabled by default. In order to [enable Bluetooth on Core](https://ubuntu.com/core/docs/bluez/introduction/bluetooth-on-ubuntu-core), you will need the `BlueZ` protocol stack snap installed, the Bluetooth daemons running, and the corresponding plugs and slots connected ([thanks to Snaps’ interfaces mechanism](https://snapcraft.io/docs/interfaces)). The lower-level part of it comes with the kernel snap, but the user-space portion has to be installed as a separate snap. This is one less open service to worry about.
+If you are using Ubuntu Core, Bluetooth will be disabled by default. In order to [enable Bluetooth on Core](https://documentation.ubuntu.com/core/explanation/system-snaps/bluetooth/#bluez), you will need the `BlueZ` protocol stack snap installed, the Bluetooth daemons running, and the corresponding plugs and slots connected ([thanks to Snaps’ interfaces mechanism](https://snapcraft.io/docs/interfaces)). The lower-level part of it comes with the kernel snap, but the user-space portion has to be installed as a separate snap. This is one less open service to worry about.
 
 ### 2. Limit network access
 
