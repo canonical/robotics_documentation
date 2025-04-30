@@ -190,7 +190,7 @@ html_context = {
 redirects = {
     # The migration from Discourse to ReadTheDoc stripped the 'docs/' prefix
     "docs/tutorials/":                                                  "../../tutorials/",
-    "docs/tutorials/snapcraft/#":                                       "../../../tutorials/snapcraft/#",
+    "docs/tutorials/snapcraft/":                                        "../../../tutorials/snapcraft/",
     "docs/tutorials/packaging-ros-application-as-snap/":                "../../../tutorials/packaging-ros-application-as-snap/",
     "docs/tutorials/packaging-complex-robotics-software-with-snaps/":   "../../../tutorials/packaging-complex-robotics-software-with-snaps/",
     "docs/tutorials/distribute-ros-apps-with-snap-store/":              "../../../tutorials/distribute-ros-apps-with-snap-store/",
