@@ -45,7 +45,7 @@ The model is a recipe that describes the components that comprise a complete ima
 The model contains:
 
 * Identification information, such as the developer-id and model name.
-* Which [essential snaps](https://ubuntu.com/core/docs/elements#heading--system) make up the device system.
+* Which [essential snaps](https://documentation.ubuntu.com/core/explanation/core-elements/snaps-in-ubuntu-core/) make up the device system.
 * Other required or optional snaps that implement the device functionalities.
 
 In our case, we will build a Raspberry Pi 4 image, and we will pick core20 as the version of the Ubuntu Core image. While the Ubuntu Core version can be chosen independently of the base version of the snaps, it will still include the corresponding version of the base snap. In this example, all of our snaps are using core20 since we are using ROS Noetic. We thus pick the corresponding Ubuntu Core image, core20, to spare the installation of a different core snap.
