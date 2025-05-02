@@ -1,14 +1,13 @@
-How to Debug A Snap Application
-===============================
+# Debugging Snap Applications
 
 > **⚠️  Before you start**
 >
-> 1. This how-to guide builds on concepts from [Tutorial 2: Packaging complex robotics software with snaps](/docs/tutorials/packaging-complex-robotics-software-with-snaps.md). While it’s strongly advised to have followed this tutorial before starting, it is not mandatory to proceed with this guide.
+> 1. This how-to guide builds on concepts from [Tutorial 2: Packaging complex robotics software with snaps](/tutorials/snaps-core/packaging-complex-robotics-software-with-snaps.md). While it’s strongly advised to have followed this tutorial before starting, it is not mandatory to proceed with this guide.
 > 2. This guide assumes you have a basic understanding of snaps. If you are new to snaps, you can learn more about them in the [Snap documentation](https://snapcraft.io/docs).
 
 When developing a snap, things can go wrong. In this how-to guide, we will explore some common ways to debug a snap.
 
-Starting from the results of [Tutorial 2: Packaging complex robotics software with snaps](/docs/tutorials/packaging-complex-robotics-software-with-snaps.md), we will now use a modified source code with intentional errors to learn how to debug and fix issues in our snaps.
+Starting from the results of [Tutorial 2: Packaging complex robotics software with snaps](/tutorials/snaps-core/packaging-complex-robotics-software-with-snaps.md), we will now use a modified source code with intentional errors to learn how to debug and fix issues in our snaps.
 
 The first step is to clone the specific branch containing the modified source code as described in the `setup` section below.
 
@@ -495,7 +494,7 @@ sudo snap start turtlebot3c.navigation
 ```
 
 This time we will see that the logs look fine.
-We can then run `RViz` and see if we can navigate. `RViz` is a debug/visualisation tool, so it doesn’t have to be included inside our snap.
+We can then run `RViz` and see if we can navigate. `RViz` is a debug/visualization tool, so it doesn’t have to be included inside our snap.
 We can run `RViz` with the TurtleBot3 configuration with the following command:
 
 ```bash

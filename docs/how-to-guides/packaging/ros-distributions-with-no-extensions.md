@@ -1,5 +1,4 @@
-ROS distributions with no extensions
-====================================
+# ROS distributions with no extensions
 
 The snapcraft ROS extensions help you snap ROS applications for the different ROS distributions. However, this does not mean that you cannot build a snap for a ROS distribution that does not have a dedicated extension. In this document, you will see how to do that.
 
@@ -24,7 +23,7 @@ All of these additional YAML entries can be revealed from your snapcraft.yaml fi
 
 With this in mind, let us see how you can replicate what the extension is doing for other ROS distributions.
 
-> ℹ️ Core18 does not support Snapcraft Extensions. If you are developing a ROS snap based on ROS Melodic distro, then all the extensions entries are handled by the [catkin plugin ](https://snapcraft.io/docs/catkin-plugin#heading--core18). To check an example see the core18 example [here](https://snapcraft.io/docs/ros-applications).
+> ℹ️ Core18 does not support Snapcraft Extensions. If you are developing a ROS snap based on ROS Melodic distro, then all the extensions entries are handled by the [catkin plugin](https://snapcraft.io/docs/catkin-plugin#heading--core18). To check an example see the core18 example [here](https://snapcraft.io/docs/ros-applications).
 
 ## Writing the snap
 
@@ -108,7 +107,7 @@ ros-demos:
   source-subdir: demo_nodes_cpp
 ```
 
-Our application requires the roslaunch package as a run dependency however this is not included as a run_dependency in the package.xml file of our example Therefore, you need to also include it in the part by using the stage-packages keyword as follows:
+Our application requires the roslaunch package as a run dependency however this is not included as a `run_dependency` in the package.xml file of our example Therefore, you need to also include it in the part by using the stage-packages keyword as follows:
 
 ```
 ros-demos:

@@ -1,5 +1,4 @@
-ROS architectures with snaps
-============================
+# ROS architectures with snaps
 
 This documentation is meant to present the different snap architectures that developers can adopt for their ROS applications.
 
@@ -73,7 +72,7 @@ Each snap is an application, you shouldn’t snap just a library or a ROS packag
 
 Deploying multiple snaps means multiple snapcraft.yaml files to define, build, and maintain, making the multi-snap architecture more complex.
 
-ROS 2 DDS default implementation `FastDDS` can use shared memory to exchange faster when two [`DomainParticipants`](https://fast-dds.docs.eprosima.com/en/latest/fastdds/api_reference/dds_pim/domain/domainparticipant.html) are on the same host. You can enable shared memory across multi snaps with the [addition of an extra interface](/docs/how-to-guides/packaging/ros-2-shared-memory-in-snaps.md).
+ROS 2 DDS default implementation `FastDDS` can use shared memory to exchange faster when two [`DomainParticipants`](https://fast-dds.docs.eprosima.com/en/latest/fastdds/api_reference/dds_pim/domain/domainparticipant.html) are on the same host. You can enable shared memory across multi snaps with the [addition of an extra interface](../../how-to-guides/packaging/ros-2-shared-memory-in-snaps.md).
 
 ### Stability
 

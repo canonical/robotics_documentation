@@ -1,5 +1,4 @@
-Securing ROS robotic platforms
-==============================
+# Securing ROS robotic platforms
 
 ## Executive summary
 
@@ -68,7 +67,7 @@ There are 2 ways to start using Ubuntu Core. The first is to download, for testi
 
 The second option is to build your production-grade image. This is the intended way of using Ubuntu Core; creating a production image with your final application on it. To achieve this, you will need to create a model assertion, which is a digitally signed document that describes the content of your image. Then, using [ubuntu-image](https://github.com/canonical/ubuntu-image), you can create your own production image ready to be installed under manufacturer requirements in production lines.
 
-For more information see [Build your own Ubuntu Core image Documentation](https://ubuntu.com/core/docs/build-an-image) and [Build and write an image | Ubuntu Core](https://ubuntu.com/core/docs/build-write-image#heading--write).
+For more information see [Build your own Ubuntu Core image Documentation](https://ubuntu.com/core/docs/build-an-image) and [Build and write an image | Ubuntu Core](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/build-the-image/index.html#write-the-image).
 
 As you can see, _Ubuntu Core is not an environment for development, but an OS for deploying production devices._
 
@@ -195,7 +194,7 @@ $ systemctl disable bluetooth.service
 
 #### *No Bluetooth connectivity by default on Ubuntu Core*
 
-If you are using Ubuntu Core, Bluetooth will be disabled by default. In order to [enable Bluetooth on Core](https://ubuntu.com/core/docs/bluez/introduction/bluetooth-on-ubuntu-core), you will need the `BlueZ` protocol stack snap installed, the Bluetooth daemons running, and the corresponding plugs and slots connected ([thanks to Snaps’ interfaces mechanism](https://snapcraft.io/docs/interfaces)). The lower-level part of it comes with the kernel snap, but the user-space portion has to be installed as a separate snap. This is one less open service to worry about.
+If you are using Ubuntu Core, Bluetooth will be disabled by default. In order to [enable Bluetooth on Core](https://documentation.ubuntu.com/core/explanation/system-snaps/bluetooth/#bluez), you will need the `BlueZ` protocol stack snap installed, the Bluetooth daemons running, and the corresponding plugs and slots connected ([thanks to Snaps’ interfaces mechanism](https://snapcraft.io/docs/interfaces)). The lower-level part of it comes with the kernel snap, but the user-space portion has to be installed as a separate snap. This is one less open service to worry about.
 
 ### 2. Limit network access
 
@@ -223,7 +222,7 @@ $ nmcli dev disconnect <dev_name>
 
 ```
 
-If you want to permanently disallow the use of ethernet, you could also blacklist the ethernet driver of your device. For example, for a driver named `lan78xx`, you need to add the following lines in  `/etc/modprobe.d/blacklist.conf` and reboot.
+If you want to permanently disallow the use of ethernet, you could also blocklist the ethernet driver of your device. For example, for a driver named `lan78xx`, you need to add the following lines in  `/etc/modprobe.d/blacklist.conf` and reboot.
 
 ``` bash
 
@@ -359,7 +358,7 @@ done
 
 ```
 
-Disallow USB serial devices by blacklisting the USB serial driver:
+Disallow USB serial devices by blocklisting the USB serial driver:
 
 ```bash
 user@x86_64:~$ sudo rmmod usbserial
@@ -368,7 +367,7 @@ user@x86_64:~$ echo “blacklist usbserial”| sudo tee -a /etc/modprobe.d/black
 
 ```
 
-Disallow USB networking devices by blacklisting USB networking modules:
+Disallow USB networking devices by blocklisting USB networking modules:
 
 ```bash
 find /lib/modules/`uname -r`//drivers/net/usb -type f -name *.ko | xargs basename -s .ko | sed s’/^/blacklist /’ | sudo tee -a /etc/modprobe.d/blacklist.conf
@@ -397,9 +396,9 @@ CONFIG_USB_STORAGE=y
 
 ```
 
-Therefore, we can’t prevent someone from plugging in HID devices, and we can’t preclude storage devices from being added. There is a bit more of a grey area for network devices. While the `USB_NET_DRIVERS` compiles the `usbnet` module into the kernel, we can’t blacklist it. But `usbnet` is only a “base” driver, and a network device will require an additional chip-specific driver. And those you can blacklist, see above on the topic of “blacklisting USB networking modules”. Keep in mind that the Raspberry Pi 3+ ethernet interface is connected to the internal USB bus. If you blacklist all USB network modules, your ethernet will also be disabled.
+Therefore, we can’t prevent someone from plugging in HID devices, and we can’t preclude storage devices from being added. There is a bit more of a grey area for network devices. While the `USB_NET_DRIVERS` compiles the `usbnet` module into the kernel, we can’t blocklist it. But `usbnet` is only a “base” driver, and a network device will require an additional chip-specific driver. And those you can blocklist, see above on the topic of “blocklisting USB networking modules”. Keep in mind that the Raspberry Pi 3+ ethernet interface is connected to the internal USB bus. If you blocklist all USB network modules, your ethernet will also be disabled.
 
-As we can’t prevent people from plugging in storage and HID devices with blacklisting since modules are compiled in, what other options are there? You can turn off the USB port power on your robot. Get the [`hub-ctrl`](https://github.com/codazoda/hub-ctrl.c) utility. You will have to compile it from source. If you compile the software on the robot it is best practice to remove the compiler before deploying the robot. By leaving compilers on the robot, an attacker who gained system level access would have the ability to compile malicious software.
+As we can’t prevent people from plugging in storage and HID devices with blocklisting since modules are compiled in, what other options are there? You can turn off the USB port power on your robot. Get the [`hub-ctrl`](https://github.com/codazoda/hub-ctrl.c) utility. You will have to compile it from source. If you compile the software on the robot it is best practice to remove the compiler before deploying the robot. By leaving compilers on the robot, an attacker who gained system level access would have the ability to compile malicious software.
 
 Now that you have the binary on your robot, to turn off the power on Hub 1 to USB Port 2 and 3, for example, run:
 

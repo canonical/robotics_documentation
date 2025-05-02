@@ -1,9 +1,11 @@
 /*env*/
+venv/
 .sphinx/venv/
+.sphinx/doctrees/
 .sphinx/requirements.txt
 .sphinx/warnings.txt
 .sphinx/.wordlist.dic
-.sphinx/.doctrees/
+docs/.sphinx/.doctrees/
 .sphinx/node_modules/
 package*.json
 _build
@@ -11,5 +13,6 @@ _build
 __pycache__
 .idea/
 .vscode/
-.sphinx/styles/*
-.sphinx/vale.ini
+docs/.sphinx/.doctrees/*
+docs/.sphinx/styles/*
+docs/.sphinx/vale.ini

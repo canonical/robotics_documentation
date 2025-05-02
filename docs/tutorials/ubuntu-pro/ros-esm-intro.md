@@ -1,4 +1,4 @@
-# Registering and activating ROS-ESM
+# Getting started with ROS-ESM
 
 As part of [Ubuntu Pro](https://ubuntu.com/pro/tutorial) for Applications subscription, [ROS ESM](https://ubuntu.com/robotics/ros-esm) gives you a hardened and long-term supported ROS system for robots and its applications. Even if your ROS distribution hasn’t reached its end-of-life `(EOL)`, you can count on `backports` for critical security updates and `CVEs` fixes for your environment. In addition, all upstream changes are evaluated by hand to minimise breaking changes. By enabling our repositories, you will get trusted and stable binaries for your environment. If you are a standard or advanced customer, you also get ROS support. This provides you with a single point of contact to log ROS bugs.
 
@@ -183,7 +183,15 @@ sudo pro enable ros-updates
 
 You will be prompted to enable the `ros` service first, as `ros-updates` depends on `ros`.
 
+<<<<<<< HEAD
 ### Rosdep set up
+=======
+## Using ROS ESM
+
+Congratulations, you’re now set up to use ROS ESM! From there, you can either install the complete ROS distro variant offered by ROS ESM (`ros_base`), or you can use rosdep to install the specific dependencies required by your ROS project. Let's quickly explore both options.
+
+### Installing ROS ESM base variant
+>>>>>>> origin/main
 
 ROS ESM provides its own distribution and `rosdep` files. Let's make sure you install `rosdep` from ESM and re-initialise it as follows:
 
@@ -200,7 +208,11 @@ Congratulations, you’re now set up to use ROS ESM! From there, you can either 
 
 For more information on what happens behind the scenes take a look at [`TODO: link to explanations ros-esm-ppa-rosdep`]('#').
 
+<<<<<<< HEAD
 ### Installing ROS ESM base variant
+=======
+There is tooling that makes this fairly straightforward, called `rosinstall_generator`, that will generate a rosinstall file containing the desired package(s) and all dependencies not already satisfied.
+>>>>>>> origin/main
 
 ROS ESM offers the upstream `metapackage` variant called `ros_base`, which facilitates the installation of all ROS packages included in this variant. For example, if you are working with `20.04 Focal` and its corresponding version ROS Noetic, run the command:
 
