@@ -1,10 +1,7 @@
-Robotics packaging how-to guides 
+Security
 ================================
 
 .. toctree::
-   :maxdepth: 3
-   :caption: How-to Robotics Security
-
-   Combine ROS ESM and ROS upstream <combine-esm-and-upstream-ros.md>
-
-
+   :maxdepth: 1
+   
+   combine-esm-and-upstream-ros

@@ -11,3 +11,4 @@ How-to guides
 
    packaging/index
    operation/index
+   security/index
