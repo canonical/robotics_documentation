@@ -3,7 +3,7 @@
 We don't support enabling both ROS ESM as well as the upstream ROS Debian repository.
 This means that every ROS component you use must either be from ESM, or built from source against ESM.
 
-There is tooling that makes this fairly straightforward, called rosinstall_generator,
+There is tooling that makes this fairly straightforward, called `rosinstall_generator`,
 that will generate a rosinstall file containing the desired package(s) and all dependencies not already satisfied.
 
 In a sourced ROS ESM environment, execute the following:
