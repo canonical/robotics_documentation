@@ -1,13 +1,10 @@
-Security Documentation
-======================
+:sequential_nav: next
+
+Security
+========
 
 .. toctree::
-   :maxdepth: 3
-   :caption: security
+   :maxdepth: 1
 
-   Securing ROS robotic platforms <securing-ros-robotic-platforms>
-   Interaction between ROS ESM and ROS upstream <ros-esm-ppa-rosdep>
-
-
-
-
+   securing-ros-robotic-platforms
+   ros-esm-ppa-rosdep

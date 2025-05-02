@@ -212,12 +212,29 @@ You will be prompted to enable the `ros` service first, as `ros-updates` depends
 ROS ESM provides its own distribution and `rosdep` files.
 Let's make sure you install `rosdep` from ESM and re-initialise it as follows:
 
+``````{tabs}
+
+`````{tab}  Noetic/Foxy (Python3)
+
+```bash
+sudo apt install python3-rosdep
+sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
+sudo rosdep init
+rosdep update
+```
+`````
+
+`````{tab} Kinetic/Melodic (Python2)
+
 ```bash
 sudo apt install python-rosdep
 sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
 sudo rosdep init
 rosdep update
 ```
+
+`````
+``````
 
 ## Using ROS ESM
 
@@ -226,7 +243,8 @@ From here, you can either install the complete ROS distro variant offered by ROS
 or you can use rosdep to install the specific dependencies required by your ROS project.
 Let's quickly explore the two options for this tutorial.
 
-For more information on what happens behind the scenes take a look at [this explanation](../../explanations/security/ros-esm-ppa-rosdep.md).
+For more information on what happens behind the scenes,
+take a look at [this explanation](../../explanations/security/ros-esm-ppa-rosdep.md).
 
 ### Installing ROS ESM base variant
 
@@ -241,7 +259,9 @@ sudo apt install ros-noetic-ros-base
 
 ```{important}
 You have to remember that the Ubuntu version and ROS version are co-dependent, so you have to choose a pair.
-For example, Ubuntu 16.04 LTS and ROS Kinetic, Ubuntu 18.04 LTS and ROS Melodic, Ubuntu 20.04 LTS and ROS 2 Foxy or ROS 1 Noetic.
+For example, Ubuntu 16.04 LTS and ROS Kinetic,
+Ubuntu 18.04 LTS and ROS Melodic,
+Ubuntu 20.04 LTS and ROS 2 Foxy or ROS 1 Noetic.
 Here you can find more information for [ROS distributions](http://wiki.ros.org/Distributions)
 and [ROS 2 distributions](https://docs.ros.org/en/foxy/Releases.html).
 
