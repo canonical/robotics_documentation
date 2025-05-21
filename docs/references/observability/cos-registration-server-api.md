@@ -28,7 +28,7 @@ Within Juju,
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "https://raw.githubusercontent.com/canonical/cos-registration-server/refs/heads/feat/api_documentation/cos_registration_server/openapi.yaml",
+    url: "https://raw.githubusercontent.com/canonical/cos-registration-server/refs/heads/main/cos_registration_server/openapi.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
