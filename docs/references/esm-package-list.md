@@ -1,7 +1,11 @@
 # List of ROS ESM packages
 
-In this page you will find the list of the ROS packages that are supported in the Extended Maintenance Support(ESM)from Canonical under the Ubuntu Pro offering.
+In this page you will find the list of the ROS packages that are supported in the Extended Maintenance Support (ESM) from Canonical under the Ubuntu Pro offering.
 In general, the packages that we support from the first day after each ROS version goes end-of-life are the ones required from the meta-package `ros-base` (see [REP142](https://www.ros.org/reps/rep-0142.html#ros-base) and [REP2001](https://www.ros.org/reps/rep-2001.html#ros-base)).
+
+``` {note}
+Need additional packages or distributions covered under ESM? Canonical can add and support your specific ROS packages or distributions as part of a commercial engagement. If your organization has unique needs beyond the default set, [contact us](https://ubuntu.com/robotics#get-in-touch) to explore custom ESM support.
+```
 
 ## ROS 1 Noetic
 
