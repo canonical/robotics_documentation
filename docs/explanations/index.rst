@@ -12,5 +12,5 @@ Canonical robotics solutions and help you understand how things fit together.
    snaps/index
    ubuntu-core
    Security <security/securing-ros-robotic-platforms>
-   iot-app-store
+   dedicated-snap-store
    observability/index
