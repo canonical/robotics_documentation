@@ -9,6 +9,10 @@ If you cannot find an answer to your question here, feel free to ask it on [the 
 ## I cannot snap my application. What should I check?
 
 * Snapcraft uses the familiar ROS tools (`rosdep`/`catkin`/`colcon` etc). Which means that your application must follow the ROS directives for proper packaging, such as declaring all the necessary dependencies in the *package.xml* files or the install rules in your *`CMakeFile.txt`*. Make sure that these are in good order before attempting to create a snap.
+  
+### *Use colcon-in-container to validate your workspace before snapping*
+
+If you're encountering persistent issues when snapping your ROS 2 application, especially related to missing dependencies or environment mismatches, we recommend trying [**colcon-in-container**](https://github.com/canonical/colcon-in-container/blob/main/README.md). This tool builds and tests your ROS workspace inside an ephemeral, isolated container with a clean ROS environment.
 
 ## Which base should I use (`core18`, `core20`, `core22` or `core24`)?
 
@@ -98,7 +102,7 @@ If you see something similar to:
 * By default `rospack` and `roslog` write to the `$HOME/.ros`. When strictly confined a snap who doesn’t have the [`home` interface](https://snapcraft.io/docs/home-interface) cannot access the host `$HOME`. Also, even with the [`home` plug](https://snapcraft.io/docs/home-interface) the snap cannot access to hidden directories (.directories) for security reasons (like .ssh).
   * To solve that, we can write ROS logs in the `$SNAP_USER_DATA` environment variable. We can do so by defining the ROS environment variable `ROS_HOME`. We can do so by adding to a snap app in the `snapcraft.yaml`:
 
-    ```
+    ```yaml
         [...]
         apps:
           myapp:
