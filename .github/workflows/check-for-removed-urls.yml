@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
+          fetch-depth: 0
       - uses: actions/setup-python@v4
       - name: Build docs
         run: |
@@ -39,5 +40,6 @@ jobs:
           cp new_urls.txt current_urls.txt
           git config --global user.name 'Ubuntu Robotics Community Group'
           git config --global user.email 'ubuntu-robotics-community-group@canonical.com'
-          git commit -am "Automated URLs update"
+          git add current_urls.txt
+          git commit -m "Automated URLs update"
           git push
