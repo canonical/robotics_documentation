@@ -232,6 +232,7 @@ redirects = {
     # These intermediate pages were removed
     "tutorials/ubuntu-pro/": "../../tutorials/ubuntu-pro/ros-esm-intro/",
     "explanations/security/": "../../explanations/security/securing-ros-robotic-platforms/",
+    "explanations/iot-app-store/": "../../explanations/dedicated-snap-store/",
     # The snapcraft references were moved to a subfolder
     "references/plugins/": "../../references/snapcraft/plugins/",
     "references/extensions/": "../../references/snapcraft/extensions/",
