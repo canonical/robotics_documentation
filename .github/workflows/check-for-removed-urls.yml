@@ -23,11 +23,13 @@ jobs:
           make html
       - name: Generate current URLs list
         run: |
+          cd docs
           find ./_build/ -name '*.html' \
           | sed 's|/_build||;s|/index.html$|/|;s|.html$||' \
           | sort > new_urls.txt
       - name: Compare URLs
         run: |
+          cd docs
           removed=$(comm -23 current_urls.txt new_urls.txt )
           if [ -n "$removed" ]; then
             echo "The following URLs were removed:"
@@ -37,6 +39,7 @@ jobs:
       - name: Commit current URLs
         if: github.ref == 'refs/heads/main'
         run: |
+          cd docs
           cp new_urls.txt current_urls.txt
           git config --global user.name 'Ubuntu Robotics Community Group'
           git config --global user.email 'ubuntu-robotics-community-group@canonical.com'
