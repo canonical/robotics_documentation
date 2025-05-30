@@ -221,7 +221,7 @@ redirects = {
     "docs/explanations/snaps/vcstool-and-rosinstall-file/": "../../../../explanations/snaps/vcstool-and-rosinstall-file/",
     "docs/explanations/snaps/debug-the-build-of-a-snap/": "../../../../explanations/snaps/debug-the-build-of-a-snap/",
     "docs/explanations/snaps/debug-a-snap-application/": "../../../../explanations/snaps/debug-a-snap-application/",
-    "docs/explanations/iot-app-store/": "../../../explanations/dedicated-snap-store/",
+    "docs/explanations/iot-app-store/": "../../../../explanations/dedicated-snap-store/",
     # The snaps/core tutorials were moved to a subfolder
     "tutorials/snapcraft/": "../../tutorials/snaps-core/",
     "tutorials/packaging-ros-application-as-snap/": "../../tutorials/snaps-core/packaging-ros-application-as-snap/",
