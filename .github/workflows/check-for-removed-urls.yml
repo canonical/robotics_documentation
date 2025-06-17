@@ -1,8 +1,6 @@
 name: Check for removed URLs
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
@@ -14,35 +12,37 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+          path: compare
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 0
+          path: base
       - uses: actions/setup-python@v4
       - name: Build docs
         run: |
-          cd docs
-          make install
-          . .sphinx/venv/bin/activate
-          make html
+          for dir in compare base; do
+            cd $dir
+            cd docs
+            make install
+            . .sphinx/venv/bin/activate
+            make html
+          done
       - name: Generate current URLs list
         run: |
-          cd docs
-          find ./_build/ -name '*.html' \
-          | sed 's|/_build||;s|/index.html$|/|;s|.html$||' \
-          | sort > new_urls.txt
+          for dir in compare base; do
+            cd docs
+            find ./_build/ -name '*.html' \
+            | sed 's|/_build||;s|/index.html$|/|;s|.html$||' \
+            | sort > urls.txt
+          done
       - name: Compare URLs
         run: |
-          cd docs
-          removed=$(comm -23 current_urls.txt new_urls.txt )
+          BASE_URLS_PATH="base/docs/urls.txt"
+          COMPARE_URLS_PATH="compare/docs/urls.txt"
+          removed=$(comm -23 ${BASE_URLS_PATH} ${COMPARE_URLS_PATH} )
           if [ -n "$removed" ]; then
             echo "The following URLs were removed:"
             echo "$removed"
             exit 1
           fi
-      - name: Commit current URLs
-        if: github.ref == 'refs/heads/main'
-        run: |
-          cd docs
-          cp new_urls.txt current_urls.txt
-          git config --global user.name 'Ubuntu Robotics Community Group'
-          git config --global user.email 'ubuntu-robotics-community-group@canonical.com'
-          git add current_urls.txt
-          git commit -m "Automated URLs update"
-          git push
