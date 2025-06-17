@@ -22,18 +22,20 @@ jobs:
       - name: Build docs
         run: |
           for dir in compare base; do
-            cd ${GITHUB_WORKSPACE}/${dir}/docs
+            pushd ${dir}/docs
             make install
             . .sphinx/venv/bin/activate
             make html
+            popd
           done
       - name: Generate current URLs list
         run: |
           for dir in compare base; do
-            cd ${GITHUB_WORKSPACE}/${dir}/docs
+            pushd ${dir}/docs
             find ./_build/ -name '*.html' \
             | sed 's|/_build||;s|/index.html$|/|;s|.html$||' \
             | sort > urls.txt
+            popd
           done
       - name: Compare URLs
         run: |
