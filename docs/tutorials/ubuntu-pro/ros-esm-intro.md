@@ -18,6 +18,6 @@ For more information, please visit [Ubuntu Pro Service Description, Extended Sec
 
 For step-by-step guidance, take a look at our How-To guides on enabling and day-to-day usage of ROS ESM:
 
-* [How to Enable ROS ESM](../../how-to-guides/security/how-to-enable-ros-esm)
-* [Using ROS ESM](../../how-to-guides/security/using-ros-esm)
+* [How to Enable ROS ESM](../../how-to-guides/security/how-to-enable-ros-esm.md)
+* [Using ROS ESM](../../how-to-guides/security/using-ros-esm.md)
 * [Combine ESM and Upstream ROS Components](../../how-to-guides/security/combine-esm-and-upstream-ros.md)
