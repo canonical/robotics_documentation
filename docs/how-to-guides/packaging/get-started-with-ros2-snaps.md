@@ -81,7 +81,7 @@ parts:
 
 The recipe comes with most expected directives pre-filed with default values
 that are informative and commented.
-Note that the template package a talker-listener demo from the upstream `ros2/demos`
+Note that the template packages a talker-listener demo from the upstream `ros2/demos`
 GitHub repository.
 It retrieves the source code from a specific branch and packages only a sub-directory
 of this large collection of demos.
