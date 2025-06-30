@@ -1,4 +1,4 @@
-# Debugging Snap Applications
+# Debug Snap Applications
 
 > **⚠️  Before you start**
 >
