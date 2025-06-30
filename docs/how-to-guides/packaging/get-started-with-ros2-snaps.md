@@ -1,11 +1,5 @@
 # Get started with ROS 2 snaps
 
-If you are new to the whole topic of creating snaps for ROS 2 applications,
-I'd encourage you to start with the tutorial series:
-{doc}`From zero to hero: deploy a robot with snaps and Ubuntu Core </tutorials/snaps-core/index>`.
-as this particular How-to touches on one single specific aspect:
-creating the `snapcraft.yaml` file from a template.
-
 When creating a snap for a ROS 2 application (or any snap for that matter),
 the very first step is to create a `snapcraft.yaml` file for the project and
 file it up with some boilerplate before we can actually get to the specifics
@@ -13,7 +7,16 @@ of the project at hand.
 In the case of ROS 2-based applications,
 we can actually make use of a template to get us started faster.
 
-To create said template, use the command:
+```{note}
+If you are new to the whole topic of creating snaps for ROS 2 applications,
+I'd encourage you to start with the tutorial series:
+{doc}`From zero to hero: deploy a robot with snaps and Ubuntu Core </tutorials/snaps-core/index>`.
+as this particular How-to touches on one single specific aspect:
+creating the `snapcraft.yaml` file from a template.
+```
+
+To get started with ROS 2 snaps and create a `snapcraft.yaml` from the template,
+use the command:
 
 ```bash
 snapcraft init --name my-ros2-project --profile ros2
