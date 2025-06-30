@@ -181,7 +181,7 @@ By default, Ubuntu Core runs an OpenSSH server which is configured for security 
 
 #### Disable Bluetooth
 
-Bluetooth is a convenient way to connect devices wirelessly, but it is not without vulnerabilities and, naturally, exploits. For example, [`BlueBorne`](https://www.armis.com/blueborne/) doesn’t even need to pair with a Bluetooth device or even need the device to be discoverable. There are also known exploits for the zero-click kernel-level vulnerability [`BleedingTooth`](https://portswigger.net/daily-swig/bleedingtooth-google-drops-full-details-of-zero-click-linux-bluetooth-bug-chain-leading-to-rce), which allows unauthenticated attackers to execute arbitrary code with kernel privileges on vulnerable devices. If your robot is not using Bluetooth for any function, you should disable it.
+Bluetooth is a convenient way to connect devices wirelessly, but it is not without vulnerabilities and, naturally, exploits. For example, [`BlueBorne`](https://en.wikipedia.org/wiki/BlueBorne_(security_vulnerability)) doesn’t even need to pair with a Bluetooth device or even need the device to be discoverable. There are also known exploits for the zero-click kernel-level vulnerability [`BleedingTooth`](https://portswigger.net/daily-swig/bleedingtooth-google-drops-full-details-of-zero-click-linux-bluetooth-bug-chain-leading-to-rce), which allows unauthenticated attackers to execute arbitrary code with kernel privileges on vulnerable devices. If your robot is not using Bluetooth for any function, you should disable it.
 
 ##### Disable Bluetooth on Ubuntu Desktop
 

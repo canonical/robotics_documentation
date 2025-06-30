@@ -52,7 +52,7 @@ See Also
    snap is capable of while helping you achieve specific aims,
    such as installing your favourite applications, taking a data snapshot, removing snaps.
 
-* `Snapcraft - Tutorials <https://snapcraft.io/docs/snapcraft-tutorials>`_
+* `Snapcraft - Tutorials <https://documentation.ubuntu.com/snapcraft/stable/tutorials/>`_
    This section of documentation contains step-by-step tutorials to help us learn
    how to build snap packages of our applications and services,
    for desktop, servers and embedded devices.
