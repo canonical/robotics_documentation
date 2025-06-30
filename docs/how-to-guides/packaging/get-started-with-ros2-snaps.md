@@ -85,7 +85,7 @@ Note that the template packages a talker-listener demo from the upstream `ros2/d
 GitHub repository.
 It retrieves the source code from a specific branch and packages only a sub-directory
 of this large collection of demos.
-It then invoke a plain `ros2 launch` command to start the talker-listener demo.
+It then invokes a plain `ros2 launch` command to start the talker-listener demo.
 The last point to which I would like to draw your attention to is that this template
 uses `core24` and ROS 2 Jazzy.
 Should you be using a different ROS 2 distribution,
