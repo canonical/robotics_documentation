@@ -48,7 +48,7 @@ you might upload it to charmhub.io or by [deploying your own charmstore](https:/
 Additionally, you could keep your charm local.
 
 In the case of a device application,
-the application [must be snapped](https://snapcraft.io/docs/snapcraft-tutorials).
+the application [must be snapped](https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/).
 It can then be deployed publicly to the [Snap Store](https://snapcraft.io/store) or
 privately on the [dedicated Snap Store](https://ubuntu.com/core/docs/dedicated-snap-stores).
 

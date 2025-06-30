@@ -255,6 +255,7 @@ linkcheck_ignore = [
     "https://ubuntu.com/core/features/secure-boot#get-in-touch",
     "https://ubuntu.com/robotics#get-in-touch",
     "https://canonical-juju.readthedocs-hosted.com/en/latest/user/explanation/kubernetes-in-juju/",
+    "https://snapcraft.io/docs/catkin-*",
 ]
 
 

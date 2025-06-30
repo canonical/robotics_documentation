@@ -27,7 +27,7 @@ See Also
    what functions the API supports,
    which environment variables can be accessed and the contents of gadget.yaml.
 
-* `Snapcraft - references <https://snapcraft.io/docs/snapcraft-reference>`_
+* `Snapcraft - references <https://documentation.ubuntu.com/snapcraft/stable/reference/>`_
    Reference section for when we need to know which plugins we offer,
    which interfaces we can use, and what we can add to snapcraft.yaml.
 
