@@ -1,7 +1,8 @@
 # Using ROS ESM
 
-Congratulations, you’re now set up to use ROS ESM! 
-From there, you can either install the complete ROS distro variant offered by ROS ESM (`ros_base`), 
+This guide will walk you through setting up your environment once you've [enabled ROS ESM](how-to-enable-ros-esm.md).
+
+You have a couple of different choices: you can either install the complete ROS distro variant offered by ROS ESM (`ros_base`), 
 or you can use rosdep to install the specific dependencies required by your ROS project. 
 Let's quickly explore both options.
 
@@ -11,13 +12,43 @@ ROS ESM offers the upstream `metapackage` variant called `ros_base`,
 which facilitates the installation of all ROS packages included in this variant.  
 For example, if you are working with `Xenial` and its corresponding version ROS Kinetic, run the command:
 
+``````{tabs}
+
+`````{tab}  ROS Foxy
+
+```bash
+
+sudo apt install ros-foxy-ros-base
+```
+`````
+
+`````{tab} ROS Noetic
+
+```bash
+sudo apt install ros-noetic-ros-base
+```
+
+`````
+`````{tab} ROS Melodic
+
+```bash
+sudo apt install ros-melodic-ros-base
+```
+
+`````
+`````{tab} ROS Kinetic
+
 ```bash
 sudo apt install ros-kinetic-ros-base
 ```
 
+`````
+
+``````
+
 > ℹ️ You have to remember that the Ubuntu version and ROS version are co-dependent, 
 so you have to choose a pair. For example, Ubuntu 16.04 LTS and ROS Kinetic, 
-Ubuntu 18.04 LTS and ROS Melodic, Ubuntu 20.04 LTS and ROS 2 Foxy. 
+Ubuntu 18.04 LTS and ROS Melodic, Ubuntu 20.04 LTS and ROS Noetic/ROS 2 Foxy. 
 Here you can find more information for [ROS distributions](http://wiki.ros.org/Distributions) 
 and [ROS 2 distributions](https://docs.ros.org/en/foxy/Releases.html).
 
@@ -51,11 +82,7 @@ ensuring smooth operation.
 ## ESM and non-ESM components
 
 A given ROS distribution includes a huge number of packages with wildly varying levels of quality. 
-ROS ESM does not attempt to support them all (such a thing would be disingenuous), 
-and instead focuses on core functionality. 
-Besides, it’s not unusual for upstream ROS components to break backward compatibility, 
-while ESM will not. One ramification of this is that ROS packages in ESM 
-might fall behind their upstream counterparts in order to retain stability.
+ROS ESM does not attempt to support them all, and instead focuses on core functionality.
 
 We of course realise that everyone’s needs are different, and are very open to 
 [receiving feedback](https://ubuntu.com/robotics/ros-esm#get-in-touch) 
