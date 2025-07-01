@@ -1,4 +1,4 @@
-# How to Enable ROS ESM
+# Enable ROS ESM
 
 ROS ESM builds on two Canonical ESM products: `ESM-infra` and `ESM-apps`.
 As a result, there are three steps to enabling ROS ESM:

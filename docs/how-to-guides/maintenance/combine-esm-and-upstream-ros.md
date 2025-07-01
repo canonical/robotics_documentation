@@ -1,4 +1,4 @@
-# Combining ESM and upstream ROS components
+# Combine ESM and upstream ROS components
 
 We don't support enabling both ROS ESM as well as the upstream ROS Debian repository.
 This means that every ROS component you use must either be from ESM, or built from source against ESM.

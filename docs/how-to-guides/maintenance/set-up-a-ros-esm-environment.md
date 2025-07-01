@@ -1,6 +1,6 @@
 # Set up a ROS ESM environment
 
-This guide will walk you through setting up your environment once you've [enabled ROS ESM](how-to-enable-ros-esm.md).
+This guide will walk you through setting up your environment once you've [enabled ROS ESM](enable-ros-esm.md).
 
 You have a couple of different choices: you can either install the complete ROS distro variant offered by ROS ESM (`ros_base`), 
 or you can use rosdep to install the specific dependencies required by your ROS project. 
