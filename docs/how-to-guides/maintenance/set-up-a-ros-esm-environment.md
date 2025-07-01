@@ -1,4 +1,4 @@
-# Using ROS ESM
+# Set up a ROS ESM environment
 
 This guide will walk you through setting up your environment once you've [enabled ROS ESM](how-to-enable-ros-esm.md).
 
@@ -46,11 +46,13 @@ sudo apt install ros-kinetic-ros-base
 
 ``````
 
-> ℹ️ You have to remember that the Ubuntu version and ROS version are co-dependent, 
+```{note}
+Remember that the Ubuntu version and ROS version are co-dependent, 
 so you have to choose a pair. For example, Ubuntu 16.04 LTS and ROS Kinetic, 
 Ubuntu 18.04 LTS and ROS Melodic, Ubuntu 20.04 LTS and ROS Noetic/ROS 2 Foxy. 
 Here you can find more information for [ROS distributions](http://wiki.ros.org/Distributions) 
 and [ROS 2 distributions](https://docs.ros.org/en/foxy/Releases.html).
+```
 
 ## Note on rosdep set up
 
@@ -73,7 +75,7 @@ and proceed by installing all the required ROS ESM dependencies by executing the
 
 ```bash
 cd ros-ws
-rosdep install –ignore-src –from-paths src
+rosdep install --ignore-src --from-paths src
 ```
 
 By doing so, the packages required for your project will be fetched and installed from the `ROS ESM ppa`, 

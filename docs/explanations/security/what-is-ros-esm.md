@@ -28,6 +28,6 @@ Or, if you have specific questions, [contact us for more information](https://ub
 
 For step-by-step guidance, take a look at our How-To guides on enabling and day-to-day usage of ROS ESM:
 
-* [How to Enable ROS ESM](../../how-to-guides/maintenance/how-to-enable-ros-esm.md)
-* [Using ROS ESM](../../how-to-guides/maintenance/using-ros-esm.md)
+* [Enable ROS ESM](../../how-to-guides/maintenance/how-to-enable-ros-esm.md)
+* [Set up a ROS ESM environment](../../how-to-guides/maintenance/set-up-a-ros-esm-environment.md)
 * [Combine ESM and Upstream ROS Components](../../how-to-guides/maintenance/combine-esm-and-upstream-ros.md)

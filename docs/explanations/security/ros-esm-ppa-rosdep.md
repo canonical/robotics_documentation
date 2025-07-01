@@ -101,6 +101,7 @@ rosdep update
 Now, the output of running `rosdep update` will look like the following:
 
 ```bash
+$ rosdep update
 reading in sources list data from /etc/ros/rosdep/sources.list.d
 Hit https://ros.robotics.ubuntu.com/rosdep/osx-homebrew.yaml
 Hit https://ros.robotics.ubuntu.com/rosdep/base.yaml

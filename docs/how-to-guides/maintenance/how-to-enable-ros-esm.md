@@ -3,7 +3,7 @@
 ROS ESM builds on two Canonical ESM products: `ESM-infra` and `ESM-apps`.
 As a result, there are three steps to enabling ROS ESM:
 
-1. Obtaining your token
+1. Obtaining your Ubuntu Pro token
 2. Enabling ESM-infra and ESM-apps
 3. Enabling ROS ESM.
 
@@ -65,7 +65,7 @@ make sure you are running the latest version of the Ubuntu Pro client.
 To check it, run:
 
 ```bash
-sudo pro --version
+pro version
 ```
 
 You should have a version greater than or equal to `27.11.2`.
@@ -79,10 +79,6 @@ sudo pro attach YOUR_TOKEN
 ```
 
 In order to see which Ubuntu Pro services are enabled you can run:
-
-```bash
-sudo pro status
-```
 
 ```bash
 $ pro status
@@ -134,7 +130,7 @@ However, ROS ESM is disabled by default and not listed in the common service lis
 First, let’s make sure that the Pro client is up-to-date:
 
 ```bash
-sudo pro version
+pro version
 ```
 
 Should return version `27.11.2` or greater.
@@ -142,7 +138,7 @@ Should return version `27.11.2` or greater.
 Then, let’s make sure that your token is entitled to enabling ROS ESM with:
 
 ```bash
-sudo pro status --all
+pro status --all
 ```
 
 You should now see the following ROS ESM services: `ros` and `ros-updates`.
