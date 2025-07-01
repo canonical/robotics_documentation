@@ -53,10 +53,7 @@ Apt automatically decides to upgrade from upstream `ros.org` to ROS ESM if both 
 you can confirm this by running:
 
 ```bash
-apt list --upgradable
-```
-
-```bash
+$ apt list --upgradable
 ros-foxy-std-msgs/focal-security 2.0.5+20.04.1-0 amd64 [upgradable from: 2.0.5-1focal.20230527.044919]
 ```
 
