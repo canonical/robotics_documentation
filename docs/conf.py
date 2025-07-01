@@ -230,7 +230,6 @@ redirects = {
     "tutorials/building-ros-snaps-with-content-sharing/": "../../tutorials/snaps-core/building-ros-snaps-with-content-sharing/",
     "tutorials/create-ubuntu-core-image-for-turtlebot3/": "../../tutorials/snaps-core/create-ubuntu-core-image-for-turtlebot3/",
     # These intermediate pages were removed
-    "explanations/security/": "../../explanations/security/hardening-your-robot/",
     "explanations/iot-app-store/": "../../explanations/dedicated-snap-store/",
     # The snapcraft references were moved to a subfolder
     "references/plugins/": "../../references/snapcraft/plugins/",
