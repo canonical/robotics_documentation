@@ -196,7 +196,7 @@ redirects = {
     "docs/tutorials/distribute-ros-apps-with-snap-store/": "../../../tutorials/distribute-ros-apps-with-snap-store/",
     "docs/tutorials/building-ros-snaps-with-content-sharing/": "../../../tutorials/building-ros-snaps-with-content-sharing/",
     "docs/tutorials/create-ubuntu-core-image-for-turtlebot3/": "../../../tutorials/create-ubuntu-core-image-for-turtlebot3/",
-    "docs/explanations/security/what-is-ros-esm/": "../../../../explanations/security/what-is-ros-esm/",
+    "docs/tutorials/ubuntu-pro/ros-esm-intro/": "../../../../tutorials/ubuntu-pro/ros-esm-intro/",
     "docs/how-to-guides/": "../../how-to-guides/",
     "docs/how-to-guides/packaging/build-and-publish-snap-with-github-actions/": "../../../../how-to-guides/packaging/build-and-publish-snap-with-github-actions/",
     "docs/how-to-guides/packaging/migrate_from_docker_to_snap": "../../../../how-to-guides/packaging/migrate_from_docker_to_snap",
@@ -211,7 +211,7 @@ redirects = {
     "docs/references/faq/": "../../../references/faq/",
     "docs/explanations/": "../../explanations/",
     "docs/explanations/ubuntu-core/": "../../../explanations/ubuntu-core/",
-    "docs/explanations/security/hardening-your-robot/": "../../../../explanations/security/hardening-your-robot/",
+    "docs/explanations/security/securing-ros-robotic-platforms/": "../../../../explanations/security/securing-ros-robotic-platforms/",
     "docs/explanations/snaps/ros-architectures-with-snaps/": "../../../../explanations/snaps/ros-architectures-with-snaps/",
     "docs/explanations/snaps/identify-functionalities-and-apps-of-robotics-snap/": "../../../../explanations/snaps/identify-functionalities-and-apps-of-robotics-snap/",
     "docs/explanations/snaps/snap-configurations-and-hooks/": "../../../../explanations/snaps/snap-configurations-and-hooks/",
@@ -230,10 +230,15 @@ redirects = {
     "tutorials/building-ros-snaps-with-content-sharing/": "../../tutorials/snaps-core/building-ros-snaps-with-content-sharing/",
     "tutorials/create-ubuntu-core-image-for-turtlebot3/": "../../tutorials/snaps-core/create-ubuntu-core-image-for-turtlebot3/",
     # These intermediate pages were removed
+    "tutorials/ubuntu-pro/": "../../tutorials/ubuntu-pro/ros-esm-intro/",
+    "explanations/security/": "../../explanations/security/securing-ros-robotic-platforms/",
     "explanations/iot-app-store/": "../../explanations/dedicated-snap-store/",
     # The snapcraft references were moved to a subfolder
     "references/plugins/": "../../references/snapcraft/plugins/",
     "references/extensions/": "../../references/snapcraft/extensions/",
+    # The unique ESM tutorial was broken down into how-tos & explanations
+    "tutorials/ubuntu-pro/ros-esm-intro/": "../../../../explanations/security/what-is-ros-esm/",
+    "explanations/security/securing-ros-robotic-platforms/": "../../../../explanations/security/hardening-your-robot/",
 }
 
 
@@ -253,6 +258,7 @@ linkcheck_ignore = [
     "https://ubuntu.com/core/features/secure-boot#get-in-touch",
     "https://ubuntu.com/robotics#get-in-touch",
     "https://canonical-juju.readthedocs-hosted.com/en/latest/user/explanation/kubernetes-in-juju/",
+    "https://snapcraft.io/docs/catkin-*",
 ]
 
 
