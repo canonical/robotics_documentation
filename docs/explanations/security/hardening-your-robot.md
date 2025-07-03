@@ -1,6 +1,6 @@
-# Securing ROS robotic platforms
+# Hardening your robot
 
-## Executive summary
+## Summary
 
 From manufacturing to agriculture, healthcare, logistics and beyond, robots are becoming an increasingly common sight, and an increasingly critical value driver across verticals. Industrial use cases alone account for [more than 500,000 new robots each year](https://ifr.org/img/worldrobotics/2023_WR_extended_version.pdf), and that number is only growing. But despite this widespread adoption, using robots securely still presents a major challenge.
 
@@ -8,7 +8,7 @@ Modern robots are typically designed to be open, robust, and easy to operate and
 
 There is no silver bullet when it comes to robotics security. Instead, the best approach is `defense in depth (DiD)`, combining multiple layers of protection.
 
-This white paper will address an essential security layer, whose key role is easily overlooked: your robot’s underlying operating system (OS). We’ll discuss the easy steps you can take to secure your robot by building on top of Ubuntu, and how Ubuntu Core provides you with enterprise-grade security for your robot out of the box.
+This white paper will address an **essential security layer**, whose key role is easily overlooked: **your robot’s underlying operating system (OS)**. We’ll discuss the easy steps you can take to secure your robot by building on top of Ubuntu, and how Ubuntu Core provides you with enterprise-grade security for your robot out of the box.
 
 ## Introduction
 
