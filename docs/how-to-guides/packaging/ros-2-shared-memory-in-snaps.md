@@ -1,4 +1,4 @@
-# ROS 2 shared memory in snaps
+# Use ROS 2 shared memory in snaps
 
 Strictly confined ROS 2 snaps shows an access error regarding shared memory. If you see something similar to:
 
