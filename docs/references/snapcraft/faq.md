@@ -10,16 +10,15 @@ If you cannot find an answer to your question here, feel free to ask it on [the 
 
 * Snapcraft uses the familiar ROS tools (`rosdep`/`catkin`/`colcon` etc).
 Which means that your application must follow the ROS directives for proper packaging, 
-such as declaring all the necessary dependencies in the *package.xml* files or the install rules in your *`CMakeFile.txt`*. 
+such as declaring all the necessary dependencies in the *`package.xml`* files or the install rules in your *`CMakeFile.txt`*. 
 Make sure that these are in good order before attempting to create a snap.
   
-### Use colcon-in-container to validate your workspace before snapping
-
-If you're encountering persistent issues when snapping your ROS 2 application,
- especially related to missing dependencies or environment mismatches,
- we recommend trying [**colcon-in-container**](https://github.com/canonical/colcon-in-container/blob/main/README.md).
- This tool builds and tests your ROS workspace inside an ephemeral,
- isolated container with a clean ROS environment.
+* Use colcon-in-container to validate your workspace before snapping \
+  If you're encountering persistent issues when snapping your ROS 2 application,
+  especially related to missing dependencies or environment mismatches, 
+  we recommend trying [**colcon-in-container**](https://github.com/canonical/colcon-in-container/blob/main/README.md).
+  This tool builds and tests your ROS workspace inside an ephemeral,
+  isolated container with a clean ROS environment.
 
 ## Which base should I use (`core18`, `core20`, `core22` or `core24`)?
 
