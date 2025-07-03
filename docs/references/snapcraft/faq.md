@@ -13,7 +13,7 @@ Which means that your application must follow the ROS directives for proper pack
 such as declaring all the necessary dependencies in the *package.xml* files or the install rules in your *`CMakeFile.txt`*. 
 Make sure that these are in good order before attempting to create a snap.
   
-### *Use colcon-in-container to validate your workspace before snapping*
+### Use colcon-in-container to validate your workspace before snapping
 
 If you're encountering persistent issues when snapping your ROS 2 application,
  especially related to missing dependencies or environment mismatches,
