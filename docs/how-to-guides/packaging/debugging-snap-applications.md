@@ -213,7 +213,7 @@ It’s now time to see if the `core` daemon is now running properly.
 
 Let’s check again the logs now that we fixed the LIDAR model issue:
 
-```terminal
+```console
 systemd[1]: Started Service for snap application turtlebot3c.core.
 turtlebot3c.core[101438]: [ERROR] [1677843362.232445761]: An exception was thrown: open: No such file or directory
 turtlebot3c.core[101437]: [ERROR] [1677843362.654190]: Error opening serial: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
@@ -610,7 +610,7 @@ There is still a final detail to look at before we run a final test.
 During the test we could have noticed this warning
 in the `mapping` and `navigation` logs:
 
-```txt
+```text
 [rospack] Warning: cannot create rospack cache directory /root/.ros: boost::filesystem::create_directory: Permission denied: "/root/.ros"
 ```
 

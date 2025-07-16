@@ -42,7 +42,7 @@ The current supported variable is: `%%juju_device_uuid%%`.
 
 Below is an example of a templated alert rule file:
 
-```txt
+```text
 groups:
   - name: low-memory/%%juju_device_uuid%%
     rules:

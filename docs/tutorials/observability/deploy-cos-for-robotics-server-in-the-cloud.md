@@ -147,7 +147,7 @@ juju bootstrap microk8s rob-cos-controller
 
 If successful the terminal will show the following message:
 
-```terminal
+```console
 Bootstrap complete, controller "rob-cos-controller" is now available in namespace "controller-rob-cos-controller"
 ```
 

@@ -71,7 +71,7 @@ Both base snaps and parent Docker images serve as the foundation for building ou
 For example, for a ROS Noetic application,
 in Docker you would include the Ubuntu 20.04 LTS image with the following command:
 
-```txt
+```dockerfile
 FROM ubuntu:20.04
 ```
 
@@ -197,7 +197,7 @@ In a Dockerfile the application’s source code is copied into the image file sy
 its dependencies installed and the package compiled.
 Something along the line of:
 
-```txt
+```dockerfile
 COPY ./my-ros-application ./src/my-ros-application
 
 RUN source /opt/ros/$ROS_DISTRO/setup.bash && \
@@ -313,7 +313,7 @@ apps:
 In Docker, sourcing of the ROS workspace is usually handled in
 the Dockerfile in the following way:
 
-```txt
+```dockerfile
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc && \
     echo "source /ros_ws/devel/setup.bash" >> ~/.bashrc
 ```
