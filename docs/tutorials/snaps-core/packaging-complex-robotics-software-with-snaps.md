@@ -377,7 +377,7 @@ TurtleBot3, TurtleBot3 messages, and TurtleBot3c.
 
 #### TurtleBot3
 
-This is the [official repository from Robotis](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel),
+This is the [official repository from Robotis](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic),
 which contains most of the TurtleBot3 packages. The main packages for this demo are:
 
 - [Turtlebot3_bringup](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic/turtlebot3_bringup):
