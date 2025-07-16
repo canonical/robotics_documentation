@@ -24,7 +24,8 @@ the presented configuration has been inspired from
 For {{ COS_ROB }} snaps, the configuration is done by sharing files with a
 [`content` interface](https://snapcraft.io/docs/content-interface).
 
-In this How-To you will deploy all configurations in one snap and share them with one interface.
+In this How-To,
+you will deploy all configurations in one snap and share them with one interface.
 This way the various snaps will pick the configurations they need.
 
 ### Snaps to configure
@@ -206,11 +207,13 @@ As an example, connect it to the `cos-registration-agent` with:
 snap connect cos-registration-agent:configuration-read my-rob-cos-configuration:configuration-read
 ```
 
-This connection will automatically trigger the registration on the `cos-registration-agent` side.
+This connection will automatically trigger the
+registration on the `cos-registration-agent` side.
 
 You can apply the same connections to all the snaps.
 
-Additionally, you could add more features to your configuration snap to make it smarter.
+Additionally,
+you could add more features to your configuration snap to make it smarter.
 
 A complete example of such snap can be found on GitHub:
 [github.com/canonical/rob-cos-demo-configuration](https://github.com/canonical/rob-cos-demo-configuration/tree/main).

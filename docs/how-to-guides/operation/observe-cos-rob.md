@@ -10,7 +10,8 @@ Feedback is welcome as we continue to improve.
 {{ COS_ROB }} provides valuable insights about one's fleet of devices.
 Maybe more importantly it also alerts the fleet operators should anything dysfunction.
 As such, {{ COS_ROB }} can be seen as a critical piece of infrastructure.
-And while it is resilient, it can be subject to failure and disrupts the monitoring of the fleet.
+And while it is resilient,
+it can be subject to failure and disrupts the monitoring of the fleet.
 
 For this reason, {{ COS_ROB }} is itself observable as well, using most of the tools
 already used for observing the robots fleets.
@@ -21,7 +22,8 @@ Instead, we recommend deploying a separate
 stack in production which responsibility is to monitor {{ COS_ROB }}.
 
 We assume hereafter that both {{ COS_ROB }} and {{ COS }} are deployed and set up.
-{{ COS }} deployment is very similar to that of {{ COS_ROB }} and a tutorial can be found on
+{{ COS }} deployment is very similar to that of {{ COS_ROB }} and
+a tutorial can be found on
 [{{ COS }} documentation website](https://charmhub.io/topics/canonical-observability-stack/tutorials).
 We also assume that {{ COS }} deployment includes support for
 [distributed tracing support with Tempo](https://charmhub.io/topics/canonical-observability-stack/how-to/add-distributed-tracing)
@@ -119,7 +121,8 @@ we must now 'relate' them through Juju
 
 Since the stacks live in separate models, we must establish a so called
 [coss-model relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/#cross-model).
-These are two folds, firstly, we need to expose some applications from one model to the other,
+These are two folds, firstly,
+we need to expose some applications from one model to the other,
 secondly, we can relate applications as we normally would using Juju.
 
 To ease the setup, we deploy the [Grafana agent](https://charmhub.io/grafana-agent-k8s)

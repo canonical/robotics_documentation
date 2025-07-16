@@ -83,7 +83,8 @@ But it is the de-facto way to enable the use of the shared memory feature in
 strictly confined snaps.
 Note that `snapd 2.56.2` (or above) is necessary.
 
-You can find a complete example of a ROS 2 snap using the public shared memory interface on
+You can find a complete example of a ROS 2 snap using
+the public shared memory interface on
 [GitHub](https://github.com/ubuntu-robotics/ros-snaps-examples/tree/main/shared_memory_foxy_core20/public-shared-memory).
 
 ## Private shared memory interface
@@ -115,7 +116,8 @@ it is important to note that if you access these topics published
 from the snap from another computer,
 it will work seamlessly as the data are shared via UDP.
 
-You can find a complete example of a ROS 2 snap using the private shared memory interface on
+You can find a complete example of a ROS 2 snap using
+the private shared memory interface on
 [GitHub](https://github.com/ubuntu-robotics/ros-snaps-examples/tree/main/shared_memory_foxy_core20/private-shared-memory).
 
 ## Disabling shared memory for ROS 2

@@ -20,8 +20,10 @@ combining multiple layers of protection.
 
 This white paper will address an **essential security layer**,
 whose key role is easily overlooked: **your robot’s underlying operating system (OS)**.
-We’ll discuss the easy steps you can take to secure your robot by building on top of Ubuntu,
-and how Ubuntu Core provides you with enterprise-grade security for your robot out of the box.
+We’ll discuss the easy steps you can take to
+secure your robot by building on top of Ubuntu,
+and how Ubuntu Core provides you with
+enterprise-grade security for your robot out of the box.
 
 ## Introduction
 
@@ -37,7 +39,8 @@ For this step-by-step hardening exercise,
 we will secure your robot for deployment to a production environment.
 The focus will be on securing the underlying operating system beneath your ROS or
 ROS 2 application running on top of Ubuntu 22.04 LTS or Ubuntu Core 22.
-Therefore, we assume that you have already developed your application and are ready to deploy.
+Therefore,
+we assume that you have already developed your application and are ready to deploy.
 
 Most of the suggestions in this white paper are agnostic to CPU architecture.
 If there are nuances related to a particular architecture,
@@ -106,8 +109,10 @@ we will exclude Ubuntu Server from this guide.
 To get started with Ubuntu Desktop,
 follow the steps described in the
 [Ubuntu documentation](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview),
-which will include downloading an official image and setting up a bootable USB stick.
-Select the 22.04 LTS release to receive the longest period of support and updates for your OS.
+which will include downloading an official image and
+setting up a bootable USB stick.
+Select the 22.04 LTS release to receive the longest period of
+support and updates for your OS.
 
 Then [set up your connectivity](https://netplan.readthedocs.io/en/stable/examples/) and
 select the appropriate `netplan` configuration example that applies to your WiFi network.
@@ -138,13 +143,16 @@ For more information see
 and [Build and write an image | Ubuntu Core](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/build-the-image/index.html#write-the-image).
 
 As you can see,
-*Ubuntu Core is not an environment for development, but an OS for deploying production devices.*
+*Ubuntu Core is not an environment for development,*
+*but an OS for deploying production devices.*
 
 ## Secure your base Ubuntu OS
 
 Now that Ubuntu is installed,
-there are 6 easy steps you can take to significantly enhance the security of your robot –
-and if you are using Ubuntu Core, many of these measures are implemented by default.
+there are 6 easy steps you can take to
+significantly enhance the security of your robot –
+and if you are using Ubuntu Core,
+many of these measures are implemented by default.
 
 The recommendations below are grouped into logical categories based on
 generally recognised good security practices, as they apply to your robot’s OS.
@@ -319,8 +327,10 @@ rfkill block wlan
 
 #### Disable ethernet
 
-If your production robot uses a WiFi connection instead of wired, then disable the wired connection.
-You can use the Network Manager utility to detect and disconnect any ethernet devices from your system.
+If your production robot uses a WiFi connection instead of wired,
+then disable the wired connection.
+You can use the Network Manager utility to detect and
+disconnect any ethernet devices from your system.
 Install the Network Manager snap,
 then check which devices are connected and disconnect each one explicitly:
 
@@ -430,7 +440,8 @@ and anything marked with a “=y” can’t because “y” means that
 the driver is compiled into the kernel.
 The example above is from a
 [TurtleBot3](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/#overview)
-with a Raspberry Pi 3+, and unfortunately, those modules need to be compiled into the kernel.
+with a Raspberry Pi 3+, and unfortunately,
+those modules need to be compiled into the kernel.
 The only things we could disable are the serial devices,
 but the TurtleBot3 uses that module for the LiDAR communication.
 
@@ -792,11 +803,13 @@ net.ipv4.tcp_synack_retries = 5
 #### Apply `address space layout randomisation` (ASLR)
 
 Take advantage of address space layout randomisation (ASLR),
-a technique to prevent attackers from using knowledge of the memory address allocated to
+a technique to prevent attackers from
+using knowledge of the memory address allocated to
 functions in a given vulnerable program to execute exploits.
 The ASLR configuration can have one of three values:
 0 (disabled), 1 (conservative randomisation), or 2 (full randomisation).
-Because the effectiveness of the technique depends on the amount of randomised address space,
+Because the effectiveness of the technique depends on
+the amount of randomised address space,
 it is recommended to apply full randomisation to
 reduce the likelihood of a successful attack.
 Full randomisation [is already the default in Ubuntu](https://wiki.ubuntu.com/Security/Features#Address_Space_Layout_Randomisation_.28ASLR.29);
@@ -942,7 +955,8 @@ and with Ubuntu Core, those barriers are in place out of the box.
 
 --------------------------------------
 
-For more information about [Ubuntu and robotics](https://ubuntu.com/robotics) please visit our website.
+For more information about
+[Ubuntu and robotics](https://ubuntu.com/robotics) please visit our website.
 
 You may also consider reading the following materials:
 

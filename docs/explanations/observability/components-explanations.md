@@ -7,7 +7,8 @@ Feedback is welcome as we continue to improve.
 ```
 
 The {{ COS_ROB }} is meant to monitor your devices.
-This means that we have a server hosting all our applications and devices sending data to our server.
+This means that we have a server hosting all our applications and
+devices sending data to our server.
 
 The server side,
 based on [COS Lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite)
@@ -27,7 +28,8 @@ as the pre-configured {{ COS_ROB }} bundle.
 - [`ros2bag-fileserver-k8s`](https://charmhub.io/ros2bag-fileserver-k8s)
 
 Additionally,
-you can [package your own cloud application as a charm and deploy it along {{ COS_ROB }}](https://canonical-charmcraft.readthedocs-hosted.com/en/stable/tutorial/).
+you can [package your own cloud application as a charm](https://canonical-charmcraft.readthedocs-hosted.com/en/stable/tutorial/)
+and deploy it along {{ COS_ROB }}.
 
 ### `cos-registation-server-k8s`
 
@@ -58,8 +60,10 @@ The `ros2bag-fileserver-k8s` operator is used to store robotics data from device
 Robots are pushing data over SSH.
 The robotics data (ROS 2 bags),
 can latter be accessed with the file-server
-([Caddy](https://caddyserver.com/docs/caddyfile/directives/file_server)) exposed by the operator.
-Additionally, the file-server has a UI so you can access the files and their links to provide them
+([Caddy](https://caddyserver.com/docs/caddyfile/directives/file_server))
+exposed by the operator.
+Additionally,
+the file-server has a UI so you can access the files and their links to provide them
 to other applications (i.e. Foxglove Studio file entry).
 The charm is meant to work with the [`ros2-exporter-agent`](https://snapcraft.io/ros2-exporter-agent).
 
@@ -117,7 +121,8 @@ It is reading its configuration from the `rob-cos-demo-configuration`.
 
 The `ros2-exporter-agent` snap is recording ROS 2 bags and
 sending them to the `ros2bag-fileserver-k8s`.
-The snap takes care of recording bag, sending them to the server and then clean old ROS bags.
+The snap takes care of recording bag,
+sending them to the server and then clean old ROS bags.
 It is reading its configuration from the `rob-cos-demo-configuration`.
 Additionally, the snap reads credentials from the `rob-cos-data-sharing`.
 

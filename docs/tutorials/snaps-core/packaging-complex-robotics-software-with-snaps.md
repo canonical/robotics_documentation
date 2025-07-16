@@ -54,7 +54,8 @@ thus minimizing security risks.
 Addressing those points and more,
 snaps represent an ideal solution to deploy ROS applications to devices and users.
 
-Snapping a simple talker-listener in [Tutorial 1: Packaging our first ROS application as a snap](packaging-ros-application-as-snap.md)
+Snapping a simple talker-listener in
+[Tutorial 1: Packaging our first ROS application as a snap](packaging-ros-application-as-snap.md)
 was good enough to see the potential of snaps.
 However, when packaging a more complex application, one might wonder:
 
@@ -94,7 +95,8 @@ for a more interesting real-world scenario.
 
 Since this developer guide builds a snap for a robot, we will need:
 
-- TurtleBot3 [Gazebo classic](https://classic.gazebosim.org/) simulation running under ROS Noetic.
+- TurtleBot3 [Gazebo classic](https://classic.gazebosim.org/)
+  simulation running under ROS Noetic.
 - Depending on our current OS,
   we can choose between the following Native setup and the Multipass setup.
 
@@ -285,7 +287,8 @@ Let’s break down what each of these applications will do and the requirements 
 
 Core is going to be our common set of nodes always running in the background.
 In the case of the TurtleBot3,
-we are talking about all the nodes to interface with the hardware (mobile base, LIDAR, camera)
+we are talking about all the nodes to interface with the hardware
+(mobile base, LIDAR, camera)
 as well as the `robot_state_publisher` to have the model of the robot available.
 This `core` snap application must be running in the background.
 
@@ -382,7 +385,8 @@ which contains most of the TurtleBot3 packages. The main packages for this demo 
 - [Turtlebot3_description](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_description):
   Contains URDF files as well as meshes.
 - [Turtlebot3_navigation](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_navigation):
-  Contains launch files and parameters for navigation algorithm and ROS packages (AMCL, `move_base`).
+  Contains launch files and parameters for navigation algorithm and
+  ROS packages (AMCL, `move_base`).
 - [Turtlebot3_slam](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel/turtlebot3_slam):
   Contains launch files and configurations for the different SLAM algorithm
   (gmapping, hector slam, etc.).
@@ -1215,8 +1219,10 @@ Here there are multiple things that we want to achieve:
 
 #### Simulation parameter
 
-For the simulation, the only application that is going to be impacted is the `core` daemon.
-Since the snap is not meant to run the simulation itself but simply to interface with it,
+For the simulation,
+the only application that is going to be impacted is the `core` daemon.
+Since the snap is not meant to run the simulation itself but
+simply to interface with it,
 there is no big challenge here.
 
 For this first parameter, we will have to create the hook scripts first.

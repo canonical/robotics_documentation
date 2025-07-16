@@ -59,7 +59,8 @@ Seeing our robotics application from the user perspective will
 guide us toward our snap designing decisions.
 
 Reusing our supermarket robot cleaner example,
-all our functionalities require the same base (the same bring-up) to control the robot, etc.
+all our functionalities require the same base
+(the same bring-up) to control the robot, etc.
 We will define one background service to start all the basic controls etc and
 two different applications for our robot use cases.
 

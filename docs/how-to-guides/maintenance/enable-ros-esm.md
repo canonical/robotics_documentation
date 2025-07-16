@@ -11,14 +11,17 @@ Note that `ESM-infra` and `ESM-apps` are required dependencies of ROS ESM.
 
 ## Obtain your authentication token
 
-Access to ESM is controlled by a token associated with your Ubuntu Single Sign-on `(SSO)` account.
+Access to ESM is controlled by a token associated with
+your Ubuntu Single Sign-on `(SSO)` account.
 To obtain a token go to this page <https://ubuntu.com/pro/subscribe>.
 You can register for free up to 5 tokens to try out Ubuntu Pro and ROS ESM.
-If you already purchased ROS ESM or Ubuntu Pro, then you will have the token and you can review it at:
+If you already purchased ROS ESM or Ubuntu Pro,
+then you will have the token and you can review it at:
 
 <https://ubuntu.com/pro>
 
-[Get in touch with us](https://ubuntu.com/robotics/ros-esm#get-in-touch) if you need a personalised offer.
+[Get in touch with us](https://ubuntu.com/robotics/ros-esm#get-in-touch)
+if you need a personalised offer.
 
 ## Enable ESM-infra and ESM-apps
 

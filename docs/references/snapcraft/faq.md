@@ -4,7 +4,8 @@ This page reference ROS and ROS 2 snap  common questions and troubleshooting:
 
 ## Frequently Asked Questions
 
-If you cannot find an answer to your question here, feel free to ask it on [the ubuntu forum](https://discourse.ubuntu.com/c/project/robotics/121).
+If you cannot find an answer to your question here,
+feel free to ask it on [the ubuntu forum](https://discourse.ubuntu.com/c/project/robotics/121).
 
 ## I cannot snap my application. What should I check?
 
@@ -80,7 +81,11 @@ Make sure that these are in good order before attempting to create a snap.
   * `ros-${ROS-DISTRO}-rosbash`
   * `ros-${ROS-DISTRO}-roslaunch`.
 
+<!-- markdownlint-disable MD013 -->
+
 ## With `core18` Catkin plugin creates an external link that prevents the security checks to pass
+
+<!-- markdownlint-enable MD013 -->
 
 * Please see: [Catkin generating an external link](https://forum.snapcraft.io/t/store-unable-to-accept-contains-external-symlinks-to-sudo-service/23269).
 

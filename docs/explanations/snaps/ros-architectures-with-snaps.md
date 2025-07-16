@@ -45,7 +45,8 @@ The three applications are communicating using ROS
 A monolithic architecture is a common approach since snaps can bundle all
 dependencies and applications in a single snap.
 
-This approach require writing only one `snapcraft.yaml` to snap all our applications and stack.
+This approach require writing only one `snapcraft.yaml`
+to snap all our applications and stack.
 
 The `snapcraft.yaml` can still contain multiple parts in case some dependencies
 of the ROS workspace must be built.
@@ -125,7 +126,8 @@ The content of the snap should make sense as an application.
 Deploying multiple snaps means multiple snapcraft.yaml files to define, build,
 and maintain, making the multi-snap architecture more complex.
 
-ROS 2 DDS default implementation `FastDDS` can use shared memory to exchange faster when two
+ROS 2 DDS default implementation `FastDDS` can use shared memory to
+exchange faster when two
 [`DomainParticipants`](https://fast-dds.docs.eprosima.com/en/latest/fastdds/api_reference/dds_pim/domain/domainparticipant.html)
 are on the same host.
 You can enable shared memory across multi snaps with the
@@ -192,12 +194,14 @@ on another robot as long as the interface is standardised (same topic names, uni
 In the previous section we showed that
 the robot software stack can be broken down into different snaps,
 one that contains all the core components of the robot
-(controllers, drivers, start/stop sequences etc)
-and a myriad of other application specific snaps (in our example, Clean and Patrol).
+(controllers, drivers, start/stop sequences etc) and
+a myriad of other application specific snaps (in our example, Clean and Patrol).
 From an architectural perspective this design is sound,
 however when looking closer at it (e.g. last diagram) we realise that
-the same system dependencies and the same ROS packages are duplicated in each and every snap.
-Indeed, since snaps are self-contained and ship all the dependencies an application may require,
+the same system dependencies and
+the same ROS packages are duplicated in each and every snap.
+Indeed, since snaps are self-contained and
+ship all the dependencies an application may require,
 it only makes sense to see them duplicated.
 However this can quickly become a waste of resources (disk space, bandwidth etc).
 Using the content-sharing feature,

@@ -15,7 +15,8 @@ by deploying and integrating all the server side applications manually.
 ## Can I use {{ COS_ROB }} without snaps?
 
 While this is not a supported use case,
-you can redeploy the device side without snaps by repackaging and managing yourself the installation,
+you can redeploy the device side without snaps by repackaging and
+managing yourself the installation,
 configuration and orchestration of the different agents on the device.
 
 ## Is Canonical maintaining Foxglove Studio 1?
@@ -56,7 +57,8 @@ privately on the [dedicated Snap Store](https://ubuntu.com/core/docs/dedicated-s
 
 You can reach [ubuntu-robotics-community-group@canonical.com](mailto:ubuntu-robotics-community-group@canonical.com).
 Once publicly released,
-suggestions can be made on <https://discourse.ubuntu.com/> as well as with tickets in the different repositories.
+suggestions can be made on <https://discourse.ubuntu.com/> as well as
+with tickets in the different repositories.
 
 ## Who is maintaining the charms and snaps?
 

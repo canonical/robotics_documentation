@@ -24,7 +24,8 @@ The repository contains a standard snap package providing the
 [`key_teleop`](https://github.com/ros-teleop/teleop_tools/tree/master/key_teleop)
 application from the [teleop_tool](https://github.com/ros-teleop/teleop_tools/tree/master)
 ROS 2 package.
-The goal here is to be able to configure the application without having to update the snap.
+The goal here is to be able to configure the
+application without having to update the snap.
 The `key_teleop` node can be configured for its `forward_rate`,
 `backward_rate` and `rotational_rate` parameters.
 They are the parameters present in the configuration file that are overwritable.

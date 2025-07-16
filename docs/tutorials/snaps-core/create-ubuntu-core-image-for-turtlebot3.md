@@ -419,7 +419,8 @@ Finally, we have the `ros-noetic-robot` snap providing the ROS libraries to our
 
 ## Generating the image
 
-To generate the image, we use the [`ubuntu-image`](https://snapcraft.io/ubuntu-image) tool.
+To generate the image,
+we use the [`ubuntu-image`](https://snapcraft.io/ubuntu-image) tool.
 It generates an image ready to be written
 on an SD card from the model that we prepared.
 

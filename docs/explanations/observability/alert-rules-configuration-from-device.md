@@ -25,8 +25,8 @@ The server currently supports two types of rules:
 - standard alert rule files: directly passed to the corresponding applications
 - templated alert rule files: Jinja2 templated rule file to render against specific devices
 
-The templated rule files are designed to allow the creation of an alert that will only affect
-a defined list of devices.
+The templated rule files are designed to allow the creation of
+an alert that will only affect a defined list of devices.
 The templated rule will be rendered for the devices that explicitly
 declared it in the `device-loki-alert-rule-files` or `device-prometheus-alert-rule-files`
 while registering on the `COS-registration-server` with the
@@ -69,8 +69,10 @@ are getting uploaded to the `COS-registration-server` by the `COS-registration-a
 After that, the "Device-2" is also registering to the server and
 explicitly referring to the templated rule without having to upload it.
 
-The `COS-registration-server` renders the templated files for the devices that specified them,
+The `COS-registration-server` renders the templated files for
+the devices that specified them,
 depending on the type of alert rule file.
-It then sends the rendered files as well as the non-template ones to the various applications.
+It then sends the rendered files as well as the non-template ones
+to the various applications.
 
 ![image](https://assets.ubuntu.com/v1/b8fe6537-Alert%20rule%20files%20flow.jpg)

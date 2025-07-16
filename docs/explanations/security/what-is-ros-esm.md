@@ -6,8 +6,10 @@ long-term supported ROS system for robots and its applications.
 Even if your ROS distribution hasn’t reached its end-of-life `(EOL)`,
 you can count on `backports` for critical security updates and
 `CVEs` fixes for your environment.
-In addition, all upstream changes are evaluated by hand to minimise breaking changes.
-By enabling our repositories, you will get trusted and stable binaries for your environment.
+In addition,
+all upstream changes are evaluated by hand to minimise breaking changes.
+By enabling our repositories,
+you will get trusted and stable binaries for your environment.
 If you are a standard or advanced customer, you also get ROS support.
 This provides you with a single point of contact to log ROS bugs.
 
@@ -15,10 +17,14 @@ This provides you with a single point of contact to log ROS bugs.
 
 ROS ESM provides four key benefits:
 
-* 10 year LTS release lifetime for ROS bringing the highest level of security and compliance
-* Security patching for over 25,000 packages in ROS, Ubuntu Universe and Ubuntu main
-* Better security `KPIs` as critical `CVEs` patches are applied on average in less than 24h
-* Single point of contact to log bugs and propose fixes to guarantee timely and quality fixes
+* 10 year LTS release lifetime for ROS bringing
+  the highest level of security and compliance
+* Security patching for over 25,000 packages in ROS,
+  Ubuntu Universe and Ubuntu main
+* Better security `KPIs` as critical `CVEs` patches are
+  applied on average in less than 24h
+* Single point of contact to log bugs and
+  propose fixes to guarantee timely and quality fixes
 
 For more information, you can visit:
 

@@ -169,7 +169,8 @@ And finally, we can test it by running the following command
 yourname-test-ros2-snapstore.ros2-talker-listener
 ```
 
-Note that here we use `<snap name>.<command>` because the application and snap have different names
+Note that here we use `<snap name>.<command>` because the application and
+snap have different names
 (we could have assigned the snap name to the application to
 be able to omit the second part of the command).
 
@@ -309,9 +310,11 @@ we can switch an uploaded snap between
 different channels using either the command line or the Snap Store website UI,
 all the information on release management can be found at <https://snapcraft.io/docs/release-management>.
 
-Also note that the release process can be managed on the Snap Store UI on the `releases` tab.
+Also note that the release process can be managed on
+the Snap Store UI on the `releases` tab.
 
-We can now verify our snap is on the store by searching for it on [https://snapcraft.io](https://snapcraft.io).
+We can now verify our snap is on the store by searching for it on
+[https://snapcraft.io](https://snapcraft.io).
 
 Since our snap won’t be useful to others,
 let’s change the visibility from public to unlisted.

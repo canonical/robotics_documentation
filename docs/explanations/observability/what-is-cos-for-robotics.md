@@ -6,7 +6,8 @@ Content and features may change, and some functionality may be incomplete or exp
 Feedback is welcome as we continue to improve.
 ```
 
-{{ COS_ROB }} stands for Canonical Observability Stack for robotics and is a superset of
+{{ COS_ROB }} stands for Canonical Observability Stack for robotics and
+is a superset of
 [COS Lite](https://charmhub.io/topics/canonical-observability-stack/editions/lite).
 {{ COS_ROB }} brings [observability](https://ubuntu.com/observability/what-is-observability)
 to your robots and devices.
@@ -32,12 +33,14 @@ The {{ COS_ROB }} consists of two main components:
 
 - the server side: which hosts applications for monitoring,
   analysis and visualization extending COS lite.
-- the device side: a set of snaps that allow the robot to interface and communicate with the server.
+- the device side:
+  a set of snaps that allow the robot to interface and communicate with the server.
 
-The {{ COS_ROB }} is already including a set of applications on the server and device side.
+The {{ COS_ROB }} is already including a set of
+applications on the server and device side.
 By the modular nature of [COS](https://charmhub.io/topics/canonical-observability-stack),
-you can easily select a subset of applications or even extend it with open source or even proprietary
-applications.
+you can easily select a subset of applications or
+even extend it with open source or even proprietary applications.
 
 The {{ COS_ROB }} is extending COS Lite in the sense that it can handle
 robotics data and that the clients can be deployed on devices via snaps.
@@ -86,9 +89,11 @@ Additionally, thanks to snaps,
 the device side can run completely from the [Ubuntu Core](https://ubuntu.com/core/docs)
 Operating system engineered for IoT and embedded.
 
-Snaps running on the device are responsible for collecting data and syncing them to the server side.
+Snaps running on the device are responsible for collecting data and
+syncing them to the server side.
 By the mean of configuration,
-device’s snaps could collect and synchronize data according to the bandwidth and storage available.
+device’s snaps could collect and
+synchronize data according to the bandwidth and storage available.
 
 The applications expected on the devices can be:
 

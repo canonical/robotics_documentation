@@ -70,10 +70,12 @@ sudo apt update
 
 ## Changes to rosdep
 
-ROS ESM is its own ROS distribution, and thus provides its own distribution and `rosdep` files.
+ROS ESM is its own ROS distribution,
+and thus provides its own distribution and `rosdep` files.
 If you already have upstream ROS installed and initialised
 (e.g. you previously ran `sudo rosdep init`),
-you’ll need to make sure you install `rosdep` from ESM and re-initialise it as follows:
+you’ll need to make sure you install `rosdep` from ESM and
+re-initialise it as follows:
 
 ``````{tabs}
 

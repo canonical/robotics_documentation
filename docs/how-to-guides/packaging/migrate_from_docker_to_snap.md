@@ -50,7 +50,8 @@ A generic *snapcraft.yaml* file is defined by four main blocks:
 * parts definition
 * apps definition
 
-More detailed information about creating a snapcraft yaml file can be found in [Creating snapcraft.yaml](https://snapcraft.io/docs/creating-snapcraft-yaml).
+More detailed information about creating a snapcraft yaml file can be found in
+[Creating snapcraft.yaml](https://snapcraft.io/docs/creating-snapcraft-yaml).
 
 ## Snap metadata
 

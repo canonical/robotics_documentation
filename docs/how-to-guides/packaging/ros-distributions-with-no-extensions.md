@@ -111,7 +111,8 @@ won’t be packaged in the final snap.
 
 Finally, the ROS workspace has to be sourced for ROS applications to run.
 To ease this process, snapcraft provides a
-[script](https://github.com/snapcore/snapcraft/blob/main/extensions/ros2/launch) to do so.
+[script](https://github.com/snapcore/snapcraft/blob/main/extensions/ros2/launch)
+to do so.
 You can pull the script from the snapcraft source and install it.
 Following the example above, the ros2-galactic-extension will look like this:
 

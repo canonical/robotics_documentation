@@ -33,7 +33,8 @@ $ tree
 ```
 
 This is nice and all, but simply creating a file is not all that interesting.
-The real value lies in that said file is a functioning snap recipe for an actual ROS 2 demo.
+The real value lies in that said file is
+a functioning snap recipe for an actual ROS 2 demo.
 
 Let us see what it contains:
 

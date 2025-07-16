@@ -13,9 +13,11 @@ In this post,
 we will explore how to automatically build and publish your ROS snap using [GitHub Actions](https://docs.github.com/en/actions),
 so that your snap always stays up-to-date on the [snapstore](https://snapcraft.io/store).
 
-For this example, we will use a simple ROS2 Foxy application publishing some mock data,
+For this example,
+we will use a simple ROS2 Foxy application publishing some mock data,
 whose source code can be found on [GitHub](https://github.com/ubuntu-robotics/ros_snap_github_action).
-Of course, the same principle can be applied to a ROS package or another release of ROS 2.
+Of course,
+the same principle can be applied to a ROS package or another release of ROS 2.
 
 ## Adding a Snap GitHub Action
 
@@ -202,10 +204,11 @@ Now we should make sure that our snap is installable and can run.
     gbeuzeboc-snapped-ros2-pkg.snapped-ros2-launch --print-description
 ```
 
-Here we are reusing the variable `steps.build-snap.outputs.snap` to get our snap name and
-feed it to the snap install command.
+Here we are reusing the variable `steps.build-snap.outputs.snap` to
+get our snap name and feed it to the snap install command.
 Then we simply run the `launchfile` accompanying our ROS 2 application with
-the `--print-description` option, which only prints the launch description to the console.
+the `--print-description` option,
+which only prints the launch description to the console.
 Which gives us a good indication that the call to our application is fine.
 Of course, more extensive testing could and should be implemented.
 

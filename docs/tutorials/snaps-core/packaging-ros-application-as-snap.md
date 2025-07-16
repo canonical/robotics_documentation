@@ -486,8 +486,10 @@ We can see all kinds of metadata as well as the commands available from the snap
 ## Confining our first snap application
 
 Our application was installed in `devmode`.
-This means that our snap can access every resource from our host system (files, devices, etc.).
-For security, snaps are meant to be run and distributed as strictly confined applications.
+This means that our snap can access every resource
+from our host system (files, devices, etc.).
+For security,
+snaps are meant to be run and distributed as strictly confined applications.
 
 In this section we will explore the confinement types,
 grades and interfaces available.
@@ -651,7 +653,8 @@ network     ros2-talker-listener:network       :network      -
 network-bind ros2-talker-listener:network-bind :network-bind -
 ```
 
-In the above output, we can see that our snap is connected to the network and network-bind slot.
+In the above output,
+we can see that our snap is connected to the network and network-bind slot.
 
 If everything looks good, let’s run our confined snap:
 
@@ -702,7 +705,8 @@ A daemon can take different forms, where the first two daemons are the most used
   indicate its running state.
 
 The daemon feature is per command and not per snap.
-This means that one snap containing multiple commands can have some running as daemon and
+This means that one snap containing multiple commands can
+have some running as daemon and
 others running as simple commands.
 
 To turn our [talker-publisher into a simple daemon](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap/tree/daemon),
