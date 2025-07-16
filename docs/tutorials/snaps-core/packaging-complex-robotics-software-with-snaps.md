@@ -501,7 +501,7 @@ We start directly from `strict` confinement since we already know that
 #### Build the workspace
 
 As mentioned in the previous section, we will use three different repositories.
-[turtlebot3](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel) and
+[turtlebot3](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic) and
 [turtlebot3c](https://github.com/canonical/turtlebot3c) but also
 [`turtlebot3_msgs`](https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git)
 since TurtleBot3 messages are hosted on a different repository.
@@ -513,7 +513,7 @@ As seen in the [previous part of this guide](https://ubuntu.com/robotics/docs/ro
 the `catkin` plugin comes in handy with the [`ros-noetic` snapcraft extensions](https://snapcraft.io/docs/ros-noetic).
 
 The source is used to retrieve the source tree to build.
-Here we have three different GitHub repositories ([turtlebot3](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic-devel),
+Here we have three different GitHub repositories ([turtlebot3](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic),
 [turtlebot3c](https://github.com/canonical/turtlebot3c) and
 [`turtlebot3_msgs`](https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git)).
 We cannot put all three in the source entry.
