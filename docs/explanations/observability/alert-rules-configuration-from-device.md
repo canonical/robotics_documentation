@@ -1,12 +1,13 @@
 # Alert rules configuration from device
 
 ```{warning}
-**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
-Content and features may change, and some functionality may be incomplete or experimental. 
+**Beta Notice**: {{COS_ROB}} is currently in `beta`.
+Content and features may change, and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
-Alerts rule file can be defined in Prometheus and Loki to trigger notifications on the Alertmanager.
+Alerts rule file can be defined in Prometheus and Loki to trigger
+notifications on the Alertmanager.
 
 These alert rule files can be provided by the devices directly and then hosted on the
 [`COS-registration-server`](https://charmhub.io/cos-registration-server-k8s).
@@ -41,7 +42,7 @@ The current supported variable is: `%%juju_device_uuid%%`.
 
 Below is an example of a templated alert rule file:
 
-```
+```txt
 groups:
   - name: low-memory/%%juju_device_uuid%%
     rules:
@@ -65,9 +66,11 @@ ensure its uniqueness.
 In the following diagram, we can see that the alert rule files distributed with the "Device-1"
 are getting uploaded to the `COS-registration-server` by the `COS-registration-agent`.
 
-After that, the "Device-2" is also registering to the server and explicitly referring to the templated rule without having to upload it.
+After that, the "Device-2" is also registering to the server and
+explicitly referring to the templated rule without having to upload it.
 
-The `COS-registration-server` renders the templated files for the devices that specified them, depending on the type of alert rule file.
+The `COS-registration-server` renders the templated files for the devices that specified them,
+depending on the type of alert rule file.
 It then sends the rendered files as well as the non-template ones to the various applications.
 
 ![image](https://assets.ubuntu.com/v1/b8fe6537-Alert%20rule%20files%20flow.jpg)

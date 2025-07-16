@@ -109,7 +109,8 @@ Then, enable ESM Apps with:
 sudo pro enable esm-apps
 ```
 
-At any time, you can check how many deb packages are installed on your machine and from which source using:
+At any time, you can check how many deb packages are installed on your machine and
+from which source using:
 
 ```bash
 pro security-status
@@ -125,7 +126,8 @@ sudo apt upgrade
 
 ## Enable ROS ESM
 
-ROS ESM is exposed in the Pro client similar to `ESM-infra` and `ESM-app`s and is controlled by that same token.
+ROS ESM is exposed in the Pro client similar to `ESM-infra` and
+`ESM-app`s and is controlled by that same token.
 However, ROS ESM is disabled by default and not listed in the common service list.
 First, let’s make sure that the Pro client is up-to-date:
 
@@ -149,7 +151,8 @@ Now you have everything needed to enable ROS ESM.
 There are two suites available:
 
 - **ros**: only security-related updates for ROS-related software.
-- **ros-updates**: security and non-security-related updates for ROS-related software. These are security updates and bug fixes.
+- **ros-updates**: security and non-security-related updates for ROS-related software.
+  These are security updates and bug fixes.
 
 **To enable the ROS security updates**, run the following command:
 

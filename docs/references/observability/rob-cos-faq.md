@@ -1,8 +1,8 @@
 # FAQ & Troubleshooting
 
 ```{warning}
-**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
-Content and features may change, and some functionality may be incomplete or experimental. 
+**Beta Notice**: {{COS_ROB}} is currently in `beta`.
+Content and features may change, and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
@@ -69,7 +69,8 @@ We currently commit to our rolling releases.
 
 ## When is {{ COS_ROB }} going to be publicly released?
 
-The first public release of {{ COS_ROB }} will happen in the 6 months after the closing of the private beta testing.
+The first public release of {{ COS_ROB }} will happen in the 6 months
+after the closing of the private beta testing.
 
 ## Are old revisions of charms and snaps going to receive security updates?
 

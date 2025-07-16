@@ -1,8 +1,9 @@
 # Configure Alertmanager to send email alerts
 
 ```{warning}
-**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
-Content and features may change, and some functionality may be incomplete or experimental. 
+**Beta Notice**: {{COS_ROB}} is currently in `beta`.
+Content and features may change,
+and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
@@ -26,7 +27,9 @@ The YAML file follows the
 Before configuring the Alertmanager, you must get a token called "app password",
 to let Alertmanager send emails from your account.
 
-While logged into your Gmail account, go to the [App passwords page](https://myaccount.google.com/apppasswords) and generate a new app password.
+While logged into your Gmail account,
+go to the [App passwords page](https://myaccount.google.com/apppasswords) and
+generate a new app password.
 visit the [Gmail app password page](https://myaccount.google.com/apppasswords),
 and create a new app password.
 
@@ -38,7 +41,8 @@ configuration file.
 Alertmanager is configured via a YAML file.
 To get a starting point for the file,
 you can get the actual `alert-manager.yaml` by going on your Alertmanager instance.
-In the "status" tab, you will find at the bottom, the actual config to use as a starting point:
+In the "status" tab, you will find at the bottom,
+the actual config to use as a starting point:
 
 ![image](https://assets.ubuntu.com/v1/15a945f0-alertmanager-status.png)
 
@@ -47,7 +51,8 @@ you will add two entry: `route` and `receivers`.
 
 #### Route
 
-The [route attribute](https://prometheus.io/docs/alerting/latest/configuration/#route-related-settings) defines where and how the alerts are dispatched.
+The [route attribute](https://prometheus.io/docs/alerting/latest/configuration/#route-related-settings)
+defines where and how the alerts are dispatched.
 Here, the idea is to group alerts not only from devices but also from Juju applications.
 The alerts are sent in batches in order to prevent continuous notifications.
 
@@ -56,7 +61,7 @@ In this case, it will be emails.
 
 The route is defined as follows:
 
-```YAML
+```yaml
 route:
   receiver: 'email'
   group_by:
@@ -82,12 +87,13 @@ defines the integration with specific receivers (email, chat, web-hooks, etc).
 Receivers usually require an authentication token,
 which, in the case of Gmail, is the app password.
 
-In the receiver you must declare the sender's email (the one associated to the app password),
+In the receiver you must declare the sender's email
+(the one associated to the app password),
 and the recipient's email.
 
 The receiver is defined as follows:
 
-```YAML
+```yaml
 receivers:
   - name: 'email'
     email_configs:
@@ -104,15 +110,18 @@ receivers:
 With the previously defined Alertmanager configuration in an `alert-manager.yaml`,
 you can apply the configuration to the Juju application.
 
-The `alertmanager-k8s` declares a [`config_file` configuration](https://charmhub.io/alertmanager-k8s/configurations#config_file) that can be used with the following command:
+The `alertmanager-k8s` declares a [`config_file` configuration](https://charmhub.io/alertmanager-k8s/configurations#config_file)
+that can be used with the following command:
 
-```BASH
+```bash
 juju config alertmanager config_file='@./alert-manager.yaml'
 ```
 
-You can verify that the configuration got applied by going in the status tab of Alertmanager.
+You can verify that the configuration got applied by
+going in the status tab of Alertmanager.
 
-Since the Alertmanager Juju application has a watchdog alert, you will receive your first alert right after.
+Since the Alertmanager Juju application has a watchdog alert,
+you will receive your first alert right after.
 
 ## Email alert template
 
@@ -122,9 +131,10 @@ used for sending notifications.
 The template lets you customize both the appearance and the data in your notification.
 
 In the case of an email notification, the template is an HTML file.
-You can get the [default template from GitHub](https://github.com/prometheus/alertmanager/blob/main/template/email.html) with the following command:
+You can get the [default template from GitHub](https://github.com/prometheus/alertmanager/blob/main/template/email.html)
+with the following command:
 
-```BASH
+```bash
 wget https://raw.githubusercontent.com/prometheus/alertmanager/refs/heads/main/template/email.html
 ```
 
@@ -134,13 +144,14 @@ Similarly to the `config_file` configuration,
 
 You can then apply the new template with the following command:
 
-```BASH
+```bash
 juju config alertmanager templates_file='@./email.html'
 ```
 
-You must now update your Alertmanager configuration, so the receiver uses the new template:
+You must now update your Alertmanager configuration,
+so the receiver uses the new template:
 
-```BASH
+```bash
 receivers:
   - name: 'email'
     email_configs:

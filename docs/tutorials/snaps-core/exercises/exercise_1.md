@@ -1,10 +1,14 @@
 # Part 1 - exercise: Add additional application to the snap
 
 ``` {important}
-This exercise requires having followed the [Tutorial 1: Packaging our first ROS application as a snap](../packaging-ros-application-as-snap.md).
+This exercise requires having followed the
+[Tutorial 1: Packaging our first ROS application as a snap](../packaging-ros-application-as-snap.md).
 ```
 
-Let’s do a little exercise. Right now, our talker-listener only has one application. How about you add another one? Having the ROS 2 topic tools inside our snap would be great for some introspection.
+Let’s do a little exercise.
+Right now, our talker-listener only has one application.
+How about you add another one?
+Having the ROS 2 topic tools inside our snap would be great for some introspection.
 
 ## Assignment
 
@@ -21,7 +25,8 @@ By the end of this exercise, you will have a new command available:
 
 ```ros2-talker-listener.ros2topic hz /chatter```
 
-* Note that the ROS 2 topic tools are only going to work with message types that are included in the snap.
+* Note that the ROS 2 topic tools are only going to work with message types
+  that are included in the snap.
 
 ## Solution
 
@@ -40,7 +45,12 @@ By the end of this exercise, you will have a new command available:
     +   stage-packages: [ros-humble-ros2launch, ros-humble-ros2topic]
     ```
 
-    - We add our dependency (`ros-humble-ros2topic`) to the `stage-packages` list. `Stage-packages` are packages that are required to run the part. Here we decided to add our dependency to our already existing `ros-demos` part for simplicity. Alternatively, we could have created an additional empty part simply to add our `stage-packages` dependency.
+    - We add our dependency (`ros-humble-ros2topic`) to the `stage-packages` list.
+    `Stage-packages` are packages that are required to run the part.
+    Here we decided to add our dependency to our already existing `ros-demos` part
+    for simplicity.
+    Alternatively, we could have created an additional empty part
+    simply to add our `stage-packages` dependency.
 
   * Add an additional app:
 

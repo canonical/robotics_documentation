@@ -2,8 +2,8 @@
 # Observe {{ COS_ROB }}
 
 ```{warning}
-**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
-Content and features may change, and some functionality may be incomplete or experimental. 
+**Beta Notice**: {{COS_ROB}} is currently in `beta`.
+Content and features may change, and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
@@ -128,7 +128,7 @@ This allows for connecting our applications in {{ COS_ROB }} to
 the Grafana instance in {{ COS }} in a simpler manner as we will see later on.
 Not only is this simplifying the deployment but it also offer more flexibility
 when it comes to modifying the overall deployment topology.
-This setup is depicted in [the following diagram](#cos-cosrob-diagram):
+This setup is depicted in the following diagram:
 
 ```{mermaid}
 :name: cos-cosrob-diagram

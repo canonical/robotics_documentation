@@ -1,8 +1,8 @@
 # Write a configuration snap for {{ COS_ROB }}
 
 ```{warning}
-**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
-Content and features may change, and some functionality may be incomplete or experimental. 
+**Beta Notice**: {{COS_ROB}} is currently in `beta`.
+Content and features may change, and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
@@ -215,5 +215,6 @@ Additionally, you could add more features to your configuration snap to make it 
 A complete example of such snap can be found on GitHub:
 [github.com/canonical/rob-cos-demo-configuration](https://github.com/canonical/rob-cos-demo-configuration/tree/main).
 
-You can also find a collection of example configurations for the various {{ COS_ROB }} server applications on GitHub:
+You can also find a collection of example configurations for the various
+{{ COS_ROB }} server applications on GitHub:
 [github.com/canonical/ROB-COS-configurations](https://github.com/canonical/ROB-COS-configurations/).
