@@ -12,7 +12,8 @@ Let's quickly explore both options.
 
 ROS ESM offers the upstream `metapackage` variant called `ros_base`,
 which facilitates the installation of all ROS packages included in this variant.
-For example, if you are working with `Xenial` and its corresponding version ROS Kinetic,
+For example,
+if you are working with `Xenial` and its corresponding version ROS Kinetic,
 run the command:
 
 ``````{tabs}
