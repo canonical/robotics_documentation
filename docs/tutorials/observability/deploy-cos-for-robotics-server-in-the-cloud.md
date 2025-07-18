@@ -85,7 +85,8 @@ In the next section, we will go step by step through the deployment process.
 ### Install prerequisites
 
 ```{important}
-This tutorial assumes you have a Juju controller bootstrapped on a `MicroK8s` cloud that is ready to use.
+This tutorial assumes you have a Juju controller bootstrapped
+on a `MicroK8s` cloud that is ready to use.
 ```
 
 Let’s proceed with the installation.

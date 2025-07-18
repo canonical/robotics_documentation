@@ -2,7 +2,8 @@
 
 ```{warning}
 **Beta Notice**: {{COS_ROB}} is currently in `beta`.
-Content and features may change, and some functionality may be incomplete or experimental.
+Content and features may change,
+and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
@@ -17,7 +18,8 @@ One might need to visualize live or previously stored data.
 The necessity for data can have multiple causes: debugging, statistics analysis,
 monitoring, data collection for machine learning, etc.
 
-Moreover, as new devices are deployed, the observability capacity has to scale effortlessly.
+Moreover, as new devices are deployed,
+the observability capacity has to scale effortlessly.
 For all these reasons {{ COS_ROB }} has been developed,
 offering an observability infrastructure and solution for devices.
 
@@ -67,7 +69,8 @@ ready to be deployed on any
 This bundle can easily be extended by the mean of an
 [overlay](https://canonical-juju.readthedocs-hosted.com/en/latest/user/reference/bundle/).
 
-Charms bundled in the {{ COS_ROB }} are responsible for data visualization and data storage.
+Charms bundled in the {{ COS_ROB }} are responsible for
+data visualization and data storage.
 The applications expected on the servers can be:
 
 - Data processing
@@ -80,7 +83,8 @@ The applications expected on the servers can be:
 
 ### The device side
 
-On devices, the {{ COS_ROB }} consists of a set of [snap](https://snapcraft.io/docs) packages.
+On devices,
+the {{ COS_ROB }} consists of a set of [snap](https://snapcraft.io/docs) packages.
 Snaps packages are particularly suited for [robotics](https://ubuntu.com/robotics/docs)
 and their limited resources reducing the need for on device operations.
 Installed snaps will benefit from seamless updates and rollback from the
@@ -121,8 +125,8 @@ Whether deployed on self-hosted infrastructure or in the cloud,
 
 Additionally, Canonical offers a managed version of
 {{ COS_ROB }} so you can focus on your business.
-We will run the best-in-class open source monitoring tools you need for the observability
-of your applications.
+We will run the best-in-class open source monitoring tools you need for
+the observability of your applications.
 
 You can learn more about open source observability on
 [ubuntu.com/observability](http://ubuntu.com/observability).

@@ -2,7 +2,8 @@
 
 ```{warning}
 **Beta Notice**: {{COS_ROB}} is currently in `beta`.
-Content and features may change, and some functionality may be incomplete or experimental.
+Content and features may change,
+and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
@@ -23,7 +24,8 @@ configuration and orchestration of the different agents on the device.
 
 No, we are not.
 The development of {{ COS_ROB }} started before Foxglove Studio 1 got discontinued.
-We are only providing a packaged version of the latest open source Foxglove studio 1 release,
+We are only providing a packaged version of
+the latest open source Foxglove studio 1 release,
 along with a patch to support passing layout by URL.
 We are not guaranteeing the support of our packaged version of Foxglove studio.
 
@@ -45,7 +47,8 @@ Yes, all the charms and snaps are open source.
 Yes, in the case of a server side application,
 the application [must be charmed](https://juju.is/docs/sdk/from-zero-to-hero-write-your-first-kubernetes-charm).
 Depending on the desired visibility of your charm,
-you might upload it to charmhub.io or by [deploying your own charmstore](https://github.com/juju/charmstore).
+you might upload it to charmhub.io or by
+[deploying your own charmstore](https://github.com/juju/charmstore).
 Additionally, you could keep your charm local.
 
 In the case of a device application,
@@ -89,9 +92,11 @@ provide direct connectivity between the devices and the server.
 
 No, although {{ COS_ROB }} is recommended for [Ubuntu Core](https://ubuntu.com/core).
 {{ COS_ROB }} is supported on Ubuntu Server,
-Desktop and all the Linux distributions [supporting the snapd daemon](https://snapcraft.io/docs/installing-snapd).
+Desktop and all the Linux distributions
+[supporting the snapd daemon](https://snapcraft.io/docs/installing-snapd).
 
 ## Does my server need to use Ubuntu?
 
 No, although {{ COS_ROB }} is recommended for Ubuntu server.
-{{ COS_ROB }} is supported on all the Linux distributions [supporting the snapd daemon](https://snapcraft.io/docs/installing-snapd).
+{{ COS_ROB }} is supported on all the Linux distributions
+[supporting the snapd daemon](https://snapcraft.io/docs/installing-snapd).

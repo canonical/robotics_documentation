@@ -51,7 +51,7 @@ Make sure that these are in good order before attempting to create a snap.
 
 ## Can my snap save data on the host?
 
-* The snap define some [environment variables for data and file storage](/explanations/snaps/snap-data-and-file-storage.rst)
+* The snap defines some [environment variables for data and file storage](/explanations/snaps/snap-data-and-file-storage.rst)
   pointing to different locations that a snap can write to
   depending on the use case of your data.
 * You can save data that are common across revisions of a snap.

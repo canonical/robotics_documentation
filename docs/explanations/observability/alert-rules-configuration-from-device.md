@@ -2,7 +2,8 @@
 
 ```{warning}
 **Beta Notice**: {{COS_ROB}} is currently in `beta`.
-Content and features may change, and some functionality may be incomplete or experimental.
+Content and features may change,
+and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
@@ -23,12 +24,14 @@ The supported rule files applications are Prometheus and Loki.
 The server currently supports two types of rules:
 
 - standard alert rule files: directly passed to the corresponding applications
-- templated alert rule files: Jinja2 templated rule file to render against specific devices
+- templated alert rule files:
+  Jinja2 templated rule file to render against specific devices
 
 The templated rule files are designed to allow the creation of
 an alert that will only affect a defined list of devices.
 The templated rule will be rendered for the devices that explicitly
-declared it in the `device-loki-alert-rule-files` or `device-prometheus-alert-rule-files`
+declared it in the `device-loki-alert-rule-files` or
+`device-prometheus-alert-rule-files`
 while registering on the `COS-registration-server` with the
 [`COS-registration-agent`](https://snapcraft.io/cos-registration-agent).
 
@@ -63,8 +66,10 @@ ensure its uniqueness.
 
 ## Alert rule files' flow from device to COS-registration-server and the applications
 
-In the following diagram, we can see that the alert rule files distributed with the "Device-1"
-are getting uploaded to the `COS-registration-server` by the `COS-registration-agent`.
+In the following diagram,
+we can see that the alert rule files distributed with the "Device-1"
+are getting uploaded to the `COS-registration-server`
+by the `COS-registration-agent`.
 
 After that, the "Device-2" is also registering to the server and
 explicitly referring to the templated rule without having to upload it.

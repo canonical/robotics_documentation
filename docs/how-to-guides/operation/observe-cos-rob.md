@@ -3,7 +3,8 @@
 
 ```{warning}
 **Beta Notice**: {{COS_ROB}} is currently in `beta`.
-Content and features may change, and some functionality may be incomplete or experimental.
+Content and features may change,
+and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
@@ -13,9 +14,11 @@ As such, {{ COS_ROB }} can be seen as a critical piece of infrastructure.
 And while it is resilient,
 it can be subject to failure and disrupts the monitoring of the fleet.
 
-For this reason, {{ COS_ROB }} is itself observable as well, using most of the tools
+For this reason, {{ COS_ROB }} is itself observable as well,
+using most of the tools
 already used for observing the robots fleets.
-While {{ COS_ROB }} could perfectly observe itself, this wouldn't make much sense in case
+While {{ COS_ROB }} could perfectly observe itself,
+this wouldn't make much sense in case
 of a large outage.
 Instead, we recommend deploying a separate
 [{{ COS }}](https://charmhub.io/topics/canonical-observability-stack/editions/lite)
@@ -36,7 +39,8 @@ For the sake of this how-to, we assume that {{ COS }} and {{ COS_ROB }} live
 in their respective models and that both are controlled by the same Juju controller.
 Make sure to read Juju's documentation about
 [coss-model relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/#cross-model)
-as we are using this feature and since it may impact the very boostrapping of the controllers
+as we are using this feature and
+since it may impact the very boostrapping of the controllers
 depending on the topology.
 ```
 
