@@ -1,8 +1,8 @@
 # COS registration server API
 
 ```{warning}
-**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
-Content and features may change, and some functionality may be incomplete or experimental. 
+**Beta Notice**: {{COS_ROB}} is currently in `beta`.
+Content and features may change, and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
@@ -15,15 +15,27 @@ The API potential usages are:
 
 The use of the API is only recommended from outside of Juju.
 Within Juju,
-[`cos-registration-server-k8s` integrations](https://charmhub.io/cos-registration-server-k8s/integrations) are recommended.
+[`cos-registration-server-k8s` integrations](https://charmhub.io/cos-registration-server-k8s/integrations)
+are recommended.
 
 ## API endpoints
 
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" ></link>
+<!-- markdownlint-disable MD033 -->
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css"></link>
 <div id="swagger-ui"></div>
 
-<script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-bundle.js" charset="UTF-8" crossorigin> </script>
-<script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-standalone-preset.js" charset="UTF-8 crossorigin"> </script>
+<script
+  src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-bundle.js"
+  charset="UTF-8"
+  crossorigin></script>
+<script
+  src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-standalone-preset.js"
+  charset="UTF-8"
+  crossorigin></script>
 <script>
 window.onload = function() {
   // Begin Swagger UI call region
@@ -101,3 +113,5 @@ window.onload = function() {
   ]);
 }
 </script>
+
+<!-- markdownlint-enble MD033 -->

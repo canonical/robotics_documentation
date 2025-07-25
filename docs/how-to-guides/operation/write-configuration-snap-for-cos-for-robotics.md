@@ -1,12 +1,14 @@
 # Write a configuration snap for {{ COS_ROB }}
 
 ```{warning}
-**Beta Notice**: {{COS_ROB}} is currently in `beta`. 
-Content and features may change, and some functionality may be incomplete or experimental. 
+**Beta Notice**: {{COS_ROB}} is currently in `beta`.
+Content and features may change,
+and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
-{{ COS_ROB }} is composed of various snaps. These snaps must be configured for your robots,
+{{ COS_ROB }} is composed of various snaps.
+These snaps must be configured for your robots,
 your needs and your setup.
 
 In this How-To-Guide,
@@ -24,7 +26,8 @@ the presented configuration has been inspired from
 For {{ COS_ROB }} snaps, the configuration is done by sharing files with a
 [`content` interface](https://snapcraft.io/docs/content-interface).
 
-In this How-To you will deploy all configurations in one snap and share them with one interface.
+In this How-To,
+you will deploy all configurations in one snap and share them with one interface.
 This way the various snaps will pick the configurations they need.
 
 ### Snaps to configure
@@ -34,7 +37,8 @@ Before starting, let's present the snaps that are using the content interface:
 #### [`cos-registration-agent`](https://snapcraft.io/cos-registration-agent)
 
 The snap expects a `device.yaml` file to specify device specific information
-to the server. This file requires the UID of the device as well as the URL of the server.
+to the server.
+This file requires the UID of the device as well as the URL of the server.
 Details about this file
 [can be found on GitHub](https://github.com/canonical/cos-registration-agent?tab=readme-ov-file#config).
 
@@ -54,7 +58,8 @@ file is necessary under the name `grafana-agent.river`.
 
 #### [`ros2-exporter-agent`](https://snapcraft.io/ros2-exporter-agent)
 
-This snap expects a `ros2-data-exporter.yaml` file to specify the ros2bags recording configurations.
+This snap expects a `ros2-data-exporter.yaml` file to
+specify the ros2bags recording configurations.
 The YAML file is a one to one match from the
 [snap parameters available](https://github.com/canonical/ros2-exporter-agent/?tab=readme-ov-file#snap-parameters).
 
@@ -65,7 +70,8 @@ The YAML file is a one to one match from the [`foxglove-bridge` configuration](h
 
 ### The content sharing interface
 
-In order to have a match between what the different snaps are expecting and your configurations,
+In order to have a match between what the different snaps are expecting and
+your configurations,
 you must follow the format from the content sharing interface.
 
 Expose a content interface [slot](https://snapcraft.io/docs/interface-management)
@@ -133,7 +139,8 @@ you can start creating the snap.
 
 ### Define the `snapcraft.yaml`
 
-In a new directory, start by creating a `snapcraft.yaml` with the following content:
+In a new directory,
+start by creating a `snapcraft.yaml` with the following content:
 
 ```YAML
 name: my-rob-cos-configuration
@@ -202,18 +209,21 @@ snap install my-rob-cos-configuration*.snap --dangerous
 It can now be connected to the various applications you want to configure.
 As an example, connect it to the `cos-registration-agent` with:
 
-```BASH
+```bash
 snap connect cos-registration-agent:configuration-read my-rob-cos-configuration:configuration-read
 ```
 
-This connection will automatically trigger the registration on the `cos-registration-agent` side.
+This connection will automatically trigger the
+registration on the `cos-registration-agent` side.
 
 You can apply the same connections to all the snaps.
 
-Additionally, you could add more features to your configuration snap to make it smarter.
+Additionally,
+you could add more features to your configuration snap to make it smarter.
 
 A complete example of such snap can be found on GitHub:
 [github.com/canonical/rob-cos-demo-configuration](https://github.com/canonical/rob-cos-demo-configuration/tree/main).
 
-You can also find a collection of example configurations for the various {{ COS_ROB }} server applications on GitHub:
+You can also find a collection of example configurations for the various
+{{ COS_ROB }} server applications on GitHub:
 [github.com/canonical/ROB-COS-configurations](https://github.com/canonical/ROB-COS-configurations/).

@@ -5,12 +5,12 @@ on:
     branches:
     - main
     paths:
-    - 'docs/**'   # Only run on changes to the docs directory
+    - 'docs/**'
   pull_request:
     branches:
     - '*'
     paths:
-    - 'docs/**'   # Only run on changes to the docs directory
+    - 'docs/**'
 
 jobs:
   markdown-lint:
@@ -19,6 +19,10 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - uses: DavidAnson/markdownlint-cli2-action@v19
+    - uses: DavidAnson/markdownlint-cli2-action@v20
       with:
         config: "docs/.sphinx/.markdownlint.json"
+        globs: |
+          **/*.{md,markdown}
+          !docs/.sphinx
+          !docs/_build

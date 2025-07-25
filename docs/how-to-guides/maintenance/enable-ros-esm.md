@@ -11,14 +11,17 @@ Note that `ESM-infra` and `ESM-apps` are required dependencies of ROS ESM.
 
 ## Obtain your authentication token
 
-Access to ESM is controlled by a token associated with your Ubuntu Single Sign-on `(SSO)` account.
+Access to ESM is controlled by a token associated with
+your Ubuntu Single Sign-on `(SSO)` account.
 To obtain a token go to this page <https://ubuntu.com/pro/subscribe>.
 You can register for free up to 5 tokens to try out Ubuntu Pro and ROS ESM.
-If you already purchased ROS ESM or Ubuntu Pro, then you will have the token and you can review it at:
+If you already purchased ROS ESM or Ubuntu Pro,
+then you will have the token and you can review it at:
 
 <https://ubuntu.com/pro>
 
-[Get in touch with us](https://ubuntu.com/robotics/ros-esm#get-in-touch) if you need a personalised offer.
+[Get in touch with us](https://ubuntu.com/robotics/ros-esm#get-in-touch)
+if you need a personalised offer.
 
 ## Enable ESM-infra and ESM-apps
 
@@ -109,7 +112,8 @@ Then, enable ESM Apps with:
 sudo pro enable esm-apps
 ```
 
-At any time, you can check how many deb packages are installed on your machine and from which source using:
+At any time, you can check how many deb packages are installed on your machine and
+from which source using:
 
 ```bash
 pro security-status
@@ -125,7 +129,8 @@ sudo apt upgrade
 
 ## Enable ROS ESM
 
-ROS ESM is exposed in the Pro client similar to `ESM-infra` and `ESM-app`s and is controlled by that same token.
+ROS ESM is exposed in the Pro client similar to `ESM-infra` and
+`ESM-app`s and is controlled by that same token.
 However, ROS ESM is disabled by default and not listed in the common service list.
 First, let’s make sure that the Pro client is up-to-date:
 
@@ -149,7 +154,8 @@ Now you have everything needed to enable ROS ESM.
 There are two suites available:
 
 - **ros**: only security-related updates for ROS-related software.
-- **ros-updates**: security and non-security-related updates for ROS-related software. These are security updates and bug fixes.
+- **ros-updates**: security and non-security-related updates for ROS-related software.
+  These are security updates and bug fixes.
 
 **To enable the ROS security updates**, run the following command:
 

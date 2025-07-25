@@ -1,15 +1,17 @@
 # Combine ESM and upstream ROS components
 
 We don't support enabling both ROS ESM as well as the upstream ROS Debian repository.
-This means that every ROS component you use must either be from ESM, or built from source against ESM.
+This means that every ROS component you use must either be from ESM,
+or built from source against ESM.
 
 There is tooling that makes this fairly straightforward, called `rosinstall_generator`,
-that will generate a rosinstall file containing the desired package(s) and all dependencies not already satisfied.
+that will generate a rosinstall file containing the desired package(s) and
+all dependencies not already satisfied.
 
 In a sourced ROS ESM environment, execute the following:
 
 ``````{tabs}
-`````{tab}  Noetic/Melodic
+`````{tab} Noetic/Melodic
 
 ```bash
 sudo apt install python-rosinstall-generator
@@ -39,9 +41,10 @@ sudo apt-get update
 sudo apt-get install python3-vcstool
 ```
 
-Then the repos in the rosinstall file need to be fetched into the workspace with the following command:
+Then the repos in the rosinstall file need to be fetched into
+the workspace with the following command:
 
-``` bash
+```bash
 cd ~/ros_ws
 vcs import --shallow < ~/extra-stuff.rosinstall
 ```
@@ -55,13 +58,13 @@ rosdep install --ignore-src --from-paths src --default-yes
 
 Finally, the workspace needs to be built:
 
-``` bash
+```bash
 cd ~/ros_ws
 catkin_make_isolated
 ```
 `````
 
-`````{tab}  Foxy
+`````{tab} Foxy
 
 ```bash
 sudo apt install python3-rosinstall-generator
@@ -91,7 +94,8 @@ sudo apt-get update
 sudo apt-get install python3-vcstool
 ```
 
-Then the repos in the rosinstall file need to be fetched into the workspace with the following command:
+Then the repos in the rosinstall file need to be fetched into
+the workspace with the following command:
 
 ``` bash
 cd ~/ros_ws
@@ -141,7 +145,8 @@ If not already installed, install `wstool` with the following command:
 sudo apt-get install python-wstool
 ```
 
-Then the repos in the rosinstall file need to be fetched into the workspace with the following command:
+Then the repos in the rosinstall file need to be fetched into
+the workspace with the following command:
 
 ``` bash
 cd ~/ros_ws
@@ -168,7 +173,8 @@ That builds the required software against the ESM ROS release, where ABI will no
 Once the process is complete, the required software is available in the workspace.
 
 ```{important}
-Since ROS Groovy, not all packages belonging to the `desktop_full` `metapackage` have been `catkinized`.
+Since ROS Groovy,
+not all packages belonging to the `desktop_full` `metapackage` have been `catkinized`.
 As a result, when using `rosinstall_generator`,
 it is necessary to compile the workspace using `catkin_make_isolated`.
 ```

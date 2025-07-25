@@ -1,11 +1,13 @@
 # Interaction between ROS ESM and ROS upstream
 
-When enabling ROS ESM using `pro enable ros` as described in [this guide](../../how-to-guides/maintenance/enable-ros-esm.md),
+When enabling ROS ESM using `pro enable ros` as described in
+[this guide](../../how-to-guides/maintenance/enable-ros-esm.md),
 some changes are made to `apt` configuration and it's important to be aware of those details.
 
 ## Changes to `PPAs`
 
-If you followed the official installation instructions for [ROS 1](https://wiki.ros.org/noetic/Installation/Ubuntu)
+If you followed the official installation instructions for
+[ROS 1](https://wiki.ros.org/noetic/Installation/Ubuntu)
 or [ROS 2](https://docs.ros.org/en/rolling/Installation/Ubuntu-Install-Debs.html),
 you now have some additional files in your `/etc/apt/sources.list.d` folder.
 
@@ -20,7 +22,8 @@ it will fetch it from the server written inside the `ros-latest.list` file.
 When you enable ROS ESM,
 you will notice that a new configuration file is added inside your `sources.list.d` folder.
 The file is called `ubuntu-ros.list` and tells `apt` to fetch packages from [esm.ubuntu.com](https://esm.ubuntu.com).
-Our ESM packages can be distinguished because their version follows the pattern `X.Y.Z+<ubuntu-version>-<counter>` where:
+Our ESM packages can be distinguished because their version follows the pattern
+`X.Y.Z+<ubuntu-version>-<counter>` where:
 
 - `X.Y.Z` is the usual ROS versioning system
 - `<ubuntu-version>` is an LTS name such as `20.04.1`
@@ -67,9 +70,12 @@ sudo apt update
 
 ## Changes to rosdep
 
-ROS ESM is its own ROS distribution, and thus provides its own distribution and `rosdep` files.
-If you already have upstream ROS installed and initialised (e.g. you previously ran `sudo rosdep init`),
-you’ll need to make sure you install `rosdep` from ESM and re-initialise it as follows:
+ROS ESM is its own ROS distribution,
+and thus provides its own distribution and `rosdep` files.
+If you already have upstream ROS installed and initialised
+(e.g. you previously ran `sudo rosdep init`),
+you’ll need to make sure you install `rosdep` from ESM and
+re-initialise it as follows:
 
 ``````{tabs}
 
