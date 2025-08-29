@@ -18,10 +18,9 @@ This guide details the deployment of {{COS_ROB}} with TLS termination.
 It outlines the necessary steps to set up a {{COS_ROB}},
 enabling it to successfully register and establish secure communication with the server.
 
-
 ## Server side
 
-This guide assumes that {{COS_ROB}} 
+This guide assumes that {{COS_ROB}}
 has been deployed as outlined in the [main tutorial]((../../tutorials/observability/deploy-cos-for-robotics-server-in-the-cloud.md)).
 Next,
 we’ll set up TLS for the deployment using the [self-signed-certificates charm](https://charmhub.io/self-signed-certificates).
@@ -134,7 +133,7 @@ In this way,
 the certificate will be available system wide,
  and the agents running on the robot will trust the certificate.
 
-```
+```{warning}
 Note: this works only on Ubuntu Desktop and Server.
 For Ubuntu Core a system wide solution is not available yet.
 ```
@@ -158,7 +157,6 @@ Here,
 the various agents are configured to use the certificates installed on the device.
 
 An helper script to setup TLS is available for download:
-
 
 ```bash
 curl -L https://raw.githubusercontent.com/canonical/rob-cos-device-setup/advanced-setup/setup-robcos-device.sh -O
@@ -202,8 +200,9 @@ The Foxglove Bridge configuration then
 uses this certificate by referencing the relevant paths.
 Currently,
 the certificate generated for the Foxglove Bridge
-must be manually trusted by your browser. 
+must be manually trusted by your browser.
 To do this in Google Chrome:
+
 - Open a new tab and navigate to `chrome://certificate-manager/localcerts/usercerts`.
 - The certificate is avilable on the device at: `/var/snap/foxglove-bridge/common/rob-cos-shared-data/device.crt`
 - Click on `Import` and select the certificate file from your device.
