@@ -1,29 +1,31 @@
-# Deploy {{COS_ROB}} for devices with TLS encryption
+# Deploy {{ COS_ROB }} with TLS encryption
 
 ```{warning}
-**Beta Notice**: {{COS_ROB}} is currently in `beta`.
+**Beta Notice**: {{ COS_ROB }} is currently in `beta`.
 Content and features may change,
 and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
-{{COS_ROB}} devices offers flexible deployment options,
+{{ COS_ROB }} offers flexible deployment options,
 allowing for either an unencrypted configuration
 or a more secure setup with TLS termination enabled.
 With TLS termination enabled,
 the Traefik charm acts as the TLS termination point
 by integrating to a self signed certificate charm or to an external CA charm.
 
-This guide details the deployment of {{COS_ROB}} with TLS termination.
-It outlines the necessary steps to set up a {{COS_ROB}},
+This guide details the deployment of {{ COS_ROB }} with TLS termination.
+It outlines the necessary steps to set up a {{ COS_ROB }} device,
 enabling it to successfully register and establish secure communication with the server.
 
 ## Server side
 
-This guide assumes that {{COS_ROB}}
-has been deployed as outlined in the [main tutorial]((../../tutorials/observability/deploy-cos-for-robotics-server-in-the-cloud.md)).
-Next,
-we’ll set up TLS for the deployment using the [self-signed-certificates charm](https://charmhub.io/self-signed-certificates).
+This guide assumes that {{ COS_ROB }}
+has been deployed as outlined in the [main tutorial](../../tutorials/observability/deploy-cos-for-robotics-server-in-the-cloud.md).
+Next, we’ll set up TLS for the deployment
+using the [self-signed-certificates charm](https://charmhub.io/self-signed-certificates),
+which provides self-signed X.509 certificates to charms.
+
 To keep things organized,
 we’ll deploy the TLS components in a separate Juju model called `tls`.
 
@@ -50,7 +52,7 @@ juju offer self-signed-certificates:certificates certificates
 ```
 
 In this way,
-those relations can be consumed by the charms in our robotics model,
+those relations can be consumed by the charms in our {{ COS_ROB }} model,
 such as Traefik.
 
 Now,
@@ -82,7 +84,7 @@ Grafana would see Traefik’s certificates as untrusted,
 breaking secure communication.
 
 That’s it for the server side,
-you can verify that now traefik is serving endpoints on `https` with:
+you can verify that now Traefik is serving endpoints on `https` with:
 
 ```bash
 juju run traefik/0 show-proxied-endpoints
@@ -131,7 +133,7 @@ sudo update-ca-certificates
 
 In this way,
 the certificate will be available system wide,
- and the agents running on the robot will trust the certificate.
+and the agents running on the robot will trust the certificate.
 
 ```{warning}
 Note: this works only on Ubuntu Desktop and Server.
@@ -140,21 +142,19 @@ For Ubuntu Core a system wide solution is not available yet.
 
 ### Install the agents
 
-The [main tutorial](../../tutorials/observability/deploy-cos-for-robotics-agent-on-your-robot.md) shows how to deploy {{COS_ROB}} on your robot.
-That setup does not involve the use of TLS.
-The configuration of the agents on the robot
-is achieved via a configuration snap.
-We prepared two configurations snaps with different levels of configuration:
-- [**basic**](https://github.com/canonical/rob-cos-demo-configuration):
-Provides a basic setup to quickly start monitoring and collecting data from a device.
-- [**advanced**](https://github.com/canonical/rob-cos-demo-configuration/tree/advanced):
-Provides an extended setup with additional features such as TLS,
-identity management and Ceph storage.
+The [main tutorial](../../tutorials/observability/deploy-cos-for-robotics-agent-on-your-robot.md)
+shows how to register a device with {{ COS_ROB }} without TLS,
+using the [basic](https://github.com/canonical/rob-cos-demo-configuration)
+configuration snap.
+This setup provides a basic setup
+to quickly start monitoring and collecting data from a device.
 
-In order to set up the robot with TLS,
-the `advanced` configuration snap must be installed.
-Here,
-the various agents are configured to use the certificates installed on the device.
+In this guide,
+we use the
+[advanced](https://github.com/canonical/rob-cos-demo-configuration/tree/advanced)
+configuration snap instead.
+This extended setup enables TLS
+and configures all agents to use the certificates installed on the device.
 
 An helper script to setup TLS is available for download:
 
@@ -169,7 +169,7 @@ run it with:
 sudo bash setup-robcos-device.sh
 ```
 
-The script will initiate promptsfor the robot UID and the server URL.
+The script will initiate prompts for the robot UID and the server URL.
 While the robot UID is optional,
 the URL is mandatory (make sure to set the URL with HTTPS).
 The queries and response will look as follows:
@@ -182,29 +182,33 @@ Please enter the rob-cos-server-url:
 https://<rob-cos-server-ip>/rob-cos-model
 ```
 
-Your device should now be successfully registered with {{COS_ROB}},
+Your device should now be successfully registered with {{ COS_ROB }},
 with TLS enabled.
 
-### Enable Foxglove Bridge WSS
+### Enable Foxglove Bridge with Secure WebSocket (WSS)
 
 The Foxglove Bridge agent running on the device
 uses WebSockets to exchange data with Foxglove Studio served by the browser.
-To establish a secure WebSocket connection (wss://),
+To establish a secure WebSocket connection (**wss://**),
 the device needs a certificate and a key that can be supplied to the
 application and validated by the browser.
-The `advanced` branch of the configuration snap,
-sets the `generate-device-tls-certificate` flag in the device.yaml.
-This flag triggers the generation of a TLS certificate and key,
+
+The [advanced](https://github.com/canonical/rob-cos-demo-configuration/tree/advanced)
+branch of the [demo configuration snap](https://snapcraft.io/rob-cos-demo-configuration),
+sets the `generate-device-tls-certificate` flag in the device configuration yaml.
+This flag triggers the generation of a TLS certificate and key during
+[registration](https://github.com/canonical/cos-registration-agent?tab=readme-ov-file#setup),
 which are then stored in the device's `rob-cos-data-sharing` snap.
-The Foxglove Bridge configuration then
-uses this certificate by referencing the relevant paths.
+
+The [Foxglove Bridge configuration](https://github.com/canonical/rob-cos-demo-configuration/blob/advanced/snap/local/configuration/foxglove-bridge.yaml)
+then uses this certificate by referencing the relevant paths.
 Currently,
 the certificate generated for the Foxglove Bridge
 must be manually trusted by your browser.
 To do this in Google Chrome:
 
 - Open a new tab and navigate to `chrome://certificate-manager/localcerts/usercerts`.
-- The certificate is avilable on the device at: `/var/snap/foxglove-bridge/common/rob-cos-shared-data/device.crt`
+- The certificate is available on the device at: `/var/snap/foxglove-bridge/common/rob-cos-shared-data/device.crt`
 - Click on `Import` and select the certificate file from your device.
 - Once imported, the certificate should appear under the
 `Installed by You` section.
