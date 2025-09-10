@@ -16,6 +16,7 @@ Operation
 
    deploy-ceph
    deploy-caddy
+   device-send-rosbag
    write-configuration-snap-for-cos-for-robotics
    configure-alertmanager-to-send-email-alerts
    observe-cos-rob
