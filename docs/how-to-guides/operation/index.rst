@@ -6,9 +6,9 @@ Operation
 
 .. warning::
 
-      Beta Notice: |COS_ROB| is currently in `beta`. 
-      Content and features may change, and some functionality may be incomplete 
-      or experimental. 
+      Beta Notice: |COS_ROB| is currently in `beta`.
+      Content and features may change, and some functionality may be incomplete
+      or experimental.
       Feedback is welcome as we continue to improve.
 
 .. toctree::
