@@ -14,6 +14,7 @@ Operation
 .. toctree::
    :maxdepth: 1
 
+   deploy-caddy
    write-configuration-snap-for-cos-for-robotics
    configure-alertmanager-to-send-email-alerts
    observe-cos-rob
