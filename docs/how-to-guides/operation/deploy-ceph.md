@@ -7,7 +7,7 @@ and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
-In this How-To-Guide,
+In this how-to,
 we will walk through the deployment of a Ceph-based storage with
 an S3 endpoint in the **Canonical Observability Stack (COS) for robotics**.
 We therefore assume that a {{ COS_ROB }} stack is up and running.
@@ -22,16 +22,16 @@ can push rosbags for later use.
 ## Setting up the cloud
 
 For this deployment,
-we rely on [**Microceph**](https://canonical-microceph.readthedocs-hosted.com/stable/)
+we rely on [Microceph](https://canonical-microceph.readthedocs-hosted.com/stable/)
 deployed on an
-[**LXD**](https://documentation.ubuntu.com/server/how-to/containers/lxd-containers/)
+[LXD](https://documentation.ubuntu.com/server/how-to/containers/lxd-containers/)
 cloud.
 
-Let us start by setting up the **LXD** cloud.
+Let us start by setting up the LXD cloud.
 
-### Install **LXD**
+### Install LXD
 
-Install the **LXD** snap with:
+Install the LXD snap with:
 
 ```console
 sudo snap install lxd
@@ -43,21 +43,21 @@ and initialize it with:
 lxd init --minimal
 ```
 
-Once **LXD** is initialized, we expose it to the network:
+Once LXD is initialized, we expose it to the network:
 
 ```console
 lxc config set core.https_address :8443
 ```
 
-Exposing it to the network allows us to use a single **Juju** controller,
+Exposing it to the network allows us to use a single Juju controller,
 the `cos-robotics-controller` deployed in the tutorial,
 to operate both clouds.
 Mind that other deployment strategies are possible.
 
-### Bootstrapping **LXD**
+### Bootstrapping LXD
 
-While **LXD** automatically appears in the list of
-local clouds available to **Juju** (`juju clouds`),
+While LXD automatically appears in the list of
+local clouds available to Juju (`juju clouds`),
 we are not going to rely on this integration to bootstrap it.
 Instead, we are going to add it to Juju as if it was a remote cloud.
 To do so, we use the following interactive command:
@@ -98,13 +98,13 @@ To upload a credential to the controller for cloud "lxd-local", use
 * 'add-credential -c lxd-local'.
 ```
 
-This command enrolls the **LXD** cloud both to the **Juju** client as well as
+This command enrolls the LXD cloud both to the Juju client as well as
 the existing controller through it local IP address.
-Note that in this configuration, the **LXD** cloud could be running on a different
+Note that in this configuration, the LXD cloud could be running on a different
 machine on a local network.
 
 We also note the final warning about credentials.
-Fortunately, to address it we can benefit from the **LXD** integration to **Juju**
+Fortunately, to address it we can benefit from the LXD integration to Juju
 this time around and have it (somewhat) automatically load the certificate.
 To do so, enter the following command and follow along the interactive process:
 
@@ -128,9 +128,9 @@ Controller credential "localhost" for user "admin" for cloud "lxd-local" on cont
 For more information, see ‘juju show-credential lxd-local localhost’.
 ```
 
-Juju has now loaded the ‘localhost’ cloud credential through its
+Juju has now loaded the `localhost` cloud credential through its
 integration with the LXD snap and associated it
-with the manually registered ‘lxd-local’ cloud.
+with the manually registered `lxd-local` cloud.
 
 Let’s verify that the cloud was indeed added to the controller,
 
@@ -152,7 +152,7 @@ microk8s   1        localhost  k8s   1            built-in  A Kubernetes Cluster
 Both our clouds are set up,
 we can now continue with the deployment.
 
-## Deploy **Microceph**
+## Deploy Microceph
 
 The deployment relies on a Terraform plan that can be found
 in the repository used in the tutorial.
@@ -162,10 +162,11 @@ You can retrieve it again with:
 git clone https://github.com/ubuntu-robotics/rob-cos-overlay.git
 ```
 
-We then move to the sub-directory containing the **Microceph** plan:
+We then move to the sub-directory containing the Microceph plan:
 
 ```console
 cd path/to/rob-cos-overlay/terraform/microceph
+```
 
 and initialize the project:
 
@@ -173,7 +174,7 @@ and initialize the project:
 terraform init
 ```
 
-In order to deploy, we must create a new Juju project on the **LXD** cloud:
+In order to deploy, we must create a new Juju project on the LXD cloud:
 
 ```console
 juju add-model cos-robotics-microceph-model lxd-local
@@ -204,7 +205,7 @@ juju status --watch 5s --color --relations --model cos-robotics-microceph-model
 ```
 
 Once all the machines are active,
-we have to attach some storage to the **Microceph** cluster:
+we have to attach some storage to the Microceph cluster:
 
 ```console
 juju run microceph/0 add-osd loop-spec="10G,1"
@@ -214,7 +215,7 @@ juju run microceph/2 add-osd loop-spec="10G,1"
 
 This will create a storage pool of ~30G to store our rosbags.
 
-## Integrate **Microceph**
+## Integrate Microceph
 
 With the storage deployed,
 we shall now integrate it to {{ COS_ROB }}.
@@ -244,13 +245,13 @@ microceph active  cos-robotics-controller admin/cos-robotics-microceph-model.mic
 ...
 ```
 
-We can then integrate **Microceph** to the {{ COS_ROB }} ingress:
+We can then integrate Microceph to the {{ COS_ROB }} ingress:
 
 ```console
 juju integrate microceph traefik --model cos-robotics-model
 ```
 
-From there we can query **Microceph** about its **RadosGW** IP,
+From there we can query Microceph about its RadosGW IP (a.k.a the S3 endpoint),
 
 ```console
 $ juju run microceph/leader get-rgw-endpoints --model cos-robotics-microceph-model

@@ -12,10 +12,10 @@ This setup is not production ready.
 It is only described here as a simple mean to test the functionality
 of uploading rosbags from a device to {{ COS_ROB }}.
 For a production ready solution,
-please have a look at How-To ['Deploy Ceph for {{ COS_ROB }}'](deploy-ceph.md).
+please have a look at how to ['Deploy Ceph for {{ COS_ROB }}'](deploy-ceph.md).
 ```
 
-In this How-To-Guide,
+In this how-to,
 we will deploy a simple Caddy file server
 in the **Canonical Observability Stack (COS) for robotics**.
 We therefore assume that a {{ COS_ROB }} stack is up and running.
@@ -29,7 +29,7 @@ can push rosbags for later use.
 
 ## Deploy Caddy
 
-To deploy **Caddy**, hit the following command:
+To deploy Caddy, hit the following command:
 
 ```console
 juju deploy ros2bag-fileserver-k8s --resource caddy-fileserver-image=ghcr.io/ubuntu-robotics/ros2bag-fileserver:dev --storage database:=10G --config ssh-port=2222
@@ -51,7 +51,7 @@ We can monitor the deployment, including the relations with:
 juju status --watch 5s --color --relations
 ```
 
-Once everything is gree,
+Once everything is green,
 the storage is ready to receive rosbags from the devices.
 
 ---
