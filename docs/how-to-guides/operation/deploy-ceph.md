@@ -311,4 +311,5 @@ Our storage is ready to receive rosbags from the devices.
 ## Next steps: device setup
 
 Now that the storage is set up,
-let’s see how to configure a device to upload rosbags.
+let’s see how to configure a device to upload rosbags:
+['Send rosbags to {{ COS_ROB }}'](device-send-rosbag.md).
