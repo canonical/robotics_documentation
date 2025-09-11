@@ -45,6 +45,7 @@ These are:
 6. {ref}`Harden your kernel configurations <harden-your-kernel-configurations>`
 
 (secure-connections-to-your-robot)=
+
 ### 1. Secure connections to your robot
 
 #### Configure firewall
@@ -192,6 +193,7 @@ but the user-space portion has to be installed as a separate snap.
 This is one less open service to worry about.
 
 (limit-network-access)=
+
 ### 2. Limit network access
 
 #### Disable WiFi
@@ -282,6 +284,7 @@ Learn more about [snaps’ confinement types](https://snapcraft.io/docs/network-
 in the Snapcraft documentation.
 
 (limit-physical-connectivity)=
+
 ### 3. Limit physical connectivity
 
 #### Disable USB
@@ -471,6 +474,7 @@ running unauthorised applications via its integrated code authenticity validatio
 such that unauthorised or malicious code cannot be introduced.
 
 (customise-user-access)=
+
 ### 4. Customise user access
 
 #### Remove any default users
@@ -594,6 +598,7 @@ snap connect <snap-name>:restricted-dir
 ```
 
 (keep-up-to-date-with-security-patches)=
+
 ### 5. Keep up to date with security patches
 
 #### Unattended upgrades
@@ -644,6 +649,7 @@ It is also possible to build a device-agent which can control updates on a Core 
 so you can have more control over the timing of updates.
 
 (harden-your-kernel-configurations)=
+
 ### 6. Harden your kernel configurations
 
 #### Set secure IPv4 configurations
