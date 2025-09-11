@@ -37,13 +37,14 @@ The recommendations below are grouped into logical categories based on
 generally recognised good security practices, as they apply to your robot’s OS.
 These are:
 
-1. [Secure connections to your robot](#secure-connections-to-your-robot)
-2. [Limit network access](#limit-network-access)
-3. [Limit physical connectivity](#limit-physical-connectivity)
-4. [Customise user access](#customise-user-access)
-5. [Keep up to date with security patches](#keep-up-to-date-with-security-patches)
-6. [Harden your kernel configurations](#harden-your-kernel-configurations)
+1. {ref}`Secure connections to your robot <secure-connections-to-your-robot>`
+2. {ref}`Limit network access <limit-network-access>`
+3. {ref}`Limit physical connectivity <limit-physical-connectivity>`
+4. {ref}`Customise user access <customise-user-access>`
+5. {ref}`Keep up to date with security patches <keep-up-to-date-with-security-patches>`
+6. {ref}`Harden your kernel configurations <harden-your-kernel-configurations>`
 
+(secure-connections-to-your-robot)=
 ### 1. Secure connections to your robot
 
 #### Configure firewall
@@ -190,6 +191,7 @@ The lower-level part of it comes with the kernel snap,
 but the user-space portion has to be installed as a separate snap.
 This is one less open service to worry about.
 
+(limit-network-access)=
 ### 2. Limit network access
 
 #### Disable WiFi
@@ -279,6 +281,7 @@ By design, you have control over whether each snap will get network access
 Learn more about [snaps’ confinement types](https://snapcraft.io/docs/network-interfaces)
 in the Snapcraft documentation.
 
+(limit-physical-connectivity)=
 ### 3. Limit physical connectivity
 
 #### Disable USB
@@ -467,6 +470,7 @@ In addition, Core can defend against software corruption or
 running unauthorised applications via its integrated code authenticity validation,
 such that unauthorised or malicious code cannot be introduced.
 
+(customise-user-access)=
 ### 4. Customise user access
 
 #### Remove any default users
@@ -589,6 +593,7 @@ you can enable it for a specific snap:
 snap connect <snap-name>:restricted-dir
 ```
 
+(keep-up-to-date-with-security-patches)=
 ### 5. Keep up to date with security patches
 
 #### Unattended upgrades
@@ -638,6 +643,7 @@ This means an easy way to keep your entire system up to date.
 It is also possible to build a device-agent which can control updates on a Core device,
 so you can have more control over the timing of updates.
 
+(harden-your-kernel-configurations)=
 ### 6. Harden your kernel configurations
 
 #### Set secure IPv4 configurations
