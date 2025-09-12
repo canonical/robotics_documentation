@@ -238,6 +238,7 @@ redirects = {
     # The unique ESM tutorial was broken down into how-tos & explanations
     "tutorials/ubuntu-pro/ros-esm-intro/": "../../../explanations/security/what-is-ros-esm/",
     "explanations/security/securing-ros-robotic-platforms/": "../../../how-to-guides/security/hardening-your-robot/",
+    "explanations/security/hardening-your-robot/": "../../../how-to-guides/security/hardening-your-robot/",
 }
 
 
