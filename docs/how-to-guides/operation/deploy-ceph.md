@@ -91,7 +91,7 @@ You will need to add a credential for this cloud (`juju add-credential lxd-local
 before you can use it to bootstrap a controller (`juju bootstrap lxd-local`) or
 to create a model (`juju add-model <your model name> lxd-local`).
 
-Cloud "" added to controller "cos-robotics-controller".
+Cloud "lxd-local" added to controller "cos-robotics-controller".
 WARNING loading credentials: credentials for cloud lxd-local not found
 To upload a credential to the controller for cloud "lxd-local", use
 * 'add-model' with --credential option or
@@ -99,13 +99,13 @@ To upload a credential to the controller for cloud "lxd-local", use
 ```
 
 This command enrolls the LXD cloud both to the Juju client as well as
-the existing controller through it local IP address.
+the existing controller through its local IP address.
 Note that in this configuration, the LXD cloud could be running on a different
 machine on a local network.
 
 We also note the final warning about credentials.
 Fortunately, to address it we can benefit from the LXD integration to Juju
-this time around and have it (somewhat) automatically load the certificate.
+this time around and have it (somewhat) automatically load the credentials.
 To do so, enter the following command and follow along the interactive process:
 
 ```console
@@ -131,6 +131,11 @@ For more information, see ‘juju show-credential lxd-local localhost’.
 Juju has now loaded the `localhost` cloud credential through its
 integration with the LXD snap and associated it
 with the manually registered `lxd-local` cloud.
+
+Please refer to the Juju documentation to learn more about
+[managing clouds](https://documentation.ubuntu.com/juju/3.6/howto/manage-clouds/)
+and/or
+[managing credentials](https://documentation.ubuntu.com/juju/3.6/howto/manage-credentials/).
 
 Let’s verify that the cloud was indeed added to the controller,
 
