@@ -30,7 +30,7 @@ we must first create an S3 credential.
 This step can be done directly on the device,
 or any other machine that can reach out to the server.
 
-To creat the user, issue the command:
+To create the user, issue the command:
 
 ```console
 $ juju exec --unit microceph/leader -- radosgw-admin user create --uid=my-user --display-name=my-user
@@ -55,6 +55,8 @@ $ juju exec --unit microceph/leader -- radosgw-admin user create --uid=my-user -
 
 Take note of the `access_key` as well as the `secret_key`.
 They are the credentials we are going to configure on the device.
+You can always retrieve them with the command
+`juju exec --unit microceph/leader -- radosgw-admin user info --uid=my-user`.
 
 Before moving on to the device,
 the last step is to create an S3 bucket for our user to upload the rosbags.

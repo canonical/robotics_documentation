@@ -282,40 +282,6 @@ $ curl http://100.83.155.248
 
 The cloud storage is up and running.
 
-## Create a RadosGW user
-
-The last step is to create a shared-user to upload the rosbags to the S3 buckets.
-To do so use the command:
-
-```console
-$ juju exec --unit microceph/leader -- radosgw-admin user create --uid=fleet-a --display-name=fleet-a
-{
-    "user_id": "fleet-a",
-    "display_name": "fleet-a",
-    "email": "",
-    "suspended": 0,
-    "max_buckets": 1000,
-    "subusers": [],
-    "keys": [
-        {
-            "user": "fleet-a",
-            "access_key": "MY_ACCESS_KEY",
-            "secret_key": "MY_SECRET_KEY",
-            "active": true,
-            "create_date": "2024-12-10T17:03:53.196001Z"
-        }
-    ],
-...
-```
-
-where `fleet-a` is the name of the shared user across a fleet.
-
-Make sure to note the `access_key` and `access_key` as we will use them later.
-You can always retrieve them with the command
-`juju exec --unit microceph/leader -- radosgw-admin user info --uid=fleet-a`.
-
-Our storage is ready to receive rosbags from the devices.
-
 ---
 
 ## Next steps: device setup
