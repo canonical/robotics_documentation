@@ -16,8 +16,11 @@ You may refer to the tutorial
 to do so.
 
 By the end of this guide,
-We will have a cloud storage available in {{ COS_ROB }} so that devices
-can push rosbags for later use.
+we will have a Microceph cluster available in {{ COS_ROB }}
+providing cloud storage so that devices can push rosbags for later use.
+To follow along,
+about 30G of disk space is necessary.
+However this can be adjusted to your needs.
 
 ## Setting up the cloud
 
