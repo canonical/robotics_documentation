@@ -50,7 +50,7 @@ $ juju exec --unit microceph/leader -- radosgw-admin user create --uid=my-user -
 ...
 ```
 
-Take not of the `access_key` as well as the `secret_key`.
+Take note of the `access_key` as well as the `secret_key`.
 They are the credentials we are going to configure on the device.
 
 Before moving on to the device,

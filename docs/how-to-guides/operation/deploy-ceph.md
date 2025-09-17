@@ -12,7 +12,7 @@ we will walk through the deployment of a Ceph-based storage with
 an S3 endpoint in the **Canonical Observability Stack (COS) for robotics**.
 We therefore assume that a {{ COS_ROB }} stack is up and running.
 You may refer to the tutorial
-['Deploy {{ COS_ROB }} server in the cloud'](../../tutorials/observability/deploy-cos-for-robotics-server-in-the-cloud.md).
+['Deploy {{ COS_ROB }} server in the cloud'](../../tutorials/observability/deploy-cos-for-robotics-server-in-the-cloud.md)
 to do so.
 
 By the end of this guide,
@@ -239,8 +239,8 @@ We then consume this offer in the {{ COS_ROB }} model:
 juju consume admin/cos-robotics-microceph-model.microceph --model cos-robotics-model
 ```
 
-Once the offer consumed,
-the `microceph` application should appear as a ‘SAAS’ ,
+Once the offer is consumed,
+the microceph application should appear as a ‘SAAS’ ,
 
 ```console
 $ juju status --model cos-robotics-model
