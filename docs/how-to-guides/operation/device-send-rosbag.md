@@ -27,7 +27,10 @@ to do so.
 In order to upload rosbags to the server,
 we must first create an S3 credential.
 
-To do so, issue the command:
+This step can be done directly on the device,
+or any other machine that can reach out to the server.
+
+To creat the user, issue the command:
 
 ```console
 $ juju exec --unit microceph/leader -- radosgw-admin user create --uid=my-user --display-name=my-user
