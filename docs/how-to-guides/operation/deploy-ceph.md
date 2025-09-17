@@ -203,7 +203,7 @@ cos-robotics-model              microk8s/localhost  kubernetes  available       
 Finally, we can deploy the stack with:
 
 ```bash
-terraform apply -var="model=cos-robotics-microceph-model"
+terraform apply -var="model=cos-robotics-microceph-model" -var="units=3"
 ```
 
 Now you can sit back and watch the deployment take place:
