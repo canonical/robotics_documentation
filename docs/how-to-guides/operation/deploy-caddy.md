@@ -1,4 +1,4 @@
-# Deploy a file server for {{ COS_ROB }}
+# Deploy a Caddy file server for {{ COS_ROB }}
 
 ```{warning}
 **Beta Notice**: {{COS_ROB}} is currently in `beta`.

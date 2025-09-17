@@ -214,6 +214,8 @@ juju run microceph/2 add-osd loop-spec="10G,1"
 ```
 
 This will create a storage pool of ~30G to store our rosbags.
+Learn more about Juju storage at the
+[dedicated documentation page](https://documentation.ubuntu.com/juju/3.6/reference/storage/).
 
 ## Integrate Microceph
 
