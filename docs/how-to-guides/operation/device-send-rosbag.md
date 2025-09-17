@@ -190,7 +190,7 @@ And:
 sudo snap connect ros2-exporter-agent:configuration-read <my-demo-configuration>:configuration-read
 ```
 
-Once both interface are connected,
+Once both interfaces are connected,
 the exporter agent will automatically start recording rosbags and
 send them to the file server on {{ COS_ROB }}.
 
