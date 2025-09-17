@@ -56,7 +56,7 @@ They are the credentials we are going to configure on the device.
 Before moving on to the device,
 the last step is to create an S3 bucket for our user to upload the rosbags.
 
-To do so we are going to use the S3 client Rclone,
+To do so we are going to use the S3 client [Rclone](https://rclone.org/),
 but any other client of your choice should do.
 
 Install Rclone with:
