@@ -11,7 +11,6 @@ security for robotics on Ubuntu.
 Check out the following how-to guide with steps to secure your robot with Ubuntu:
 
 * `Hardening your robot`_
-.. _Hardening your robot: ../../how-to-guides/security/hardening-your-robot
 
 **Ubuntu Pro and ROS ESM**
 
@@ -35,6 +34,7 @@ These focused How-to guides will show you how to enable and use the service:
 * `How to enable ROS ESM`_
 * `How to set up your ROS ESM environment`_
 
+.. _Hardening your robot: ../../how-to-guides/security/hardening-your-robot
 .. _ROS ESM: https://ubuntu.com/robotics/ros-esm
 .. _Ubuntu Pro: https://ubuntu.com/pro/beta
 .. _How to enable ROS ESM: ../../how-to-guides/maintenance/enable-ros-esm
