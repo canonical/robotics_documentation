@@ -1,6 +1,6 @@
 :sequential_nav: none
 
-Explanations
+Explanation
 ============
 
 The explanatory guides in this section introduce you to concepts used in
