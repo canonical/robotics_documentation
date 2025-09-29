@@ -1,4 +1,4 @@
-# Deploy {{ COS_ROB }} with TLS encryption
+# Enable TLS encryption in {{ COS_ROB }}
 
 ```{warning}
 **Beta Notice**: {{ COS_ROB }} is currently in `beta`.
