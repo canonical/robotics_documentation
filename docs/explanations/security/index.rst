@@ -1,6 +1,6 @@
 :sequential_nav: next
 
-Robotics Security
+Security
 =================
 
 This page provides an overview of and references to various topics related to

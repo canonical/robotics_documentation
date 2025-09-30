@@ -11,6 +11,6 @@ Canonical robotics solutions and help you understand how things fit together.
 
    snaps/index
    ubuntu-core
-   Security <security/index>
+   security/index
    dedicated-snap-store
    observability/index
