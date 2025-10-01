@@ -239,8 +239,6 @@ redirects = {
     "tutorials/ubuntu-pro/ros-esm-intro/": "../../../explanations/security/what-is-ros-esm/",
     "explanations/security/securing-ros-robotic-platforms/": "../../../how-to-guides/security/hardening-your-robot/",
     "explanations/security/hardening-your-robot/": "../../../how-to-guides/security/hardening-your-robot/",
-    # This serves to automatically redirect how-to-guides/security to hardening-your-robot
-    "how-to-guides/security/": "../../../how-to-guides/security/hardening-your-robot/",
 }
 
 
