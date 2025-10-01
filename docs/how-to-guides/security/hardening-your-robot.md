@@ -16,7 +16,7 @@ secure your robot by building on top of Ubuntu,
 and how Ubuntu Core provides you with
 enterprise-grade security for your robot out of the box.
 
-## Secure your robot's base Ubuntu OS
+## How to secure your robot's base Ubuntu OS
 
 For this step-by-step hardening exercise,
 we will secure your robot for deployment to a production environment.

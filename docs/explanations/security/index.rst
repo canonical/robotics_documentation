@@ -1,7 +1,7 @@
 :sequential_nav: next
 
 Security
-=================
+========
 
 This page provides an overview of and references to various topics related to
 security for robotics on Ubuntu.
