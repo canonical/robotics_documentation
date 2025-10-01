@@ -46,12 +46,12 @@ in the ROS ecosystem have been
 **identified, responsibly disclosed, and patched on ROS ESM**. This includes
 the publication and remediation of multiple High severity CVEs, such as:
 
-- [CVE-2025-3753 - Code execution vulnerability in rosbag tool](https://nvd.nist.gov/vuln/detail/CVE-2025-3753)
-- [CVE-2024-39289 - Code execution vulnerability in rosparam tool](https://nvd.nist.gov/vuln/detail/CVE-2024-39289)
-- [CVE-2024-39780 - YAML deserialization vulnerability in dynparam tool](https://nvd.nist.gov/vuln/detail/CVE-2024-39780)
-- [CVE-2024-39835 - Code injection vulnerability in roslaunch tool](https://nvd.nist.gov/vuln/detail/CVE-2024-39835)
-- [CVE-2024-41148 - Code injection vulnerability in rostopic tool](https://nvd.nist.gov/vuln/detail/CVE-2024-41148)
-- [CVE-2024-41921 - Code injection vulnerability in rostopic tool](https://nvd.nist.gov/vuln/detail/CVE-2024-41921)
+- [CVE-2025-3753  - Code execution vulnerability in rosbag](https://nvd.nist.gov/vuln/detail/CVE-2025-3753)
+- [CVE-2024-39289 - Code execution vulnerability in rosparam](https://nvd.nist.gov/vuln/detail/CVE-2024-39289)
+- [CVE-2024-39780 - YAML deserialization vulnerability in dynparam](https://nvd.nist.gov/vuln/detail/CVE-2024-39780)
+- [CVE-2024-39835 - Code injection vulnerability in roslaunch](https://nvd.nist.gov/vuln/detail/CVE-2024-39835)
+- [CVE-2024-41148 - Code injection vulnerability in rostopic](https://nvd.nist.gov/vuln/detail/CVE-2024-41148)
+- [CVE-2024-41921 - Code injection vulnerability in rostopic](https://nvd.nist.gov/vuln/detail/CVE-2024-41921)
 
 These fixes demonstrate the value of continuous auditing,
 as well as Canonical's commitment to raising the security baseline
