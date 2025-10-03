@@ -12,5 +12,6 @@ environment variables description, tool usage etc.
 
    snapcraft/index
    ROS ESM <esm-package-list>
+   ROS 2 SDK <ros2-sdk>
    observability/index
    ref_architecture/reference_architecture
