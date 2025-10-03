@@ -14,3 +14,4 @@ They are also be a good place to start learning.
 
    snaps-core/index
    observability/index
+   ros2-dev-workshop
