@@ -1,10 +1,12 @@
 # Check if a CVE is fixed in your environment
 
 If you're running ROS in production, it's important to know whether a specific CVE
-has been patched in your environment. One of the simplest ways to check this
-is by using the Ubuntu CVE Tracker. To do that, follow these steps:
+has been patched in your environment.
 
-## 1. Look up the CVE
+You can find detailed step-by-step instructions
+to [check if your system is affected by a CVE](https://documentation.ubuntu.com/pro-client/en/latest/howtoguides/fix_how_to_know_if_system_affected_by_cve/), and to [resolve a specific CVE](https://documentation.ubuntu.com/pro-client/en/latest/howtoguides/fix_how_to_resolve_given_cve/) in the Ubuntu Pro Client documentation.
+
+## 1. Get more details on the CVE
 
 Go to the [Ubuntu CVE Tracker website](https://ubuntu.com/security/cves)
 and search for the CVE ID, for example: `CVE-2025-3753`.
@@ -24,7 +26,7 @@ affecting the `ros-comm` package has been fixed for ROS ESM Noetic from version 
 
 ![image](../../assets/images/how-to-guides-maintenance-check-cves-1.png)
 
-## 3. Compare with your system
+## 3. Check fix status in your system
 
 If you're using **Ubuntu Pro with ROS ESM**,
 first make sure security updates are enabled:
@@ -33,24 +35,31 @@ first make sure security updates are enabled:
 pro status
 ```
 
-Check which version is currently installed in your system:
+You can the use the Ubuntu Pro Client tool to check if your system is affected
+by running:
 
 ```bash
-apt list --installed | grep package-name
+pro fix --dry-run CVE-2025-3753
 ```
 
-Replace *package-name* with the relevant name,
-like `ros-noetic-ros-comm` or any other affected package.
+The output of the dry run will also indicate whether if a fix is available,
+without actually applying it.
 
 ## 4. Update if needed
 
-If your installed version is older than the fixed one, run:
+Finally, use the `pro fix` command to apply the needed fix to your system:
 
 ```bash
-sudo apt update
-sudo apt upgrade
+sudo pro fix CVE-2020-25686
 ```
+
+This command will:
+- describe the CVE/USN;
+- display the affected packages;
+- fix the affected packages; and
+- show if the CVE/USN is fully fixed in the machine.
 
 This quick check helps you confirm whether potentially critical vulnerabilities
 have been addressed in your ROS-based systems.
+
 If you still **need to enable Ubuntu Pro and ROS ESM**, check out our [step-by-step guide](enable-ros-esm.md).
