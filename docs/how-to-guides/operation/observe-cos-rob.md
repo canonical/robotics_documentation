@@ -38,7 +38,7 @@ There are multiple strategies for the topology of this double deployment.
 For the sake of this how-to, we assume that {{ COS }} and {{ COS_ROB }} live
 in their respective models and that both are controlled by the same Juju controller.
 Make sure to read Juju's documentation about
-[coss-model relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/#cross-model)
+[coss-model relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/#cross-model-relation)
 as we are using this feature and
 since it may impact the very boostrapping of the controllers
 depending on the topology.
@@ -124,7 +124,7 @@ we must now 'relate' them through Juju
 [relations](https://documentation.ubuntu.com/juju/latest/reference/relation/).
 
 Since the stacks live in separate models, we must establish a so called
-[coss-model relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/#cross-model).
+[coss-model relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/#cross-model-relation).
 These are two folds, firstly,
 we need to expose some applications from one model to the other,
 secondly, we can relate applications as we normally would using Juju.

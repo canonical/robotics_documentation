@@ -1,7 +1,7 @@
 :sequential_nav: none
 
-References
-===========
+Reference
+=========
 
 **Technical information** such as API documentation,
 environment variables description, tool usage etc.

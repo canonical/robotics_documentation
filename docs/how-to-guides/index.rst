@@ -12,3 +12,4 @@ How-to guides
    packaging/index
    operation/index
    maintenance/index
+   Security <security/hardening-your-robot.md>
