@@ -3,8 +3,10 @@
 If you're running ROS in production, it's important to know whether a specific CVE
 has been patched in your environment.
 
-You can find detailed step-by-step instructions
-to [check if your system is affected by a CVE](https://documentation.ubuntu.com/pro-client/en/latest/howtoguides/fix_how_to_know_if_system_affected_by_cve/), and to [resolve a specific CVE](https://documentation.ubuntu.com/pro-client/en/latest/howtoguides/fix_how_to_resolve_given_cve/) in the Ubuntu Pro Client documentation.
+You can find detailed step-by-step instructions to
+[check if your system is affected by a CVE](https://documentation.ubuntu.com/pro-client/en/latest/howtoguides/fix_how_to_know_if_system_affected_by_cve/),
+and to [resolve a specific CVE](https://documentation.ubuntu.com/pro-client/en/latest/howtoguides/fix_how_to_resolve_given_cve/)
+in the Ubuntu Pro Client documentation.
 
 ## 1. Get more details on the CVE
 
@@ -35,7 +37,7 @@ first make sure security updates are enabled:
 pro status
 ```
 
-You can the use the Ubuntu Pro Client tool to check if your system is affected
+You can use the Ubuntu Pro Client tool to check if your system is affected
 by running:
 
 ```bash
@@ -50,10 +52,11 @@ without actually applying it.
 Finally, use the `pro fix` command to apply the needed fix to your system:
 
 ```bash
-sudo pro fix CVE-2020-25686
+pro fix CVE-2020-25686
 ```
 
 This command will:
+
 - describe the CVE/USN;
 - display the affected packages;
 - fix the affected packages; and
