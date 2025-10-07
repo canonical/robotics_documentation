@@ -10,8 +10,8 @@ backporting, and non-disruptive updates, all aligned with Ubuntu LTS standards.
 Delivered through Ubuntu Pro, ROS ESM offers unified, long-term security
 and compliance for robotics deployments.
 
-In addition to addressing reported security vulnerabilities, **the Ubuntu Robotics
-team proactively runs a dedicated security analysis pipeline for ROS packages.**
+In addition to addressing reported security vulnerabilities, the Ubuntu Robotics
+team proactively runs a dedicated security analysis pipeline for ROS packages.
 
 ## A close look at ROS ESM's ongoing security audits
 
