@@ -33,7 +33,7 @@ This is backed by a **robust, purpose-built CI infrastructure**
 that spans multiple stages of quality assurance.
 The pipeline runs a sequence of automated checks, including unit tests,
 ABI stability tests, reverse dependency testing,
-integration tests with external packages, and full Debian packaging via Bloom.
+integration tests with external packages, and full Debian packaging via [Bloom](https://github.com/ros-infrastructure/bloom).
 The integration tests confirm that
 **ROS ESM packages remain installable, compatible, and functional**
 when used alongside other ROS packages. This helps prevent regressions
