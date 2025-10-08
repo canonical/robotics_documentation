@@ -18,3 +18,4 @@ Operation
    configure-alertmanager-to-send-email-alerts
    observe-cos-rob
    set-up-blackbox-exporter-to-monitor-cos-rob-devices
+   deploy-cos-for-robotics-with-tls-encryption
