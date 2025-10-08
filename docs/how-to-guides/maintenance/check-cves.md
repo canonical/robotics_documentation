@@ -8,6 +8,8 @@ You can find detailed step-by-step instructions to
 and to [resolve a specific CVE](https://documentation.ubuntu.com/pro-client/en/latest/howtoguides/fix_how_to_resolve_given_cve/)
 in the Ubuntu Pro Client documentation.
 
+If you still **need to enable Ubuntu Pro and ROS ESM**, check out our [step-by-step guide](enable-ros-esm.md).
+
 ## 1. Get more details on the CVE
 
 Go to the [Ubuntu CVE Tracker website](https://ubuntu.com/security/cves)
@@ -64,5 +66,3 @@ This command will:
 
 This quick check helps you confirm whether potentially critical vulnerabilities
 have been addressed in your ROS-based systems.
-
-If you still **need to enable Ubuntu Pro and ROS ESM**, check out our [step-by-step guide](enable-ros-esm.md).

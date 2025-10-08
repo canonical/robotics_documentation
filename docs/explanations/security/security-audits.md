@@ -25,7 +25,7 @@ validated through dynamic analysis and vulnerability proof-of-concept testing.
 Fixes are then delivered through a **controlled, quality-focused release process**
 that ensures both reliability and traceability.
 Security fixes are tested and staged before being deployed to users,
-and where appropriate, Canonical contributes upstream to ROS repositories,
+and where appropriate, Canonical contributes them to upstream ROS repositories,
 following a **responsible, coordinated disclosure**,
 and ROS's own [Vulnerability Disclosure Policy](https://ros.org/reps/rep-2006.html).
 
