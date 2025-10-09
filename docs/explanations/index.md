@@ -4,8 +4,8 @@ sequential_nav: none
 
 # Explanation
 
-The explanatory guides in this section introduce you to concepts used in
-Canonical robotics solutions and help you understand how everything fits together.
+**Explanatory guides** to introduce the concepts used in
+Canonical robotics solutions and depict how everything fits together.
 
 ## Snap & Ubuntu Core
 
