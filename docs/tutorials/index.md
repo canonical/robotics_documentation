@@ -31,7 +31,7 @@ snaps-core/index
 
 ```{include} observability/index.md
    :start-after: % Include start summary
-   :end-before: <!-- Include stop summary -->
+   :end-before: % Include stop summary
 ```
 
 ```{toctree}

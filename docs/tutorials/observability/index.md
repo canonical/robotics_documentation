@@ -12,7 +12,7 @@ Feedback is welcome as we continue to improve.
 This tutorial details how to deploy and configure
 Canonical Observability Stack for Devices.
 
-<!-- Include stop summary -->
+% Include stop summary
 
 * [Deploy {{COS_ROB}} for Robotics server-side](deploy-cos-for-robotics-server-in-the-cloud)
 

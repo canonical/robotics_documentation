@@ -57,7 +57,7 @@ observability/index
 
 ```{include} ref_architecture/reference_architecture.md
    :start-after: % Include start summary
-   :end-before: <!-- Include stop summary -->
+   :end-before: % Include stop summary
 ```
 
 ```{toctree}
