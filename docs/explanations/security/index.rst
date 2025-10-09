@@ -3,8 +3,12 @@
 Security
 ========
 
+.. Include start summary
+
 This page provides an overview of and references to various topics related to
 security for robotics on Ubuntu.
+
+.. Include stop summary
 
 **Harden your robot**
 
