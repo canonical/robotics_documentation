@@ -7,7 +7,7 @@ Content and features may change, and some functionality may be incomplete or exp
 Feedback is welcome as we continue to improve.
 ```
 
-<!-- Include start summary -->
+% Include start summary
 
 This tutorial details how to deploy and configure
 Canonical Observability Stack for Devices.

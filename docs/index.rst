@@ -25,18 +25,28 @@ Ubuntu Core is the OS for anyone building embedded Linux devices. Snaps are the 
    :widths: 50 50
 
    * - `Tutorials <tutorials>`__
-       
-       Get started - hands-on introductions for robotics to the different product
+
+       .. include:: tutorials/index.md
+          :start-after: % Include start summary
+          :end-before: % Include stop summary
+
      - `How-to guides <how-to-guides>`__
 
-       Step-by-step guides covering key operations and common tasks
+       .. include:: how-to-guides/index.md
+          :start-after: % Include start summary
+          :end-before: % Include stop summary
 
    * - `Explanation <explanations>`__
-       
-       Concepts - discussion and clarification of key topics
+
+       .. include:: explanations/index.md
+          :start-after: % Include start summary
+          :end-before: % Include stop summary
+
      - `Reference <references>`__
-       
-       Technical information - specifications, APIs, architecture
+
+       .. include:: references/index.md
+          :start-after: % Include start summary
+          :end-before: % Include stop summary
 
 Project and community
 =====================

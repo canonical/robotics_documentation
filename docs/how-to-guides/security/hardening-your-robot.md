@@ -1,7 +1,7 @@
 # Hardening your robot
 
 <!--
-Include start summary
+% Include start summary
 
 This documentation provides a guide on hardening a robot's security by
 focusing on its underlying operating system (Ubuntu 22.04 LTS or Ubuntu Core 22),
@@ -11,7 +11,7 @@ including securing connections (firewall, SSH, disabling Bluetooth),
 limiting network and physical access, customizing user permissions,
 keeping the system up-to-date with patches, and hardening kernel configurations.
 
-Include stop summary
+% Include stop summary
 -->
 
 Modern robots are typically designed to be open, robust, and easy to operate and repair.

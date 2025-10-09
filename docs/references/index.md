@@ -4,8 +4,12 @@ sequential_nav: none
 
 # Reference
 
-**Technical information** such as API documentation,
+% Include start summary
+
+**Technical information** such as specifications, architecture, API documentation,
 environment variables description, tool usage etc.
+
+% Include stop summary
 
 ## Snapcraft
 
@@ -24,8 +28,8 @@ snapcraft/index
 ## ROS ESM
 
 ```{include} esm-package-list.md
-   :start-after: <!-- Include start summary -->
-   :end-before: <!-- Include stop summary -->
+   :start-after: % Include start summary
+   :end-before: % Include stop summary
 ```
 
 ```{toctree}
@@ -52,7 +56,7 @@ observability/index
 ## Reference architecture
 
 ```{include} ref_architecture/reference_architecture.md
-   :start-after: <!-- Include start summary -->
+   :start-after: % Include start summary
    :end-before: <!-- Include stop summary -->
 ```
 

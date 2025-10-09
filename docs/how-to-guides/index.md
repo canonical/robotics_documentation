@@ -4,7 +4,11 @@ sequential_nav: none
 
 # How-to guides
 
+% Include start summary
+
 **Step-by-step guides** covering key operations and common tasks.
+
+% Include stop summary
 
 ## Packaging
 
@@ -48,8 +52,8 @@ maintenance/index
 ## Security
 
 ```{include} security/hardening-your-robot.md
-   :start-after: Include start summary
-   :end-before: Include stop summary
+   :start-after: % Include start summary
+   :end-before: % Include stop summary
 ```
 
 * [Hardening your robot](./security/hardening-your-robot.md)
