@@ -3,7 +3,7 @@ Maintenance
 
 .. Include start summary
 
-This section of the How-To gathers all guides related to long term maintenance.
+This section of the How-to gathers all guides related to long term maintenance.
 
 .. Include stop summary
 

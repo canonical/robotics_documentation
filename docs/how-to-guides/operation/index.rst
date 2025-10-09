@@ -5,7 +5,7 @@ Operation
 
 .. Include start summary
 
-This section of the How-To gathers all guides related to daily operations.
+This section of the How-to gathers all guides related to daily operations.
 
 .. Include stop summary
 
