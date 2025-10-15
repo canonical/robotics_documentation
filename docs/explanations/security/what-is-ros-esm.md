@@ -37,7 +37,7 @@ Or, if you have specific questions,
 ## Enabling and using ROS ESM
 
 For step-by-step guidance,
-take a look at our How-to guides on enabling and day-to-day usage of ROS ESM:
+take a look at our how-to guides on enabling and day-to-day usage of ROS ESM:
 
 * [Enable ROS ESM](../../how-to-guides/maintenance/enable-ros-esm.md)
 * [Set up a ROS ESM environment](../../how-to-guides/maintenance/set-up-a-ros-esm-environment.md)

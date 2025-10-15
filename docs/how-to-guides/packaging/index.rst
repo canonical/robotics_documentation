@@ -5,7 +5,7 @@ Packaging
 
 .. Include start summary
 
-This section of the How-to gathers all guides related to packaging applications.
+This section of the how-to gathers all guides related to packaging applications.
 
 .. Include stop summary
 
