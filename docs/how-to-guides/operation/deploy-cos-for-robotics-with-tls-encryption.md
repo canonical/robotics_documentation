@@ -154,13 +154,20 @@ ca-certificate: |
 
 ```
 
-Copy the certificate content and save it into a file, for example:
+Copy the certificate content and save it into a file ending with `.crt`, for example:
 
 ```bash
 nano traefik-ca.crt
 ```
 
-Then move this file into the system’s trusted CA directory:
+```{warning}
+Note: When copying the certificate from the output above,
+Make sure you *do not* include any leading spaces before the certificate lines.
+The file should start exactly with `-----BEGIN CERTIFICATE-----` at the beginning of the line.
+If the certificate lines are indented, the certificate will be invalid.
+```
+
+Move this file into the system’s trusted CA directory:
 
 ```bash
 sudo mv traefik-ca.crt /usr/local/share/ca-certificates/
@@ -175,6 +182,18 @@ sudo update-ca-certificates
 In this way,
 the certificate will be available system wide,
 and the agents running on the robot can trust the certificate.
+
+### Verify connectivity
+
+Now that the certificate is installed,
+verify that you can successfully connect over HTTPS:
+
+```bash
+curl -vvv https://<cos-robotics-server-ip>/cos-robotics-model-catalogue
+```
+
+If the setup is correct,
+you should see a valid TLS handshake and the expected response from the server.
 
 ```{warning}
 Note: this process of making the certificates available system-wide,
@@ -245,6 +264,14 @@ sets the `generate-device-tls-certificate` flag in the device configuration YAML
 This flag triggers the generation of a TLS certificate and key during
 [registration](https://github.com/canonical/cos-registration-agent?tab=readme-ov-file#setup),
 which are then stored in the device's `rob-cos-data-sharing` snap.
+
+Before proceeding, let's make sure that the Foxglove bridge snap can read
+the certificates from the `rob-cos-data-sharing` snap.
+Let's connect the bridge to it by executing the following command:
+
+```bash
+sudo snap connect foxglove-bridge:rob-cos-common-read rob-cos-data-sharing:rob-cos-common-read
+```
 
 The [Foxglove bridge configuration](https://github.com/canonical/rob-cos-demo-configuration/blob/advanced/snap/local/configuration/foxglove-bridge.yaml)
 then uses this certificate by referencing the relevant paths.
