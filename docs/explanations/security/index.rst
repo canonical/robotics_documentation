@@ -33,7 +33,7 @@ To learn more about ROS ESM, check out the explanation pages:
    what-is-ros-esm
    ros-esm-ppa-rosdep
 
-These focused How-to guides will show you how to enable and use the service:
+These focused how-to guides will show you how to enable and use the service:
 
 - :doc:`How to enable ROS ESM </how-to-guides/maintenance/enable-ros-esm>`
 - :doc:`How to set up your ROS ESM environment </how-to-guides/maintenance/set-up-a-ros-esm-environment>`
