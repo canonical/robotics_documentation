@@ -1,6 +1,12 @@
 Maintenance
 ===========
 
+.. Include start summary
+
+This section of the how-to gathers all guides related to long term maintenance.
+
+.. Include stop summary
+
 .. toctree::
    :maxdepth: 1
 

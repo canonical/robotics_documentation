@@ -3,6 +3,16 @@
 From zero to hero: deploy a robot with snaps and Ubuntu Core
 ============================================================
 
+.. Include start summary
+
+This tutorial covers all snaps and Ubuntu Core for deploying ROS-based robots.
+Starting from a fresh install,
+it guides you through an initial ROS 'Hello World' example before tackling
+the snap packaging of a complete robot and the creation of a custom
+Ubuntu Core image for that robot while exploring design and distribution concerns.
+
+.. Include stop summary
+
 .. toctree::
    :hidden:
    :maxdepth: 1

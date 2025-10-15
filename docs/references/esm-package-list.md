@@ -1,5 +1,7 @@
 # List of ROS ESM packages
 
+% Include start summary
+
 In this page you will find the list of the ROS packages
 that are supported in the Extended Maintenance Support (ESM) from Canonical
 under the Ubuntu Pro offering.
@@ -7,6 +9,8 @@ In general, the packages that we support after each ROS version goes end-of-life
 are the ones required from the meta-package `ros-base`
 (see [REP142](https://www.ros.org/reps/rep-0142.html#ros-base)
 and [REP2001](https://www.ros.org/reps/rep-2001.html#ros-base)).
+
+% Include stop summary
 
 ``` {note}
 Need additional packages or distributions covered under ESM?

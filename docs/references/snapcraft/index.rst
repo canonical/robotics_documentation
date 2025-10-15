@@ -3,6 +3,12 @@
 Snapcraft
 =========
 
+.. Include start summary
+
+Snapcraft technical details related to snapping ROS.
+
+.. Include stop summary
+
 .. toctree::
    :hidden:
 

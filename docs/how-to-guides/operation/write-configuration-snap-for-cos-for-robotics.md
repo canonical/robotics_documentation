@@ -11,7 +11,7 @@ Feedback is welcome as we continue to improve.
 These snaps must be configured for your robots,
 your needs and your setup.
 
-In this How-To-Guide,
+In this how-to guide,
 you will learn the different steps to define your applications configuration
 and how to deploy them all in one snap.
 
@@ -26,7 +26,7 @@ the presented configuration has been inspired from
 For {{ COS_ROB }} snaps, the configuration is done by sharing files with a
 [`content` interface](https://snapcraft.io/docs/content-interface).
 
-In this How-To,
+In this how-to,
 you will deploy all configurations in one snap and share them with one interface.
 This way the various snaps will pick the configurations they need.
 
