@@ -9,22 +9,18 @@ Observability
    Feedback is welcome as we continue to improve.
 
 .. Include start summary
-   This section includes Canonical Observability Stack (COS) for Devices
+
+   This section provides COS for robotics
    technical details such as the COS registration server API,
    FAQ, and troubleshooting tips.
+
 .. Include stop summary
 
-|COS_ROB| stands for Canonical Observability Stack for robotics and is a superset of
+|COS_ROB| stands for **Canonical Observability Stack for robotics**, and is a superset of
 `COS Lite <https://charmhub.io/topics/canonical-observability-stack/editions/lite>`_.
 
-|COS_ROB| brings `observability <https://ubuntu.com/observability/what-is-observability>`_
-to your robots and devices.
-
-.. note::
-
-   `Learn more about observability <https://ubuntu.com/observability/what-is-observability>`_.
-
---------------------------------------------------------------------
+This section provides technical details about |COS_ROB|,
+such as the COS registration server API, FAQ, and troubleshooting tips.
 
 .. toctree::
    :maxdepth: 3
