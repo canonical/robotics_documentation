@@ -5,7 +5,8 @@ Packaging
 
 .. Include start summary
 
-This section of the how-to gathers all guides related to packaging applications.
+This section includes all guides related to packaging
+robotics applications using snaps.
 
 .. Include stop summary
 

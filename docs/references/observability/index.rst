@@ -9,7 +9,9 @@ Observability
    Feedback is welcome as we continue to improve.
 
 .. Include start summary
-   Canonical Observability Stack for Devices technical details such as API and FAQ.
+   This section includes Canonical Observability Stack (COS) for Devices
+   technical details such as the COS registration server API,
+   FAQ, and troubleshooting tips.
 .. Include stop summary
 
 |COS_ROB| stands for Canonical Observability Stack for robotics and is a superset of

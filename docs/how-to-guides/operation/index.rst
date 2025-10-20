@@ -5,7 +5,8 @@ Operation
 
 .. Include start summary
 
-This section of the how-to gathers all guides related to daily operations.
+This section includes all guides related to daily operations
+for deployed robots.
 
 .. Include stop summary
 
