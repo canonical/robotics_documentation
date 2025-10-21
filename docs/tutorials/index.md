@@ -6,8 +6,8 @@ sequential_nav: none
 
 % Include start summary
 
-This section contains **step-by-step tutorials** to help you complete specific tasks
-using Canonical's robotics solutions.
+**Step-by-step tutorials** for a hands-on introduction
+to Canonical's robotics solutions.
 
 % Include stop summary
 
