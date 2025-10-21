@@ -12,7 +12,7 @@ to Canonical's robotics solutions.
 % Include stop summary
 
 These tutorials make as few assumptions as possible and are accessible to anyone.
-They are a good place to start learning about specific solution from scratch.
+They are a good place to start learning about a specific solution from scratch.
 
 ## From zero to hero: deploy a robot with snaps and Ubuntu Core
 
