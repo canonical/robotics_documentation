@@ -1,8 +1,12 @@
 # Robotics reference architecture
 
+% Include start summary
+
 This page outlines the reference architecture of the Canonical robotics stack,
 detailing the essential components and their roles across development, deployment,
 and observability phases of a robot development.
+
+% Include stop summary
 
 ```{note}
 This document is intended for developers and engineers working with

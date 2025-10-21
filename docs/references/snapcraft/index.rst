@@ -3,6 +3,12 @@
 Snapcraft
 =========
 
+.. Include start summary
+
+Snapcraft technical reference for snapping your ROS applications.
+
+.. Include stop summary
+
 .. toctree::
    :hidden:
 
@@ -22,16 +28,16 @@ Snapcraft
 See Also
 --------
 
-* `Snap - references <https://snapcraft.io/docs/snap-reference>`_
-   Reference section for when we need to know which options can be used,
+* `Snap reference <https://snapcraft.io/docs/snap-reference>`_
+   Reference section detailing which options can be used,
    what functions the API supports,
-   which environment variables can be accessed and the contents of gadget.yaml.
+   which environment variables can be accessed, and the contents of gadget.yaml.
 
-* `Snapcraft - references <https://documentation.ubuntu.com/snapcraft/stable/reference/>`_
-   Reference section for when we need to know which plugins we offer,
+* `Snapcraft reference <https://documentation.ubuntu.com/snapcraft/stable/reference/>`_
+   Reference section detailing which plugins we offer,
    which interfaces we can use, and what we can add to snapcraft.yaml.
 
-* `Ubuntu Core - references <https://ubuntu.com/core/docs/reference>`_
-   Reference section for when we need to know which options can be used,
+* `Ubuntu Core reference <https://ubuntu.com/core/docs/reference>`_
+   Reference section for detailing which options can be used,
    what functions the API supports,
-   which rescue modes are supported and the contents of gadget.yaml.
+   which rescue modes are supported, and the contents of gadget.yaml.

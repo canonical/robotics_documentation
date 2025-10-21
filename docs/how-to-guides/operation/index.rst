@@ -3,12 +3,18 @@
 Operation
 =========
 
+.. Include start summary
+
+This section includes all guides related to daily operations
+for deployed robots.
+
+.. Include stop summary
 
 .. warning::
 
-      Beta Notice: |COS_ROB| is currently in `beta`. 
-      Content and features may change, and some functionality may be incomplete 
-      or experimental. 
+      Beta Notice: |COS_ROB| is currently in `beta`.
+      Content and features may change, and some functionality may be incomplete
+      or experimental.
       Feedback is welcome as we continue to improve.
 
 .. toctree::
@@ -18,3 +24,4 @@ Operation
    configure-alertmanager-to-send-email-alerts
    observe-cos-rob
    set-up-blackbox-exporter-to-monitor-cos-rob-devices
+   deploy-cos-for-robotics-with-tls-encryption

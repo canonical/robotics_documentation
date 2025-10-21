@@ -3,6 +3,10 @@
 Snaps
 =====
 
+.. Include start summary
+   All things Snap and Ubuntu Core.
+.. Include stop summary
+
 Snaps are containers that bundle an application and all its dependencies.
 As such, snaps offer a solution to build and distribute containerized
 robotics applications or any software.

@@ -1,5 +1,20 @@
 # Hardening your robot
 
+<!--
+% Include start summary
+
+This page provides a **guide to strengthening a robot's security** by
+focusing on its underlying operating system (Ubuntu 22.04 LTS or Ubuntu Core 22),
+and emphasizing a Defense in Depth (DiD) approach.
+
+It outlines six core steps for enhanced security,
+including securing connections (firewall, SSH, disabling Bluetooth),
+limiting network and physical access, customizing user permissions,
+keeping the system up-to-date with patches, and hardening kernel configurations.
+
+% Include stop summary
+-->
+
 Modern robots are typically designed to be open, robust, and easy to operate and repair.
 However, many of these systems are not adequately secured against threats –
 particularly given that robots are often accessible via the internet for remote operation,
