@@ -6,10 +6,7 @@ sequential_nav: none
 
 % Include start summary
 
-Our How-to guides help you **achieve common and specific goals**
-while working with Canonical's robotics stack.
-They may require you to understand and adapt the steps
-to fit your specific requirements.
+**How-to guides** to achieve specific goals with Canonical's robotics stack.
 
 % Include stop summary
 
