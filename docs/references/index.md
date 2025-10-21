@@ -6,8 +6,8 @@ sequential_nav: none
 
 % Include start summary
 
-This section includes **technical information** you may use as reference,
-such as specifications, architecture, API documentation, and troubleshooting tips.
+**Technical information** such as specifications, architecture,
+API documentation, and troubleshooting tips.
 
 % Include stop summary
 
