@@ -6,10 +6,13 @@ sequential_nav: none
 
 % Include start summary
 
-**Explanatory discussion and clarification** of concepts and key topics used in
-Canonical robotics solutions. Depict how everything fits together.
+**Explanations and clarifications** of the core concepts and key topics that underpin
+Canonical's robotics solutions.
 
 % Include stop summary
+
+These guides help understand how all the pieces fit together
+and get the most out of this ecosystem.
 
 ## Snap & Ubuntu Core
 

@@ -3,7 +3,8 @@ Maintenance
 
 .. Include start summary
 
-This section of the how-to gathers all guides related to long term maintenance.
+This section includes all guides related to a
+robot's long term maintenance.
 
 .. Include stop summary
 

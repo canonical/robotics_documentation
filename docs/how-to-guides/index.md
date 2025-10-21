@@ -6,7 +6,7 @@ sequential_nav: none
 
 % Include start summary
 
-**Step-by-step guides** covering key operations and common tasks.
+**How-to guides** to achieve specific goals with Canonical's robotics stack.
 
 % Include stop summary
 

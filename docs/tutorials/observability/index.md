@@ -9,8 +9,8 @@ Feedback is welcome as we continue to improve.
 
 % Include start summary
 
-This tutorial details how to deploy and configure
-Canonical Observability Stack for Devices.
+These tutorials detail how to **deploy and configure
+Canonical Observability Stack (COS) for Devices**.
 
 % Include stop summary
 
