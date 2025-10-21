@@ -6,12 +6,14 @@ sequential_nav: none
 
 % Include start summary
 
-**Explanations and clarifications** of the core concepts and key areas that underpin
+**Explanations and clarifications** of the core concepts and key topics that underpin
 Canonical's robotics solutions.
-These guides help you understand how all the pieces fit together
-and get the most out of this ecosystem.
 
 % Include stop summary
+
+These guides help understand how all the pieces fit together
+and get the most out of this ecosystem.
+
 
 ## Snap & Ubuntu Core
 
