@@ -14,7 +14,6 @@ Canonical's robotics solutions.
 These guides help understand how all the pieces fit together
 and get the most out of this ecosystem.
 
-
 ## Snap & Ubuntu Core
 
 ```{include} snaps/index.rst
