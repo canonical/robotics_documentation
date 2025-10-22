@@ -16,9 +16,9 @@ They are a good place to start learning about a specific solution from scratch.
 
 ## ROS 2 development with Workshop
 
-```{include} workshop/index.rst
-   :start-after: .. Include start summary
-   :end-before: .. Include stop summary
+```{include} workshop/index.md
+   :start-after: % Include start summary
+   :end-before: % Include stop summary
 ```
 
 ```{toctree}
