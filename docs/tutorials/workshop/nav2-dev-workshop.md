@@ -33,7 +33,7 @@ git clone git@github.com:ros-navigation/navigation2.git
 cd nav2
 ```
 
-```{info}
+```{note}
 Note that we used the SSH git remote.
 We will come back to this detail at the end of this tutorial.
 ```
