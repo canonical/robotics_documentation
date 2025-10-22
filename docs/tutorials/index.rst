@@ -12,6 +12,6 @@ They are also be a good place to start learning.
    :includehidden:
    :maxdepth: 2
 
+   workshop/index
    snaps-core/index
    observability/index
-   ros-2-dev-workshop

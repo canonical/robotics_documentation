@@ -40,5 +40,5 @@ it installs the project dependencies using `rosdep install`.
 ## Example
 
 Please refer to the tutorial
-['ROS 2 development using Workshop'](../tutorials/ros-2-dev-workshop.md)
+['ROS 2 development using Workshop'](../tutorials/workshop/ros2-dev-workshop.md)
 for a complete example of using the `ros2` SDK.
