@@ -1,10 +1,14 @@
 # The `ros2` SDK
 
+% Include start summary
+
 The `ros2` SDK is used to set up a ROS 2 development environment.
 
 In Workshop, it sets up a bare minimum ROS 2 environment
 before also attempting to install the project dependencies using Rosdep.
 We detail hereafter what the `ros2` SDK contains and what does it configure.
+
+% Include stop summary
 
 ## How it works
 
