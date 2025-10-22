@@ -1,9 +1,13 @@
-# ROS 2 development using Workshop
+# Getting started with Workshop
+
+% Include start summary
 
 In this tutorial,
 we will see how one can spawn and manage virtual development environments
 tailored for ROS 2 projects using
 [**Workshop**](https://canonical-workshop.readthedocs-hosted.com/).
+
+% Include stop summary
 
 Workshop is a tool for defining and handling ephemeral development environments.
 
@@ -72,14 +76,15 @@ name: demos-jazzy-dev
 base: ubuntu@24.04
 sdks:
   - name: ros2
-    channel: jazzy/edge
+    channel: 24.04/edge
 ```
 
 The name is, as one might expect, the name of the workshop,
 while the `base` indicate that we are using an Ubuntu 24.04 image.
 The `sdks` are the pre-configured development environments that we wish to set up
 in the workshop.
-Here, we use a single SDK `ros2` at the version `jazzy`.
+Here,
+we use a single SDK `ros2` at the version `24.04` which correspond to ROS 2 Jazzy.
 This SDK is responsible for setting up a ready to use
 ROS 2 Jazzy development environment.
 
