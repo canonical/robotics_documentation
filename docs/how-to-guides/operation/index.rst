@@ -20,7 +20,6 @@ for deployed robots.
 .. toctree::
    :maxdepth: 1
 
-   deploy-ceph
    deploy-caddy
    device-send-rosbag
    write-configuration-snap-for-cos-for-robotics

@@ -7,14 +7,6 @@ and some functionality may be incomplete or experimental.
 Feedback is welcome as we continue to improve.
 ```
 
-```{warning}
-This setup is not production ready.
-It is only described here as a simple mean to test the functionality
-of uploading rosbags from a device to {{ COS_ROB }}.
-For a production ready solution,
-please have a look at how to ['Deploy Ceph for {{ COS_ROB }}'](deploy-ceph.md).
-```
-
 In this how-to,
 we will deploy a simple Caddy file server
 in the **Canonical Observability Stack (COS) for robotics**.
