@@ -27,10 +27,7 @@ to do so.
 In order to upload rosbags to the server,
 we must first create an S3 credential.
 
-This step can be done directly on the device,
-or any other machine that can reach out to the server.
-
-To create the user, issue the command:
+To create the user, issue the following command on the machine running Juju:
 
 ```console
 $ juju exec --unit microceph/leader -- radosgw-admin user create --uid=my-user --display-name=my-user
@@ -78,12 +75,12 @@ $ export RCLONE_CONFIG_COSROB_ACCESS_KEY_ID=<MY_USER_ACCESS_KEY>
 $ export RCLONE_CONFIG_COSROB_SECRET_ACCESS_KEY=<MY_USER_SECRET_KEY>
 $ export RCLONE_CONFIG_COSROB_TYPE=s3
 $ export RCLONE_CONFIG_COSROB_PROVIDER=Ceph
-$ export RCLONE_CONFIG_COSROB_ENDPOINT="$(sudo snap get rob-cos-demo-configuration rob-cos-base-url)"
+$ export RCLONE_CONFIG_COSROB_ENDPOINT=<COS_ROBOTICS_SERVER_IP>
 $
-$ rclone mkdir "cosrob:$(sudo snap get rob-cos-demo-configuration device-uid)$"
+$ rclone mkdir "cosrob:<DEVICE_UID>"
 ```
 
-This command will create a bucket named after the robot uid that is acessible to it.
+This command will create a bucket named after the robot uid that is accessible to it.
 
 ## Setting up the agent
 
