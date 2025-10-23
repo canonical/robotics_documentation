@@ -61,7 +61,7 @@ the last step is to create an S3 bucket for our user to upload the rosbags.
 To do so we are going to use the S3 client [Rclone](https://rclone.org/),
 but any other client of your choice should do.
 
-Install Rclone with:
+Install Rclone on any machine that can reach the S3 endpoint with:
 
 ```console
 sudo snap install rclone
