@@ -32,6 +32,7 @@ de
 debian
 demo_nodes_cpp
 deployable
+deserialization
 Dev
 devel
 Devmode
@@ -42,6 +43,7 @@ DNS
 Dockerfile
 Dockerfiles
 download_config
+dynparam
 ESM
 ethernet
 facto
@@ -96,6 +98,8 @@ roslaunch
 roslog
 rosnode
 rospack
+rosparam
+rostopic
 sandboxed
 scalability
 scalable
