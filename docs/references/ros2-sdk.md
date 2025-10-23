@@ -32,7 +32,7 @@ It then installs the following packages:
 And initializes Rosdep.
 
 It then configures Colcon's auto-completion as well as its default
-`~/.colcon/defaults.yaml` configuration file and
+`~/.colcon/defaults.yaml` configuration file, and
 retrieves and configures the default Colcon mixins.
 
 The SDK sets up the ROS 2 workspace at `~/workspace/src` and
