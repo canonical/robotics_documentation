@@ -1,5 +1,8 @@
 # Getting started with Workshop
 
+[**Workshop**](https://canonical-workshop.readthedocs-hosted.com/)
+is a tool for defining and handling ephemeral development environments.
+
 % Include start summary
 
 In this tutorial,
@@ -8,8 +11,6 @@ tailored for ROS 2 projects using
 [**Workshop**](https://canonical-workshop.readthedocs-hosted.com/).
 
 % Include stop summary
-
-Workshop is a tool for defining and handling ephemeral development environments.
 
 ## Set up Workshop
 
@@ -51,25 +52,24 @@ sudo snap install workshop --classic
 
 ## Launch a ROS 2 workshop
 
-To better illustrate this tutorial,
-we are going to rely on the
+We will use the
 [ROS 2 demos](https://github.com/ros2/demos)
-repository to serve as the ROS 2 project we are developping.
+repository to serve as the ROS 2 project we are developing.
 
-Let's start by cloning the repository locally,
+Let's start by cloning the repository locally:
 
 ```console
 git clone https://github.com/ros2/demos.git --branch jazzy
 ```
 
-We can then create a workshop definition for this project,
+We can then create a workshop definition for this project:
 
 ```console
 cd demos
 touch workshop.yaml
 ```
 
-and fill it with,
+and fill it with:
 
 ```yaml
 name: demos-jazzy-dev
@@ -79,25 +79,25 @@ sdks:
     channel: 24.04/edge
 ```
 
-The name is, as one might expect, the name of the workshop,
-while the `base` indicate that we are using an Ubuntu 24.04 image.
+The `name` tag is, as one might expect, the name of the workshop,
+while the `base` indicates that we are using an Ubuntu 24.04 image.
 The `sdks` are the pre-configured development environments that we wish to set up
 in the workshop.
 Here,
-we use a single SDK `ros2` at the version `24.04` which correspond to ROS 2 Jazzy.
-This SDK is responsible for setting up a ready to use
+we use a single SDK, `ros2`, at the version `24.04` which corresponds to ROS 2 Jazzy.
+This SDK is responsible for setting up a ready-to-use
 ROS 2 Jazzy development environment.
 
 And that is what we are going to see right away.
 
-Launch the workshop with the command,
+Launch the workshop with the command:
 
 ```console
 workshop launch
 ```
 
 After some time, the command returns and the workshop is ready to use.
-We can confirm that with,
+We can confirm that with:
 
 ```console
 $ workshop list
@@ -107,23 +107,24 @@ Project                Workshop         Status  Notes
 
 Before jumping in,
 let us summarize what happens in the background.
-After hitting `launch`, Workshop create an LXD container from an Ubuntu 24.04 image.
+After hitting `launch`, Workshop creates an LXD container from an Ubuntu 24.04 image.
 Once the container is up, it installs the SDKs.
 More specifically, the `ros2` SDK sets up the ROS 2 repository and
 installs the bare minimum ROS 2 packages
 for a functioning ROS 2 development environment (think Colcon, Rosdep, Ament etc).
 It adds the command to source the ROS 2 environment to the user `.profile` file
 so that it is immediately and automatically available.
-Similarly it configures Colcon and its auto-completion.
-Finally, it installs the dependencies of our project (here the demos)
+Similarly, it configures Colcon and its auto-completion.
+Finally, it installs the dependencies of our project (in this case, the demos)
 using Rosdep so that we are immediately ready to develop.
+You can find more details at the [Workshop documentation website](https://canonical-workshop.readthedocs-hosted.com/stable/reference/cli/workshop/#ref-workshop-launch).
 
-And that's what we are going to exercise right away.
+And that's what we are going to get into right away.
 
 ## Develop for ROS 2 using Workshop
 
 With the workshop up and running,
-we can open a shell inside it and verify that everything is indeed ready to go,
+we can open a shell inside it and verify that everything is indeed ready to go:
 
 ```console
 $ workshop shell
@@ -136,10 +137,10 @@ action_tutorials  demo_nodes_py          lifecycle           pendulum_msgs     t
 
 Upon entering the shell,
 we find ourselves at the root directory of the demos project.
-However we see that it is mounted at `/project`.
+However, we see that it is mounted at `/project`.
 For convenience and to have a more familiar ROS 2 environment,
 it is also linked at `~/workspace/src/demos`.
-We can move there for the remainder of this tutorial,
+We can move there for the remainder of this tutorial:
 
 ```console
 workshop@demos-jazzy-dev-3b81c721:/project$ cd ~/workspace/src/demos
@@ -153,7 +154,7 @@ provide the flag `--cwd` to set the working directory in the workshop.
 ```
 
 To make sure our environment is properly set up,
-we can quickly check if the usual suspects are present,
+we can quickly check if the usual suspects are present:
 
 ```{note}
 For readability,
@@ -176,9 +177,9 @@ ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
 ROS_DISTRO=jazzy
 ```
 
-As we can see the ROS 2 Jazzy environment is installed and already sourced.
+As we can see, the ROS 2 Jazzy environment is installed and already sourced.
 
-But can we really start developing right away ?
+But can we really start developing right away?
 
 ```console
 $ colcon build --packages-select demo_nodes_cpp --mixin debug
@@ -199,16 +200,16 @@ It is also pre-configured to make use of the
 ## Connect VSCode to Workshop
 
 Having a containerized ROS 2 development environment tailored to our project
-is neat but interacting with it through a shell may be inconvenient.
-To those that would prefer the re-assuring interface of VSCode over Vim,
-don't worry, workshop comes with VSCode integration!
+is neat, but interacting with it through a shell may be inconvenient.
+For those who would prefer the reassuring interface of VSCode over Vim,
+don't worry, Workshop comes with VSCode integration!
 
 As a pre-requisite,
 we have to make sure that VSCode `remote-ssh` plugin is installed.
 To install it,
 have a look at
 [the documentation](https://code.visualstudio.com/docs/remote/remote-overview)
-or use the command,
+or use the command:
 
 ```bash
 code --install-extension ms-vscode-remote.remote-ssh
@@ -219,7 +220,7 @@ we can now enable it on our workshop following the
 [workshop documentation](https://canonical-workshop.readthedocs-hosted.com/stable/how-to/develop-with-workshops/connect-vscode/)
 which is summarized hereafter.
 
-First, we add a new SDK to our workshop definition,
+First, we add a new SDK to our workshop definition:
 
 ```diff
 name: demos-jazzy-dev
@@ -231,27 +232,27 @@ sdks:
 +   channel: 24.04/stable
 ```
 
-after what we refresh the workshop,
+after which we refresh the workshop:
 
 ```console
 workshop refresh
 ```
 
 Once the refresh finished,
-we can get an hint at what to do next with the command,
+we can get a hint at what to do next with the command:
 
 ```console
-workshop tasks
+$ workshop tasks
 
   ...
   VS Code → Open Remote Window → Connect to host → workshop@10.41.49.51
 ```
 
 The hint tells us how to connect to the workshop from VSCode interface.
-Alternatively we can also do it from the command line with,
+Alternatively we can also do it from the command line with:
 
 ```console
 code --folder-uri vscode-remote://ssh-remote+workshop@10.41.49.51/home/workshop/workspace
 ```
 
-where you should change the IP address to the suggested one.
+Just remember to change the IP address to the suggested one.

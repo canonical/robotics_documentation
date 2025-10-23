@@ -2,7 +2,7 @@
 
 % Include start summary
 
-These tutorials detail how to develop for ROS 2 in containers
+These tutorials provide an introduction to developing for ROS 2 in containers
 using Workshop.
 
 % Include stop summary
