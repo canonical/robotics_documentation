@@ -61,14 +61,12 @@ By following this tutorial, you will:
 
 ## Server side
 
-The **{{ COS_ROB }} lite bundle** is a Juju-based observability stack
+The **{{ COS_ROB }}** is a Juju-based observability stack
 running on **Kubernetes**.
 It includes the following key components:
 
 - [`Foxglove Studio`](https://charmhub.io/foxglove-studio-k8s)
   – A visualization tool for robotics data.
-- [`Ros2BagFileserver`](https://charmhub.io/ros2bag-fileserver-k8s)
-  – Handles ROS 2 bag file storage.
 - [`COS-registration-server`](https://charmhub.io/cos-registration-server-k8s)
   – Manages device registration.
 - [`Prometheus`](https://charmhub.io/prometheus-k8s)
@@ -80,14 +78,19 @@ It includes the following key components:
 - [`Grafana`](https://charmhub.io/grafana-k8s)
   – Provides dashboards for visualization.
 
+These components are at core of the stack and can be enhanced
+with additional functionalities and applications.
+
 In the next section, we will go step by step through the deployment process.
 
 ### Install prerequisites
 
+<!--
 ```{important}
 This tutorial assumes you have a Juju controller bootstrapped
 on a `MicroK8s` cloud that is ready to use.
 ```
+-->
 
 Let’s proceed with the installation.
 
@@ -143,13 +146,13 @@ mkdir -p ~/.local/share
 Now bootstrap a Juju controller into your `MicroK8s`
 
 ```bash
-juju bootstrap microk8s rob-cos-controller
+juju bootstrap microk8s cos-robotics-controller
 ```
 
 If successful the terminal will show the following message:
 
 ```console
-Bootstrap complete, controller "rob-cos-controller" is now available in namespace "controller-rob-cos-controller"
+Bootstrap complete, controller "cos-robotics-controller" is now available in namespace "controller-cos-robotics-controller"
 ```
 
 #### 3. Configure and enable `Metallb`
@@ -173,23 +176,42 @@ sudo microk8s enable metallb:$IPADDR-$IPADDR
 
 ### Deploy the {{ COS_ROB }} bundle
 
-Now, let’s create a dedicated model for the `COS Lite` bundle with the following:
+The stack deployment relies on the infrastructure as code (IAC) tool
+[Terraform](https://developer.hashicorp.com/terraform).
+It allows to easily set up complex infrastructure from a YAML based recipe,
+allowing for simplicity, re-usability & repeatability among (many) other things.
+
+You can install Terraform from the [Store](https://snapcraft.io/terraform) with:
+
+```console
+sudo snap install terraform --classic
+```
+
+First, let us retrieve the Terraform plan:
+
+```console
+git clone https://github.com/ubuntu-robotics/rob-cos-overlay.git
+cd rob-cos-overlay/terraform/rob-cos
+```
+
+Then we have to initialize the project:
+
+```console
+terraform init
+```
+
+In order to deploy {{ COS_ROB }},
+we create a dedicated model with the following:
 
 ```bash
 juju add-model cos-robotics-model
 juju switch cos-robotics-model
 ```
 
-Next, download the robotics overlay with:
-
-```bash
-curl -L https://raw.githubusercontent.com/canonical/rob-cos-overlay/main/robotics-overlay.yaml -O
-```
-
 Finally, deploy it with:
 
 ```bash
-juju deploy cos-lite --trust --overlay ./robotics-overlay.yaml
+terraform apply -var="model=cos-robotics-model"
 ```
 
 Now you can sit back and watch the deployment take place:

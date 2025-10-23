@@ -92,6 +92,8 @@ reusability
 roboticists
 Robotis
 ROS
+rosbag
+rosbags
 rosdep
 rosinstall
 roslaunch

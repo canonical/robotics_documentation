@@ -16,7 +16,7 @@ Before starting this tutorial, make sure to have the server side working
 
 In order for a device to register and
 interact with the COS registration server and
-its application the following snaps have to be installed:
+its applications the following snaps have to be installed:
 
 - [`rob-cos-demo-configuration`](https://snapcraft.io/rob-cos-demo-configuration):
   contains the configuration of the robot.
@@ -37,8 +37,8 @@ its application the following snaps have to be installed:
 ## Verify connectivity
 
 Before diving into the device setup,
-let’s ensure that the device can connect to the server.
-To connect devices across different networks a VPN between the robots and
+let’s ensure that the device can reach the server on the network.
+To connect devices across different networks, a VPN between the robots and
 the server could be used but is not mandatory.
 Let’s do so by initiating a ping from the device to the server:
 
@@ -65,9 +65,9 @@ And run it with:
 sudo bash setup-robcos-device.sh
 ```
 
-The script will initiate prompts for the robot `UID` and the rob-cos-server URL.
+The script will initiate prompts for the robot `UID` and the server URL.
 While the robot `UID` is optional, the URL is mandatory,
-serving as the designated address for the rob-cos server
+serving as the designated address for the server
 where the device registration occurs.
 The queries and response will look as follows:
 
