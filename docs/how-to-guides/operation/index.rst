@@ -3,6 +3,12 @@
 Operation
 =========
 
+.. Include start summary
+
+This section includes all guides related to daily operations
+for deployed robots.
+
+.. Include stop summary
 
 .. warning::
 
@@ -21,3 +27,4 @@ Operation
    configure-alertmanager-to-send-email-alerts
    observe-cos-rob
    set-up-blackbox-exporter-to-monitor-cos-rob-devices
+   deploy-cos-for-robotics-with-tls-encryption

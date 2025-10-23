@@ -11,7 +11,7 @@ we can actually make use of a template to get us started faster.
 If you are new to the whole topic of creating snaps for ROS 2 applications,
 I'd encourage you to start with the tutorial series:
 {doc}`From zero to hero: deploy a robot with snaps and Ubuntu Core </tutorials/snaps-core/index>`.
-as this particular How-to touches on one single specific aspect:
+as this particular how-to touches on one single specific aspect:
 creating the `snapcraft.yaml` file from a template.
 ```
 

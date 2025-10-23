@@ -1,13 +1,19 @@
 # Hardening your robot
 
-From manufacturing to agriculture, healthcare, logistics and beyond,
-robots are becoming an increasingly common sight,
-and an increasingly critical value driver across verticals.
-Industrial use cases alone account for
-[more than 500,000 new robots each year](https://ifr.org/img/worldrobotics/2023_WR_extended_version.pdf),
-and that number is only growing.
-But despite this widespread adoption,
-using robots securely still presents a major challenge.
+<!--
+% Include start summary
+
+This page provides a **guide to strengthening a robot's security** by
+focusing on its underlying operating system (Ubuntu 22.04 LTS or Ubuntu Core 22),
+and emphasizing a Defense in Depth (DiD) approach.
+
+It outlines six core steps for enhanced security,
+including securing connections (firewall, SSH, disabling Bluetooth),
+limiting network and physical access, customizing user permissions,
+keeping the system up-to-date with patches, and hardening kernel configurations.
+
+% Include stop summary
+-->
 
 Modern robots are typically designed to be open, robust, and easy to operate and repair.
 However, many of these systems are not adequately secured against threats –
@@ -18,22 +24,14 @@ There is no silver bullet when it comes to robotics security.
 Instead, the best approach is `defense in depth (DiD)`,
 combining multiple layers of protection.
 
-This white paper will address an **essential security layer**,
+This section will address an **essential security layer**,
 whose key role is easily overlooked: **your robot’s underlying operating system (OS)**.
 We’ll discuss the easy steps you can take to
 secure your robot by building on top of Ubuntu,
 and how Ubuntu Core provides you with
 enterprise-grade security for your robot out of the box.
 
-## Introduction
-
-Opportunistic attacks are the most prevalent threats,
-and the majority of breaches involve attackers finding an easy target.
-This paper will help you protect your robot against those opportunists.
-Of course, there are also `advanced persistent threats (APTs)`,
-which are attacks that are highly customised to a particular organisation or institution.
-Comprehensive security against `APTs` is beyond the scope of this white paper,
-although some items in this white paper should help you against `APTs`.
+## How to secure your robot's base Ubuntu OS
 
 For this step-by-step hardening exercise,
 we will secure your robot for deployment to a production environment.
@@ -46,126 +44,22 @@ Most of the suggestions in this white paper are agnostic to CPU architecture.
 If there are nuances related to a particular architecture,
 those are named explicitly in the material that follows.
 
-Let’s start by taking a closer look at the OS we’ll be using.
-
-## Ubuntu Desktop and Ubuntu Core
-
-The paper will focus on the steps for securing Ubuntu Desktop and Ubuntu Core.
-
-[Ubuntu Desktop](https://ubuntu.com/download/desktop)
-is the operating system for general purpose computers, such as a tower PC or a laptop.
-For more than a decade, it has been crucial for developing robotics applications.
-Ubuntu is the foundation for several open source projects for robotics,
-like `ROS`, `PX4`, `Autoware` and more.
-
-While Ubuntu Desktop is an ideal OS for robotics development, several of its components,
-like its graphical user interface (GUI), are not always necessary in production.
-Additionally, features such as strict confinement
-(a high degree of isolation between an application and the underlying system resources)
-are not the default for most applications.
-
-To address the specific requirements of production robotics use cases,
-we created [Ubuntu Core](https://ubuntu.com/core).
-Ubuntu Core is a minimal OS optimised for devices.
-It is based fully on [snaps](https://snapcraft.io/) –
-containerised software packages that bundle applications together with their dependencies,
-which are immutable, confined and lightweight.
-Ubuntu Core carries only packages and binaries you choose for your single-purpose appliance.
-
-For a side-to-side comparison between Ubuntu Desktop and Core see table 1 below.
-
-<!-- markdownlint-disable MD013 -->
-| | Ubuntu Desktop | Ubuntu Core |
-| --- | --- | --- |
-| Use cases | Recommended for development / daily use | Best for Production |
-| Footprint | Larger footprint (>1GB) <br> *1793 Packages (v.22.04)* | Small footprint (~500MB) <br> *260 Packages (v.22)* |
-| Packages | Supports `DEBs` or `Snaps` | Supports Snaps |
-| OS Architecture | Classic | Fully containerised (snaps) |
-| Package security | `DEB: Traditional  FSfile system security` <br> Snaps: classic (and strict) isolation | Strict isolation (confinement) |
-| Full Disk Encryption `(FDE)` | Available with <br> `no HW Support` | Available with <br> `HW TPM Support` |
-| Secure boot | Enabled | Enabled <br> For ARM and x86 SoCs |
-| Updates | Automatic/Manual updates for Debs <br> Automatic updates for Snaps | Automatic updates for Snaps |
-| UI | `Xorg` / `MIR` / `Wayland` | `Ubuntu Frame` |
-<!-- markdownlint-enable MD013 -->
-
-Table 1 - Side by side comparison
-
-**Latest version available at the time of this writing*
-
-### A note about Ubuntu Server
-
-[Ubuntu Server](https://ubuntu.com/server)
-is the operating system based on Ubuntu for server machines.
-Ubuntu Server brings economic and technical scalability to data centres, public or private.
-Whether the goal is to deploy an OpenStack cloud,
-a Kubernetes cluster or a 50,000-node render farm,
-Ubuntu Server delivers the best value scale-out performance available.
-
-As Ubuntu Desktop and Server share the same operating system paradigm,
-we will exclude Ubuntu Server from this guide.
-
-### Installing Ubuntu Desktop
-
-To get started with Ubuntu Desktop,
-follow the steps described in the
-[Ubuntu documentation](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview),
-which will include downloading an official image and
-setting up a bootable USB stick.
-Select the 22.04 LTS release to receive the longest period of
-support and updates for your OS.
-
-Then [set up your connectivity](https://netplan.readthedocs.io/en/stable/examples/) and
-select the appropriate `netplan` configuration example that applies to your WiFi network.
-
-### Installing Ubuntu Core
-
-There are 2 ways to start using Ubuntu Core.
-The first is to download, for testing purposes, an Ubuntu Core reference
-[image](https://cdimage.ubuntu.com/ubuntu-core/22/stable/current/?_ga=2.165645756.240069934.1696393446-1765477109.1661347272),
-and follow the [installation steps](https://ubuntu.com/core/docs/get-started).
-Once you have finished the installation,
-you will be able to access your device via Secure Shell (SSH) and
-install your desired applications.
-As a reference image,
-this method is for those developers looking at testing Ubuntu Core.
-
-The second option is to build your production-grade image.
-This is the intended way of using Ubuntu Core;
-creating a production image with your final application on it.
-To achieve this, you will need to create a model assertion,
-which is a digitally signed document that describes the content of your image.
-Then, using [ubuntu-image](https://github.com/canonical/ubuntu-image),
-you can create your own production image ready to be installed under
-manufacturer requirements in production lines.
-
-For more information see
-[Build your own Ubuntu Core image Documentation](https://ubuntu.com/core/docs/build-an-image)
-and [Build and write an image | Ubuntu Core](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/build-the-image/index.html#write-the-image).
-
-As you can see,
-*Ubuntu Core is not an environment for development,*
-*but an OS for deploying production devices.*
-
-## Secure your base Ubuntu OS
-
-Now that Ubuntu is installed,
-there are 6 easy steps you can take to
+There are 6 core steps you can take to
 significantly enhance the security of your robot –
 and if you are using Ubuntu Core,
 many of these measures are implemented by default.
-
 The recommendations below are grouped into logical categories based on
 generally recognised good security practices, as they apply to your robot’s OS.
 These are:
 
-1. Secure connections to your robot
-2. Limit network access
-3. Limit physical connectivity
-4. Customise user access
-5. Keep up to date with security patches
-6. Harden your kernel configurations
+1. {ref}`Secure connections to your robot <secure-connections-to-your-robot>`
+2. {ref}`Limit network access <limit-network-access>`
+3. {ref}`Limit physical connectivity <limit-physical-connectivity>`
+4. {ref}`Customise user access <customise-user-access>`
+5. {ref}`Keep up to date with security patches <keep-up-to-date-with-security-patches>`
+6. {ref}`Harden your kernel configurations <harden-your-kernel-configurations>`
 
-*Let’s dive in.*
+(secure-connections-to-your-robot)=
 
 ### 1. Secure connections to your robot
 
@@ -313,6 +207,8 @@ The lower-level part of it comes with the kernel snap,
 but the user-space portion has to be installed as a separate snap.
 This is one less open service to worry about.
 
+(limit-network-access)=
+
 ### 2. Limit network access
 
 #### Disable WiFi
@@ -401,6 +297,8 @@ By design, you have control over whether each snap will get network access
 [as defined in their interfaces](https://snapcraft.io/docs/interfaces) or not.
 Learn more about [snaps’ confinement types](https://snapcraft.io/docs/network-interfaces)
 in the Snapcraft documentation.
+
+(limit-physical-connectivity)=
 
 ### 3. Limit physical connectivity
 
@@ -590,6 +488,8 @@ In addition, Core can defend against software corruption or
 running unauthorised applications via its integrated code authenticity validation,
 such that unauthorised or malicious code cannot be introduced.
 
+(customise-user-access)=
+
 ### 4. Customise user access
 
 #### Remove any default users
@@ -712,6 +612,8 @@ you can enable it for a specific snap:
 snap connect <snap-name>:restricted-dir
 ```
 
+(keep-up-to-date-with-security-patches)=
+
 ### 5. Keep up to date with security patches
 
 #### Unattended upgrades
@@ -760,6 +662,8 @@ This means an easy way to keep your entire system up to date.
 
 It is also possible to build a device-agent which can control updates on a Core device,
 so you can have more control over the timing of updates.
+
+(harden-your-kernel-configurations)=
 
 ### 6. Harden your kernel configurations
 

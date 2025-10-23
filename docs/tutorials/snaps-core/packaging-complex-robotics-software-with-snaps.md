@@ -1560,7 +1560,7 @@ the snap’s configuration and ensure a smooth user experience.
 >
 >What we achieved here is perfectly working.
 If you would like to learn more about how to debug possible issues,
-please refer to the [How-to Guide: Debugging Snap Applications](/how-to-guides/packaging/debugging-snap-applications).
+please refer to the [how-to guide: Debugging Snap Applications](/how-to-guides/packaging/debugging-snap-applications).
 
 ## Conclusion
 

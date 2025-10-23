@@ -3,6 +3,13 @@
 Packaging
 =========
 
+.. Include start summary
+
+This section includes all guides related to packaging
+robotics applications using snaps.
+
+.. Include stop summary
+
 .. toctree::
    :maxdepth: 1
 
