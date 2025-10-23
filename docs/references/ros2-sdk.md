@@ -36,7 +36,7 @@ It then configures Colcon's auto-completion as well as its default
 retrieves and configures the default Colcon mixins.
 
 The SDK sets up the ROS 2 workspace at `~/workspace/src` and
-automatically source the ROS 2 installation in `~/.profile`.
+automatically sources the ROS 2 installation in `~/.profile`.
 
 Last but not least,
 it installs the project dependencies using `rosdep install`.
