@@ -134,7 +134,7 @@ newgrp snap_microk8s
 Install the Juju snap with:
 
 ```bash
-sudo snap install juju --channel 3.5/stable
+sudo snap install juju --channel 3.6/stable
 ```
 
 Since the Juju package is strictly confined, you also need to manually create a path:
