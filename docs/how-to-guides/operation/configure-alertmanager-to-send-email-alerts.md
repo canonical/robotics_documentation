@@ -126,7 +126,7 @@ you will receive your first alert right after.
 ## Email alert template
 
 Now that the configuration of the application is done,
-you can also configure the [email notification template](https://prometheus.io/docs/alerting/latest/notifications/#notification-template-reference)
+you can also configure the [email notification template](https://prometheus.io/docs/alerting/latest/notifications/)
 used for sending notifications.
 The template lets you customize both the appearance and the data in your notification.
 

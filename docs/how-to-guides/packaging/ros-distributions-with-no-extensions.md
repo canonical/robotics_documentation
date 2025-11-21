@@ -130,7 +130,7 @@ parts:
 ```
 
 Read more about
-[overriding the build step](https://snapcraft.io/docs/overrides) in the documentation.
+[overriding the build step](https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/override-the-default-build/) in the documentation.
 This is the process to set up ROS in a snap,
 and the process is the same for every ROS distribution.
 

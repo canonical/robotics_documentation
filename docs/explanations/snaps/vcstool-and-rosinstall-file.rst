@@ -5,7 +5,7 @@ In ROS, it’s common to have the list of repositories listed in a `rosinstall f
 
 In the ``snapcraft.yaml``, writing multiple parts in order to cover multiple git repositories might not be necessary. Instead, a ``rosinstall`` file could be used.
 
-Snapcraft `support various source-type <https://snapcraft.io/docs/snapcraft-yaml-schema>`_ but ``rosinstall`` is not part of the default implementation. Fortunately, we can still leverage the features of ``Vcstool`` within snapcraft by the means of the `overrides part steps <https://snapcraft.io/docs/overrides>`_ feature.
+Snapcraft `support various source-type <https://snapcraft.io/docs/snapcraft-yaml-schema>`_ but ``rosinstall`` is not part of the default implementation. Fortunately, we can still leverage the features of ``Vcstool`` within snapcraft by the means of the `overrides part steps <https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/override-the-default-build/>`_ feature.
 
 
 Overrides part steps
@@ -13,7 +13,7 @@ Overrides part steps
 
 Snapcraft provides plugins that ease the build steps of our parts. It automatises everything based on the most common way to use a tool.
 
-Obviously, sometimes we might need to do things slightly differently. And that is why snapcraft has an `overrides part steps <https://snapcraft.io/docs/overrides>`_ feature. This feature allows overriding and customising steps of a  `part’s life-cycle <https://snapcraft.io/docs/parts-lifecycle>`_ (pull, build, stage, and prime). Also, we can still call the default step action within our script. As an example, we display a message at the end of our build with:
+Obviously, sometimes we might need to do things slightly differently. And that is why snapcraft has an `overrides part steps <https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/override-the-default-build/>`_ feature. This feature allows overriding and customising steps of a  `part’s life-cycle <https://snapcraft.io/docs/parts-lifecycle>`_ (pull, build, stage, and prime). Also, we can still call the default step action within our script. As an example, we display a message at the end of our build with:
 
 .. code:: yaml
 

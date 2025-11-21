@@ -52,8 +52,8 @@ For that matter, we will also embed:
 * [Avahi](https://snapcraft.io/avahi):
   The Avahi daemon so we can ping by hostname and not IP address.
 
-With all these snaps installed and configured in our image, a
-fter booting the SD card in the Raspberry Pi,
+With all these snaps installed and configured in our image,
+after booting the SD card in the Raspberry Pi,
 we will be able to teleoperate the robot from a computer connected to the hotspot.
 
 If you are looking for a more generic tutorial about Ubuntu Core image creation,
