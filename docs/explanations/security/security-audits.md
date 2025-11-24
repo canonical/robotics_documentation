@@ -3,10 +3,10 @@
 ROS ESM is maintained by the Ubuntu Robotics Team, in a close partnership with the
 Ubuntu security team. Its security processes apply the same rigor that
 secures millions of Ubuntu systems. This collaboration ensures timely
-triaging and patching of vulnerabilities, as quickly as 24 hours
+triage and patching of vulnerabilities, as quickly as 24 hours
 for reported critical issues.
-ROS packages benefit from Canonical's expertise in vulnerability disclosure,
-backporting, and non-disruptive updates, all aligned with Ubuntu LTS standards.
+ROS packages benefit from Canonical's expertise in vulnerability disclosure
+and non-disruptive updates, all aligned with Ubuntu LTS standards.
 Delivered through Ubuntu Pro, ROS ESM offers unified, long-term security
 and compliance for robotics deployments.
 
@@ -20,7 +20,7 @@ The team leverages advanced static analysis using tools like
 [Coverity](https://scan.coverity.com/) to detect memory safety vulnerabilities,
 insecure APIs, logic errors, and other high-risk code patterns
 in the ROS distributions it supports.
-Identified issues are rigorously triaged by engineers, with critical findings
+Identified issues undergo rigorous triage by engineers, with critical findings
 validated through dynamic analysis and vulnerability proof-of-concept testing.
 Fixes are then delivered through a **controlled, quality-focused release process**
 that ensures both reliability and traceability.
