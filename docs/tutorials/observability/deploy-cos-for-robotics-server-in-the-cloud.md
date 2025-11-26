@@ -190,7 +190,7 @@ sudo snap install terraform --classic
 First, let us retrieve the Terraform plan:
 
 ```console
-git clone https://github.com/ubuntu-robotics/rob-cos-overlay.git
+git clone --branch tf-provider-v0 https://github.com/canonical/rob-cos-overlay.git
 cd rob-cos-overlay/terraform/rob-cos
 ```
 
