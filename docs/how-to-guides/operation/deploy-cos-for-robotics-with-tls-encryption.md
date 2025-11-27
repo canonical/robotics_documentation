@@ -93,7 +93,7 @@ by the `self-signed-certificates` charm.
 Prometheus and Loki are accessed by Grafana through Traefik,
 which means Grafana must trust the CA that issued Traefik’s certificates.
 Without the `send-ca-cert` relation,
-Grafana would see Traefik’s certificates as untrusted,
+Grafana would see Traefik’s certificates as not trusted,
 preventing secure communication from being established.
 
 That’s it for the server side,
@@ -217,7 +217,7 @@ configuration snap instead.
 This extended setup enables TLS
 and configures all agents to use the certificates installed on the device.
 
-First, unregister the device by removing the cos-registration-agent snap:
+First, disconnect the device by removing the cos-registration-agent snap:
 
 ```bash
 sudo snap remove cos-registration-agent

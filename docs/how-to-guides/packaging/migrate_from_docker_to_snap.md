@@ -185,7 +185,7 @@ parts:
   override-build: install -D -m 0755 launch ${SNAPCRAFT_PART_INSTALL}/snap/command-chain/ros2-launch # Install the ros2-launch script responsible of sourcing your ROS environment
 ```
 
-Read more about [overriding the build step](https://snapcraft.io/docs/overrides)
+Read more about [overriding the build step](https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/override-the-default-build/)
 in the documentation.
 
 This is the process to set up ROS in a snap,
