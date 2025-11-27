@@ -134,7 +134,7 @@ newgrp snap_microk8s
 Install the Juju snap with:
 
 ```bash
-sudo snap install juju --channel 3.5/stable
+sudo snap install juju --channel 3.6/stable
 ```
 
 Since the Juju package is strictly confined, you also need to manually create a path:
@@ -190,7 +190,7 @@ sudo snap install terraform --classic
 First, let us retrieve the Terraform plan:
 
 ```console
-git clone https://github.com/ubuntu-robotics/rob-cos-overlay.git
+git clone --branch tf-provider-v0 https://github.com/canonical/rob-cos-overlay.git
 cd rob-cos-overlay/terraform/rob-cos
 ```
 
