@@ -113,7 +113,7 @@ juju ssh cos-registration-server-postgres/0 PEBBLE_SOCKET=/charm/containers/cos-
 
 This will output a line similar to:
 
-```BASH
+```bash
       "DATABASE_URL": "postgres://username:password@hostname:port/databasename",
 ```
 
