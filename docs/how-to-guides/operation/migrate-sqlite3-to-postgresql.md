@@ -72,7 +72,7 @@ juju deploy postgresql-k8s postgresql --channel 14/stable --trust
 
 ```{tip}
 You can skip this step if you already have a Juju/Charm cos-registration-server-k8s instance running,
-and integrated with the postgresql-k8s  .
+and integrated with the postgresql-k8s.
 ```
 
 We deploy a new instance of `cos-registration-server-k8s`, this time connected to the PostgreSQL instance:
