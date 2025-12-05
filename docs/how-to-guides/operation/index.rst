@@ -27,3 +27,4 @@ for deployed robots.
    observe-cos-rob
    set-up-blackbox-exporter-to-monitor-cos-rob-devices
    deploy-cos-for-robotics-with-tls-encryption
+   migrate-sqlite3-to-postgresql
