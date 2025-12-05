@@ -40,7 +40,6 @@ from the SQLite3 database file from the existing `cos-registration-server` insta
 To do so,
 we run `django` commands inside the container running our `cos-registration-server`:
 
-
 ```bash
 juju ssh --container cos-registration-server cos-registration-server/0 \
 DATABASE_BASE_DIR_DJANGO=/server_data/ \
@@ -59,13 +58,16 @@ dumpdata   \
 We've now exported all the data from the SQLite3 database file.
 This file `data_export.json` contains all the data we need to migrate to PostgreSQL.
 
-We now retrieve this file from the `cos-registration-server` container to our local machine:
+We now retrieve this file from
+the `cos-registration-server` container to our local machine:
 
 ```bash
-juju scp --container cos-registration-server cos-registration-server/0:/tmp/data_export.json data_export.json
+juju scp --container cos-registration-server \
+cos-registration-server/0:/tmp/data_export.json data_export.json
 ```
 
-We now have the `data_export.json` file, containing all the data from our previous deployment.
+We now have the `data_export.json` file,
+containing all the data from our previous deployment.
 
 ## Set up PostgreSQL
 
@@ -83,7 +85,8 @@ juju deploy postgresql-k8s postgresql --channel 14/stable --trust
 ## Import the data into the new PostgreSQL deployment
 
 ```{tip}
-You can skip this step if you already have a Juju/Charm cos-registration-server-k8s instance running,
+Skip this step if you already have a
+cos-registration-server-k8s instance running,
 and integrated with the postgresql-k8s.
 ```
 
@@ -91,10 +94,14 @@ We deploy a new instance of `cos-registration-server-k8s`,
 this time connected to the PostgreSQL instance:
 
 ```bash
-juju deploy cos-registration-server-k8s cos-registration-server-postgres --channel 1/stable --trust
+juju deploy cos-registration-server-k8s \
+cos-registration-server-postgres \
+--channel 1/stable \
+--trust
 ```
 
-Then, connect the `cos-registration-server-postgres` instance to the `postgresql` instance:
+Then,
+connect the `cos-registration-server-postgres` instance to the `postgresql` instance:
 
 ```bash
 juju integrate postgresql cos-registration-server-postgres
@@ -110,12 +117,12 @@ juju scp --container cos-registration-server data_export.json cos-registration-s
 ```
 
 ```{warning}
-Note that we are importing the database file inside the `cos-registration-server-postgres` instance,
+Note that we are importing the database file
+inside the `cos-registration-server-postgres` instance,
 and not the postgresql instance itself.
 
 This is because we will use Django to load the data into PostgreSQL.
 ```
-
 
 ### Load the data into PostgreSQL
 
@@ -124,7 +131,10 @@ we must retrieve the `DATABASE_URL` value
 used by the `cos-registration-server-postgres` instance:
 
 ```bash
-juju ssh cos-registration-server-postgres/0 PEBBLE_SOCKET=/charm/containers/cos-registration-server/pebble.socket /charm/bin/pebble plan | grep DATABASE_URL
+juju ssh cos-registration-server-postgres/0 \
+PEBBLE_SOCKET=/charm/containers/cos-registration-server/pebble.socket \
+/charm/bin/pebble plan \
+| grep DATABASE_URL
 ```
 
 This will output a line similar to:
@@ -138,7 +148,12 @@ replace `XXXXXXXXXX` in the command below.
 Now we can use this value while loading the data with Django.
 
 ```bash
-juju ssh --container cos-registration-server cos-registration-server-postgres/0 DATABASE_URL=XXXXXXXXXX SECRET_KEY_DJANGO=\$\(cat /server_data/secret_key\) /usr/bin/python3 /usr/lib/python3.10/site-packages/cos_registration_server/manage.py loaddata /tmp/data_export.json
+juju ssh --container cos-registration-server \
+cos-registration-server-postgres/0 
+DATABASE_URL=XXXXXXXXXX SECRET_KEY_DJANGO=\$\(cat /server_data/secret_key\) \
+/usr/bin/python3 \
+/usr/lib/python3.10/site-packages/cos_registration_server/manage.py \
+loaddata /tmp/data_export.json
 ```
 
 All the data from the previous SQLite3 database is now imported into PostgreSQL.
