@@ -414,13 +414,13 @@ after the use of content sharing that we described in this guide.
 | | Without using foundational snap | Using foundational snap | |
 | -------- | :-------: | :-------: | :------- |
 | Name | Size (Mb) | Size (Mb) | |
-|||||
-| turtlebot3c-bringup  | 205 | 5 | |
+| | | | |
+| turtlebot3c-bringup | 205 | 5 | |
 | turtlebot3c-nav | 296 | 61 | |
 | turtlebot3c-teleop | 133 | 2 | |
-| ros-noetic-robot  | | 161 | |
-|||||
-|  | 634 | 229 | **total** |
+| ros-noetic-robot | | 161 | |
+| | | | |
+| | 634 | 229 | **total** |
 
 For a deployment of the full navigation stack,
 a bringup and a teleop we have a size reduction of 64%.
