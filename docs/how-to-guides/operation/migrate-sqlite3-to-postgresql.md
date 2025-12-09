@@ -12,7 +12,8 @@ The first version of `cos-registration-server` used
 [SQLite3](https://sqlite.org/) as its database backend.
 
 Starting with version `1/stable`, `cos-registration-server` now uses
-[PostgreSQL](https://www.postgresql.org/) as its database backend to enhance the performance,
+[PostgreSQL](https://www.postgresql.org/) as its database backend
+to enhance the performance,
 reliability, and scalability.
 
 This guide explains how to migrate an existing
@@ -109,10 +110,9 @@ juju deploy postgresql-k8s postgresql --channel 14/stable --trust
 We refresh the instance of `cos-registration-server-k8s`,
 this time connected to the PostgreSQL instance:
 
-
 ```bash
 juju refresh cos-registration-server \
---channel 1/stable \
+--channel 1/stable
 ```
 
 Then,
