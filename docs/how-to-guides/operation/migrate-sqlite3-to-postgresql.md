@@ -69,6 +69,14 @@ dumpdata   \
 --output /tmp/data_export.json
 ```
 
+```{note}
+Everything happening on this `cos-registration-server` instance
+after the dumpdata won't be included in the exported data,
+and will be lost.
+Make sure to stop any activity on the `cos-registration-server`
+while performing this migration.
+```
+
 We've now exported all the data from the SQLite3 database file.
 This file `data_export.json` contains all the data we need to migrate to PostgreSQL.
 
