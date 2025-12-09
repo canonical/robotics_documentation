@@ -23,6 +23,22 @@ the `cos-registration-server` instance
 will be using PostgreSQL as its database backend,
 with all data migrated from the previous SQLite3 database.
 
+## Am I concerned?
+
+In order to determine if you need to follow this migration guide,
+check if your existing `cos-registration-server` instance
+is using SQLite3 as its database backend.
+
+```bash
+juju ssh --container cos-registration-server cos-registration-server/0 \
+ls /server_data/db.sqlite3 \
+&& echo "You should migrate" \
+|| echo "No need to migrate"
+```
+
+This command checks if the SQLite3 database file exists,
+and lets you know whether you need to migrate or not.
+
 ## Prerequisites
 
 - A running instance of `cos-registration-server-k8s` using SQLite3.
