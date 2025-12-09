@@ -12,10 +12,8 @@ The first version of `cos-registration-server` used
 [SQLite3](https://sqlite.org/) as its database backend.
 
 Starting with version `1/stable`, `cos-registration-server` now uses
-[PostgreSQL](https://www.postgresql.org/) as its database backend.
-
-This choice was made to enhance the performance, reliability,
-and scalability of the database.
+[PostgreSQL](https://www.postgresql.org/) as its database backend to enhance the performance,
+reliability, and scalability.
 
 This guide explains how to migrate an existing
 `cos-registration-server` database from SQLite3 to PostgreSQL.
@@ -76,7 +74,7 @@ You can skip this step if you already have a Juju/Charm PostgreSQL instance runn
 ```
 
 If no PostgreSQL instance is already available in the Juju model,
-we can do so by deploying the `postgresql-k8s` charm:
+we can deploy the `postgresql-k8s` charm:
 
 ```bash
 juju deploy postgresql-k8s postgresql --channel 14/stable --trust
