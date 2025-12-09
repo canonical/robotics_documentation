@@ -106,41 +106,34 @@ juju deploy postgresql-k8s postgresql --channel 14/stable --trust
 
 ## Import the data into the new PostgreSQL deployment
 
-```{tip}
-Skip this step if you already have a
-cos-registration-server-k8s instance running,
-and integrated with the postgresql-k8s.
-```
-
-We deploy a new instance of `cos-registration-server-k8s`,
+We refresh the instance of `cos-registration-server-k8s`,
 this time connected to the PostgreSQL instance:
 
+
 ```bash
-juju deploy cos-registration-server-k8s \
-cos-registration-server-postgres \
+juju refresh cos-registration-server \
 --channel 1/stable \
---trust
 ```
 
 Then,
-connect the `cos-registration-server-postgres` instance to the `postgresql` instance:
+connect the `cos-registration-server` instance to the `postgresql` instance:
 
 ```bash
-juju integrate postgresql cos-registration-server-postgres
+juju integrate postgresql cos-registration-server
 ```
 
 ### Import the database file inside the new container
 
 We now copy the `data_export.json` file
-available locally to the `cos-registration-server-postgres` instance:
+available locally to the `cos-registration-server` instance:
 
 ```bash
-juju scp --container cos-registration-server data_export.json cos-registration-server-postgres/0:/tmp/data_export.json
+juju scp --container cos-registration-server data_export.json cos-registration-server/0:/tmp/data_export.json
 ```
 
 ```{warning}
 Note that we are importing the database file
-inside the `cos-registration-server-postgres` instance,
+inside the `cos-registration-server` instance,
 and not the postgresql instance itself.
 
 This is because we will use Django to load the data into PostgreSQL.
@@ -150,10 +143,10 @@ This is because we will use Django to load the data into PostgreSQL.
 
 First,
 we must retrieve the `DATABASE_URL` value
-used by the `cos-registration-server-postgres` instance:
+used by the `cos-registration-server` instance:
 
 ```bash
-juju ssh cos-registration-server-postgres/0 \
+juju ssh cos-registration-server/0 \
 PEBBLE_SOCKET=/charm/containers/cos-registration-server/pebble.socket \
 /charm/bin/pebble plan \
 | grep DATABASE_URL
@@ -171,7 +164,7 @@ Now we can use this value while loading the data with Django.
 
 ```bash
 juju ssh --container cos-registration-server \
-cos-registration-server-postgres/0 
+cos-registration-server/0 \
 DATABASE_URL=XXXXXXXXXX SECRET_KEY_DJANGO=\$\(cat /server_data/secret_key\) \
 /usr/bin/python3 \
 /usr/lib/python3.10/site-packages/cos_registration_server/manage.py \
