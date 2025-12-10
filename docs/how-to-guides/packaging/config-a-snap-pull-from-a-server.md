@@ -105,7 +105,8 @@ we can write a script – that will be invoked by the
 [`install` hook](https://snapcraft.io/docs/supported-snap-hooks#heading--install) –
 to download it and place it appropriately in our snap.
 For instance, in [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage).
-Since the `install` hook runs as root, we cannot use any user-specific snap writable environment.
+Since the `install` hook runs as root, we cannot use any user-specific snap
+writable environment.
 The [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage)
 directory is the same for `root` or any user and will be read-accessible from any user.
 

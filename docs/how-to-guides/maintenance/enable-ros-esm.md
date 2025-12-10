@@ -97,7 +97,8 @@ usg              yes       disabled     Security compliance and audit tools
 ```
 
 You should see some of the Ubuntu Pro services,
-such as Expanded Security Maintenance for Infrastructure `(esm-infra)` automatically enabled,
+such as Expanded Security Maintenance for Infrastructure `(esm-infra)`
+automatically enabled,
 while others will remain disabled until you switch them on.
 
 If it’s not, enter the following:
