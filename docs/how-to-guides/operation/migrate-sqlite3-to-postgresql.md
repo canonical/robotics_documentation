@@ -89,8 +89,7 @@ juju scp --container cos-registration-server \
 cos-registration-server/0:/tmp/data_export.json data_export.json
 ```
 
-We now have the `data_export.json` file,
-containing all the data from our previous deployment.
+We now have all the data from our previous deployment.
 
 To make sure we won't reuse this old SQLite3 database by mistake,
 we can move the SQLite3 database file from the `cos-registration-server` instance:
