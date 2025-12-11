@@ -284,7 +284,8 @@ but our users will be able to install the final snap independently of their OS v
 base: core22
 ```
 
-[core22](https://snapcraft.io/core22) is the current standard base for snap building and
+[core22](https://snapcraft.io/core22) is the current standard base for snap
+building and
 is based on [Ubuntu 22.04 LTS](http://releases.ubuntu.com/22.04/).
 It is therefore the base for ROS 2 Humble snaps.
 
@@ -340,7 +341,8 @@ we select `demo_nodes_cpp` with the `source-subdir` entry.
 
 We notice that `ros-humble-ros2launch` is listed as a `stage-packages`.
 Stage packages are packages required to run the `part`.
-Usually this exec dependency is missing from the `package.xml` hence we must specify it.
+Usually this exec dependency is missing from the `package.xml` hence we must
+specify it.
 The rest of the dependencies are going to be
 automatically downloaded with `rosdep` based on the `package.xml`.
 
