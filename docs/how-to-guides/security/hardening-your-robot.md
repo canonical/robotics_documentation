@@ -737,7 +737,8 @@ Getting a core dump from an application when it experiences a crash is
 a great way to debug issues in applications.
 The size of the core dump can vary widely from application to application;
 it all depends on the memory footprint of the application.
-The assumption is that an application would seldom experience a problem, but when it does,
+The assumption is that an application would seldom experience a problem,
+but when it does,
 it will provide memory contents for the developers to look through.
 
 While that assumption is reasonable for development,
@@ -774,7 +775,8 @@ These modules are a desirable location for an attacker to
 place a rootkit and gain kernel-level access.
 Rootkits are particularly dangerous,
 as they allow an attacker to compromise the core components of your OS while going unnoticed.
-Thus, it is a good practice to deny or disable unneeded modules from loading at boot time.
+Thus, it is a good practice to deny or disable unneeded modules from loading
+at boot time.
 
 `Modprobe` can first help you check which `LKMs` are in your system,
 and disable any you don’t need.
@@ -787,7 +789,8 @@ find /lib/modules/`uname -r` -type f -name '*.ko'
 
 Then, run `modinfo` on a module to investigate further,
 and see all its dependent modules.
-When you are sure you can disable a module, define it as `/bin/false` in its `.conf` file,
+When you are sure you can disable a module, define it as `/bin/false` in its
+`.conf` file,
 so that the module will not be loaded.
 This is a good convention to visualise when something is not allowed.
 
