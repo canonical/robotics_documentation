@@ -229,7 +229,8 @@ To start snapping our stack we first need to
 [identify the various functionalities and applications of our robot application](https://ubuntu.com/robotics/docs/identify-functionalities-and-applications-of-a-robotics-snap).
 
 We are going to apply the methodology to the TurtleBot3.
-This way, we will have a clear example of the functionalities and snap entries for a robot,
+This way, we will have a clear example of the functionalities and snap
+entries for a robot,
 as well as the process to identify these entries.
 
 For this guide,
@@ -664,7 +665,8 @@ Very similar in terms of usage to `key`,
 but we will use a different launch file for the joystick.
 It’s [`joy.launch`](https://github.com/canonical/turtlebot3c/blob/noetic-devel/turtlebot3c_teleop/launch/joy.launch)
 from the `turtlebot3c_teleop` package.
-The major differences are that this is going to be published on the `/joy_vel` topic and
+The major differences are that this is going to be published on the
+`/joy_vel` topic and
 that our application will need access to the joystick.
 We must use the [`joystick` interface](https://snapcraft.io/docs/joystick-interface),
 so our confined application will be able to access the joystick device from our host.

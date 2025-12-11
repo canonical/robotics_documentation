@@ -13,7 +13,8 @@ The functionalities usually come from the customer's needs.
 Snaps are going to be a support to distribute those software functionalities.
 They must be identified before starting the snapping of the software stack.
 
-As an example, a supermarket needs a robot to clean the floor and possibly patrol at night.
+As an example, a supermarket needs a robot to clean the floor and possibly
+patrol at night.
 The functionalities associated are:
 
 - The robot must be able to clean the floor.
