@@ -115,7 +115,7 @@ juju deploy postgresql-k8s postgresql --channel 14/stable --trust
 ## Import the data into the new PostgreSQL deployment
 
 We refresh the instance of `cos-registration-server-k8s`,
-this time connected to the PostgreSQL instance:
+pulling the latest release that includes PostgreSQL support:
 
 ```bash
 juju refresh cos-registration-server \
