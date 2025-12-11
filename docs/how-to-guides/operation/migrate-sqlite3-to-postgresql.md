@@ -123,7 +123,7 @@ juju refresh cos-registration-server \
 ```
 
 Then,
-connect the `cos-registration-server-k8s` instance to the `postgresql` instance:
+connect the `cos-registration-server` instance to the `postgresql` instance:
 
 ```bash
 juju integrate postgresql cos-registration-server
