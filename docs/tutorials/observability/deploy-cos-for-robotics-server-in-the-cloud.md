@@ -99,7 +99,7 @@ Let’s proceed with the installation.
 Install the `microk8s` snap with:
 
 ```bash
-sudo snap install microk8s --channel 1.31-strict
+sudo snap install microk8s --channel 1.35-strict
 ```
 
 Add the user to the `microk8s` group for unprivileged access and
