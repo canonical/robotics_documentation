@@ -100,8 +100,8 @@ Since this developer guide builds a snap for a robot, we will need:
 - Depending on our current OS,
   we can choose between the following Native setup and the Multipass setup.
 
-````{tabs}
-```{group-tab} Option 1: Native Setup
+`````{tabs}
+````{group-tab} Option 1: Native Setup
 
 The Native setup will need [Ubuntu 20.04](https://releases.ubuntu.com/focal/).
 This is because we will need the TurtleBot3 simulation to run.
@@ -119,9 +119,9 @@ With the running Ubuntu 20.04, follow the next step to install all the dependenc
 - Make sure [snapd](https://snapcraft.io/docs/installing-snapd) and
   [snapcraft](https://snapcraft.io/snapcraft) are installed
 
-```
+````
 
-```{group-tab} Option 2: Multipass
+````{group-tab} Option 2: Multipass
 
   If a native setup is not possible, we will use a Virtual Machine.
   In this case, we are going to use [Multipass](https://multipass.run/docs)
@@ -186,8 +186,8 @@ With the running Ubuntu 20.04, follow the next step to install all the dependenc
   - In the case of a VM setup,
     all the commands and instructions from this guide must be executed in the VM.
 
-```
 ````
+`````
 
 ### Setup Check
 
