@@ -10,8 +10,8 @@ all dependencies not already satisfied.
 
 In a sourced ROS ESM environment, execute the following:
 
-``````{tabs}
-`````{tab} Noetic/Melodic
+`````{tabs}
+````{tab} Noetic/Melodic
 
 ```bash
 sudo apt install python-rosinstall-generator
@@ -62,9 +62,9 @@ Finally, the workspace needs to be built:
 cd ~/ros_ws
 catkin_make_isolated
 ```
-`````
+````
 
-`````{tab} Foxy
+````{tab} Foxy
 
 ```bash
 sudo apt install python3-rosinstall-generator
@@ -115,9 +115,9 @@ Finally, the workspace needs to be built:
 cd ~/ros_ws
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
-`````
+````
 
-`````{tab} Kinetic
+````{tab} Kinetic
 
 ```bash
 sudo apt install python-rosinstall-generator
@@ -166,8 +166,8 @@ Finally, the workspace needs to be built:
 cd ~/ros_ws
 catkin_make_isolated
 ```
+````
 `````
-``````
 
 That builds the required software against the ESM ROS release, where ABI will not break.
 Once the process is complete, the required software is available in the workspace.
