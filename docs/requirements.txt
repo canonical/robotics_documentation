@@ -1,4 +1,5 @@
 canonical-sphinx[full]
+myst-parser==4.0.1
 sphinxcontrib-svg2pdfconverter[CairoSVG]
 sphinx-last-updated-by-git
 sphinxcontrib-mermaid
