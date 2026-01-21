@@ -20,7 +20,7 @@ are recommended.
 
 ## API endpoints
 
-<!-- markdownlint-disable MD033 -->
+<!-- pyml disable no-inline-html -->
 
 <link
   rel="stylesheet"
@@ -114,4 +114,4 @@ window.onload = function() {
 }
 </script>
 
-<!-- markdownlint-enble MD033 -->
+<!-- pyml enable no-inline-html -->
