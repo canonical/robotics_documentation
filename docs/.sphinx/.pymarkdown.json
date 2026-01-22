@@ -22,7 +22,7 @@
         },
         "line-length": {
             "enabled": true,
-            "line_length": 85,
+            "line_length": 85,  # Diverged from upstream: custom line length limit
             "code_blocks": false
         },
         "commands-show-output": {
@@ -59,7 +59,7 @@
         },
         "no-inline-html": {
             "enabled": true,
-            "allowed_elements": ["br"]
+            "allowed_elements": ["br"]  # Diverged from upstream: allow <br> elements
         },
         "hr-style": {
             "enabled": true
