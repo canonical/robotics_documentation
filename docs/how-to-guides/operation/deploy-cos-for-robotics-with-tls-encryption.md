@@ -43,11 +43,11 @@ juju switch tls
 Deploy the charm in the `tls` model with:
 
 ```bash
-juju deploy self-signed-certificates --channel=latest/edge
+juju deploy self-signed-certificates --channel=1/stable
 ```
 
 This charm will manage the certificate authority (CA)
-and issue self-signed certificates to Traefik.
+and issue self-signed certificates to Traefik and devices.
 In order to make the TLS charm endpoints available to other models,
 we need to setup [cross-models relations](https://documentation.ubuntu.com/juju/3.6/reference/relation/).
 This is achieved by offering the charm relations:
@@ -217,7 +217,28 @@ configuration snap instead.
 This extended setup enables TLS
 and configures all agents to use the certificates installed on the device.
 
-First, disconnect the device by removing the cos-registration-agent snap:
+The [advanced](https://github.com/canonical/rob-cos-demo-configuration/tree/advanced)
+branch of the [demo configuration snap](https://snapcraft.io/rob-cos-demo-configuration),
+sets the `generate-device-tls-certificate` flag in the device configuration YAML.
+This flag triggers the generation of a private key and a certificate signing request,
+which is sent to the registration server upon [registration](https://github.com/canonical/cos-registration-agent?tab=readme-ov-file#setup).
+The server generates a leaf certificate to be stored in the device's `rob-cos-data-sharing` snap.
+
+The Foxglove bridge running on the device
+uses WebSockets to exchange data with Foxglove Studio served by the browser.
+To establish a secure WebSocket connection (**wss://**),
+the [Foxglove bridge configuration](https://github.com/canonical/rob-cos-demo-configuration/blob/advanced/snap/local/configuration/foxglove-bridge.yaml)
+then uses this certificate by referencing the relevant paths.
+
+Before proceeding, let's make sure that the Foxglove bridge snap can read
+the certificates from the `rob-cos-data-sharing` snap.
+Let's connect the bridge to it by executing the following command:
+
+```bash
+sudo snap connect foxglove-bridge:rob-cos-common-read rob-cos-data-sharing:rob-cos-common-read
+```
+
+Now, disconnect the device by removing the cos-registration-agent snap:
 
 ```bash
 sudo snap remove cos-registration-agent
@@ -229,7 +250,7 @@ Next, refresh the configuration snap to switch to the advanced configuration cha
 sudo snap refresh rob-cos-demo-configuration --channel=advanced/beta
 ```
 
-Reset the configuration to ensure the advanced settings are applied::
+Reset the configuration to ensure the advanced settings are applied:
 
 ```bash
 sudo rob-cos-demo-configuration.reset-config
@@ -247,61 +268,47 @@ Finally, reinstall the cos-registration-agent snap to register the device with T
 sudo snap install cos-registration-agent --edge
 ```
 
+
+```{warning}
+Note: The generation of the leaf certificate for the device is asynchronous.
+As soon as the registration is started a private key and a CSR are generated,
+the CSR is sent to the registration server.
+Then the agent will keep polling for a signed certificate to be available on the database.
+This might take up to 5 minutes.
+```
+
 Your device should now be successfully registered with {{ COS_ROB }},
 with TLS enabled.
 
-### Enable Foxglove bridge with Secure WebSocket
-
-The Foxglove bridge running on the device
-uses WebSockets to exchange data with Foxglove Studio served by the browser.
-To establish a secure WebSocket connection (**wss://**),
-the device needs a certificate and a key that can be supplied to the
-application and validated by the browser.
-
-The [advanced](https://github.com/canonical/rob-cos-demo-configuration/tree/advanced)
-branch of the [demo configuration snap](https://snapcraft.io/rob-cos-demo-configuration),
-sets the `generate-device-tls-certificate` flag in the device configuration YAML.
-This flag triggers the generation of a TLS certificate and key during
-[registration](https://github.com/canonical/cos-registration-agent?tab=readme-ov-file#setup),
-which are then stored in the device's `rob-cos-data-sharing` snap.
-
-Before proceeding, let's make sure that the Foxglove bridge snap can read
-the certificates from the `rob-cos-data-sharing` snap.
-Let's connect the bridge to it by executing the following command:
-
-```bash
-sudo snap connect foxglove-bridge:rob-cos-common-read rob-cos-data-sharing:rob-cos-common-read
-```
-
-The [Foxglove bridge configuration](https://github.com/canonical/rob-cos-demo-configuration/blob/advanced/snap/local/configuration/foxglove-bridge.yaml)
-then uses this certificate by referencing the relevant paths.
-
 ## Laptop Side
 
-Now that our Server and device are setup with the correct certificates,
-we need to make sure our laptop and browsers trust them.
-Two certificates must be trusted:
+Now that our server and device are setup with the correct certificates,
+we need to make sure our laptop and browser trust them.
+The only certificate that has to be trusted
+is the CA certificate issued by the self-signed-certificates charm,
+since the device certificate are leaf certificates.
 
-- The CA certificate issued by the self-signed-certificates charm.
-- The device certificate generated specifically for the foxglove bridge at registration.
+First, let's create a `traefik-ca.crt` file on our laptop.
+The content is the same of the CA we installed on the device [earlier](#set-the-certificate-on-the-device),
+obtained by running the following command on the server:
 
-These certificates are located on the device at:
+```bash
+juju run self-signed-certificates/0 get-ca-certificate
+```
 
-- `/usr/local/share/ca-certificates/traefik-ca.crt` (CA certificate)
-- `/var/snap/foxglove-bridge/common/rob-cos-shared-data/device.crt` (device certificate)
+```{warning}
+Note: When copying the certificate from the output above,
+Make sure you *do not* include any leading spaces before the certificate lines.
+The file should start exactly with `-----BEGIN CERTIFICATE-----` at the beginning of the line.
+If the certificate lines are indented, the certificate will be invalid.
+```
 
-Copy both files from the device to the laptop where the browser is running.
-
-### Import in Google Chrome
-
-Once they are available on the host running the browser,
-add them in Google Chrome with:
-
+Finally, import the file in Google Chrome as follows:
 - Open a new tab and navigate to `chrome://certificate-manager/localcerts/usercerts`.
 - Click on **Import** and select the certificate files from your laptop.
 - Once imported, the certificate should appear under the
   **Installed by You** section.
 
 After these steps,
-your browser trusts the certificate,
-allowing for secure WebSocket communication with the Foxglove bridge.
+your browser will trust the certificate,
+allowing for full TLS.
