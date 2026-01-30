@@ -222,7 +222,8 @@ branch of the [demo configuration snap](https://snapcraft.io/rob-cos-demo-config
 sets the `generate-device-tls-certificate` flag in the device configuration YAML.
 This flag triggers the generation of a private key and a certificate signing request,
 which is sent to the registration server upon [registration](https://github.com/canonical/cos-registration-agent?tab=readme-ov-file#setup).
-The server generates a leaf certificate to be stored in the device's `rob-cos-data-sharing` snap.
+The server generates a leaf certificate
+to be stored in the device's `rob-cos-data-sharing` snap.
 
 The Foxglove bridge running on the device
 uses WebSockets to exchange data with Foxglove Studio served by the browser.
@@ -268,7 +269,6 @@ Finally, reinstall the cos-registration-agent snap to register the device with T
 sudo snap install cos-registration-agent --edge
 ```
 
-
 ```{warning}
 Note: The generation of the leaf certificate for the device is asynchronous.
 As soon as the registration is started a private key and a CSR are generated,
@@ -304,6 +304,7 @@ If the certificate lines are indented, the certificate will be invalid.
 ```
 
 Finally, import the file in Google Chrome as follows:
+
 - Open a new tab and navigate to `chrome://certificate-manager/localcerts/usercerts`.
 - Click on **Import** and select the certificate files from your laptop.
 - Once imported, the certificate should appear under the
