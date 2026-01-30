@@ -289,7 +289,7 @@ is the CA certificate issued by the self-signed-certificates charm,
 since the device certificate are leaf certificates.
 
 First, let's create a `traefik-ca.crt` file on our laptop.
-The content is the same of the CA we installed on the device [earlier](#set-the-certificate-on-the-device),
+The content is the same of the CA we installed on the device earlier,
 obtained by running the following command on the server:
 
 ```bash
