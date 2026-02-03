@@ -43,7 +43,7 @@ juju switch tls
 Deploy the charm in the `tls` model with:
 
 ```bash
-juju deploy self-signed-certificates --channel=latest/edge
+juju deploy self-signed-certificates --channel=1/stable
 ```
 
 This charm will manage the certificate authority (CA)
