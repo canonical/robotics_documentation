@@ -136,7 +136,7 @@ The generic COS documentation can be found on
 
 ## ROSCon video
 
-Watch this presentation from ROSCon 2024 to learn more about {{ COS_ROB }} and how it can help you monitor and observe your robotics fleet.
+In this video from ROSCon 2025, you will learn more about {{ COS_ROB }} and how it can help you monitor and observe your robotics fleet.
 
 <!-- pyml disable no-inline-html -->
 <!-- pyml disable line-length -->
