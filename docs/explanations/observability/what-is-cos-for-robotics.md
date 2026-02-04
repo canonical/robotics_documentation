@@ -134,7 +134,7 @@ You can learn more about open source observability on
 The generic COS documentation can be found on
 [charmhub.io](https://charmhub.io/topics/canonical-observability-stack).
 
-## ROSCon COS Video
+## ROSCon video
 
 <!-- pyml disable no-inline-html -->
 <!-- pyml disable line-length -->
