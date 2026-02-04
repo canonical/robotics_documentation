@@ -23,7 +23,7 @@ If your organization has unique needs beyond the default set,
 
 ## ROS 1 Noetic
 
-<!-- pyml disable no-inline-html -->
+<!-- markdownlint-disable MD033 -->
 
 <!-- @todo(artivis) replace html by myst role -->
 <div class="spellexception">
@@ -422,4 +422,4 @@ If your organization has unique needs beyond the default set,
 
 </div>
 
-<!-- pyml enable no-inline-html -->
+<!-- markdownlint-enable MD033 -->

@@ -81,9 +81,11 @@ Make sure that these are in good order before attempting to create a snap.
   * `ros-${ROS-DISTRO}-rosbash`
   * `ros-${ROS-DISTRO}-roslaunch`.
 
-<!-- pyml disable-num-lines 3 line-length -->
+<!-- markdownlint-disable MD013 -->
 
 ## With `core18` Catkin plugin creates an external link that prevents the security checks to pass
+
+<!-- markdownlint-enable MD013 -->
 
 * Please see: [Catkin generating an external link](https://forum.snapcraft.io/t/store-unable-to-accept-contains-external-symlinks-to-sudo-service/23269).
 
@@ -98,9 +100,11 @@ Make sure that these are in good order before attempting to create a snap.
     "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack"
   ```
 
-<!-- pyml disable-num-lines 3 line-length -->
+<!-- markdownlint-disable MD013 -->
 
 ## Warning: *“This part is missing libraries that cannot be satisfied with any available stage-packages known to snapcraft”*
+
+<!-- markdownlint-enable MD013 -->
 
 * Some libraries are build-time only dependencies,
   but are still reported as run-time dependencies by `snapcraft`.

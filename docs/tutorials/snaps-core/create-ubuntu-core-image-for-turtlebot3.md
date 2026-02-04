@@ -562,7 +562,7 @@ Ubuntu Core is meant for devices in production.
 Thanks to the [security and `sandboxing` features](https://ubuntu.com/core/docs/security-and-sandboxing),
 Ubuntu Core is not only lightweight and customised but also secured,
 making it ready for an industrial application.
-Combined with [landscape](https://documentation.ubuntu.com/landscape),
+Combined with [landscape](https://ubuntu.com/landscape/docs),
 it offers the perfect solution to deploy robot software at scale.
 
 > More generic documentation about Ubuntu Core
