@@ -29,6 +29,16 @@ which is then available to the user for visualization.
 
 ![image](https://assets.ubuntu.com/v1/5d37e875-what-is-rob-cos.jpg)
 
+## ROSCON COS Video
+
+<!-- pyml disable no-inline-html -->
+<!-- pyml disable line-length -->
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1136163245?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="COS for Robotics"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+<!-- pyml enable line-length -->
+<!-- pyml enable no-inline-html -->
+
 ## How {{ COS_ROB }} works
 
 The {{ COS_ROB }} consists of two main components:
