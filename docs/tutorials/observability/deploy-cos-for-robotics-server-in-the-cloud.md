@@ -85,12 +85,10 @@ In the next section, we will go step by step through the deployment process.
 
 ### Install prerequisites
 
-<!--
 ```{important}
-This tutorial assumes you have a Juju controller bootstrapped
-on a `MicroK8s` cloud that is ready to use.
+To follow this tutorial, you will need a machine or a VM with at least 8 GB of memory, 4 CPUs and 50 GB of storage.
+A container won't be sufficient.
 ```
--->
 
 Let’s proceed with the installation.
 
