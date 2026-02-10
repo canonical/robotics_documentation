@@ -303,6 +303,7 @@ linkcheck_anchors_ignore_for_url = [
 # give linkcheck multiple tries on failure
 # linkcheck_timeout = 30
 linkcheck_retries = 3
+linkcheck_allowed_status_codes = [429]
 
 ########################
 # Configuration extras #
