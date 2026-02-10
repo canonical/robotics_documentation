@@ -76,7 +76,7 @@ Please enter the device-uid:
 robot_1
 ```
 
-```
+```console
 Please enter the rob-cos-server-url:
 http://<cos-robotics-server-ip>/cos-robotics-model
 ```
