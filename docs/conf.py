@@ -281,6 +281,7 @@ redirects = {
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://github.com/canonical/ACME/*",
+    r"https://developer\.hashicorp\.com/terraform.*",
     "https://linux.die.net/man/1/curl",
     "https://ubuntu.com/robotics/ros-esm#get-in-touch",
     "https://ubuntu.com/core/features/secure-boot#get-in-touch",
@@ -303,7 +304,6 @@ linkcheck_anchors_ignore_for_url = [
 # give linkcheck multiple tries on failure
 # linkcheck_timeout = 30
 linkcheck_retries = 3
-linkcheck_allowed_status_codes = [429]
 
 ########################
 # Configuration extras #
