@@ -13,8 +13,8 @@ Robotics Documentation
 From development to deployment, all you need in one single platform. Ubuntu provides robotics companies with a worldwide-use infrastructure to deploy and maintain your robot.
 
 `Ubuntu Core <https://ubuntu.com/core/docs>`__ and `Snaps <https://snapcraft.io/docs/robotics>`__ are the tools used by global organisations to deploy and manage their software on embedded devices. 
-Ubuntu Core is the optimised version of Ubuntu for edge devices and robotics. s
-Snaps, the de facto container for packaging software on Ubuntu, enhanced to support ROS applications. Finally, together with the `Dedicated Snap Store <https://ubuntu.com/internet-of-things/appstore>`_, businesses can manage software updates in their fleet of devices using a globally distributed and reliable infrastructure.
+Ubuntu Core is the optimised version of Ubuntu for edge devices and robotics.
+Snaps, the de facto container for packaging software on Ubuntu, are enhanced to support ROS applications. Finally, together with the `Dedicated Snap Store <https://ubuntu.com/internet-of-things/appstore>`_, businesses can manage software updates in their fleet of devices using a globally distributed and reliable infrastructure.
 
 Robotics developers know app development inside-out, but deploying a robotics application can be challenging. It's not uncommon to compile the code on robots, copy/paste compiled packages and end up with unknown versions of software. Implementing an infrastructure to track and deploy software updates increases overhead and time, not guaranteeing a reliable and widely tested infrastructure. Providing security to each phase of deployment just increases the difficulty of the task. Our open source tools provide a complete DevOps infrastructure, secure, globally used and easy, and really easy to use.
 

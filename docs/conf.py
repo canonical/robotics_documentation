@@ -284,6 +284,7 @@ redirects = {
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://github.com/canonical/ACME/*",
+    r"https://developer\.hashicorp\.com/terraform.*",
     "https://linux.die.net/man/1/curl",
     "https://ubuntu.com/robotics/ros-esm#get-in-touch",
     "https://ubuntu.com/core/features/secure-boot#get-in-touch",
