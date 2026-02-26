@@ -313,3 +313,85 @@ Finally, import the file in Google Chrome as follows:
 After these steps,
 your browser will trust the certificate,
 allowing for full TLS.
+
+## Security considerations
+
+### Self-signed certificates are not suitable for all deployments
+
+The `self-signed-certificates` charm is appropriate for development, testing,
+and internal deployments where you control both the server and all devices.
+For production deployments exposed to untrusted networks,
+consider integrating Traefik with an externally trusted certificate authority instead,
+such as [Vault](https://charmhub.io/vault) or an ACME-based charm.
+Self-signed certificates cannot be validated by third parties
+and require manual CA distribution to every device and operator laptop.
+
+### Protect access to the Juju TLS model
+
+The CA private key managed by the `self-signed-certificates` charm
+is the root of trust for the entire deployment.
+Any operator with write access to the `tls` Juju model
+can issue certificates that will be trusted by all registered devices.
+Apply the principle of least privilege to Juju user permissions
+and restrict access to the `tls` model to authorised operators only.
+
+### Understand the scope of system-wide CA trust on devices
+
+Installing the CA certificate into `/usr/local/share/ca-certificates/`
+and running `update-ca-certificates` extends trust to **every process**
+running on that device, not only the COS agents.
+Any certificate signed by this CA will be accepted as valid by the entire OS.
+This is the intended behaviour for this deployment,
+but it means the CA private key must be kept secure.
+If the CA is compromised, all devices that have installed it must be considered at risk.
+
+### Device leaf certificates are not automatically renewed
+
+The `self-signed-certificates` charm handles automatic renewal
+of server-side certificates (Traefik, Grafana).
+Device leaf certificates, however, are issued at registration time
+and are not automatically renewed.
+If a device leaf certificate expires,
+the device will need to re-register with the server to obtain a new one.
+Monitor certificate validity in long-running deployments.
+
+### There is no certificate revocation mechanism for devices
+
+There is currently no certificate revocation list (CRL) or OCSP responder
+for device leaf certificates.
+If a device is decommissioned or suspected to be compromised,
+take the following steps:
+
+- Remove the device from the registration server database
+  to prevent further data ingestion.
+- If the device's private key may have been exposed,
+  the only way to invalidate all issued certificates is to rotate the CA.
+  This requires reinstalling the new CA certificate on every device and operator laptop,
+  and re-registering all devices.
+
+### Device private key is protected by snap isolation, not encryption at rest
+
+During registration, a private key and a CSR are generated on the device
+and the private key is stored in the `rob-cos-data-sharing` snap data directory.
+Snap data directories are owned by root and isolated between snaps
+through AppArmor and seccomp policies,
+which provides process-level protection.
+Physical access to the device remains a risk:
+consider enabling full-disk encryption on the robot's storage
+when the threat model requires it.
+
+### Foxglove bridge WebSocket is accessible on the local network
+
+The Foxglove bridge listens for WebSocket connections (WSS)
+using the device leaf certificate.
+By default, this port may be reachable by any host on the local network.
+Use firewall rules to restrict access to the Foxglove bridge port
+to trusted hosts only.
+
+### Ubuntu Core devices cannot use system-wide CA distribution
+
+The `update-ca-certificates` mechanism used in this guide
+works only on Ubuntu Desktop and Server.
+Devices running Ubuntu Core do not support this system-wide approach,
+and a suitable solution for Ubuntu Core is not yet available.
+Take this into account when planning your fleet's operating system.
