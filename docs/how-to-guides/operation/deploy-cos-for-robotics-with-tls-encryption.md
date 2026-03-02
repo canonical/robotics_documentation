@@ -316,15 +316,19 @@ allowing for full TLS.
 
 ## Security considerations
 
-### Self-signed certificates are not suitable for all deployments
+### Handle CA distribution carefully
 
-The `self-signed-certificates` charm is appropriate for development, testing,
-and internal deployments where you control both the server and all devices.
-For production deployments exposed to untrusted networks,
-consider integrating Traefik with an externally trusted certificate authority instead,
-such as [Vault](https://charmhub.io/vault) or an ACME-based charm.
-Self-signed certificates cannot be validated by third parties
-and require manual CA distribution to every device and operator laptop.
+The root CA certificate must be manually distributed to every device
+and operator laptop, as shown in this guide.
+Take care to transfer the CA file over a secure channel,
+verify its integrity before installing it,
+and never skip certificate validation to work around distribution issues —
+doing so defeats the purpose of TLS entirely.
+In large fleets or organisations with many operators,
+the overhead of maintaining this process securely is worth considering
+when choosing a TLS provider.
+Refer to the [Security with X.509 certificates](https://charmhub.io/topics/security-with-x-509-certificates)
+topic on Charmhub for guidance.
 
 ### Protect access to the Juju TLS model
 
@@ -351,21 +355,27 @@ The `self-signed-certificates` charm handles automatic renewal
 of server-side certificates (Traefik, Grafana).
 Device leaf certificates, however, are issued at registration time
 and are not automatically renewed.
+By default, device leaf certificates are valid for 90 days.
 If a device leaf certificate expires,
 the device will need to re-register with the server to obtain a new one.
-Monitor certificate validity in long-running deployments.
+Monitor certificate validity in long-running deployments,
+and consider adjusting the default validity period to suit your fleet's operational cycle.
 
 ### There is no certificate revocation mechanism for devices
 
 There is currently no certificate revocation list (CRL) or OCSP responder
 for device leaf certificates.
 If a device is decommissioned or suspected to be compromised,
-take the following steps:
+be aware of the following limitations:
 
-- Remove the device from the registration server database
-  to prevent further data ingestion.
+- The registration server is a configuration and listing service only.
+  Removing a device from it does not prevent a compromised device
+  from continuing to publish data, as there is no identity-based
+  access control on data ingestion.
 - If the device's private key may have been exposed,
-  the only way to invalidate all issued certificates is to rotate the CA.
+  the only way to invalidate all issued certificates is to rotate the CA
+  using the [`rotate-private-key`](https://charmhub.io/self-signed-certificates/actions) action
+  on the `self-signed-certificates` charm.
   This requires reinstalling the new CA certificate on every device and operator laptop,
   and re-registering all devices.
 
@@ -382,7 +392,7 @@ when the threat model requires it.
 
 ### Foxglove bridge WebSocket is accessible on the local network
 
-The Foxglove bridge listens for WebSocket connections (WSS)
+The Foxglove bridge listens for WSS (WebSocket over TLS) connections
 using the device leaf certificate.
 By default, this port may be reachable by any host on the local network.
 Use firewall rules to restrict access to the Foxglove bridge port
@@ -392,6 +402,6 @@ to trusted hosts only.
 
 The `update-ca-certificates` mechanism used in this guide
 works only on Ubuntu Desktop and Server.
-Devices running Ubuntu Core do not support this system-wide approach,
+Devices running Ubuntu Core do not support this system-wide approach yet,
 and a suitable solution for Ubuntu Core is not yet available.
 Take this into account when planning your fleet's operating system.
