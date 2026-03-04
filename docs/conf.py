@@ -198,9 +198,12 @@ sitemap_excludes = [
 # Template and asset locations
 #######################
 
-#html_static_path = ["_static"]
-#templates_path = ["_templates"]
-
+html_static_path = [
+    ".sphinx/_static",
+]
+templates_path = [
+    ".sphinx/_templates",
+]
 
 #############
 # Redirects #
@@ -281,6 +284,7 @@ redirects = {
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://github.com/canonical/ACME/*",
+    r"https://developer\.hashicorp\.com/terraform.*",
     "https://linux.die.net/man/1/curl",
     "https://ubuntu.com/robotics/ros-esm#get-in-touch",
     "https://ubuntu.com/core/features/secure-boot#get-in-touch",
@@ -349,15 +353,15 @@ extensions = [
 
 exclude_patterns = ["doc-cheat-sheet*", "content"]
 
-# Adds custom CSS files, located under 'html_static_path'
+# Add CSS files (located in .sphinx/_static/)
+html_css_files = [
+    "cookie-banner.css",
+]
 
-# html_css_files = []
-
-
-# Adds custom JavaScript files, located under 'html_static_path'
-
-# html_js_files = []
-
+# Add JavaScript files (located in .sphinx/_static/)
+html_js_files = [
+    "bundle.js",
+]
 
 # Specifies a reST snippet to be appended to each .rst file
 

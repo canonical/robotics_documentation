@@ -76,8 +76,10 @@ Please enter the device-uid:
 robot_1
 ```
 
-Please enter the `rob-cos-server-url`:
-`http://<cos-robotics-server-ip>/cos-robotics-model`
+```console
+Please enter the rob-cos-server-url:
+http://<cos-robotics-server-ip>/cos-robotics-model
+```
 
 The script will now proceed with the installation of all the required snaps.
 Upon completion,
