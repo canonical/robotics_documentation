@@ -75,6 +75,8 @@ It includes the following key components:
   – Handles logging for robotics devices.
 - [`Alert Manager`](https://charmhub.io/alertmanager-k8s)
   – Manages alerts and notifications.
+- [`Blackbox-exporter`](https://charmhub.io/blackbox-exporter-k8s)
+  – Blackbox probing of endpoints.
 - [`Grafana`](https://charmhub.io/grafana-k8s)
   – Provides dashboards for visualization.
 
@@ -188,7 +190,7 @@ sudo snap install terraform --classic
 First, let us retrieve the Terraform plan:
 
 ```console
-git clone --branch tf-provider-v0 https://github.com/canonical/rob-cos-overlay.git
+git clone --branch track/0 https://github.com/canonical/rob-cos-overlay.git
 cd rob-cos-overlay/terraform/rob-cos
 ```
 
@@ -212,6 +214,7 @@ Finally, deploy it with:
 terraform apply -var="model=cos-robotics-model"
 ```
 
+When prompted, type "yes" to confirm.
 Now you can sit back and watch the deployment take place:
 
 ```bash
@@ -221,7 +224,7 @@ juju status --watch 5s --color --relations
 COS will be ready to use when the `juju status` shows
 all the machines active and the agents idle as follow:
 
-![image](https://assets.ubuntu.com/v1/97b37234-juju_status.png)
+![image](./juju-status.jpg)
 
 Now {{ COS_ROB }} is good to go:
 you can register devices to it to begin the monitoring!
@@ -250,7 +253,7 @@ From the `proxied` endpoints, the catalogue URL should be similar to:
 Now by navigating to the catalogue URL in your browser,
 the catalogue of all the available application will be displayed:
 
-![image](https://assets.ubuntu.com/v1/32e58421-catalogue.png)
+![image](./catalogue.jpg)
 
 #### Grafana login
 

@@ -40,13 +40,15 @@ Before diving into the device setup,
 let’s ensure that the device can reach the server on the network.
 To connect devices across different networks, a VPN between the robots and
 the server could be used but is not mandatory.
-Let’s do so by initiating a ping from the device to the server:
+Let’s do so by initiating a `curl` from the device to the server:
 
 ```bash
-ping <cos-robotics-server-ip>
+curl http://<cos-robotics-server-ip>/cos-robotics-model-cos-registration-server/api/v1/health
 ```
 
-Make sure the above ping works in both directions,
+If the command returns without errors, connectivity is correct.
+
+Make sure the request works from the device to the server,
 otherwise the rest of the guide cannot be executed.
 Now it’s time to set up and register the device!
 
@@ -56,7 +58,7 @@ A convenience script has been created to install all the required snaps on the d
 Download the script as follows:
 
 ```bash
-curl -L https://raw.githubusercontent.com/canonical/rob-cos-device-setup/main/setup-robcos-device.sh -O
+curl -L https://raw.githubusercontent.com/canonical/rob-cos-device-setup/track/0/setup-robcos-device.sh -O
 ```
 
 And run it with:
@@ -92,12 +94,12 @@ Now let’s verify that the device has been correctly configured and registered.
 On the browser, access the catalogue and click on the COS-registration-server app.
 The registered robot should be now available in the devices list:
 
-![image](https://assets.ubuntu.com/v1/f9186111-device_list.png)
+![image](./device-list.jpg)
 
 By clicking on the robot `UID`, a page will open,
 displaying all the links to the robot's data:
 
-![image](https://assets.ubuntu.com/v1/4f023ed9-application_links.png)
+![image](./application-list-per-device.jpg)
 
 From this page,
 each link will redirect you to the corresponding dashboard for
@@ -108,27 +110,8 @@ An example visualization of Grafana linux-system dashboard is provided below:
 
 ![image](https://assets.ubuntu.com/v1/272088f7-grafana_data_dashboard_cos.png)
 
-The Bag Files link will redirect you to the list of bag files,
-which can be selected and copied into Foxglove Studio for visualization and analysis.
-The bag files will look as follows:
-
-![image](https://assets.ubuntu.com/v1/4f0967c9-rosbag_list_cos.png)
-
-**Note**: by default the ros2bag file recording is enabled,
-so the agent will start pushing bags to the server.
-At first,
-it is **recommended** to disable the service to avoid filling up the server disk.
-To do so, run the following command:
-
-```bash
-sudo snap stop ros2-exporter-agent.recorder
-```
-
-The service can then be enabled with:
-
-```bash
-sudo snap start ros2-exporter-agent.recorder
-```
-
 This is it,
 now your device is registered and being correctly monitored via {{ COS_ROB }}!
+
+If you want to start storing ROS 2 bags, check the following How-to guide:
+- [Host a basic file server for your rosbags](../../how-to-guides/operation/deploy-caddy.md)
