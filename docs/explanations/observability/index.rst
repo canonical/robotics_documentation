@@ -27,3 +27,4 @@ into one monitoring and data-sharing pipeline.
    what-is-cos-for-robotics
    alert-rules-configuration-from-device
    components-explanations
+   security-considerations-for-cos
