@@ -75,7 +75,7 @@ It includes the following key components:
   – Handles logging for robotics devices.
 - [`Alert Manager`](https://charmhub.io/alertmanager-k8s)
   – Manages alerts and notifications.
-- [`Blackbox-exporter`](https://charmhub.io/blackbox-exporter-k8s)
+- [`Blackbox exporter`](https://charmhub.io/blackbox-exporter-k8s)
   – Blackbox probing of endpoints.
 - [`Grafana`](https://charmhub.io/grafana-k8s)
   – Provides dashboards for visualization.
