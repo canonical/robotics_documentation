@@ -107,6 +107,7 @@ rosparam
 rostopic
 Rviz
 sandboxed
+seccomp
 scalability
 scalable
 scalable

@@ -313,3 +313,10 @@ Finally, import the file in Google Chrome as follows:
 After these steps,
 your browser will trust the certificate,
 allowing for full TLS.
+
+## Security considerations
+
+Before and after deploying {{ COS_ROB }} with TLS,
+review the [Security considerations for {{ COS_ROB }}](../../explanations/observability/security-considerations-for-cos.md)
+page for important guidance on CA distribution, certificate renewal,
+device key protection, and known limitations.
