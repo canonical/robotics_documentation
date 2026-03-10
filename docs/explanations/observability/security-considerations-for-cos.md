@@ -17,7 +17,7 @@ make informed decisions when planning and maintaining your deployment.
 
 The root CA certificate must be manually distributed to every device
 and operator laptop, as shown in the
-[Enable TLS encryption in {{ COS_ROB }}](../../how-to-guides/operation/deploy-cos-for-robotics-with-tls-encryption.md) guide.
+[Enable TLS encryption in {{ COS_ROB }}](../../how-to-guides/operation/deploy-cos-for-robotics-with-tls-encryption.md).
 Take care to transfer the CA file over a secure channel,
 verify its integrity before installing it,
 and never skip certificate validation to work around distribution issues —
@@ -71,8 +71,8 @@ be aware of the following limitations:
   from continuing to publish data, as there is no identity-based
   access control on data ingestion.
 - If the device's private key may have been exposed,
-  the only way to invalidate all issued certificates is to rotate the CA
-  using the [`rotate-private-key`](https://charmhub.io/self-signed-certificates/actions) action
+  the only way to invalidate all issued certificates is to rotate the CA using the
+  [`rotate-private-key`](https://charmhub.io/self-signed-certificates/actions) action
   on the `self-signed-certificates` charm.
   This requires reinstalling the new CA certificate on every device and operator laptop,
   and re-registering all devices.
