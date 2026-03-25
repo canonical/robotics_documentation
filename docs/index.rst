@@ -16,7 +16,7 @@ Robotics Documentation
 
 **Robotics developers shouldn't have to become DevOps engineers.** Our open source tools take this complexity off your plate, so you can focus on building great robots.
 
-**The Canonical Robotics stack is for robotics developers and integrators** who need to ship robot applications reliably – without building deployment infrastructure from scratch.
+**The Canonical Robotics stack is for robotics developers and integrators** who need to ship robot applications reliably – without building their infrastructure from scratch.
 
 In this documentation
 =====================
