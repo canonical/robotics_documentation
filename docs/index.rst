@@ -26,6 +26,7 @@ In this documentation
 * **Observability & monitoring:** :doc:`What is COS for robotics <explanations/observability/what-is-cos-for-robotics>` | :doc:`COS components <explanations/observability/components-explanations>` | :doc:`Alert rules configuration <explanations/observability/alert-rules-configuration-from-device>` | :doc:`Deploy COS with TLS encryption <how-to-guides/operation/deploy-cos-for-robotics-with-tls-encryption>`
 * **Security:** :doc:`Harden your robot <how-to-guides/security/hardening-your-robot>` | :doc:`What is ROS ESM <explanations/security/what-is-ros-esm>` | :doc:`Security vulnerability audits <explanations/security/security-audits>` | :doc:`Security considerations for COS <explanations/observability/security-considerations-for-cos>`
 * **Maintenance & operations:** :doc:`Dedicated Snap Store <explanations/dedicated-snap-store>` | :doc:`Observe COS for robotics <how-to-guides/operation/observe-cos-rob>` | :doc:`Enable ROS ESM <how-to-guides/maintenance/enable-ros-esm>` | :doc:`Check if a CVE is fixed <how-to-guides/maintenance/check-cves>`
+
 How this documentation is organized
 -------------------------------------
 
