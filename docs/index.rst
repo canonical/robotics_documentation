@@ -14,7 +14,7 @@ Robotics Documentation
 
 **The Canonical Robotics stack is your end-to-end infrastructure, from first build to global fleet.** Ubuntu Core and Snaps give you a reliable, production-grade foundation for packaging and deploying ROS applications. COS for Robotics is your observability suite for monitoring robots in the field. And with ROS ESM, you get guaranteed security maintenance for your ROS environment, long after upstream end-of-life.
 
-**Robotics developers shouldn't have to become DevOps engineers.** Our open source tools take the infrastructure burden off your plate, so you can focus on building great robots.
+**Robotics developers shouldn't have to become DevOps engineers.** Our open source tools take this complexity off your plate, so you can focus on building great robots.
 
 **The Canonical Robotics stack is for robotics developers and integrators** who need to ship robot applications reliably – without building deployment infrastructure from scratch.
 
