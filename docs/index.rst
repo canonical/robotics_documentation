@@ -12,19 +12,19 @@ Robotics Documentation
 
 **Ubuntu gives robotics teams a complete, production-grade platform** to package, deploy, and maintain robot software at scale.
 
-**Ubuntu Core, Snaps, ROS ESM, and the Dedicated Snap Store work together** to provide secure, reliable infrastructure for building, distributing, and updating robot applications — from a single device to a global fleet.
+**The Canonical Robotics stack is your end-to-end infrastructure, from first build to global fleet.** Ubuntu Core and Snaps give you a reliable, production-grade foundation for packaging and deploying ROS applications. COS for Robotics is your observability suite for monitoring robots in the field. And with ROS ESM, you get guaranteed security maintenance for your ROS environment, long after upstream end-of-life.
 
 **Robotics developers shouldn't have to become DevOps engineers.** Our open source tools take the infrastructure burden off your plate, so you can focus on building great robots.
 
-**This platform is for software developers and system integrators** who need to ship robot applications reliably – without building deployment infrastructure from scratch.
+**The Canonical Robotics stack is for robotics developers and integrators** who need to ship robot applications reliably – without building deployment infrastructure from scratch.
 
 In this documentation
 =====================
 
 * **First Steps:** :doc:`Canonical Robotics Stack overview <references/ref_architecture/reference_architecture>` 
 * **Packaging & distribution:** :doc:`Package a ROS application as a snap <tutorials/snaps-core/packaging-ros-application-as-snap>` |  :doc:`ROS architectures with snaps <explanations/snaps/ros-architectures-with-snaps>` | :doc:`Deploy a robot with snaps and Ubuntu Core <tutorials/snaps-core/index>` | :doc:`Migrate from Docker to snap <how-to-guides/packaging/migrate_from_docker_to_snap>` | :doc:`Snapcraft plugins <references/snapcraft/plugins>` and :doc:`extensions <references/snapcraft/extensions>` for ROS
+* **Security & long term support:** :doc:`Harden your robot <how-to-guides/security/hardening-your-robot>` | :doc:`What is ESM for ROS <explanations/security/what-is-ros-esm>` | :doc:`Security vulnerability audits <explanations/security/security-audits>` | :doc:`Check if a CVE is fixed <how-to-guides/maintenance/check-cves>`
 * **Observability & monitoring:** :doc:`Observability for robotics <explanations/observability/what-is-cos-for-robotics>` | :doc:`Monitor your robot fleet with observability for robotics <tutorials/observability/index>` | :doc:`Alert rules configuration <explanations/observability/alert-rules-configuration-from-device>` | :doc:`Deploy COS with TLS encryption <how-to-guides/operation/deploy-cos-for-robotics-with-tls-encryption>`
-* **Security:** :doc:`Harden your robot <how-to-guides/security/hardening-your-robot>` | :doc:`What is ESM for ROS <explanations/security/what-is-ros-esm>` | :doc:`Security vulnerability audits <explanations/security/security-audits>` | :doc:`Check if a CVE is fixed <how-to-guides/maintenance/check-cves>`
 
 How this documentation is organized
 -------------------------------------
@@ -60,7 +60,7 @@ How this documentation is organized
 Project and community
 =====================
 
-Snap, snapcraft and Ubuntu Core projects are members of the Ubuntu family. They are open source projects that warmly welcome community projects, contributions, suggestions, fixes and constructive feedback.
+The Canonical Robotics stack is part of the Ubuntu family. Its products are open source projects that warmly welcome community contributions, suggestions, fixes and constructive feedback.
 
 * `Our Code of Conduct <https://ubuntu.com/community/ethos/code-of-conduct>`_
 * `Community engagement commitment <https://documentation.ubuntu.com/core/explanation/community-engagement/>`_
@@ -69,7 +69,7 @@ Snap, snapcraft and Ubuntu Core projects are members of the Ubuntu family. They 
 * `Interactive chat on Matrix.org <https://ubuntu.com/community/communications/matrix>`_
 * `Product roadmap <https://snapcraft.io/docs/snapd-roadmap>`_
 
-Thinking about using the Canonical Robotics stack for your next project? `Get in touch! <https://ubuntu.com/core/contact-us>`_
+Thinking about using the Canonical Robotics stack for your next project? `Get in touch! <https://ubuntu.com/robotics#get-in-touch>`_
 
 .. _heading--navigation:
 
