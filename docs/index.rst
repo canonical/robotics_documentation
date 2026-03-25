@@ -21,11 +21,10 @@ Robotics Documentation
 In this documentation
 =====================
 
-* **First Steps:** :doc:`Canonical Robotics Stack overview <references/ref_architecture/reference_architecture>` | :doc:`Package a ROS application as a snap <tutorials/snaps-core/packaging-ros-application-as-snap>` | `Observability for robotics <explanations/observability/what-is-cos-for-robotics>`
-* **Packaging & distribution:**  :doc:`ROS architectures with snaps <explanations/snaps/ros-architectures-with-snaps>` | :doc:`Deploy a robot with snaps and Ubuntu Core <tutorials/snaps-core/index>` | :doc:`Migrate from Docker to snap <how-to-guides/packaging/migrate_from_docker_to_snap>` | :doc:`Snapcraft plugins <references/snapcraft/plugins>` and :doc:`extensions <references/snapcraft/extensions>` for ROS
-* **Observability & monitoring:**  :doc:`Monitor your robot fleet with COS for robotics <tutorials/observability/index>` | :doc:`Alert rules configuration <explanations/observability/alert-rules-configuration-from-device>` | :doc:`Deploy COS with TLS encryption <how-to-guides/operation/deploy-cos-for-robotics-with-tls-encryption>`
-* **Security:** :doc:`Harden your robot <how-to-guides/security/hardening-your-robot>` | :doc:`What is ROS ESM <explanations/security/what-is-ros-esm>` | :doc:`Security vulnerability audits <explanations/security/security-audits>` | :doc:`Security considerations for COS <explanations/observability/security-considerations-for-cos>`
-* **Maintenance & operations:** :doc:`Dedicated Snap Store <explanations/dedicated-snap-store>` | :doc:`Observe COS for robotics <how-to-guides/operation/observe-cos-rob>` | :doc:`Enable ROS ESM <how-to-guides/maintenance/enable-ros-esm>` | :doc:`Check if a CVE is fixed <how-to-guides/maintenance/check-cves>`
+* **First Steps:** :doc:`Canonical Robotics Stack overview <references/ref_architecture/reference_architecture>` 
+* **Packaging & distribution:** :doc:`Package a ROS application as a snap <tutorials/snaps-core/packaging-ros-application-as-snap>` |  :doc:`ROS architectures with snaps <explanations/snaps/ros-architectures-with-snaps>` | :doc:`Deploy a robot with snaps and Ubuntu Core <tutorials/snaps-core/index>` | :doc:`Migrate from Docker to snap <how-to-guides/packaging/migrate_from_docker_to_snap>` | :doc:`Snapcraft plugins <references/snapcraft/plugins>` and :doc:`extensions <references/snapcraft/extensions>` for ROS
+* **Observability & monitoring:** :doc:`Observability for robotics <explanations/observability/what-is-cos-for-robotics>` | :doc:`Monitor your robot fleet with observability for robotics <tutorials/observability/index>` | :doc:`Alert rules configuration <explanations/observability/alert-rules-configuration-from-device>` | :doc:`Deploy COS with TLS encryption <how-to-guides/operation/deploy-cos-for-robotics-with-tls-encryption>`
+* **Security:** :doc:`Harden your robot <how-to-guides/security/hardening-your-robot>` | :doc:`What is ESM for ROS <explanations/security/what-is-ros-esm>` | :doc:`Security vulnerability audits <explanations/security/security-audits>` | :doc:`Check if a CVE is fixed <how-to-guides/maintenance/check-cves>`
 
 How this documentation is organized
 -------------------------------------
@@ -70,7 +69,7 @@ Snap, snapcraft and Ubuntu Core projects are members of the Ubuntu family. They 
 * `Interactive chat on Matrix.org <https://ubuntu.com/community/communications/matrix>`_
 * `Product roadmap <https://snapcraft.io/docs/snapd-roadmap>`_
 
-Thinking about using Ubuntu Core for your next project? `Get in touch! <https://ubuntu.com/core/contact-us>`_
+Thinking about using the Canonical Robotics stack for your next project? `Get in touch! <https://ubuntu.com/core/contact-us>`_
 
 .. _heading--navigation:
 
