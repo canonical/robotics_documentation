@@ -10,15 +10,24 @@ Robotics Documentation
   references/index
   explanations/index
 
-From development to deployment, all you need in one single platform. Ubuntu provides robotics companies with a worldwide-use infrastructure to deploy and maintain your robot.
+**Ubuntu gives robotics teams a complete, production-grade platform** to package, deploy, and maintain robot software at scale.
 
-`Ubuntu Core <https://ubuntu.com/core/docs>`__ and `Snaps <https://snapcraft.io/docs/robotics>`__ are the tools used by global organisations to deploy and manage their software on embedded devices. 
-Ubuntu Core is the optimised version of Ubuntu for edge devices and robotics.
-Snaps, the de facto container for packaging software on Ubuntu, are enhanced to support ROS applications. Finally, together with the `Dedicated Snap Store <https://ubuntu.com/internet-of-things/appstore>`_, businesses can manage software updates in their fleet of devices using a globally distributed and reliable infrastructure.
+**Ubuntu Core, Snaps, ROS ESM, and the Dedicated Snap Store work together** to provide secure, reliable infrastructure for building, distributing, and updating robot applications — from a single device to a global fleet.
 
-Robotics developers know app development inside-out, but deploying a robotics application can be challenging. It's not uncommon to compile the code on robots, copy/paste compiled packages and end up with unknown versions of software. Implementing an infrastructure to track and deploy software updates increases overhead and time, not guaranteeing a reliable and widely tested infrastructure. Providing security to each phase of deployment just increases the difficulty of the task. Our open source tools provide a complete DevOps infrastructure, secure, globally used and easy, and really easy to use.
+**Robotics developers shouldn't have to become DevOps engineers.** Our open source tools take the infrastructure burden off your plate, so you can focus on building great robots.
 
-Ubuntu Core is the OS for anyone building embedded Linux devices. Snaps are the best way of packaging and distributing software compatible with dozens of Linux distributions. Dedicated Snap Store is the platform for companies looking for a production-grade software management solution.
+**This platform is for software developers and system integrators** who need to ship robot applications reliably – without building deployment infrastructure from scratch.
+
+In this documentation
+=====================
+
+* **First Steps:** :doc:`Canonical Robotics Stack overview <references/ref_architecture/reference_architecture>` | :doc:`Deploy a robot with snaps and Ubuntu Core <tutorials/snaps-core/index>` | :doc:`Monitor your robot fleet with COS for robotics <tutorials/observability/index>`
+* **Packaging & distribution:** :doc:`Package a ROS application as a snap <tutorials/snaps-core/packaging-ros-application-as-snap>` | :doc:`ROS architectures with snaps <explanations/snaps/ros-architectures-with-snaps>` | :doc:`Migrate from Docker to snap <how-to-guides/packaging/migrate_from_docker_to_snap>` | :doc:`Snapcraft plugins <references/snapcraft/plugins>` and :doc:`extensions <references/snapcraft/extensions>` for ROS
+* **Observability & monitoring:** :doc:`What is COS for robotics <explanations/observability/what-is-cos-for-robotics>` | :doc:`COS components <explanations/observability/components-explanations>` | :doc:`Alert rules configuration <explanations/observability/alert-rules-configuration-from-device>` | :doc:`Deploy COS with TLS encryption <how-to-guides/operation/deploy-cos-for-robotics-with-tls-encryption>`
+* **Security:** :doc:`Harden your robot <how-to-guides/security/hardening-your-robot>` | :doc:`What is ROS ESM <explanations/security/what-is-ros-esm>` | :doc:`Security vulnerability audits <explanations/security/security-audits>` | :doc:`Security considerations for COS <explanations/observability/security-considerations-for-cos>`
+* **Maintenance & operations:** :doc:`Dedicated Snap Store <explanations/dedicated-snap-store>` | :doc:`Observe COS for robotics <how-to-guides/operation/observe-cos-rob>` | :doc:`Enable ROS ESM <how-to-guides/maintenance/enable-ros-esm>` | :doc:`Check if a CVE is fixed <how-to-guides/maintenance/check-cves>`
+How this documentation is organized
+-------------------------------------
 
 .. list-table::
    :header-rows: 0
@@ -51,22 +60,16 @@ Ubuntu Core is the OS for anyone building embedded Linux devices. Snaps are the 
 Project and community
 =====================
 
-Snap, snapcraft and Ubuntu Core Projects are members of the Ubuntu family. They are open source projects that warmly welcomes community projects, contributions, suggestions, fixes and constructive feedback.
-Get involved by:
+Snap, snapcraft and Ubuntu Core projects are members of the Ubuntu family. They are open source projects that warmly welcome community projects, contributions, suggestions, fixes and constructive feedback.
 
-* **Reporting bugs**: we want to know about the problems so we can fix them. If you find a bug while following any of the documentation pages, you can report this by following the link at the bottom of the page saying “Help improve this document in the forum”. You will be taken to the discourse page hosting the documentation that you want to report the bug. Simply log-in to your account and click on reply to leave a comment explaining the issue.
-* **Quality assurance**: before releasing new features we make a “Call for Testing” a week prior to each update reaching “stable”. This is your opportunity to discover and report any problems.
-* **Documentation**: there are lots of ways to use Canonical Robotics solutions and we try to describe the important ones, but maybe we missed yours. When you are following any of the documentation pages, you will find at the bottom of the page a link saying “Help improve this document in the forum”. By clicking there, you will be taken to the discourse page hosting the documentation that you want to help us improve. Simply log-in to your account and click on reply to leave a comment proposing improvement or anything else.
-* **Feature requests**: we have a lot of ideas on what to do next but you know what you need. If you want a change in the documentation, please read the bullet point above. If you want to request a feature for the technologies we covered in this documentation, you can do it in our GitHub repository.
-* **Code changes**: the code used in our documentation pages is open and we are open to accepting changes to it. So let’s work together. Please use GitHub issues and the PR mechanism to raise code problems and propose improvements.
-* **Requesting workshops**: If an organisation, open source community, or educational entity wants us to provide a workshop about the technologies covered on this documentation page, please `get in touch! <https://ubuntu.com/core/contact-us>`_
+* `Our Code of Conduct <https://ubuntu.com/community/ethos/code-of-conduct>`_
+* `Community engagement commitment <https://ubuntu.com/core/docs/community-engagement>`_
+* `How to get support <https://discourse.ubuntu.com/c/project/robotics/121>`_
+* `Join the Discourse forum <https://forum.snapcraft.io/c/device/10>`_
+* `Interactive chat on Matrix.org <https://matrix.to/#/#snapd:ubuntu.com>`_
+* `Product roadmap <https://snapcraft.io/docs/snapd-roadmap>`_
 
-Our projects are going to continue growing with our community. If you want to get involved:
-
-* `Code of conduct <https://ubuntu.com/community/ethos/code-of-conduct>`_
-* `Get support <https://discourse.ubuntu.com/c/project/robotics/121>`_
-
-Thinking about using one of these product for your next project? `Get in touch! <https://ubuntu.com/core/contact-us>`_
+Thinking about using Ubuntu Core for your next project? `Get in touch! <https://ubuntu.com/core/contact-us>`_
 
 .. _heading--navigation:
 
