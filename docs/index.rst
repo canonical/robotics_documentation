@@ -64,10 +64,10 @@ Project and community
 Snap, snapcraft and Ubuntu Core projects are members of the Ubuntu family. They are open source projects that warmly welcome community projects, contributions, suggestions, fixes and constructive feedback.
 
 * `Our Code of Conduct <https://ubuntu.com/community/ethos/code-of-conduct>`_
-* `Community engagement commitment <https://ubuntu.com/core/docs/community-engagement>`_
+* `Community engagement commitment <https://documentation.ubuntu.com/core/explanation/community-engagement/>`_
 * `How to get support <https://discourse.ubuntu.com/c/project/robotics/121>`_
 * `Join the Discourse forum <https://forum.snapcraft.io/c/device/10>`_
-* `Interactive chat on Matrix.org <https://matrix.to/#/#snapd:ubuntu.com>`_
+* `Interactive chat on Matrix.org <https://ubuntu.com/community/communications/matrix>`_
 * `Product roadmap <https://snapcraft.io/docs/snapd-roadmap>`_
 
 Thinking about using Ubuntu Core for your next project? `Get in touch! <https://ubuntu.com/core/contact-us>`_
