@@ -16,15 +16,15 @@ Robotics Documentation
 
 **Robotics developers shouldn't have to become DevOps engineers.** Our open source tools take this complexity off your plate, so you can focus on building great robots.
 
-**The Canonical Robotics stack is for robotics developers and integrators** who need to ship robot applications reliably – without building their infrastructure from scratch.
+**The Canonical Robotics stack is for robotics developers and integrators** who need to ship robot applications reliably on solid open-source foundations.
 
 In this documentation
 =====================
 
 * **First Steps:** :doc:`Canonical Robotics Stack overview <references/ref_architecture/reference_architecture>` 
 * **Packaging & distribution:** :doc:`Package a ROS application as a snap <tutorials/snaps-core/packaging-ros-application-as-snap>` |  :doc:`ROS architectures with snaps <explanations/snaps/ros-architectures-with-snaps>` | :doc:`Deploy a robot with snaps and Ubuntu Core <tutorials/snaps-core/index>` | :doc:`Migrate from Docker to snap <how-to-guides/packaging/migrate_from_docker_to_snap>` | :doc:`Snapcraft plugins <references/snapcraft/plugins>` and :doc:`extensions <references/snapcraft/extensions>` for ROS
-* **Security & long term support:** :doc:`Harden your robot <how-to-guides/security/hardening-your-robot>` | :doc:`What is ESM for ROS <explanations/security/what-is-ros-esm>` | :doc:`Security vulnerability audits <explanations/security/security-audits>` | :doc:`Check if a CVE is fixed <how-to-guides/maintenance/check-cves>`
 * **Observability & monitoring:** :doc:`Observability for robotics <explanations/observability/what-is-cos-for-robotics>` | :doc:`Monitor your robot fleet with observability for robotics <tutorials/observability/index>` | :doc:`Alert rules configuration <explanations/observability/alert-rules-configuration-from-device>` | :doc:`Deploy COS with TLS encryption <how-to-guides/operation/deploy-cos-for-robotics-with-tls-encryption>`
+* **Security & long term support:** :doc:`Harden your robot <how-to-guides/security/hardening-your-robot>` | :doc:`What is ESM for ROS <explanations/security/what-is-ros-esm>` | :doc:`Security vulnerability audits <explanations/security/security-audits>` | :doc:`Check if a CVE is fixed <how-to-guides/maintenance/check-cves>`
 
 How this documentation is organized
 -------------------------------------
@@ -64,10 +64,9 @@ The Canonical Robotics stack is part of the Ubuntu family. Its products are open
 
 * `Our Code of Conduct <https://ubuntu.com/community/ethos/code-of-conduct>`_
 * `Community engagement commitment <https://documentation.ubuntu.com/core/explanation/community-engagement/>`_
-* `How to get support <https://discourse.ubuntu.com/c/project/robotics/121>`_
-* `Join the Discourse forum <https://forum.snapcraft.io/c/device/10>`_
+* `Join the conversation <https://discourse.ubuntu.com/c/project/robotics/121>`_
+* `Join the Snap(craft) forum <https://forum.snapcraft.io/c/device/10>`_
 * `Interactive chat on Matrix.org <https://ubuntu.com/community/communications/matrix>`_
-* `Product roadmap <https://snapcraft.io/docs/snapd-roadmap>`_
 
 Thinking about using the Canonical Robotics stack for your next project? `Get in touch! <https://ubuntu.com/robotics#get-in-touch>`_
 
