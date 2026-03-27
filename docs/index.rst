@@ -60,7 +60,7 @@ How this documentation is organized
 Project and community
 =====================
 
-The Canonical Robotics stack is part of the Ubuntu family. Its products are open source projects that warmly welcome community contributions, suggestions, fixes and constructive feedback.
+The Canonical Robotics stack is part of the Ubuntu ecosystem. Its products are open source projects that warmly welcome community contributions, suggestions, fixes and constructive feedback.
 
 * `Our Code of Conduct <https://ubuntu.com/community/ethos/code-of-conduct>`_
 * `Community engagement commitment <https://documentation.ubuntu.com/core/explanation/community-engagement/>`_
