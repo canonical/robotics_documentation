@@ -89,6 +89,9 @@ of this large collection of demos.
 It then invokes a plain `ros2 launch` command to start the talker-listener demo.
 The last point to which I would like to draw your attention to is that this template
 uses `core24` and ROS 2 Jazzy.
+If you are targeting ROS 2 Lyrical instead, replace `core24` with `core26` and swap
+the extension and branch name from `ros2-jazzy-ros-core` / `jazzy` to
+`ros2-lyrical-ros-core` / `lyrical`.
 Should you be using a different ROS 2 distribution,
 you will find links to the documentation right at your fingertip to help you
 in your endeavor.

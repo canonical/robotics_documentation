@@ -30,6 +30,7 @@ Make sure that these are in good order before attempting to create a snap.
   * `core20` for ROS Noetic and ROS 2 Foxy.
   * `core22` for ROS 2 Humble.
   * `core24` for ROS 2 Jazzy.
+  * `core26` for ROS 2 Lyrical.
 
 ## For ROS 1, do I have to expose `roscore` from my snap?
 
