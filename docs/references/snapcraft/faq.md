@@ -23,7 +23,7 @@ Make sure that these are in good order before attempting to create a snap.
   This tool builds and tests your ROS workspace inside an ephemeral,
   isolated container with a clean ROS environment.
 
-## Which base should I use (`core18`, `core20`, `core22` or `core24`)?
+## Which base should I use (`core18`, `core20`, `core22`, `core24` or `core26`)?
 
 * You should use the base that corresponds to your ROS version. That is,
   * `core18` for ROS Melodic and ROS 2 Dashing.
