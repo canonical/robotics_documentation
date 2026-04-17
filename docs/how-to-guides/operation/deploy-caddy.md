@@ -24,7 +24,7 @@ can push rosbags for later use.
 To deploy Caddy, hit the following command:
 
 ```console
-juju deploy ros2bag-fileserver-k8s --resource caddy-fileserver-image=ghcr.io/ubuntu-robotics/ros2bag-fileserver:dev --storage database:=10G --config ssh-port=2222
+juju deploy ros2bag-fileserver-k8s --resource caddy-fileserver-image=ghcr.io/ubuntu-robotics/ros2bag-fileserver:dev --storage database:=10G --config ssh-port=2222 --channel=0/stable
 ```
 
 Once deployed,
