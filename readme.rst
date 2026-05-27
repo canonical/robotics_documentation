@@ -23,8 +23,8 @@ directory:
 
 .. code-block:: sh
 
-   git clone git@github.com:canonical/robotics_documentation <new-repository-name>
-   cd <new-repository-name>
+   git clone git@github.com:canonical/robotics_documentation
+   cd robotics_documentation
 
 Now build the documentation with the following command. This will create a virtual
 environment, install the software dependencies, and build the documentation:
