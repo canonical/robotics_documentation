@@ -76,12 +76,6 @@ pack* and *Work with your documentation* post-enablement.
 
 - `Enable the starter pack`_
 
-  * `Initialise your repository`_
-
-    + `Standalone documentation repository`_
-    + `Documentation in a code repository`_
-    + `Automation`_
-
   * `Build the documentation`_
   * `Configure the documentation`_
 
@@ -128,95 +122,6 @@ We're planning to provide the contents of this repository as an installable pack
 See the `Read the Docs at Canonical <https://library.canonical.com/documentation/read-the-docs>`_ and
 `How to publish documentation on Read the Docs <https://library.canonical.com/documentation/publish-on-read-the-docs>`_ guides for
 instructions on how to get started with Sphinx documentation.
-
-Initialise your repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You can either create a standalone documentation project based on this repository or include the files from this repository in a dedicated documentation folder in an existing code repository. The next two sections show the steps needed for each scenario.
-
-See the `Automation`_ section if you would like to have this done via a shell script.
-
-Standalone documentation repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To create a standalone documentation repository, clone this starter pack
-repository, `update the configuration <#configure-the-documentation>`_, and
-then commit all files to the documentation repository.
-
-You don't need to move any files, and you don't need to do any special
-configuration on Read the Docs.
-
-Here is one way to do this for newly-created fictional docs repository
-``canonical/alpha-docs``:
-
-.. code-block:: none
-
-   git clone git@github.com:canonical/sphinx-stack alpha-docs
-   cd alpha-docs
-   rm -rf .git
-   rm -f .github/workflows/sphinx-python-dependency-build-checks.yml
-   git init
-   git branch -m main
-   UPDATE THE CONFIGURATION AND BUILD THE DOCS
-   git add -A
-   git commit -m "Import sphinx-stack"
-   git remote add upstream git@github.com:canonical/alpha-docs
-   git push -f upstream main
-
-Documentation in a code repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To add documentation to an existing code repository:
-
-#. Create a directory called :file:`docs` at the root of the code repository.
-#. Populate the above directory with the contents of the starter pack
-   repository (with the exception of the :file:`.git` directory).
-#. Copy the :file:`docs/.github/workflows/automatic-doc-checks.yml` file into
-   the :file:`.github/workflows` directory in the root of the code repository.
-#. In the above workflow file(s), change the value of the
-   :file:`working-directory` field from ``.`` to ``docs``.
-#. Create a symbolic link to the :file:`docs/.wokeignore` file from the root
-   directory of the code repository.
-#. In the :file:`docs/.readthedocs.yaml` file, set the following:
-
-   * ``post_checkout: cd docs && python3 .sphinx/build_requirements.py``
-   * ``configuration: docs/conf.py``
-   * ``requirements: docs/.sphinx/requirements.txt``
-
-**Note:** When configuring RTD itself for your project, the setting \"Path for
-``.readthedocs.yaml``\" (under **Advanced Settings**) will need to be given the
-value of ``docs/.readthedocs.yaml``.
-
-Automation
-^^^^^^^^^^
-
-To automate the initialisation for either scenario ensure you have the following:
-
-- A GitHub repository where you want to host your documentation, cloned to your
-  local machine. The recommended approach is to host the documentation alongside
-  your code in a :file:`docs` folder. But a standalone documentation repository
-  is also an option; in this case, start with an empty repository.
-- Git and Bash installed on your system.
-
-There is a provided :file:`init.sh` Bash script that does the following:
-
-- Clones the starter pack GitHub repository.
-- Creates the specified installation directory (if necessary).
-- Updates working directory paths in workflow files, and updates configuration
-  paths in the :file:`.readthedocs.yaml` file.
-- Copies and moves contents and :file:`.github` files from the starter pack to
-  the installation directory.
-- Deletes the cloned repository when it\'s done.
-
-To use the script:
-
-#. Copy ``init.sh`` to your repository\'s root directory.
-#. Run the script: ``./init.sh``.
-#. Enter the installation directory when prompted. For standalone repositories,
-   enter ``.``. For documentation alongside code, enter the folder where your
-   documentation is (e.g. ``docs``).
-
-When the script completes, review all changes before committing them.
 
 Build the documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
