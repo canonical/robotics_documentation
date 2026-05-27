@@ -3,7 +3,7 @@ Robotics Documentation
 
 
 
-*Canonical Robotics documentation, built with Sphinx and bootstrapped from the Canonical sphinx-stack template.*
+*Canonical Robotics documentation, built with Sphinx and bootstrapped from the `Canonical sphinx-stack template <https://github.com/canonical/sphinx-stack>`_.*
 
 This Robotics Documentation repository includes:
 
