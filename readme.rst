@@ -4,7 +4,7 @@ Robotics Documentation
 This repository contains the documentation for the Canonical Robotics stack.
 
 It was originally bootstrapped from the
-`canonical/sphinx-docs-starter-pack <https://github.com/canonical/sphinx-docs-starter-pack>`_
+`canonical/sphinx-stack <https://github.com/canonical/sphinx-stack>`_
 template, and is now maintained as a project-specific documentation set.
 
 What this repo is
@@ -21,7 +21,7 @@ What this repo is not
 - Not a source of truth for template-wide guidance
 
 For template-level guidance and updates, see:
-`canonical/sphinx-docs-starter-pack <https://github.com/canonical/sphinx-docs-starter-pack>`_
+`canonical/sphinx-stack <https://github.com/canonical/sphinx-stack>`_
 
 Quick start
 -----------
