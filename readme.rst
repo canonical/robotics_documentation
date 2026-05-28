@@ -35,11 +35,11 @@ Install the core tools used by the local documentation workflow:
    sudo apt update
    sudo apt install make python3 python3-venv python3-pip
 
-Some optional checks also require additional tooling:
+The optional accessibility check requires additional tooling:
 
 .. code-block:: bash
 
-   sudo apt install npm snapd
+   sudo apt install npm
 
 Local setup
 ~~~~~~~~~~~
