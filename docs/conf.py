@@ -218,8 +218,11 @@ linkcheck_anchors_ignore_for_url = [
     r"https://ubuntu.com/core/features/secure-boot#get-in-touch",
 ]
 
-# Give linkcheck multiple tries on failure.
+# Give linkcheck multiple tries on transient failure.
 linkcheck_retries = 3
+
+# Reduce parallelism to avoid remote rate limits/connection resets in CI.
+linkcheck_workers = 1
 
 ########################
 # Configuration extras #
