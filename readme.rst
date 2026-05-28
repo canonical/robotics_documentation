@@ -5,7 +5,8 @@ Source for the Ubuntu Robotics documentation site, built with Sphinx and bootstr
 
 This repository contains the documentation for Canonical's Ubuntu Robotics stack,
 including packaging and distribution with snaps, observability with COS for
-Robotics, security hardening, and ROS ESM guidance.
+Robotics, security hardening, and ROS ESM guidance. You can browse the published
+site at `canonical-robotics.readthedocs-hosted.com <https://canonical-robotics.readthedocs-hosted.com/en/latest/>`__.
 
 Repository layout
 -----------------
