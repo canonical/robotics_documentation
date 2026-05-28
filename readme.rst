@@ -10,17 +10,17 @@ Robotics, security hardening, and ROS ESM guidance.
 Repository layout
 -----------------
 
-The documentation source lives under :file:`docs/`.
+The documentation source lives under `docs/ <docs/>`__.
 
 Key locations:
 
-* :file:`docs/index.rst` - documentation home page
-* :file:`docs/tutorials/` - guided, learning-oriented tutorials
-* :file:`docs/how-to-guides/` - task-focused maintenance and operations guides
-* :file:`docs/references/` - reference material
-* :file:`docs/explanations/` - conceptual background
-* :file:`docs/Makefile` - local build, preview, and validation targets
-* :file:`.github/workflows/` - CI checks that run for documentation changes
+* `docs/index.rst <docs/index.rst>`__ - documentation home page
+* `docs/tutorials/ <docs/tutorials/>`__ - guided, learning-oriented tutorials
+* `docs/how-to-guides/ <docs/how-to-guides/>`__ - task-focused maintenance and operations guides
+* `docs/references/ <docs/references/>`__ - reference material
+* `docs/explanations/ <docs/explanations/>`__ - conceptual background
+* `docs/Makefile <docs/Makefile>`__ - local build, preview, and validation targets
+* `.github/workflows/ <.github/workflows/>`__ - CI checks that run for documentation changes
 
 Contributing
 ------------
@@ -44,7 +44,7 @@ Some optional checks also require additional tooling:
 Local setup
 ~~~~~~~~~~~
 
-From :file:`docs/`, create the virtual environment and install dependencies:
+From `docs/ <docs/>`__, create the virtual environment and install dependencies:
 
 .. code-block:: bash
 
@@ -120,7 +120,7 @@ Optional accessibility check:
    make pa11y
 
 GitHub Actions also run documentation checks for pull requests that touch
-:file:`docs/`.
+`docs/ <docs/>`__.
 
 Maintainer pull request workflow
 --------------------------------
@@ -134,7 +134,7 @@ maintainer workflow looks like this:
    git worktree add ../robotics_documentation-my-change -b docs/my-change origin/main
    cd ../robotics_documentation-my-change
 
-Make your changes, run the relevant checks from :file:`docs/`, then commit and
+Make your changes, run the relevant checks from `docs/ <docs/>`__, then commit and
 push your branch:
 
 .. code-block:: bash
@@ -153,12 +153,12 @@ Notes for maintainers
 
 * Keep repository-level guidance in this README focused on this documentation
   project, not on the upstream template.
-* If pages move, add redirects in :file:`docs/conf.py` so existing links keep
+* If pages move, add redirects in `docs/conf.py <docs/conf.py>`__ so existing links keep
   working.
-* Add project-specific spelling exceptions to :file:`docs/.custom_wordlist.txt`
+* Add project-specific spelling exceptions to `docs/.custom_wordlist.txt <docs/.custom_wordlist.txt>`__
   instead of editing shared upstream word lists.
 * When adjusting documentation structure, update the relevant index or toctree
-  pages under :file:`docs/`.
+  pages under `docs/ <docs/>`__.
 
 Resources
 ---------
