@@ -1,7 +1,7 @@
 #!/bin/bash
 # shellcheck disable=all
 
-VENV=".sphinx/venv/bin/activate"
+VENV=".venv/bin/activate"
 
 files=0
 words=0
@@ -11,15 +11,15 @@ readabilitySyllables=0
 readabilityAverage=0
 readable=true
 
-# measure number of files (.rst and .md), excluding those in .sphinx dir
-files=$(find . -type d -path './.sphinx' -prune -o -type f \( -name '*.md' -o -name '*.rst' \) -print | wc -l)
+# measure number of files (.rst and .md), excluding those in _dev dir
+files=$(find . -type d -path './_dev' -prune -o -type f \( -name '*.md' -o -name '*.rst' \) -print | wc -l)
 
 # calculate metrics only if source files are present
 if [ "$files" -eq 0 ]; then
     echo "There are no source files to calculate metrics"
 else
-    # measure raw total number of words, excluding those in .sphinx dir
-    words=$(find . -type d -path './.sphinx' -prune -o \( -name '*.md' -o -name '*.rst' \) -exec cat {} + | wc -w)
+    # measure raw total number of words, excluding those in _dev dir
+    words=$(find . -type d -path './_dev' -prune -o \( -name '*.md' -o -name '*.rst' \) -exec cat {} + | wc -w)
 
     # calculate readability for markdown source files
     echo "Activating virtual environment to run vale..."
