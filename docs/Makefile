@@ -22,7 +22,6 @@ VALE_CONFIG           ?= $(DEV_DIR)/vale.ini
 PA11Y_CMD             ?= $(DEV_DIR)/node_modules/pa11y/bin/pa11y.js --config $(DEV_DIR)/pa11y.json
 CONFIRM_SUDO          ?= N
 CHECK_PATH            ?= $(filter-out $(DOCS_VENVDIR) $(DOCS_BUILDDIR),$(wildcard *))
-METRICS_DIR           ?= $(DEV_DIR)/metrics
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -41,14 +40,13 @@ help:
 	@echo "* check accessibility:                       make pa11y"
 	@echo "* check style guide compliance:              make vale"
 	@echo "* check style guide compliance on target:    make vale CHECK_PATH=*"
-	@echo "* check metrics for documentation:           make allmetrics"
 	@echo "* other possible targets:                    make <TAB twice>"
 	@echo "-------------------------------------------------------------"
 	@echo
 
 .PHONY: help full-help html epub pdf linkcheck spelling spellcheck woke \
         vale pa11y run serve install pa11y-install \
-        vale-install pdf-prep pdf-prep-force clean clean-doc allmetrics \
+        vale-install pdf-prep pdf-prep-force clean clean-doc \
         update lint-md
 
 full-help: $(DOCS_VENVDIR)
@@ -184,15 +182,6 @@ pdf: pdf-prep
 	@echo
 	@echo "Output can be found in ./$(DOCS_BUILDDIR)"
 	@echo
-
-allmetrics: html
-	@echo "Recording documentation metrics..."
-	@echo "Checking for existence of vale..."
-	@. $(DOCS_VENV); test -d $(VALE_DIR) || pip install vale
-	@. $(DOCS_VENV); test -f $(VALE_CONFIG) || python3 $(DEV_DIR)/get_vale_conf.py
-	@. $(DOCS_VENV); find $(VALE_DIR)/vale_bin -size 195c -exec vale --config "$(VALE_CONFIG)" $(CHECK_PATH) > /dev/null \;
-	@eval '$(METRICS_DIR)/source_metrics.sh $(PWD)'
-	@. $(DOCS_VENV); python3 $(METRICS_DIR)/build_metrics.py $(DOCS_BUILDDIR)
 
 update: install
 	@. $(DOCS_VENV); $(DEV_DIR)/update_sp.py
