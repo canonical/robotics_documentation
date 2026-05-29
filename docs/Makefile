@@ -161,7 +161,7 @@ spelling: vale-install
 	@cat $(DOCS_VOCAB)/accept_backup.txt > $(DOCS_VOCAB)/accept.txt && rm $(DOCS_VOCAB)/accept_backup.txt
 
 spellcheck: spelling
-	@echo "Please note that the `make spellcheck` command is being deprecated in favor of `make spelling`"
+	@echo 'Please note that the "make spellcheck" command is being deprecated in favor of "make spelling"'
 
 pdf-prep: install
 	@for packageName in $(DOCS_PDFPACKAGES); do (dpkg-query -W -f='$${Status}' $$packageName 2>/dev/null | \
