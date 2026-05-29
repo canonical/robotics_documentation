@@ -34,7 +34,9 @@ copyright = f"{datetime.date.today().year} CC-BY-SA, {author}"
 html_title = project + " documentation"
 
 # Documentation website URL
-ogp_site_url = "https://canonical-robotics.readthedocs-hosted.com/"
+ogp_site_url = os.environ.get(
+    "READTHEDOCS_CANONICAL_URL", "https://canonical-robotics.readthedocs-hosted.com/"
+)
 
 # Preview name of the documentation website
 # TODO: To use a different name for the project in previews, update the next line.
@@ -46,7 +48,7 @@ ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 
 # Product favicon; shown in bookmarks, browser tabs, etc.
 # TODO: To customise the favicon, uncomment and update the next line.
-# html_favicon = ".sphinx/_static/favicon.png"
+# html_favicon = "_static/favicon.png"
 
 # Dictionary of values to pass into the Sphinx context for all pages:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_context
