@@ -115,8 +115,8 @@ sitemap_excludes = [
 # Template and asset locations #
 ################################
 
-html_static_path = ["_dev/_static"]
-templates_path = ["_dev/_templates"]
+html_static_path = ["_static"]
+templates_path = ["_templates"]
 
 #############
 # Redirects #
