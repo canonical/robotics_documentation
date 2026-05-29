@@ -122,8 +122,11 @@ templates_path = ["_templates"]
 # Redirects #
 #############
 
-# Keep using the existing in-repo redirects mapping while remaining on
-# sphinx-reredirects for this repository.
+# Known divergence from upstream sphinx-stack template:
+# keep using the existing in-repo redirects mapping with sphinx-reredirects
+# (inline ``redirects`` dict) rather than sphinx-rerediraffe + redirects.txt.
+# Preserve this intentionally during future stack updates unless migrating
+# redirect tooling is a deliberate decision.
 redirects = {
     # The migration from Discourse to ReadTheDocs stripped the 'docs/' prefix
     "docs/tutorials/": "../../tutorials/",

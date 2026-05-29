@@ -153,6 +153,11 @@ Notes for maintainers
 
 * Keep repository-level guidance in this README focused on this documentation
   project, not on the upstream template.
+* Redirect strategy divergence from upstream template: this repository intentionally
+  keeps `sphinx-reredirects` with an inline ``redirects = {}`` mapping in
+  `docs/conf.py <docs/conf.py>`__ instead of `sphinx-rerediraffe` with a
+  ``redirects.txt`` file. Preserve this choice during future stack updates unless
+  you deliberately migrate redirect tooling.
 * If pages move, add redirects in `docs/conf.py <docs/conf.py>`__ so existing links keep
   working.
 * Add project-specific spelling exceptions to `docs/.custom_wordlist.txt <docs/.custom_wordlist.txt>`__
