@@ -9,12 +9,12 @@ ROS 2-ready workshop for a specific project.
 % Include stop summary
 
 Since this builds upon the
-[Getting started with Workshop](./nav2-dev-workshop.md) tutorial,
+[Getting started with Workshop](./ros2-dev-workshop.md) tutorial,
 make sure to complete it first.
 There,
 we've seen that we can use predefined SDKs to set up
 ready-to-use development environment.
-More specifically we used the `ros2` environment to create a ROS 2-ready workshop.
+More specifically we used the `ros2-desktop` environment to create a ROS 2-ready workshop.
 
 In this follow-up tutorial,
 we are going to further customize the development environment
@@ -30,7 +30,7 @@ Let us start by cloning the repository:
 
 ```console
 git clone git@github.com:ros-navigation/navigation2.git --branch jazzy
-cd nav2
+cd navigation2
 ```
 
 ```{note}
@@ -44,7 +44,7 @@ in order to keep our project tidy:
 
 ```console
 mkdir .workshop
-touch .workshop/nav2.yaml
+touch .workshop/nav2-dev.yaml
 ```
 
 At this point, the workshop definition is straightforward and only contains
@@ -54,8 +54,8 @@ the ROS 2 SDK:
 name: nav2-dev
 base: ubuntu@24.04
 sdks:
-  - name: ros2
-    channel: 24.04/edge
+  - name: ros2-desktop
+    channel: jazzy/stable
 ```
 
 We have now a generic ROS 2-ready workshop definition,
@@ -73,10 +73,10 @@ We proceed to create the in-project SDK:
 
 ```console
 mkdir .workshop/nav2-sdk
-touch .workshop/nav2-sdk/sdkcraft.yaml
+touch .workshop/nav2-sdk/sdk.yaml
 ```
 
-We then populate the `sdkcraft.yaml` file as follows:
+We then populate the `sdk.yaml` file as follows:
 
 ```yaml
 name: nav2-sdk
@@ -111,11 +111,11 @@ They entirely rely on `hooks`.
 
 ## Creating the SDK hooks
 
-Let us create the SDK hooks:
+In the `workshop` directory, let us create the SDK hooks:
 
 ```console
-mkdir -p nav2-sdk/hooks
-touch nav2-sdk/hooks/{setup-base,setup-project}
+mkdir .workshop/nav2-sdk/hooks
+touch .workshop/nav2-sdk/hooks/{setup-base,setup-project}
 ```
 
 Those hooks, `setup-base` and `setup-project` are shell scripts
@@ -233,14 +233,14 @@ With the `nav2-sdk` fully set,
 we can launch a workshop tailored for the Nav2 project.
 
 First, let's integrate it to the workshop definition.
-We edit our workshop definition file which we renamed `nav2.yaml` earlier:
+We edit our workshop definition file which we renamed `nav2-dev.yaml` earlier:
 
 ```diff
 name: nav2-dev
 base: ubuntu@24.04
 sdks:
-  - name: ros2
-    channel: 24.04/edge
+  - name: ros2-desktop
+    channel: 24.04/stable
 + - name: project-nav2-sdk
 ```
 
@@ -299,8 +299,8 @@ First, we add an action to build the project:
 name: nav2-dev
 base: ubuntu@24.04
 sdks:
-  - name: ros2
-    channel: 24.04/edge
+  - name: ros2-desktop
+    channel: 24.04/stable
   - name: project-nav2-sdk
 +
 +actions:
@@ -312,11 +312,18 @@ with a set of predefined flags.
 The last parameter, `"$@"`,
 forwards any user input to the command.
 
+Since the Colcon flags of our action are not compatible with the previous Colcon run,
+let's clean the build artifacts first:
+
+```console
+workshop exec colcon clean workspace -y
+```
+
 Calling an action happens outside the workshop environment,
 i.e. without establishing a shell to it:
 
 ```console
-$ workshop run nav2 build
+$ workshop run nav2-dev build
 Starting >>> nav2_common
 Starting >>> nav_2d_msgs
 Starting >>> nav2_loopback_sim
@@ -333,7 +340,7 @@ The Nav2 workspace built successfully.
 We can also run the action providing some extra Colcon flags:
 
 ```console
-$ workshop run nav2 build --packages-up-to costmap_queue
+$ workshop run nav2-dev build --packages-up-to costmap_queue
 Starting >>> nav2_common
 ...
 Finished <<< costmap_queue [6.48s]
@@ -400,10 +407,10 @@ this new interface appears in the list of connections:
 ```console
 $ workshop connections
 Interface  Plug                        Slot               Notes
-gpu        nav2/ros2:gpu               nav2/system:gpu    -
-mount      nav2/ros2:ccache-cache      nav2/system:mount  -
-mount      nav2/ros2:colcon-artefacts  nav2/system:mount  -
-mount      nav2/ros2:ros-cache         nav2/system:mount  -
+gpu        nav2/ros2-desktop:gpu               nav2/system:gpu    -
+mount      nav2/ros2-desktop:ccache-cache      nav2/system:mount  -
+mount      nav2/ros2-desktop:colcon-artefacts  nav2/system:mount  -
+mount      nav2/ros2-desktop:ros-cache         nav2/system:mount  -
 ```
 
 All we have to do is to connect it:

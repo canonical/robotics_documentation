@@ -27,7 +27,7 @@ snapcraft/index
 
 ## Workshop
 
-```{include} ros2-sdk.md
+```{include} workshop/index.md
    :start-after: % Include start summary
    :end-before: % Include stop summary
 ```
@@ -36,7 +36,7 @@ snapcraft/index
 :maxdepth: 1
 :includehidden:
 
-ros2-sdk
+workshop/index
 ```
 
 ## ROS ESM

@@ -59,7 +59,7 @@ repository to serve as the ROS 2 project we are developing.
 Let's start by cloning the repository locally:
 
 ```console
-git clone https://github.com/ros2/demos.git --branch jazzy
+git clone https://github.com/ros2/demos.git --branch lyrical
 ```
 
 We can then create a workshop definition for this project:
@@ -72,21 +72,21 @@ touch workshop.yaml
 and fill it with:
 
 ```yaml
-name: demos-jazzy-dev
-base: ubuntu@24.04
+name: demos-lyrical-dev
+base: ubuntu@26.04
 sdks:
-  - name: ros2
-    channel: 24.04/edge
+  - name: ros2-desktop
+    channel: lyrical/stable
 ```
 
 The `name` tag is, as one might expect, the name of the workshop,
-while the `base` indicates that we are using an Ubuntu 24.04 image.
+while the `base` indicates that we are using an Ubuntu 26.04 image.
 The `sdks` are the pre-configured development environments that we wish to set up
 in the workshop.
 Here,
-we use a single SDK, `ros2`, at the version `24.04` which corresponds to ROS 2 Jazzy.
+we use a single SDK, `ros2`, at the version `26.04` which corresponds to ROS 2 Lyrical.
 This SDK is responsible for setting up a ready-to-use
-ROS 2 Jazzy development environment.
+ROS 2 Lyrical development environment.
 
 And that is what we are going to see right away.
 
@@ -101,13 +101,13 @@ We can confirm that with:
 
 ```console
 $ workshop list
-Project                Workshop         Status  Notes
-~/workspace/src/demos  demos-jazzy-dev  Ready   -
+Workshop           Status  Notes
+demos-lyrical-dev  Ready   -
 ```
 
 Before jumping in,
 let us summarize what happens in the background.
-After hitting `launch`, Workshop creates an LXD container from an Ubuntu 24.04 image.
+After hitting `launch`, Workshop creates an LXD container from an Ubuntu 26.04 image.
 Once the container is up, it installs the SDKs.
 More specifically, the `ros2` SDK sets up the ROS 2 repository and
 installs the bare minimum ROS 2 packages
@@ -128,7 +128,7 @@ we can open a shell inside it and verify that everything is indeed ready to go:
 
 ```console
 $ workshop shell
-workshop@demos-jazzy-dev-3b81c721:/project$ ls
+workshop@demos-lyrical-dev-3b81c721:/project$ ls
 CONTRIBUTING.md   composition            dummy_robot         lifecycle_py      pytest.ini
 LICENSE           demo_nodes_cpp         image_tools         logging_demo      quality_of_service_demo
 README.md         demo_nodes_cpp_native  intra_process_demo  pendulum_control  topic_monitor
@@ -138,13 +138,13 @@ action_tutorials  demo_nodes_py          lifecycle           pendulum_msgs     t
 Upon entering the shell,
 we find ourselves at the root directory of the demos project.
 However, we see that it is mounted at `/project`.
-For convenience and to have a more familiar ROS 2 environment,
+For convenience, and to have a more familiar ROS 2 environment,
 it is also linked at `~/workspace/src/demos`.
 We can move there for the remainder of this tutorial:
 
 ```console
-workshop@demos-jazzy-dev-3b81c721:/project$ cd ~/workspace/src/demos
-workshop@demos-jazzy-dev-3b81c721:~/workspace/src/demos$
+workshop@demos-lyrical-dev-3b81c721:/project$ cd ~/workspace/src/demos
+workshop@demos-lyrical-dev-3b81c721:~/workspace/src/demos$
 ```
 
 ```{note}
@@ -158,7 +158,7 @@ we can quickly check if the usual suspects are present:
 
 ```{note}
 For readability,
-we drop the `workshop@demos-jazzy-dev-3b81c721:~/workspace/src/demos` prefix
+we drop the `workshop@demos-lyrical-dev-3b81c721:~/workspace/src/demos` prefix
 hereafter.
 ```
 
@@ -167,17 +167,17 @@ $ which colcon
 /usr/bin/colcon
 $ which rosdep
 /usr/bin/rosdep
-$ ls /opt/ros/jazzy/
-_local_setup_util.py  include  local_setup.bash  local_setup.zsh  setup.sh   share  tools
-bin                   lib      local_setup.sh    setup.bash       setup.zsh  src
+$ ls /opt/ros/lyrical/
+_local_setup_util.py  include         lib               local_setup.fish  local_setup.zsh  setup.bash  setup.sh   share
+bin                   includefastcdr  local_setup.bash  local_setup.sh    opt              setup.fish  setup.zsh  tools
 $ env | grep ROS
 ROS_VERSION=2
 ROS_PYTHON_VERSION=3
 ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
-ROS_DISTRO=jazzy
+ROS_DISTRO=lyrical
 ```
 
-As we can see, the ROS 2 Jazzy environment is installed and already sourced.
+As we can see, the ROS 2 Lyrical environment is installed and already sourced.
 
 But can we really start developing right away?
 
@@ -223,13 +223,13 @@ which is summarized hereafter.
 First, we add a new SDK to our workshop definition:
 
 ```diff
-name: demos-jazzy-dev
-base: ubuntu@24.04
+name: demos-lyrical-dev
+base: ubuntu@26.04
 sdks:
   - name: ros2
-    channel: jazzy/edge
+    channel: lyrical/edge
 + - name: vscode-remote
-+   channel: 24.04/stable
++   channel: latest/stable
 ```
 
 after which we refresh the workshop:

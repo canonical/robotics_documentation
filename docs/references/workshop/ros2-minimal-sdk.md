@@ -1,19 +1,25 @@
-# The `ros2` SDK
+# The `ros2-minimal` SDK
 
 % Include start summary
 
-The `ros2` SDK is used to set up a ROS 2 development environment.
+The `ros2-minimal` SDK is used to set up a ROS 2 development environment.
 
 In [Workshop](https://canonical-workshop.readthedocs-hosted.com/),
 it sets up a bare minimum ROS 2 environment
 and also attempts to install the project dependencies using Rosdep.
-We detail hereafter what the `ros2` SDK contains and what does it configure.
+We detail hereafter what the `ros2-minimal` SDK contains and what does it configure.
 
 % Include stop summary
 
+It is available for the workshop bases:
+
+- `22.04` on channel `humble/stable`
+- `24.04` on channel `jazzy/stable`
+- `26.04` on channel `lyrical/stable`
+
 ## How it works
 
-The `ros2` SDK retrieves the ROS 2 GPG key from the Ubuntu key server and
+The `ros2-minimal` SDK retrieves the ROS 2 GPG key from the Ubuntu key server and
 sets up the ROS 2 repository.
 
 It then installs the following packages:
@@ -46,4 +52,4 @@ it installs the project dependencies using `rosdep install`.
 
 Please refer to the tutorial
 ['ROS 2 development using Workshop'](../tutorials/workshop/ros2-dev-workshop.md)
-for a complete example of using the `ros2` SDK.
+for a complete example of using Workshop for ROS 2 development.
