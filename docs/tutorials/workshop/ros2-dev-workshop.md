@@ -21,6 +21,7 @@ To install it from scratch:
 
 ```console
 sudo snap install --channel=6/stable lxd
+lxd init --minimal
 ```
 
 To refresh an existing installation:
