@@ -108,6 +108,7 @@ demos-lyrical-dev  Ready   -
 
 Before jumping in,
 let us summarize what happens in the background.
+
 After hitting `launch`, Workshop creates an LXD container from an Ubuntu 26.04 image.
 Once the container is up, it installs the SDKs.
 More specifically, the `ros2` SDK sets up the ROS 2 repository and
@@ -118,9 +119,8 @@ so that it is immediately and automatically available.
 Similarly, it configures Colcon and its auto-completion.
 Finally, it installs the dependencies of our project (in this case, the demos)
 using Rosdep so that we are immediately ready to develop.
-You can find more details at the [Workshop documentation website](https://ubuntu.com/workshop/docs/reference/cli/workshop/#workshop-launch).
 
-And that's what we are going to get into right away.
+You can find more details at the [Workshop documentation website](https://ubuntu.com/workshop/docs/reference/cli/workshop/#workshop-launch).
 
 ## Develop for ROS 2 using Workshop
 
