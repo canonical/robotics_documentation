@@ -111,7 +111,7 @@ They entirely rely on `hooks`.
 
 ## Creating the SDK hooks
 
-In the `workshop` directory, let us create the SDK hooks:
+Let us create the SDK hooks:
 
 ```console
 mkdir .workshop/nav2-sdk/hooks
@@ -272,7 +272,6 @@ workshop@nav2-dev-967fc9ea:/project$
 and verify that we can immediately start developing:
 
 ```console
-$ cd ~/workspace
 $ colcon build
 Starting >>> nav2_common
 Starting >>> nav_2d_msgs
