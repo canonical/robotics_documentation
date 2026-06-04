@@ -25,6 +25,20 @@ API documentation, and troubleshooting tips.
 snapcraft/index
 ```
 
+## Workshop
+
+```{include} workshop/index.md
+   :start-after: % Include start summary
+   :end-before: % Include stop summary
+```
+
+```{toctree}
+:maxdepth: 1
+:includehidden:
+
+workshop/index
+```
+
 ## ROS ESM
 
 ```{include} esm-package-list.md
