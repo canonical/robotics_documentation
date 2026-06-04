@@ -288,7 +288,8 @@ Summary: 43 packages finished [16min 10s]
 
 With our Nav2 workshop fully defined,
 we can add 'actions' to it.
-[Actions](https://ubuntu.com/workshop/docs/explanation/workshops/concepts/#actions) are a convenient way to automatize mundane tasks,
+[Actions](https://ubuntu.com/workshop/docs/explanation/workshops/concepts/#actions)
+are a convenient way to automatize mundane tasks,
 and can show how a project is expected to be used.
 
 Let us add a couple actions to the Nav2 workshop.
