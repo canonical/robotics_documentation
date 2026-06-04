@@ -16,3 +16,7 @@ Snapcraft Extensions
 * `ROS 2 Jazzy extension <https://snapcraft.io/docs/ros2-jazzy-extension>`_
    This extension helps you snap `ROS 2 <https://docs.ros.org/>`_ applications for the
    `Jazzy Jalisco <https://docs.ros.org/en/jazzy/Releases/Release-Jazzy-Jalisco.html>`_ distribution.
+
+* `ROS 2 Lyrical extension <https://snapcraft.io/docs/ros2-lyrical-extension>`_
+   This extension helps you snap `ROS 2 <https://docs.ros.org/>`_ applications for the
+   `Lyrical Luth <https://docs.ros.org/en/rolling/Releases/Release-Lyrical-Luth.html>`_ distribution.
