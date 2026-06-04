@@ -27,7 +27,9 @@ CMD
 colcon
 config
 containerized
+Coverity
 cpp
+CVEs
 de
 debian
 demo_nodes_cpp
@@ -48,6 +50,7 @@ ESM
 ethernet
 facto
 FastDDS
+faq
 githubusercontent
 Gmail
 gmapping
@@ -103,13 +106,16 @@ rosnode
 rospack
 rosparam
 rostopic
+Rviz
 sandboxed
+seccomp
 scalability
 scalable
 scalable
 SDKs
 security
 security-docs
+Semgrep
 sequential_nav
 SHA
 snapcore

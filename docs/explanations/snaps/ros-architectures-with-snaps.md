@@ -128,7 +128,7 @@ and maintain, making the multi-snap architecture more complex.
 
 ROS 2 DDS default implementation `FastDDS` can use shared memory to
 exchange faster when two
-[`DomainParticipants`](https://fast-dds.docs.eprosima.com/en/latest/fastdds/api_reference/dds_pim/domain/domainparticipant.html)
+[`DomainParticipants`](https://fast-dds.docs.eprosima.com/en/latest/fastdds/dds_layer/domain/domainParticipant/domainParticipant.html)
 are on the same host.
 You can enable shared memory across multi snaps with the
 [addition of an extra interface](../../how-to-guides/packaging/ros-2-shared-memory-in-snaps.md).

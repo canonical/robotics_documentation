@@ -89,7 +89,7 @@ juju deploy cos-configuration-k8s \
   --config git_repo=https://github.com/ubuntu-robotics/robotics-cos-k8s-config.git \
   --config git_branch=feat/blackbox-grafana-dashboard \
   --config git_depth=1 \
-  --config grafana_dashboards_path=dashboards/grafana/blackbox
+  --config grafana_dashboards_path=/var/lib/juju/agents/unit-cos-configuration-k8s-0/dashboards/grafana/blackbox
 ```
 
 Finally, relate the configuration charm to Grafana to visualize the dashboard:

@@ -24,17 +24,17 @@ can push rosbags for later use.
 To deploy Caddy, hit the following command:
 
 ```console
-juju deploy ros2bag-fileserver-k8s --resource caddy-fileserver-image=ghcr.io/ubuntu-robotics/ros2bag-fileserver:dev --storage database:=10G --config ssh-port=2222
+juju deploy ros2bag-fileserver-k8s --resource caddy-fileserver-image=ghcr.io/ubuntu-robotics/ros2bag-fileserver:dev --storage database:=10G --config ssh-port=2222 --channel=0/stable
 ```
 
 Once deployed,
 we can integrate the file storage with {{ COS_ROB }}:
 
 ```console
-juju relate ros2bag-fileserver:ingress-tcp traefik:ingress-per-unit
-juju relate ros2bag-fileserver:ingress-http traefik:ingress
-juju relate ros2bag-fileserver:catalogue catalogue:catalogue
-juju relate cos-registration-server:auth-devices-keys ros2bag-fileserver:auth-devices-keys
+juju relate ros2bag-fileserver-k8s:ingress-tcp traefik:ingress-per-unit
+juju relate ros2bag-fileserver-k8s:ingress-http traefik:ingress
+juju relate ros2bag-fileserver-k8s:catalogue catalogue:catalogue
+juju relate cos-registration-server:auth-devices-keys ros2bag-fileserver-k8s:auth-devices-keys
 ```
 
 We can monitor the deployment, including the relations with:

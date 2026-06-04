@@ -16,6 +16,13 @@ Check out the following how-to guide with steps to secure your robot with Ubuntu
 
 - :doc:`Hardening your robot </how-to-guides/security/hardening-your-robot>`
 
+**Security considerations for COS for Robotics**
+
+Security considerations for operating |COS_ROB|,
+including TLS encryption, certificate management, and device key protection:
+
+- :doc:`Security considerations for COS for Robotics </explanations/observability/security-considerations-for-cos>`
+
 **Ubuntu Pro and ROS ESM**
 
 Ubuntu Pro enhances the security and compliance of your Ubuntu systems.

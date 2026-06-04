@@ -534,8 +534,8 @@ not with the subdirectory `pulseaudio`.
 
 We can now exit this snap shell by typing `exit`.
 
-The simplest solution would be to extend the `$LD_LIBRARY_PATH` environment variable with
-the additional directory.
+The simplest solution would be to extend the `$LD_LIBRARY_PATH` environment
+variable with the additional directory.
 
 To do that we must modify our `snapcraft.yaml`:
 

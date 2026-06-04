@@ -16,37 +16,37 @@ For example,
 if you are working with `Xenial` and its corresponding version ROS Kinetic,
 run the command:
 
-``````{tabs}
+`````{tabs}
 
-`````{tab}  ROS Foxy
+````{tab}  ROS Foxy
 
 ```bash
 sudo apt install ros-foxy-ros-base
 ```
-`````
+````
 
-`````{tab} ROS Noetic
+````{tab} ROS Noetic
 
 ```bash
 sudo apt install ros-noetic-ros-base
 ```
 
-`````
-`````{tab} ROS Melodic
+````
+````{tab} ROS Melodic
 
 ```bash
 sudo apt install ros-melodic-ros-base
 ```
 
-`````
-`````{tab} ROS Kinetic
+````
+````{tab} ROS Kinetic
 
 ```bash
 sudo apt install ros-kinetic-ros-base
 ```
 
+````
 `````
-``````
 
 ```{note}
 Remember that the Ubuntu version and ROS version are co-dependent,

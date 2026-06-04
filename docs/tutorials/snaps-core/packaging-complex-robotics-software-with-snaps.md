@@ -100,8 +100,8 @@ Since this developer guide builds a snap for a robot, we will need:
 - Depending on our current OS,
   we can choose between the following Native setup and the Multipass setup.
 
-````{tabs}
-```{group-tab} Option 1: Native Setup
+`````{tabs}
+````{group-tab} Option 1: Native Setup
 
 The Native setup will need [Ubuntu 20.04](https://releases.ubuntu.com/focal/).
 This is because we will need the TurtleBot3 simulation to run.
@@ -119,9 +119,9 @@ With the running Ubuntu 20.04, follow the next step to install all the dependenc
 - Make sure [snapd](https://snapcraft.io/docs/installing-snapd) and
   [snapcraft](https://snapcraft.io/snapcraft) are installed
 
-```
+````
 
-```{group-tab} Option 2: Multipass
+````{group-tab} Option 2: Multipass
 
   If a native setup is not possible, we will use a Virtual Machine.
   In this case, we are going to use [Multipass](https://multipass.run/docs)
@@ -186,8 +186,8 @@ With the running Ubuntu 20.04, follow the next step to install all the dependenc
   - In the case of a VM setup,
     all the commands and instructions from this guide must be executed in the VM.
 
-```
 ````
+`````
 
 ### Setup Check
 
@@ -229,7 +229,8 @@ To start snapping our stack we first need to
 [identify the various functionalities and applications of our robot application](https://ubuntu.com/robotics/docs/identify-functionalities-and-applications-of-a-robotics-snap).
 
 We are going to apply the methodology to the TurtleBot3.
-This way, we will have a clear example of the functionalities and snap entries for a robot,
+This way, we will have a clear example of the functionalities and snap
+entries for a robot,
 as well as the process to identify these entries.
 
 For this guide,
@@ -664,7 +665,8 @@ Very similar in terms of usage to `key`,
 but we will use a different launch file for the joystick.
 It’s [`joy.launch`](https://github.com/canonical/turtlebot3c/blob/noetic-devel/turtlebot3c_teleop/launch/joy.launch)
 from the `turtlebot3c_teleop` package.
-The major differences are that this is going to be published on the `/joy_vel` topic and
+The major differences are that this is going to be published on the
+`/joy_vel` topic and
 that our application will need access to the joystick.
 We must use the [`joystick` interface](https://snapcraft.io/docs/joystick-interface),
 so our confined application will be able to access the joystick device from our host.
