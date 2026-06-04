@@ -117,7 +117,7 @@ so that it is immediately and automatically available.
 Similarly, it configures Colcon and its auto-completion.
 Finally, it installs the dependencies of our project (in this case, the demos)
 using Rosdep so that we are immediately ready to develop.
-You can find more details at the [Workshop documentation website](https://canonical-workshop.readthedocs-hosted.com/stable/reference/cli/workshop/#ref-workshop-launch).
+You can find more details at the [Workshop documentation website](https://ubuntu.com/workshop/docs/reference/cli/workshop/#workshop-launch).
 
 And that's what we are going to get into right away.
 

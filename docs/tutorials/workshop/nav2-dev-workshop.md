@@ -65,7 +65,7 @@ let's customize it to the Nav2 project needs.
 
 In order to tweak the development environment,
 we are making use of an
-[in-project SDK](https://canonical-workshop.readthedocs-hosted.com/stable/explanation/sdks/concepts/#exp-in-project-sdk).
+[in-project SDK](https://ubuntu.com/workshop/docs/explanation/sdks/concepts/#in-project-sdks).
 An in-project SDK is an SDK that is distributed alongside a project rather than being
 available from the Store.
 
