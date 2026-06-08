@@ -161,7 +161,7 @@ This reduces bandwidth constrains.
 
 Finally, if a set of snaps is needed to run an application,
 you can pair multiple snaps together for deployment via a
-[private Snap Store](https://ubuntu.com/core/docs/dedicated-snap-stores)
+[private Snap Store](https://documentation.ubuntu.com/dedicated-snap-store/)
 or by creating a custom [Ubuntu Core image](https://ubuntu.com/core/docs/build-an-image).
 
 ### Reusability
@@ -245,7 +245,7 @@ The foundational snap provided by the extensions packages upstream ROS and
 as such do not make any further guarantees than those provided upstream,
 especially concerning API and ABI stability.
 
-Take a look at the [private Snap Store](https://ubuntu.com/core/docs/dedicated-snap-stores)
+Take a look at the [private Snap Store](https://documentation.ubuntu.com/dedicated-snap-store/)
 or at creating a custom [Ubuntu Core image](https://ubuntu.com/core/docs/build-an-image)
 as solutions to pin the foundational snap at a given version for your application snap.
 
