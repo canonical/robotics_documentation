@@ -135,7 +135,7 @@ but we could have used another directory such as `$SNAP/teleop_config`.
 The configuration snap is now completed, we can build it and install it:
 
 ```bash
-snapcraft
+snapcraft pack
 sudo snap install my-configuration_*.snap --dangerous
 ```
 
@@ -240,7 +240,7 @@ This way, the error message will be clear to the user in case the plug is not co
 We are now ready to test, we can build and install the application snap:
 
 ```bash
-snapcraft
+snapcraft pack
 sudo snap install my-ros2-teleop-test_*.snap --dangerous
 ```
 

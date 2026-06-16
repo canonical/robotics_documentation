@@ -186,7 +186,7 @@ the launcher `snap/local/teleop_launcher.bash`:
 We can now build the snap and install it!
 
 ```bash
-snapcraft
+snapcraft pack
 sudo snap install my-ros2-teleop-test_*.snap --dangerous
 ```
 
@@ -224,7 +224,7 @@ apps:
 Let’s build and install our updated snap:
 
 ```bash
-snapcraft
+snapcraft pack
 sudo snap install my-ros2-teleop-test_*.snap --dangerous
 ```
 

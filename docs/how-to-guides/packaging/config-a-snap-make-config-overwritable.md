@@ -236,7 +236,7 @@ We can now test the overwritable configuration.
 First, we build and install the snap:
 
 ```bash
-snapcraft
+snapcraft pack
 sudo snap install my-ros2-teleop-test_*.snap --dangerous
 ```
 

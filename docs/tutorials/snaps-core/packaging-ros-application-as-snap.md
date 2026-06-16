@@ -423,7 +423,7 @@ Snapcraft is building the snap in steps:
 To build our snap, we will run:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 This will take some time, but once it’s done we will see:
@@ -630,7 +630,7 @@ apps:
 Once our changes are done, let’s rebuild our snap:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 This time our snap is confined, so we don’t need the `--devmode` flag any more.
@@ -734,7 +734,7 @@ Now let’s rebuild and install our snap.
 The build should be quicker as this has been done before.
 
 ```bash
-snapcraft
+snapcraft pack
 sudo snap install ros2-talker-listener_0.1_amd64.snap --dangerous
 ```
 
