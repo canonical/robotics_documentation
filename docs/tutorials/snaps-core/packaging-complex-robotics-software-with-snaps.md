@@ -209,7 +209,13 @@ We can also:
 snapcraft --version
 ```
 
-And it should display a version equal to or above `7.2.9`.
+And it should display a version below `9.0.0`.
+
+You can always refresh snapcraft to the correct version with:
+
+```
+sudo snap refresh snapcraft --channel=8.x/stable
+```
 
 We are now all set up for this developer guide.
 
