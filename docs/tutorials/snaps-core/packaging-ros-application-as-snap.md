@@ -31,10 +31,10 @@ make it installable on dozens of Linux distributions.
 
 ## Requirements
 
-We will need an up and running Ubuntu 20.04 LTS or similar operating system.
+We will need an up and running Ubuntu 22.04 LTS or similar operating system.
 
 ``` {note}
-Ubuntu 20.04 LTS should be the minimum version as it is still under maintenance.
+Ubuntu 22.04 LTS should be the minimum version as it is still under maintenance.
 The installation could be native or in a VM.
 If using a container, we must be sure that we can install and run systemd,
 snapd and snaps.
