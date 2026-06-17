@@ -205,6 +205,11 @@ We can now `ctrl-c` the Gazebo launch file.
 
 We can also:
 
+```{warning}
+Make sure to check your snapcraft version properly.
+This tutorial is using Noetic which require an older version of snapcraft.
+```
+
 ```bash
 snapcraft --version
 ```
