@@ -218,7 +218,6 @@ And it should display a version below `9.0.0`.
 
 You can always refresh snapcraft to the correct version with:
 
-```
 sudo snap refresh snapcraft --channel=8.x/stable
 ```
 
