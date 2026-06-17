@@ -509,7 +509,7 @@ since TurtleBot3 messages are hosted on a different repository.
 
 Here we will define one [snapcraft part](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html)
 for our ROS workspace.
-For this snapcraft part, we will use the [`catkin` plugin](https://documentation.ubuntu.com/snapcraft/8.14/reference/plugins/catkin_tools_plugin/).
+For this snapcraft part, we will use the [`catkin` plugin](https://documentation.ubuntu.com/snapcraft/8.14/reference/plugins/catkin_plugin/).
 As seen in the [previous part of this guide](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-1),
 the `catkin` plugin comes in handy with the [`ros-noetic` snapcraft extensions](https://documentation.ubuntu.com/snapcraft/8.14/reference/extensions/ros-1-extension/).
 
