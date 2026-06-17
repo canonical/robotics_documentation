@@ -283,14 +283,8 @@ redirects = {
 
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
-    "https://github.com/canonical/ACME/*",
     r"https://developer\.hashicorp\.com/terraform.*",
     "https://linux.die.net/man/1/curl",
-    "https://ubuntu.com/robotics/ros-esm#get-in-touch",
-    "https://ubuntu.com/core/features/secure-boot#get-in-touch",
-    "https://ubuntu.com/robotics#get-in-touch",
-    "https://canonical-juju.readthedocs-hosted.com/en/latest/user/explanation/kubernetes-in-juju/",
-    "https://snapcraft.io/docs/catkin-*",
 ]
 
 
@@ -298,10 +292,11 @@ linkcheck_ignore = [
 
 linkcheck_anchors_ignore_for_url = [
     r"https://github\.com/.*",
-    r"https://snapcraft.io/docs/.*",
-    r"https://ubuntu.com/robotics#get-in-touch",
-    r"https://ubuntu.com/robotics/ros-esm#get-in-touch",
-    r"https://ubuntu.com/core/features/secure-boot#get-in-touch",
+    #r"https://snapcraft.io/docs/.*",
+    r"https://ubuntu.com/robotics",
+    r"https://ubuntu.com/robotics/ros-esm",
+    r"https://ubuntu.com/core/features/secure-boot",
+    r"https://www.ros.org/.*",
 ]
 
 # give linkcheck multiple tries on failure
