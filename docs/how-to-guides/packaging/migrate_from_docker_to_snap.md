@@ -356,7 +356,7 @@ worrying about the underlying ROS integration to Snapcraft.
 The ros-extensions currently available are:
 
 * [ros1-noetic-extension](https://documentation.ubuntu.com/snapcraft/8.14/reference/extensions/ros-1-extension/)
-* [ros2-foxy-extension](https://snapcraft.io/docs/ros2-foxy-extension)
+* [ros2-foxy-extension](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/)
 * [ros2-humble-extension](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/)
 
 You can read more about
