@@ -87,4 +87,4 @@ The typical use case of this variable would be:
 
 Similarly, there is ``SNAP_DATA`` and ``SNAP_COMMON`` for system specific data and not user specific data. They are respectively pointing to ``/var/snap/hello-world/27`` and ``/var/snap/hello-world/common``.
 
-The `snap documentation for environment variables <https://snapcraft.io/docs/environment-variables>`_ describe many more features that could be useful in other projects.
+The `snap documentation for environment variables <https://snapcraft.io/docs/environment-variables>`_ describes many more features that could be useful in other projects.
