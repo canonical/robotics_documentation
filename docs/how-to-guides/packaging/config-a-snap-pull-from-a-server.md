@@ -102,8 +102,9 @@ With the original repository, the URL is:
 
 Now that we have a configuration file available online,
 we can write a script – that will be invoked by the
-[`install` hook](https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install) –
-to download it and place it appropriately in our snap.
+[`install` hook](https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install)
+– to download it and place it appropriately
+in our snap.
 For instance, in [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage).
 Since the `install` hook runs as root, we cannot use any user-specific snap
 writable environment.

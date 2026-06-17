@@ -215,8 +215,8 @@ Our application is now loading the YAML from our configuration snap!
 
 #### Ensure content-interface connection between snaps
 
-The [content interface](https://snapcraft.io/docs/reference/interfaces/content-interface/) is
-[auto-connect](https://snapcraft.io/docs/explanation/interfaces/interface-auto-connection/)
+The [content interface](https://snapcraft.io/docs/reference/interfaces/content-interface/)
+is [auto-connect](https://snapcraft.io/docs/explanation/interfaces/interface-auto-connection/)
 only when connecting two snaps from the same publisher,
 in other cases we really should verify the connection of
 the plug before launching our application.

@@ -329,7 +329,8 @@ parts:
 
 Snapcraft relies on well known and well established ROS tools such as,
 in this example, [`colcon`](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/colcon_plugin/).
-[Plugins](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/) allow us to identify such tools.
+[Plugins](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/)
+allow us to identify such tools.
 
 The packages we’re building must have `install` rules,
 or else Snapcraft won’t know which components to place into the snap.

@@ -52,7 +52,8 @@ ROS installation requires the following steps:
 Let’s see how to achieve each step with Snaps.
 
 Adding the required package repository and setting up the keys is done by using the Snapcraft
-[package repository keyword](https://documentation.ubuntu.com/snapcraft/stable/reference/package-repositories/) as follows:
+[package repository keyword](https://documentation.ubuntu.com/snapcraft/stable/reference/package-repositories/)
+as follows:
 
 ```yaml
 # Add ROS 2 repository
@@ -70,7 +71,9 @@ Now, let’s proceed to install the ROS Debian packages.
 The ROS Debian packages are installed by defining a snap [part](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html).
 Snap parts are recipes to build a piece of software and are driven via [plugins](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/).
 For ROS, you solely want to install the ROS Debian package, no source code involved,
-you can use the [nil plugin](https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/nil_plugin/) as follows:
+you can use the
+[nil plugin](https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/nil_plugin/)
+as follows:
 
 ```yaml
 parts:
@@ -191,7 +194,9 @@ three main components that must be defined:
 
 Snaps effectively allows you to define and
 isolate the pieces of your application that you want to expose to the rest
-of the system via the [apps](https://documentation.ubuntu.com/snapcraft/9.0/reference/snapcraft-yaml/index.html) tag.
+of the system via the
+[apps](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html)
+tag.
 
 After having identified the command that launch your application
 you can add it with the command keyword as follows:
@@ -204,8 +209,9 @@ apps:
 
 By default, snap applications are confined and
 are not allowed to access any of the host resources.
-[Interfaces and plugs](https://snapcraft.io/docs/explanation/interfaces/all-about-interfaces/) allow the user
-to define the resources on the host that the application will have access to.
+[Interfaces and plugs](https://snapcraft.io/docs/explanation/interfaces/all-about-interfaces/)
+allow the user to define the resources on the host
+that the application will have access to.
 You can have a look at the list of
 [supported interfaces](https://snapcraft.io/docs/reference/interfaces/).
 

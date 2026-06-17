@@ -263,8 +263,10 @@ Also the entrypoint allows to specify bash commands that
 should be run when the container is started.
 
 Snaps effectively allows you to define and isolate the pieces of
-your application that you want to expose to the rest of the system via the
-[apps](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html) tag.
+your application that you want to expose to the rest of the
+system via the
+[apps](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html)
+tag.
 
 After having identified the command that launch your application you can add it with
 the command keyword as follows:
@@ -298,8 +300,10 @@ you will need the the `network` plug to grant the Snap access to the host’s ne
 and also the `network-bind` plug,
 which provides the Snap with the ability to bind to a specific IP address and
 port as required for ROS communication.
-For instance, if you needed X11 forwarding for a GUI you would use the
-[x11 interface](https://snapcraft.io/docs/reference/interfaces/x11-interface/) and so on.
+For instance, if you needed X11 forwarding for a GUI
+you would use the
+[x11 interface](https://snapcraft.io/docs/reference/interfaces/x11-interface/)
+and so on.
 By adding the plugs, my app would look like this:
 
 ```yaml
