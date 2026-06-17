@@ -39,7 +39,7 @@ the overall system is never in a broken state.
 Docker images are built using Dockerfiles,
 which are essentially scripts containing a series of commands executed in sequence to
 define the image of your Docker container.
-Snaps are built based on a recipe declared in a [YAML file](https://snapcraft.io/docs/build-configuration).
+Snaps are built based on a recipe declared in a [YAML file](https://documentation.ubuntu.com/snapcraft/stable/explanation/snap-build-process/index.html).
 This similarity will prove convenient while converting from
 Docker to Snap as you will see hereafter.
 
@@ -51,7 +51,7 @@ A generic *snapcraft.yaml* file is defined by four main blocks:
 * apps definition
 
 More detailed information about creating a snapcraft yaml file can be found in
-[Creating snapcraft.yaml](https://snapcraft.io/docs/creating-snapcraft-yaml).
+[Creating snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/).
 
 ## Snap metadata
 
@@ -59,14 +59,14 @@ This is the data that describes your snap,
 including your snap’s name, version, icon location and summary.
 
 For help completing these details,
-see [global metadata](https://snapcraft.io/docs/adding-global-metadata).
+see [global metadata](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html#top-level-keys).
 
 ## Build environment
 
 Docker allows users to create images based on existing parent images that
 provide the required environment for the application.
 This is useful to avoid having to set up the same core libraries every time.
-Similarly, snaps provide [base snaps](https://snapcraft.io/docs/base-snaps).
+Similarly, snaps provide [base snaps](https://documentation.ubuntu.com/snapcraft/9.0/how-to/crafting/specify-a-base/).
 
 Both base snaps and parent Docker images serve as the foundation for building our application.
 For example, for a ROS Noetic application,
@@ -88,7 +88,7 @@ However, base snaps have the goal of guaranteeing a minimal, stable,
 maintained and secure environment.
 ROS is thus installed on top of this in the parts as we will see hereafter.
 
-Visit the [base snaps documentation](https://snapcraft.io/docs/base-snaps)
+Visit the [base snaps documentation](https://documentation.ubuntu.com/snapcraft/9.0/how-to/crafting/specify-a-base/)
 for more information.
 
 ## Building the application
@@ -114,7 +114,7 @@ In both cases, ROS installation requires the following steps:
 * installing the ROS debian package.
 
 In Snaps, adding the required package repository and
-setting up the keys is done using the Snapcraft [package repository keyword](https://snapcraft.io/docs/package-repositories).
+setting up the keys is done using the Snapcraft [package repository keyword](https://documentation.ubuntu.com/snapcraft/stable/reference/package-repositories/).
 For example:
 
 ```yaml
@@ -128,10 +128,10 @@ package-repositories:
   url: http://repo.ros2.org/ubuntu/main # Repository URL
 ```
 
-The ROS debian packages are installed by defining a Snap [part](https://snapcraft.io/docs/snapcraft-yaml-schema).
-Snap parts are recipes to build a piece of software and are driven via [plugins](https://snapcraft.io/docs/snapcraft-plugins).
+The ROS debian packages are installed by defining a Snap [part](https://documentation.ubuntu.com/snapcraft/9.0/reference/snapcraft-yaml/index.html).
+Snap parts are recipes to build a piece of software and are driven via [plugins](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/).
 When defining a part,
-you can search the [snapcraft plugins](https://snapcraft.io/docs/supported-plugins)
+you can search the [snapcraft plugins](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/)
 page to select the required plugin.
 If we solely want to install some ROS packages, no source code involved,
 we can use the nil plugin as follows:
@@ -145,7 +145,7 @@ parts:
 To add the packages that are needed to build our ROS project
 you can use the build-packages keyword,
 which allows for the installation of build-time dependencies.
-You can learn more about [Build and staging dependencies](https://snapcraft.io/docs/build-and-staging-dependencies)
+You can learn more about [Build and staging dependencies](https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-dependencies/)
 in the documentation.
 
 For a ROS project,
@@ -222,7 +222,7 @@ Then you need to provide the plugin with information on the source it has to bui
 The source can be a folder on your host or the link to a git repository.
 You can learn more about parts,
 how to set up a specific branch or a subfolder in the
-[Snapcraft parts metadata](https://snapcraft.io/docs/snapcraft-yaml-schema)
+[Snapcraft parts metadata](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html)
 documentation.
 Let’s add an example source in the previous example:
 
@@ -264,7 +264,7 @@ should be run when the container is started.
 
 Snaps effectively allows you to define and isolate the pieces of
 your application that you want to expose to the rest of the system via the
-[apps](https://snapcraft.io/docs/snapcraft-yaml-schema) tag.
+[apps](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html) tag.
 
 After having identified the command that launch your application you can add it with
 the command keyword as follows:
@@ -287,11 +287,11 @@ or various flags required for X11 forwarding to render GUI applications.
 
 By default snap applications are confined and are not allowed to
 access any of the host resources.
-[Interfaces and plugs](https://snapcraft.io/docs/interface-management)
+[Interfaces and plugs](https://snapcraft.io/docs/explanation/interfaces/all-about-interfaces/)
 allow the user to define the resources on the host that
 the application will have access to.
 You can have a look at the list of
-[supported interfaces](https://snapcraft.io/docs/supported-interfaces).
+[supported interfaces](https://snapcraft.io/docs/reference/interfaces/).
 
 For a generic ROS application that communicates with other ROS components via topics,
 you will need the the `network` plug to grant the Snap access to the host’s network,
@@ -299,7 +299,7 @@ and also the `network-bind` plug,
 which provides the Snap with the ability to bind to a specific IP address and
 port as required for ROS communication.
 For instance, if you needed X11 forwarding for a GUI you would use the
-[x11 interface](https://snapcraft.io/docs/x11-interface) and so on.
+[x11 interface](https://snapcraft.io/docs/reference/interfaces/x11-interface/) and so on.
 By adding the plugs, my app would look like this:
 
 ```yaml
@@ -351,12 +351,12 @@ worrying about the underlying ROS integration to Snapcraft.
 
 The ros-extensions currently available are:
 
-* [ros1-noetic-extension](https://snapcraft.io/docs/ros-noetic)
+* [ros1-noetic-extension](https://documentation.ubuntu.com/snapcraft/8.14/reference/extensions/ros-1-extension/)
 * [ros2-foxy-extension](https://snapcraft.io/docs/ros2-foxy-extension)
-* [ros2-humble-extension](https://snapcraft.io/docs/ros2-humble-extension)
+* [ros2-humble-extension](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/)
 
 You can read more about
-[snap extensions](https://snapcraft.io/docs/snapcraft-extensions)
+[snap extensions](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/#reference-extensions)
 in the official documentation.
 
 ## Learn more
@@ -365,9 +365,9 @@ In this post you have seen how to Snap an application by
 gathering information from its Dockerfile.
 To learn more about the core snap concepts look at the next resources:
 
-* [base snaps](https://snapcraft.io/docs/base-snaps)
-* [parts](https://snapcraft.io/docs/adding-parts)
-* [apps](https://snapcraft.io/docs/snapcraft-yaml-schema)
-* [extensions](https://snapcraft.io/docs/snapcraft-extensions)
-* [plugs and interfaces](https://snapcraft.io/docs/interface-management)
-* [How to deploy robotic applications with snaps](https://snapcraft.io/docs/robotics)
+* [base snaps](https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/specify-a-base/)
+* [parts](https://documentation.ubuntu.com/snapcraft/stable/reference/parts-steps/index.html)
+* [apps](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html)
+* [extensions](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/#reference-extensions)
+* [plugs and interfaces](https://snapcraft.io/docs/explanation/interfaces/all-about-interfaces/)
+* [How to deploy robotic applications with snaps](https://canonical-robotics.readthedocs-hosted.com/en/latest/tutorials/snaps-core/)

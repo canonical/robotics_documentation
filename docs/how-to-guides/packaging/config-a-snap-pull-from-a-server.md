@@ -44,7 +44,7 @@ installed is also required.
 
 ## Download the initial configuration
 
-To get the initial configuration, we will use the snap [`install` hook](https://snapcraft.io/docs/supported-snap-hooks#heading--install).
+To get the initial configuration, we will use the snap [`install` hook](https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install).
 The following diagram shows how the `install` hook will pull the configuration
 from a server and place it in [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage).
 Once this is done, our snap will be installed and configured.
@@ -102,7 +102,7 @@ With the original repository, the URL is:
 
 Now that we have a configuration file available online,
 we can write a script – that will be invoked by the
-[`install` hook](https://snapcraft.io/docs/supported-snap-hooks#heading--install) –
+[`install` hook](https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install) –
 to download it and place it appropriately in our snap.
 For instance, in [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage).
 Since the `install` hook runs as root, we cannot use any user-specific snap
@@ -140,7 +140,7 @@ local-files:
     '*.bash': bin/
 ```
 
-The `download_config` script will be called from the [`install` hook](https://snapcraft.io/docs/supported-snap-hooks#heading--install).
+The `download_config` script will be called from the [`install` hook](https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install).
 Let’s create the hook:
 
 ```Bash
@@ -205,11 +205,11 @@ let’s keep the configuration up to date over time.
 Since we already have our script to download and place a configuration from a server,
 we can reuse it to call it on a regular basis to keep our configuration up to date.
 
-To do so, we add a [daemon](https://snapcraft.io/docs/services-and-daemons)
+To do so, we add a [daemon](https://snapcraft.io/docs/how-to-guides/manage-snaps/control-services/)
 to our snap called by a timer.
 The daemon will be called every day at midnight so that
 it executes the `download_config.bash` to update our configuration.
-The [timer syntax is described in the documentation](https://snapcraft.io/docs/timer-string-format).
+The [timer syntax is described in the documentation](https://snapcraft.io/docs/reference/administration/timer-string-format/).
 We must change the `snapcraft.yaml` as following:
 
 ```diff

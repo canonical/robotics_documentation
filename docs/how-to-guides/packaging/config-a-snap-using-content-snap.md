@@ -49,7 +49,7 @@ In addition to an application snap containing our teleoperation,
 we will also distribute an independent configuration snap,
 only responsible for configuring our application.
 The configuration snap will simply contain the YAML file and
-make it available for the application snap via a [content interface](https://snapcraft.io/docs/content-interface).
+make it available for the application snap via a [content interface](https://snapcraft.io/docs/reference/interfaces/content-interface/).
 
 ![Configure a snap content sharing config](https://assets.ubuntu.com/v1/00144290-configure-a-snap-content-sharing-config.jpg)
 
@@ -110,10 +110,10 @@ This is the configuration that our application snap will use.
 
 ### Declare the content slot
 
-The configuration snap needs now to define the [content interface](https://snapcraft.io/docs/content-interface).
-On the configuration snap side, we declare the [`slot`](https://snapcraft.io/docs/interface-management#heading--slots-plugs)
+The configuration snap needs now to define the [content interface](https://snapcraft.io/docs/reference/interfaces/content-interface/).
+On the configuration snap side, we declare the [`slot`](https://snapcraft.io/docs/explanation/interfaces/all-about-interfaces/)
 part of the interface.
-Please refer to [the online documentation for the explanation of slots and plugs](https://snapcraft.io/docs/interfaces).
+Please refer to [the online documentation for the explanation of slots and plugs](https://snapcraft.io/docs/reference/interfaces/).
 
 We modify the `snapcraft.yaml` to declare the content slot:
 
@@ -215,8 +215,8 @@ Our application is now loading the YAML from our configuration snap!
 
 #### Ensure content-interface connection between snaps
 
-The [content interface](https://snapcraft.io/docs/content-interface) is
-[auto-connect](https://snapcraft.io/docs/auto-connection-mechanism)
+The [content interface](https://snapcraft.io/docs/reference/interfaces/content-interface/) is
+[auto-connect](https://snapcraft.io/docs/explanation/interfaces/interface-auto-connection/)
 only when connecting two snaps from the same publisher,
 in other cases we really should verify the connection of
 the plug before launching our application.

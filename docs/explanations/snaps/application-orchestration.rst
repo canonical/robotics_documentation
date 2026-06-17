@@ -13,7 +13,7 @@ Command-chain
 
 The ``command-chain`` keyword allows us to list commands to be executed before our main command. The `ros1-noetic extension <https://snapcraft.io/docs/ros-noetic>`_ is actually using this mechanism. Thanks to it, we don’t have to worry about sourcing the ROS environment in the snap.
 
-The main difference between ``command-chain`` and simply adding commands to the script launcher is that ``snapd`` is aware of it. Hence, if we are trying to debug something (with ``snap run --shell myapp``) the command chain is still going to be called.
+The main difference between ``command-chain`` and simply adding commands to the script launcher is that ``snapd`` is aware of it. Hence, if we are trying to debug something (https://documentation.ubuntu.com/snapcraft/8.14/reference/extensions/ros-1-extension/) the command chain is still going to be called.
 
 Note that an ``exec $@`` is necessary at the end of our ``command-chain`` scripts since our actual command is given as an argument of the ``command-chain``.
 
@@ -67,4 +67,4 @@ Potential use cases of ``post-stop-command`` are:
 * Notify a system that the command has stopped
 * Move generated files
 
-The ``snapcraft`` `documentation for daemons <https://snapcraft.io/docs/services-and-daemons>`_ describes many more features that could be useful in other projects.
+The ``snapcraft`` `documentation for daemons <https://snapcraft.io/docs/how-to-guides/manage-snaps/control-services/>`_ describes many more features that could be useful in other projects.

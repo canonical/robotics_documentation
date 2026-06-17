@@ -116,7 +116,7 @@ With the running Ubuntu 20.04, follow the next step to install all the dependenc
   sudo apt install -y ros-noetic-turtlebot3-gazebo
   ```
 
-- Make sure [snapd](https://snapcraft.io/docs/installing-snapd) and
+- Make sure [snapd](https://snapcraft.io/docs/tutorials/install-the-daemon/) and
   [snapcraft](https://snapcraft.io/snapcraft) are installed
 
 ````
@@ -481,8 +481,8 @@ snapcraft init
 
 This will create a `snap/snapcraft.yaml` file.
 
-In this file, we first need to complete the metadata along with [`strict` confinement](https://snapcraft.io/docs/snap-confinement)
-and [`core20`](https://snapcraft.io/docs/base-snaps).
+In this file, we first need to complete the metadata along with [`strict` confinement](https://snapcraft.io/docs/explanation/security/snap-confinement/)
+and [`core20`](https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/specify-a-base/).
 
 ```yaml
 name: turtlebot3c
@@ -507,11 +507,11 @@ As mentioned in the previous section, we will use three different repositories.
 [`turtlebot3_msgs`](https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git)
 since TurtleBot3 messages are hosted on a different repository.
 
-Here we will define one [snapcraft part](https://snapcraft.io/docs/snapcraft-yaml-schema)
+Here we will define one [snapcraft part](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html)
 for our ROS workspace.
-For this snapcraft part, we will use the [`catkin` plugin](https://snapcraft.io/docs/catkin-plugin).
+For this snapcraft part, we will use the [`catkin` plugin](https://documentation.ubuntu.com/snapcraft/8.14/reference/plugins/catkin_tools_plugin/).
 As seen in the [previous part of this guide](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-1),
-the `catkin` plugin comes in handy with the [`ros-noetic` snapcraft extensions](https://snapcraft.io/docs/ros-noetic).
+the `catkin` plugin comes in handy with the [`ros-noetic` snapcraft extensions](https://documentation.ubuntu.com/snapcraft/8.14/reference/extensions/ros-1-extension/).
 
 The source is used to retrieve the source tree to build.
 Here we have three different GitHub repositories ([turtlebot3](https://github.com/ROBOTIS-GIT/turtlebot3/tree/noetic),
@@ -561,7 +561,7 @@ parts:
       vcs import --input turtlebot3c.rosinstall
 ```
 
-Here, the [`catkin` plugin](https://snapcraft.io/docs/catkin-plugin)
+Here, the [`catkin` plugin](https://documentation.ubuntu.com/snapcraft/8.14/reference/plugins/catkin_plugin/)
 is going to use the `package.xml` present in the different source packages to
 manage the ROS dependencies.
 It will also build and install our packages.
@@ -581,7 +581,7 @@ This application must be running in the background,
 we will thus declare it as a `daemon`.
 Remember that since it’s a ROS application we will need a ROS environment.
 So we will use the
-[`ros-noetic` snapcraft extensions](https://snapcraft.io/docs/ros-noetic).
+[`ros-noetic` snapcraft extensions](https://documentation.ubuntu.com/snapcraft/8.14/reference/extensions/ros-1-extension/).
 
 In our case, we will define a `core` application that will work with the
 [TurtleBot3 waffle_pi model](https://emanual.robotis.com/docs/en/platform/turtlebot3/features/).
@@ -589,7 +589,7 @@ In the launch file this is done by defining an environment variable.
 
 The robot is managing all its hardware interfaces through USB.
 By default, our snap won’t have access to it.
-We then have to declare the [usb-raw plug](https://snapcraft.io/docs/raw-usb-interface).
+We then have to declare the [usb-raw plug](https://snapcraft.io/docs/reference/interfaces/raw-usb-interface/).
 
 Let’s add this app to our `snapcraft.yaml`:
 
@@ -606,7 +606,7 @@ apps:
 
 We have introduced a new entry to our app called `environment`.
 This way we can define environment variables that are specific to our application.
-We can find all the apps and services metadata in the [documentation](https://snapcraft.io/docs/snapcraft-yaml-schema).
+We can find all the apps and services metadata in the [documentation](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html).
 
 ##### Building the teleop app
 
@@ -668,7 +668,7 @@ from the `turtlebot3c_teleop` package.
 The major differences are that this is going to be published on the
 `/joy_vel` topic and
 that our application will need access to the joystick.
-We must use the [`joystick` interface](https://snapcraft.io/docs/joystick-interface),
+We must use the [`joystick` interface](https://snapcraft.io/docs/reference/interfaces/joystick-interface/),
 so our confined application will be able to access the joystick device from our host.
 
 We then add the following to our `snapcraft.yaml`:
@@ -802,15 +802,15 @@ These scripts could be for example responsible for calling
 the ROS node in charge of saving the map.
 
 To import all these local files into our snap we will need an additional
-`snapcraft` [part](https://snapcraft.io/docs/snapcraft-yaml-schema).
+`snapcraft` [part](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html).
 They are used to declare pieces of code that will be pulled into your snap package.
 
 So far we only have one part called `workspace` using our `rosinstall` file to
 build and install our ROS repository.
-This part is relying on the [`catkin` plugin](https://snapcraft.io/docs/catkin-plugin).
+This part is relying on the [`catkin` plugin](https://documentation.ubuntu.com/snapcraft/8.14/reference/plugins/catkin_plugin/).
 
 In order to simply import scripts into our snap we will need a different plugin,
-the [`dump` plugin](https://snapcraft.io/docs/dump-plugin).
+the [`dump` plugin](https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/dump_plugin/).
 
 As its name suggests, the `dump` plugin is simply used to
 "dump" the specified sources in a specified location into our snap.
@@ -1231,7 +1231,7 @@ For this first parameter, we will have to create the hook scripts first.
 
 ##### Hooks
 
-The very first hook that we are going to define is [`The install hook`](https://snapcraft.io/docs/supported-snap-hooks#heading--install).
+The very first hook that we are going to define is [`The install hook`](https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install).
 This hook is called upon initial installation only.
 We are going to use the `The install hook`  to declare our parameter default value.
 
