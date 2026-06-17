@@ -295,7 +295,7 @@ In Ubuntu Core, where every application is a snap,
 you have an extra security layer in terms of network access.
 By design, you have control over whether each snap will get network access
 [as defined in their interfaces](https://snapcraft.io/docs/reference/interfaces/) or not.
-Learn more about [snaps’ confinement types](https://snapcraft.io/docs/reference/interfaces/)
+Learn more about [snaps’ confinement types](https://snapcraft.io/docs/explanation/security/snap-confinement/)
 in the Snapcraft documentation.
 
 (limit-physical-connectivity)=
