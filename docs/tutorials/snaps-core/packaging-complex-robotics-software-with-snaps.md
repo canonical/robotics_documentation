@@ -124,7 +124,7 @@ With the running Ubuntu 20.04, follow the next step to install all the dependenc
 ````{group-tab} Option 2: Multipass
 
   If a native setup is not possible, we will use a Virtual Machine.
-  In this case, we are going to use [Multipass](https://multipass.run/docs)
+  In this case, we are going to use [Multipass](https://documentation.ubuntu.com/multipass/stable/)
   to quickly generate an Ubuntu VM.
 
   ##### Install Multipass
@@ -135,7 +135,7 @@ With the running Ubuntu 20.04, follow the next step to install all the dependenc
     sudo snap install multipass
     ```
 
-  - We can also install it on Windows and macOS by following the [documentation](https://multipass.run/install).
+  - We can also install it on Windows and macOS by following the [documentation](https://documentation.ubuntu.com/multipass/stable/).
 
   ##### Launch the VM
 
