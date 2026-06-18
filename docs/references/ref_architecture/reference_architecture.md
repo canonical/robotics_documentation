@@ -58,7 +58,7 @@ robotics applications through the following key phases:
 
 ### Robot Device (Running Ubuntu Core)
 
-- **[Ubuntu Core](https://ubuntu.com/core/docs)**: A minimal,
+- **[Ubuntu Core](https://documentation.ubuntu.com/core/)**: A minimal,
   immutable version of Ubuntu tailored for embedded and IoT devices.
   It serves as the base OS on the robot.
 - **ROS Snaps**: Applications and libraries using the Robot Operating System (ROS),

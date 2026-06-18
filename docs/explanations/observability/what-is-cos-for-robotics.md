@@ -90,7 +90,7 @@ and their limited resources reducing the need for on device operations.
 Installed snaps will benefit from seamless updates and rollback from the
 [Snap Store](https://snapcraft.io/store).
 Additionally, thanks to snaps,
-the device side can run completely from the [Ubuntu Core](https://ubuntu.com/core/docs)
+the device side can run completely from the [Ubuntu Core](https://documentation.ubuntu.com/core/)
 Operating system engineered for IoT and embedded.
 
 Snaps running on the device are responsible for collecting data and

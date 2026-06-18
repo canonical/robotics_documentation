@@ -15,7 +15,7 @@ based on [COS Lite](https://charmhub.io/topics/canonical-observability-stack/edi
 is relying on Juju to orchestrate and MicroK8s to scale your applications.
 For the devices,
 all the components are snaps and can run on an Ubuntu machine or in the OS for robotics
-[Ubuntu Core](https://ubuntu.com/core/docs).
+[Ubuntu Core](https://documentation.ubuntu.com/core/).
 
 ## Server components
 

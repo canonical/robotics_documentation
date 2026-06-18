@@ -58,7 +58,7 @@ we will be able to teleoperate the robot from a computer connected to the hotspo
 
 If you are looking for a more generic tutorial about Ubuntu Core image creation,
 and additional information,
-please visit: [ubuntu.com/core/docs/build-an-image](https://ubuntu.com/core/docs/build-an-image).
+please visit: [ubuntu.com/core/docs/build-an-image](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/).
 
 ## Create the assertion model
 
@@ -67,7 +67,7 @@ the very first step is to write an assertion model.
 
 The model is a recipe that describes the components that comprise a complete image.
 An assertion is provided as JSON in a text file.
-> See more: [Assertion model](https://ubuntu.com/core/docs/reference/assertions)
+> See more: [Assertion model](https://documentation.ubuntu.com/core/reference/assertions/)
 
 The model contains:
 
@@ -212,7 +212,7 @@ This ensures the model cannot be altered without the key,
 and also links the created image to both the signed version
 of the model and an Ubuntu One account.
 
-> See more: [Sign a model assertion](https://ubuntu.com/core/docs/sign-model-assertion)
+> See more: [Sign a model assertion](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/sign-the-model/)
 
 First, we check whether we have a key or not:
 
@@ -271,7 +271,7 @@ signed with our private `turtlebot3c-key`.
 
 ## Create our gadget snap
 
-The [gadget snap](https://ubuntu.com/core/docs/gadget-snaps)
+The [gadget snap](https://documentation.ubuntu.com/core/reference/gadget-snap-format/)
 is responsible for defining and configuring system properties specific to our device.
 
 The gadget content can define the layout of the volumes of the device storage,
@@ -559,7 +559,7 @@ We have seen not only how to pre-install our application on an Ubuntu Core image
 but also how to customise the image and our application for a specific use case.
 Ubuntu Core is meant for devices in production.
 
-Thanks to the [security and `sandboxing` features](https://ubuntu.com/core/docs/security-and-sandboxing),
+Thanks to the [security and `sandboxing` features](https://documentation.ubuntu.com/core/explanation/security-and-sandboxing/),
 Ubuntu Core is not only lightweight and customised but also secured,
 making it ready for an industrial application.
 Combined with [landscape](https://documentation.ubuntu.com/landscape),

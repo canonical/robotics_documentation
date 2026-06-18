@@ -143,7 +143,7 @@ In case some snaps will no longer be compatible with each other,
 [channels](https://snapcraft.io/docs/explanation/how-snaps-work/channels-and-tracks/)
 could be used to clarify the compatibility between snaps.
 
-Moreover, Ubuntu Core's [validation set](https://ubuntu.com/core/docs/reference/assertions/validation-set)
+Moreover, Ubuntu Core's [validation set](https://documentation.ubuntu.com/core/reference/assertions/validation-set/)
 prevents incompatible software installation on a device.
 
 ### Size
@@ -161,8 +161,8 @@ This reduces bandwidth constrains.
 
 Finally, if a set of snaps is needed to run an application,
 you can pair multiple snaps together for deployment via a
-[private Snap Store](https://ubuntu.com/core/docs/dedicated-snap-stores)
-or by creating a custom [Ubuntu Core image](https://ubuntu.com/core/docs/build-an-image).
+[private Snap Store](https://documentation.ubuntu.com/core/explanation/stores/dedicated-snap-store/)
+or by creating a custom [Ubuntu Core image](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/).
 
 ### Reusability
 
@@ -245,8 +245,8 @@ The foundational snap provided by the extensions packages upstream ROS and
 as such do not make any further guarantees than those provided upstream,
 especially concerning API and ABI stability.
 
-Take a look at the [private Snap Store](https://ubuntu.com/core/docs/dedicated-snap-stores)
-or at creating a custom [Ubuntu Core image](https://ubuntu.com/core/docs/build-an-image)
+Take a look at the [private Snap Store](https://documentation.ubuntu.com/core/explanation/stores/dedicated-snap-store/)
+or at creating a custom [Ubuntu Core image](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/)
 as solutions to pin the foundational snap at a given version for your application snap.
 
 ### Reusability

@@ -70,7 +70,7 @@ See Also
    how to build snap packages of our applications and services,
    for desktop, servers and embedded devices.
 
-* `Ubuntu core - Tutorials <https://ubuntu.com/core/docs/tutorials>`_
+* `Ubuntu core - Tutorials <https://documentation.ubuntu.com/core/tutorials/>`_
    This section of documentation contains step-by-step tutorials to help outline
    what Ubuntu Core is capable of while helping you achieve specific aims,
    such as installing Ubuntu Core or building a custom image for your device.

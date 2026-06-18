@@ -1,7 +1,7 @@
 
 # Ubuntu Core
 
-[Ubuntu Core](https://ubuntu.com/core/docs) is a version of the Ubuntu operating system
+[Ubuntu Core](https://documentation.ubuntu.com/core/) is a version of the Ubuntu operating system
 designed and engineered for IoT and embedded systems.
 
 Ubuntu Core updates itself and its applications automatically.
@@ -14,10 +14,10 @@ to reliably and securely deploy your robot, including automatic rollbacks on upd
 delta updates, full disk encryption, and more.
 Ubuntu Core is ideal for embedded devices because it manages itself.
 
-[Learn more about Ubuntu Core](https://ubuntu.com/core/docs)
+[Learn more about Ubuntu Core](https://documentation.ubuntu.com/core/)
 
 [Download Ubuntu Core certified images for different boards](https://ubuntu.com/certified)
 
-[Learn more about the security features of Ubuntu Core and Snaps](https://ubuntu.com/core/docs/security-and-sandboxing)
+[Learn more about the security features of Ubuntu Core and Snaps](https://documentation.ubuntu.com/core/explanation/security-and-sandboxing/)
 
 [Review guidelines for hardening Ubuntu Core on your robot](https://canonical-robotics.readthedocs-hosted.com/en/latest/explanations/security/securing-ros-robotic-platforms)

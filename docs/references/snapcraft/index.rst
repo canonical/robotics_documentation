@@ -37,7 +37,7 @@ See Also
    Reference section detailing which plugins we offer,
    which interfaces we can use, and what we can add to snapcraft.yaml.
 
-* `Ubuntu Core reference <https://ubuntu.com/core/docs/reference>`_
+* `Ubuntu Core reference <https://documentation.ubuntu.com/core/reference/>`_
    Reference section for detailing which options can be used,
    what functions the API supports,
    which rescue modes are supported, and the contents of gadget.yaml.

@@ -171,7 +171,7 @@ sudo apt install sshguard
 
 By default, Ubuntu Core runs an OpenSSH server which is configured for
 security to accept `PubkeyAuthentication` only.
-See [how this setup works](https://ubuntu.com/core/docs/connect-with-ssh) and
+See [how this setup works](https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/use-ubuntu-one-ssh/) and
 integrates with your UbuntuOne account.
 
 #### Disable Bluetooth
@@ -481,7 +481,7 @@ restricts access to the filesystem, network interfaces, serial devices,
 external hardware, system calls and other kernel features.
 This mechanism by default keeps in check the access that each system component can have.
 Learn more about
-[how applications are confined in Ubuntu Core](https://ubuntu.com/core/docs/snaps-in-ubuntu-core)
+[how applications are confined in Ubuntu Core](https://documentation.ubuntu.com/core/explanation/core-elements/snaps-in-ubuntu-core/)
 and [how Snap confinement works](https://snapcraft.io/docs/explanation/security/snap-confinement/).
 
 In addition, Core can defend against software corruption or
@@ -524,13 +524,13 @@ This mechanism does away with the need to monitor for common defaults,
 making your life easier as you work to reduce your attack surface.
 
 For development, Ubuntu Core's reference images provide the
-[`console-conf system`](https://ubuntu.com/core/docs/system-user)
+[`console-conf system`](https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/add-a-system-user/)
 to allow automatic provisioning of a user account linked to an existing Ubuntu One account.
 The public SSH key of the Ubuntu One account is automatically copied to the device,
 allowing for secure remote connections to the device via SSH.
 
 For production devices, Core has a secure system available
-([system-user assertions](https://ubuntu.com/core/services/guide/create-a-system-user-assertion))
+([system-user assertions](https://documentation.ubuntu.com/core/reference/assertions/system-user/))
 that can be used to securely trigger user account creation on devices in the field.
 
 #### User permissions
@@ -580,7 +580,7 @@ and snap strict confinement leverages AppArmor to lock down the filesystem.
 Permissions for snaps and Core are [handled via interfaces](https://snapcraft.io/docs/reference/interfaces/),
 and the home interface is not automatically connected when a snap is installed.
 Manual connections give you complete control over what kind of access you allow.
-[Dedicated snap stores](https://ubuntu.com/core/docs/dedicated-snap-stores) also offer
+[Dedicated snap stores](https://documentation.ubuntu.com/core/explanation/stores/dedicated-snap-store/) also offer
 the ability for companies to declare snap connections for
 snaps hosted in their own private store.
 
@@ -836,8 +836,8 @@ It’s also possible to [enable secure boot in Desktop](https://wiki.ubuntu.com/
 
 #### You can flexibly configure the kernel on Ubuntu Core with gadget snaps
 
-Canonical provides several reference [kernel snaps](https://ubuntu.com/core/docs/kernel-building)
-that you can also configure using a gadget snap with a number of [different options](https://ubuntu.com/core/docs/modify-kernel-options).
+Canonical provides several reference [kernel snaps](https://documentation.ubuntu.com/core/how-to-guides/image-creation/build-a-kernel-snap/)
+that you can also configure using a gadget snap with a number of [different options](https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/modify-kernel-options/).
 [Contact us](https://ubuntu.com/core/features/secure-boot#get-in-touch)
 to get help in setting up your Ubuntu Core Image with the gadget snap.
 
@@ -868,7 +868,7 @@ For more information about
 You may also consider reading the following materials:
 
 - [Distributing ROS apps with snaps](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-1)
-- [Ubuntu Core documentation](https://ubuntu.com/core/docs)
+- [Ubuntu Core documentation](https://documentation.ubuntu.com/core/)
 - Key considerations when [choosing a robot’s operating system](https://ubuntu.com/engage/robot-operating-system-choice)
 - [ROS Expanded Security Maintenance](https://ubuntu.com/robotics/ros-esm)
 
