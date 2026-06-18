@@ -171,7 +171,8 @@ sudo apt install sshguard
 
 By default, Ubuntu Core runs an OpenSSH server which is configured for
 security to accept `PubkeyAuthentication` only.
-See [how this setup works](https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/use-ubuntu-one-ssh/) and
+See
+[how this setup works](https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/use-ubuntu-one-ssh/) and
 integrates with your UbuntuOne account.
 
 #### Disable Bluetooth
@@ -580,7 +581,8 @@ and snap strict confinement leverages AppArmor to lock down the filesystem.
 Permissions for snaps and Core are [handled via interfaces](https://snapcraft.io/docs/reference/interfaces/),
 and the home interface is not automatically connected when a snap is installed.
 Manual connections give you complete control over what kind of access you allow.
-[Dedicated snap stores](https://documentation.ubuntu.com/core/explanation/stores/dedicated-snap-store/) also offer
+[Dedicated snap stores](https://documentation.ubuntu.com/core/explanation/stores/dedicated-snap-store/)
+also offer
 the ability for companies to declare snap connections for
 snaps hosted in their own private store.
 

@@ -1,7 +1,8 @@
 
 # Ubuntu Core
 
-[Ubuntu Core](https://documentation.ubuntu.com/core/) is a version of the Ubuntu operating system
+[Ubuntu Core](https://documentation.ubuntu.com/core/)
+is a version of the Ubuntu operating system
 designed and engineered for IoT and embedded systems.
 
 Ubuntu Core updates itself and its applications automatically.
