@@ -114,12 +114,8 @@ pa11y: pa11y-install html
 # By using the explicit scheme, it only returns 1 when no files are found,
 # which should not result in failure
 lint-md: pymarkdownlnt-install
-	@python3 $(DOCS_SOURCEDIR)/merge_pymarkdown_config.py \
-		$(DEV_DIR)/.pymarkdown.json \
-		$(DOCS_SOURCEDIR)/.pymarkdown.project-overrides.json \
-		$(DOCS_VENVDIR)/.pymarkdown.merged.json
 	@. $(DOCS_VENV); pymarkdownlnt \
-		--config $(DOCS_VENVDIR)/.pymarkdown.merged.json \
+		--config $(DEV_DIR)/.pymarkdown.json \
 		--return-code-scheme explicit \
 		scan \
 			--recurse \
