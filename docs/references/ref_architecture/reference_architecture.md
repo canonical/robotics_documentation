@@ -50,7 +50,7 @@ robotics applications through the following key phases:
 
 ### Packaging and Publishing
 
-- **[Snap Store](https://snapcraft.io/docs)**:
+- **[Snap Store](https://snapcraft.io/)**:
   The centralized repository for distributing snaps.
   Once your ROS apps are [packaged with Snapcraft](/tutorials/snaps-core/packaging-ros-application-as-snap.md),
   they are uploaded here.

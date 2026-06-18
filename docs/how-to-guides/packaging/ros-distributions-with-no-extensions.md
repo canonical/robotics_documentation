@@ -34,14 +34,6 @@ All of these additional YAML entries can be revealed from your
 With this in mind,
 let us see how you can replicate what the extension is doing for other ROS distributions.
 
-```{important}
-Core18 does not support Snapcraft Extensions.
-If you are developing a ROS snap based on ROS Melodic distro,
-then all the extensions entries are handled by the
-[catkin plugin](https://snapcraft.io/docs/catkin-plugin#heading--core18).
-To check an example see the core18 example [here](https://snapcraft.io/docs/ros-applications).
-```
-
 ## Writing the snap
 
 As an example,
@@ -60,7 +52,8 @@ ROS installation requires the following steps:
 Let’s see how to achieve each step with Snaps.
 
 Adding the required package repository and setting up the keys is done by using the Snapcraft
-[package repository keyword](https://snapcraft.io/docs/package-repositories) as follows:
+[package repository keyword](https://documentation.ubuntu.com/snapcraft/stable/reference/package-repositories/)
+as follows:
 
 ```yaml
 # Add ROS 2 repository
@@ -75,10 +68,12 @@ package-repositories:
 ```
 
 Now, let’s proceed to install the ROS Debian packages.
-The ROS Debian packages are installed by defining a snap [part](https://snapcraft.io/docs/snapcraft-yaml-schema).
-Snap parts are recipes to build a piece of software and are driven via [plugins](https://snapcraft.io/docs/snapcraft-plugins).
+The ROS Debian packages are installed by defining a snap [part](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html).
+Snap parts are recipes to build a piece of software and are driven via [plugins](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/).
 For ROS, you solely want to install the ROS Debian package, no source code involved,
-you can use the [nil plugin](https://snapcraft.io/docs/nil-plugin) as follows:
+you can use the
+[nil plugin](https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/nil_plugin/)
+as follows:
 
 ```yaml
 parts:
@@ -89,7 +84,7 @@ parts:
 To add the packages that are needed to build our
 ROS project you can use the build-packages keyword,
 which allows for the installation of build-time dependencies.
-You can learn more about [build and staging dependencies](https://snapcraft.io/docs/build-and-staging-dependencies)
+You can learn more about [build and staging dependencies](https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-dependencies/)
 in the documentation.
 For a ROS project,
 the bare minimum packages required are those setting up a ROS workspace,
@@ -145,7 +140,7 @@ ROS 2 provides some demos in the
 ROS packages are built by cloning the source code,
 installing its dependencies via rosdep and compiled with colcon.
 In snapcraft, all of this is handled via the
-[colcon plugin](https://snapcraft.io/docs/colcon-plugin)
+[colcon plugin](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/colcon_plugin/)
 which you can add to the part as follows:
 
 ```yaml
@@ -199,7 +194,9 @@ three main components that must be defined:
 
 Snaps effectively allows you to define and
 isolate the pieces of your application that you want to expose to the rest
-of the system via the [apps](https://snapcraft.io/docs/snapcraft-yaml-schema) tag.
+of the system via the
+[apps](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html)
+tag.
 
 After having identified the command that launch your application
 you can add it with the command keyword as follows:
@@ -212,10 +209,11 @@ apps:
 
 By default, snap applications are confined and
 are not allowed to access any of the host resources.
-[Interfaces and plugs](https://snapcraft.io/docs/interface-management) allow the user
-to define the resources on the host that the application will have access to.
+[Interfaces and plugs](https://snapcraft.io/docs/explanation/interfaces/all-about-interfaces/)
+allow the user to define the resources on the host
+that the application will have access to.
 You can have a look at the list of
-[supported interfaces](https://snapcraft.io/docs/supported-interfaces).
+[supported interfaces](https://snapcraft.io/docs/reference/interfaces/).
 
 For a generic ROS application that communicates with other ROS components via topics,
 you will need the `network` plug to grant the snap access to the host’s network,
@@ -261,11 +259,11 @@ You can look at the full *snapcraft.yaml* file described in this document:
 
 ## See also
 
-* [Snapcraft ROS Noetic extension](https://snapcraft.io/docs/ros-noetic):
+* [Snapcraft ROS Noetic extension](https://documentation.ubuntu.com/snapcraft/8.14/reference/extensions/ros-1-extension/):
   The Snapcraft extension to snap ROS Noetic applications.
-* [Snapcraft ROS Foxy extension](https://snapcraft.io/docs/ros2-foxy-extension):
+* [Snapcraft ROS Foxy extension](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/):
   The Snapcraft extension to snap ROS Foxy applications.
-* [Snapcraft ROS Humble extension](https://snapcraft.io/docs/ros2-humble-extension):
+* [Snapcraft ROS Humble extension](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/):
   The Snapcraft extension to snap ROS Humble applications.
-* [Snapcraft supported extensions](https://snapcraft.io/docs/supported-extensions):
+* [Snapcraft supported extensions](https://documentation.ubuntu.com/snapcraft/9.0/reference/extensions/):
   Complete list of Snapcraft extensions available to developers.

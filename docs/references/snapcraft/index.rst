@@ -28,7 +28,7 @@ Snapcraft technical reference for snapping your ROS applications.
 See Also
 --------
 
-* `Snap reference <https://snapcraft.io/docs/snap-reference>`_
+* `Snap reference <https://snapcraft.io/docs/reference/>`_
    Reference section detailing which options can be used,
    what functions the API supports,
    which environment variables can be accessed, and the contents of gadget.yaml.

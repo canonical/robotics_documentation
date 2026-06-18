@@ -24,7 +24,7 @@ the presented configuration has been inspired from
 ## The configuration in {{ COS_ROB }}
 
 For {{ COS_ROB }} snaps, the configuration is done by sharing files with a
-[`content` interface](https://snapcraft.io/docs/content-interface).
+[`content` interface](https://snapcraft.io/docs/reference/interfaces/content-interface/).
 
 In this how-to,
 you will deploy all configurations in one snap and share them with one interface.
@@ -74,7 +74,7 @@ In order to have a match between what the different snaps are expecting and
 your configurations,
 you must follow the format from the content sharing interface.
 
-Expose a content interface [slot](https://snapcraft.io/docs/interface-management)
+Expose a content interface [slot](https://snapcraft.io/docs/explanation/interfaces/all-about-interfaces/)
 with all the configuration placed at the root of the slot's content, as shown below:
 
 ```YAML

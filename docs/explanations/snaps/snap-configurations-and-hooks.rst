@@ -21,18 +21,18 @@ A hook is defined as an executable within a snap’s ``hooks/`` directory. Hooks
 
 The following hooks are currently implemented:
 
-* `configure hook <https://snapcraft.io/docs/supported-snap-hooks#heading--the-configure-hook>`_
-* `full-disk-encryption hook <https://snapcraft.io/docs/supported-snap-hooks#heading--fde>`_
-* `gate-auto-refresh <https://snapcraft.io/docs/supported-snap-hooks#heading--gate-auto-refresh>`_
-* `install hook <https://snapcraft.io/docs/supported-snap-hooks#heading--install>`_
-* `install-device hook <https://snapcraft.io/docs/supported-snap-hooks#heading--install-device>`_
-* `interface hooks <https://snapcraft.io/docs/supported-snap-hooks#heading--interface>`_
-* `prepare-device hook <https://snapcraft.io/docs/supported-snap-hooks#heading--prepare-device>`_
-* `pre-refresh hook <https://snapcraft.io/docs/supported-snap-hooks#heading--pre-refresh>`_
-* `post-refresh hook <https://snapcraft.io/docs/supported-snap-hooks#heading--post-refresh>`_
-* `remove hook <https://snapcraft.io/docs/supported-snap-hooks#heading--remove>`_
+* `configure hook <https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--the-configure-hook>`_
+* `full-disk-encryption hook <https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--fde>`_
+* `gate-auto-refresh <https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--gate-auto-refresh>`_
+* `install hook <https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install>`_
+* `install-device hook <https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install-device>`_
+* `interface hooks <https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--interface>`_
+* `prepare-device hook <https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--prepare-device>`_
+* `pre-refresh hook <https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--pre-refresh>`_
+* `post-refresh hook <https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--post-refresh>`_
+* `remove hook <https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--remove>`_
 
-Hooks are called with no parameters. When a hook needs to request or modify information within ``snapd``, they can do so via the ``snapctl`` tool, which is always available within a snap’s environment. The  `snapctl tool <https://snapcraft.io/docs/using-snapctl>`_ can be used to access parameters, interface connections or even control our snap daemons.
+Hooks are called with no parameters. When a hook needs to request or modify information within ``snapd``, it can do so via the ``snapctl`` tool, which is always available within a snap’s environment. The `snapctl tool <https://snapcraft.io/docs/how-to-guides/snap-development/use-snapctl/>`_ can be used to access parameters, interface connections or even control our snap daemons.
 
 Since our hooks are scripts we must make sure to make them executable. We can do so with:
 

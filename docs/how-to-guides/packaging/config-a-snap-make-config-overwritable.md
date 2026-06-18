@@ -11,7 +11,7 @@ a configuration that is easily overwritable on the robot.
 
 Our snap will be distributed with the default configuration,
 and will copy this default configuration into a location that is common across multiple
-[revisions](https://snapcraft.io/docs/glossary#heading--revision) of the snap.
+[revisions](https://snapcraft.io/docs/reference/glossary/#revision) of the snap.
 This allows the user to manually modify the configuration file and keep it across updates.
 
 For this how-to-guide,
@@ -176,7 +176,7 @@ chmod +x snap/local/reset-overwritable-configuration.bash
 ```
 
 Now that we have a script,
-we simply call it from the [`install` hook](https://snapcraft.io/docs/supported-snap-hooks#heading--install).
+we simply call it from the [`install` hook](https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install).
 This way, on the installation of the snap a default configuration is placed,
 so the user can directly edit the YAML.
 We create the `install` hook:
