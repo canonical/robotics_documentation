@@ -120,7 +120,7 @@ Similarly, it configures Colcon and its auto-completion.
 Finally, it installs the dependencies of our project (in this case, the demos)
 using Rosdep so that we are immediately ready to develop.
 
-You can find more details at the [Workshop documentation website](https://canonical-workshop.readthedocs-hosted.com/en/latest/reference/cli/workshop/#workshop-launch).
+You can find more details at the [Workshop documentation website](https://github.com/canonical/workshop/blob/main/docs/reference/cli/workshop-launch.rst).
 
 ## Develop for ROS 2 using Workshop
 
