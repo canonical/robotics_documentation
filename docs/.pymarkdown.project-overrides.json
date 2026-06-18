@@ -1,0 +1,37 @@
+{
+    "plugins": {
+        "heading-increment": {
+            "enabled": true
+        },
+        "list-indent": {
+            "enabled": true
+        },
+        "no-trailing-spaces": {
+            "enabled": true
+        },
+        "no-reversed-links": {
+            "enabled": true
+        },
+        "no-multiple-blanks": {
+            "enabled": true
+        },
+        "line-length": {
+            "enabled": true,
+            "line_length": 85,
+            "code_blocks": false
+        },
+        "no-multiple-space-atx": {
+            "enabled": true
+        },
+        "no-duplicate-heading": {
+            "enabled": false
+        },
+        "single-title": {
+            "enabled": true
+        },
+        "no-inline-html": {
+            "enabled": true,
+            "allowed_elements": ["br"]
+        }
+    }
+}
