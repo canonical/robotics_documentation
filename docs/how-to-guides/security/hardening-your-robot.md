@@ -171,9 +171,9 @@ sudo apt install sshguard
 
 By default, Ubuntu Core runs an OpenSSH server which is configured for
 security to accept `PubkeyAuthentication` only.
-See setup details in Ubuntu Core docs:
-<https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/>
-and integrates with your UbuntuOne account.
+<!-- pyml disable-next-line line-length -->
+See [how this setup works](https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/use-ubuntu-one-ssh/#how-to-guides-manage-ubuntu-core-use-ubuntu-one-ssh) and
+how it integrates with your Ubuntu One account.
 
 #### Disable Bluetooth
 

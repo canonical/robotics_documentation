@@ -58,7 +58,7 @@ we will be able to teleoperate the robot from a computer connected to the hotspo
 
 If you are looking for a more generic tutorial about Ubuntu Core image creation,
 and additional information,
-please visit: [ubuntu.com/core/docs/build-an-image](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/).
+please visit: [Build your first image](https://documentation.ubuntu.com/core/tutorials/build-your-first-image/).
 
 ## Create the assertion model
 
@@ -566,4 +566,4 @@ Combined with [landscape](https://documentation.ubuntu.com/landscape),
 it offers the perfect solution to deploy robot software at scale.
 
 > More generic documentation about Ubuntu Core
-  can be found on [ubuntu.com/core/docs](http://ubuntu.com/core/docs).
+  can be found on [Ubuntu Core documentation home](https://documentation.ubuntu.com/core/).

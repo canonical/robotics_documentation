@@ -292,6 +292,8 @@ linkcheck_ignore = [
 
 linkcheck_anchors_ignore_for_url = [
     r"https://github\.com/.*",
+    # Workshop docs are currently private behind ReadTheDocs auth, so anchors are not resolvable in CI.
+    r"https://canonical-workshop\.readthedocs-hosted\.com/.*",
     # Ignore the get-in-touch anchor
     r"https://ubuntu\.com/robotics$",
     r"https://ubuntu\.com/robotics/ros-esm$",
