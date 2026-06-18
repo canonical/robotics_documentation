@@ -67,4 +67,4 @@ Potential use cases of ``post-stop-command`` are:
 * Notify a system that the command has stopped
 * Move generated files
 
-The ``snapcraft`` `documentation for daemons <https://snapcraft.io/docs/services-and-daemons>`_ describes many more features that could be useful in other projects.
+The ``snapcraft`` `documentation for daemons <https://snapcraft.io/docs/how-to-guides/manage-snaps/control-services/>`_ describes many more features that could be useful in other projects.

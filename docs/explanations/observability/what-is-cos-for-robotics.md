@@ -57,17 +57,17 @@ to easily deploy applications at any scale and
 a lightweight Kubernetes cluster bringing stability, security and scalability.
 
 Every application running in Juju is a
-[charmed operator (charm)](https://canonical-juju.readthedocs-hosted.com/en/latest/user/reference/charm/).
+[charmed operator (charm)](https://canonical-juju.readthedocs-hosted.com/3.6/reference/charm/).
 This means the server side can also benefit from [charmhub.io](https://charmhub.io/)
 to get seamless updates over time.
 
 The {{ COS_ROB }} consists of a
-[Juju bundle](https://canonical-juju.readthedocs-hosted.com/en/latest/user/reference/bundle/)
+[Juju bundle](https://canonical-juju.readthedocs-hosted.com/3.6/reference/bundle/)
 ready to be deployed on any
-[Juju k8s machine](https://canonical-juju.readthedocs-hosted.com/en/latest/user/explanation/kubernetes-in-juju/).
+[Juju k8s machine](https://canonical-juju.readthedocs-hosted.com/3.6/reference/cloud/kubernetes-clouds-and-juju/).
 
 This bundle can easily be extended by the mean of an
-[overlay](https://canonical-juju.readthedocs-hosted.com/en/latest/user/reference/bundle/).
+[overlay](https://canonical-juju.readthedocs-hosted.com/3.6/reference/bundle/).
 
 Charms bundled in the {{ COS_ROB }} are responsible for
 data visualization and data storage.

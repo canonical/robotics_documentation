@@ -28,7 +28,7 @@ The monolithic snap architecture includes all binaries, libraries,
 configurations, and dependencies in one snap.
 This means that only one snapcraft.yaml is required to snap all applications.
 The `snapcraft.yaml` can still contain multiple
-[parts](https://snapcraft.io/docs/snapcraft-yaml-schema)
+[parts](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html)
 in case some dependencies of the ROS workspace must be built.
 
 ![Monolithic Snap Architecture](https://assets.ubuntu.com/v1/7a79fd69-monolithic_snap.png)
@@ -140,7 +140,7 @@ the multiple snaps are working well together,
 especially when updating the snaps.
 
 In case some snaps will no longer be compatible with each other,
-[channels](https://snapcraft.io/docs/channels)
+[channels](https://snapcraft.io/docs/explanation/how-snaps-work/channels-and-tracks/)
 could be used to clarify the compatibility between snaps.
 
 Moreover, Ubuntu Core's [validation set](https://ubuntu.com/core/docs/reference/assertions/validation-set)
@@ -186,7 +186,7 @@ on another robot as long as the interface is standardised (same topic names, uni
 - Less space efficient
 - Potential snaps incompatibility
 - Harder to maintain
-- Might require additional [interfaces](https://snapcraft.io/docs/supported-interfaces)
+- Might require additional [interfaces](https://snapcraft.io/docs/reference/interfaces/)
 - Need coordination between the releases of the snaps
 
 ## Multi snaps using content sharing
@@ -214,7 +214,7 @@ in a snap which all the other snap depends upon.
 
 The complexity is similar to that of the regular multi snap design presented above.
 Indeed using the provided extensions
-(see the [extension list](https://snapcraft.io/docs/supported-extensions)),
+(see the [extension list](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/)),
 the foundational snap containing the ROS libraries and executables is
 already provided and maintained on the store.
 The only difference to the packager is thus the declared ROS extension used.

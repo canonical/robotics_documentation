@@ -19,7 +19,7 @@ This process must identify maps that are no longer used and older than one month
 Finally, we must delete those old maps.
 
 We might want to have a look at the `timer` feature of daemons,
-presented [in the documentation](https://snapcraft.io/docs/services-and-daemons).
+presented [in the documentation](https://snapcraft.io/docs/how-to-guides/manage-snaps/control-services/).
 
 ## Outcome
 
