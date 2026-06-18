@@ -65,7 +65,7 @@ let's customize it to the Nav2 project needs.
 
 In order to tweak the development environment,
 we are making use of an
-[in-project SDK](https://ubuntu.com/workshop/docs/explanation/sdks/concepts/#in-project-sdks).
+[in-project SDK](https://canonical-workshop.readthedocs-hosted.com/en/latest/explanation/sdks/concepts/#in-project-sdks).
 An in-project SDK is an SDK that is distributed alongside a project rather than being
 available from the Store.
 
@@ -288,7 +288,7 @@ Summary: 43 packages finished [16min 10s]
 
 With our Nav2 workshop fully defined,
 we can add 'actions' to it.
-[Actions](https://ubuntu.com/workshop/docs/explanation/workshops/concepts/#actions)
+[Actions](https://canonical-workshop.readthedocs-hosted.com/en/latest/explanation/workshops/concepts/#actions)
 are a convenient way to automatize mundane tasks,
 and can show how a project is expected to be used.
 
