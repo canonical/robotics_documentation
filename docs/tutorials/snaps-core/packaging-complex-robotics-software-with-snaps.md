@@ -207,7 +207,7 @@ We can also:
 
 ```{warning}
 Make sure to check your snapcraft version properly.
-This tutorial is using Noetic which require an older version of snapcraft.
+This tutorial is using Noetic which require an older version of snapcraft (8.x/stable).
 ```
 
 ```bash
