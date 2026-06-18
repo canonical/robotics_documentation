@@ -252,8 +252,8 @@ redirects = {
     "docs/explanations/snaps/vcstool-and-rosinstall-file/": "../../../../explanations/snaps/vcstool-and-rosinstall-file/",
     "docs/explanations/snaps/debug-the-build-of-a-snap/": "../../../../explanations/snaps/debug-the-build-of-a-snap/",
     "docs/explanations/snaps/debug-a-snap-application/": "../../../../explanations/snaps/debug-a-snap-application/",
-    "docs/explanations/iot-app-store/": "https://documentation.ubuntu.com/dedicated-snap-store/",
-    "docs/explanations/dedicated-snap-store/": "https://documentation.ubuntu.com/dedicated-snap-store/",
+    "docs/explanations/iot-app-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
+    "docs/explanations/dedicated-snap-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
     # The snaps/core tutorials were moved to a subfolder
     "tutorials/snapcraft/": "../../tutorials/snaps-core/",
     "tutorials/packaging-ros-application-as-snap/": "../../tutorials/snaps-core/packaging-ros-application-as-snap/",
@@ -263,8 +263,8 @@ redirects = {
     "tutorials/create-ubuntu-core-image-for-turtlebot3/": "../../tutorials/snaps-core/create-ubuntu-core-image-for-turtlebot3/",
     # These intermediate pages were removed
     "tutorials/ubuntu-pro/": "../../tutorials/ubuntu-pro/ros-esm-intro/",
-    "explanations/iot-app-store/": "https://documentation.ubuntu.com/dedicated-snap-store/",
-    "explanations/dedicated-snap-store/": "https://documentation.ubuntu.com/dedicated-snap-store/",
+    "explanations/iot-app-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
+    "explanations/dedicated-snap-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
     # The snapcraft references were moved to a subfolder
     "references/plugins/": "../../references/snapcraft/plugins/",
     "references/extensions/": "../../references/snapcraft/extensions/",

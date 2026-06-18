@@ -46,7 +46,7 @@ We will cover the use of the public Snap Store in this developer guide.
 Dedicated Snap Stores are also available under a commercial licence.
 They include all the features from the public Snap Store along with
 additional resources described in the
-[dedicated Snap Store documentation](https://documentation.ubuntu.com/dedicated-snap-store/).
+[dedicated Snap Store documentation](https://ubuntu.com/internet-of-things/appstore/docs/).
 
 ### Requirements
 

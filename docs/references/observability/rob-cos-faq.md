@@ -54,7 +54,7 @@ Additionally, you could keep your charm local.
 In the case of a device application,
 the application [must be snapped](https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/).
 It can then be deployed publicly to the [Snap Store](https://snapcraft.io/store) or
-privately on the [dedicated Snap Store](https://documentation.ubuntu.com/dedicated-snap-store/).
+privately on the [dedicated Snap Store](https://ubuntu.com/internet-of-things/appstore/docs/).
 
 ## How can I suggest features to the {{ COS_ROB }}?
 
