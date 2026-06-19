@@ -144,7 +144,7 @@ Now our snap will be unique, we can build it to make sure everything is working 
 The first step is to build the snap with the `snapcraft` command:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 Even if the snap had been built previously,
@@ -390,7 +390,7 @@ This is not a snap requirement, but will be convenient for our users!
 Now that we have modified our `snapcraft.yaml` we can rebuild it with the command:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 A second snap file was generated this time and we can now distribute this update.

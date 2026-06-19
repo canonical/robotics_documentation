@@ -73,7 +73,7 @@ By the end of this exercise, you will have a new command available:
   * Build and install the new snap:
 
     ```bash
-    snapcraft
+    snapcraft pack
     sudo snap install ros2-talker-listener_0.1_*.snap --dangerous
     ```
 

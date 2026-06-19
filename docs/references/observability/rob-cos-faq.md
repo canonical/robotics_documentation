@@ -93,10 +93,10 @@ provide direct connectivity between the devices and the server.
 No, although {{ COS_ROB }} is recommended for [Ubuntu Core](https://ubuntu.com/core).
 {{ COS_ROB }} is supported on Ubuntu Server,
 Desktop and all the Linux distributions
-[supporting the snapd daemon](https://snapcraft.io/docs/installing-snapd).
+[supporting the snapd daemon](https://snapcraft.io/docs/tutorials/install-the-daemon/).
 
 ## Does my server need to use Ubuntu?
 
 No, although {{ COS_ROB }} is recommended for Ubuntu server.
 {{ COS_ROB }} is supported on all the Linux distributions
-[supporting the snapd daemon](https://snapcraft.io/docs/installing-snapd).
+[supporting the snapd daemon](https://snapcraft.io/docs/tutorials/install-the-daemon/).

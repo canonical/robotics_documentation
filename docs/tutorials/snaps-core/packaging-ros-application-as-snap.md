@@ -31,10 +31,10 @@ make it installable on dozens of Linux distributions.
 
 ## Requirements
 
-We will need an up and running Ubuntu 20.04 LTS or similar operating system.
+We will need an up and running Ubuntu 22.04 LTS or similar operating system.
 
 ``` {note}
-Ubuntu 20.04 LTS should be the minimum version as it is still under maintenance.
+Ubuntu 22.04 LTS should be the minimum version as it is still actively maintained.
 The installation could be native or in a VM.
 If using a container, we must be sure that we can install and run systemd,
 snapd and snaps.
@@ -61,19 +61,19 @@ offering `roboticists`:
   We won’t even have to install anything else on our robots’ operating system,
   no dependencies,
   not even [ROS](https://ubuntu.com/robotics/what-is-ros) if we are using it.
-* **Strict confinement**: snaps are designed to be [secure and isolated](https://snapcraft.io/docs/snap-confinement)
+* **Strict confinement**: snaps are designed to be [secure and isolated](https://snapcraft.io/docs/explanation/security/snap-confinement/)
   from the underlying system and other applications,
-  with [dedicated interfaces](https://snapcraft.io/docs/supported-interfaces)
+  with [dedicated interfaces](https://snapcraft.io/docs/reference/interfaces/)
   to access specific resources of the host machine, or of other snaps.
 * **CI/CD integration**: the creation of snaps can be integrated into our CI pipeline,
   making the updates effortless.
-* **OTA and delta updates**: snaps can update [automatically and `transactionally`](https://snapcraft.io/docs/managing-updates),
+* **OTA and delta updates**: snaps can update [automatically and `transactionally`](https://snapcraft.io/docs/how-to-guides/manage-snaps/manage-updates/),
   making sure the device is never broken.
-* **Multi-architecture**: snaps come with a [multi-architecture feature](https://snapcraft.io/docs/architectures),
+* **Multi-architecture**: snaps come with a [multi-architecture feature](https://documentation.ubuntu.com/snapcraft/stable/reference/platforms/),
   allowing us to build our snap package for multiple architectures.
-* **Managing updates**: snaps can be [updated automatically, or we can control the update](https://snapcraft.io/docs/managing-updates)
+* **Managing updates**: snaps can be [updated automatically, or we can control the update](https://snapcraft.io/docs/how-to-guides/manage-snaps/manage-updates/)
   options (update hours, update holds, update history).
-  It also comes with [multiple release channels](https://snapcraft.io/docs/channels)
+  It also comes with [multiple release channels](https://snapcraft.io/docs/explanation/how-snaps-work/channels-and-tracks/)
   for role-based access controls and application versioning.
 * **Reduce boot time**: We can configure a snap application as a daemon,
   so it starts automatically at boot.
@@ -126,7 +126,7 @@ sudo apt install snapd
 ```
 
 For different distributions,
-we can refer [to the documentation to install `snapd`](https://snapcraft.io/docs/installing-snapd).
+we can refer [to the documentation to install `snapd`](https://snapcraft.io/docs/tutorials/install-the-daemon/).
 
 `Snapd` is also available through a snap.
 We can get a more recent version of `snapd` with:
@@ -268,7 +268,7 @@ or to take a tag or commit from a git repository.
 The `summary` cannot exceed 79 characters.
 
 * For more information about core versions,
-  please see [top-level-metadata](https://snapcraft.io/docs/snapcraft-yaml-schema).
+  please see [top-level-metadata](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/).
 
 ### Base
 
@@ -290,7 +290,7 @@ is based on [Ubuntu 22.04 LTS](http://releases.ubuntu.com/22.04/).
 It is therefore the base for ROS 2 Humble snaps.
 
 * For more information about core versions, please refer to the
-  [Snapcraft `base` documentation](https://snapcraft.io/docs/base-snaps).
+  [Snapcraft `base` documentation](https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/specify-a-base/).
 
 ### Security model
 
@@ -328,8 +328,9 @@ parts:
 ```
 
 Snapcraft relies on well known and well established ROS tools such as,
-in this example, [`colcon`](https://snapcraft.io/docs/colcon-plugin).
-[Plugins](https://snapcraft.io/docs/snapcraft-plugins) allow us to identify such tools.
+in this example, [`colcon`](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/colcon_plugin/).
+[Plugins](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/)
+allow us to identify such tools.
 
 The packages we’re building must have `install` rules,
 or else Snapcraft won’t know which components to place into the snap.
@@ -347,10 +348,10 @@ The rest of the dependencies are going to be
 automatically downloaded with `rosdep` based on the `package.xml`.
 
 * For more information about general parts metadata,
-  see [parts-metadata](https://snapcraft.io/docs/snapcraft-yaml-schema).
+  see [parts-metadata](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html).
 
 * For more information about plugins,
-  please refer to the [Snapcraft documentation](https://snapcraft.io/docs/snapcraft-plugins).
+  please refer to the [Snapcraft documentation](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/).
 
 ### Apps
 
@@ -384,12 +385,12 @@ This specifies the path to the binary to be run, along with arguments.
 This is resolved relative to the root of
 our snap contents (hence there is no ‘`/`’ before `opt`).
 
-Finally, the [`ros2-humble extension`](https://snapcraft.io/docs/ros2-humble-extension)
+Finally, the [`ros2-humble extension`](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/)
 will set our ROS 2 humble build and runtime environment.
 This way we don’t have to source manually our ROS 2 environment.
 
 * For more information about ROS extensions,
-please refer to the [Snapcraft documentation](https://snapcraft.io/docs/snapcraft-extensions).
+please refer to the [Snapcraft documentation](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/).
 
 ## Building, installing and running a snap
 
@@ -408,7 +409,7 @@ Snapcraft is building the snap in steps:
 
 1. **pull**: downloads or otherwise retrieves the components needed to build the part.
 2. **build**: constructs the part from the previously pulled components.
-   The [plugin](https://snapcraft.io/docs/snapcraft-plugins)
+   The [plugin](https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/)
    of a part specifies how it is constructed.
 3. **stage**: copies the built components into the staging area.
    This is the first time all the different parts that make up the snap are
@@ -423,7 +424,7 @@ Snapcraft is building the snap in steps:
 To build our snap, we will run:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 This will take some time, but once it’s done we will see:
@@ -518,7 +519,7 @@ Let’s have a closer look at the types of confinement:
 
   Allows access to our system’s resources in much the same way traditional packages do.
   To safeguard against abuse, publishing a classic snap requires
-  [manual approval](https://snapcraft.io/docs/reviewing-classic-confinement-snaps),
+  [manual approval](https://snapcraft.io/docs/reference/administration/reviewing-classic-confinement-snaps/),
   and installation requires the `--classic` command line argument.
   The typical applications allowed with classic confinement are IDEs (VS Code, Qt Creator).
 
@@ -541,7 +542,7 @@ confinement: strict
 ```
 
 * For more information about security models, please see
-  [choosing security models](https://snapcraft.io/docs/choosing-a-security-model).
+  [choosing security models](https://documentation.ubuntu.com/snapcraft/stable/explanation/snapcraft-yaml/index.html#confinement).
 
 ### Grade
 
@@ -575,7 +576,7 @@ The slot is the provider of the interface while the plug is the consumer,
 and a slot can support multiple plug connections.
 
 The list of available interfaces is available on the
-[online documentation](https://snapcraft.io/docs/supported-interfaces).
+[online documentation](https://snapcraft.io/docs/reference/interfaces/).
 We can find interfaces to access the home directory, the CANBus, the network etc.
 
 The interfaces to use are declared in the `snapcraft.yaml` for each application.
@@ -630,13 +631,13 @@ apps:
 Once our changes are done, let’s rebuild our snap:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 This time our snap is confined, so we don’t need the `--devmode` flag any more.
 Yet, we will need the `--dangerous` flag,
 since our snap hasn’t been
-[signed by an official store](https://snapcraft.io/docs/releasing-your-app).
+[signed by an official store](https://documentation.ubuntu.com/snapcraft/stable/how-to/publishing/publish-a-snap/).
 
 To install our snap:
 
@@ -690,7 +691,7 @@ our snap is now running strictly confined with only access to our network.
 ## Run our snap as a daemon
 
 One of the advantages of using snaps is that they can turn our application into a
-[service (or a daemon)](https://snapcraft.io/docs/services-and-daemons)
+[service (or a daemon)](https://snapcraft.io/docs/how-to-guides/manage-snaps/control-services/)
 in an incredibly easy way.
 Once we have turned our application into a service,
 it can automatically start at boot and end when the machine is shut down.
@@ -734,7 +735,7 @@ Now let’s rebuild and install our snap.
 The build should be quicker as this has been done before.
 
 ```bash
-snapcraft
+snapcraft pack
 sudo snap install ros2-talker-listener_0.1_amd64.snap --dangerous
 ```
 
@@ -828,7 +829,7 @@ We can verify the result of our actions by running the `snap info` command on ou
 We have seen how to stop/disable our service,
 but of course we also have the corresponding start/enable command.
 Please visit the documentation to know more about
-[service-management](https://snapcraft.io/docs/service-management).
+[service-management](https://snapcraft.io/docs/how-to-guides/manage-snaps/control-services/).
 
 ## Conclusion
 
