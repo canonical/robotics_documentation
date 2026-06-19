@@ -580,7 +580,7 @@ and snap strict confinement leverages AppArmor to lock down the filesystem.
 Permissions for snaps and Core are [handled via interfaces](https://snapcraft.io/docs/reference/interfaces/),
 and the home interface is not automatically connected when a snap is installed.
 Manual connections give you complete control over what kind of access you allow.
-[Dedicated snap stores](https://ubuntu.com/core/docs/dedicated-snap-stores) also offer
+[Dedicated snap stores](https://ubuntu.com/internet-of-things/appstore/docs/) also offer
 the ability for companies to declare snap connections for
 snaps hosted in their own private store.
 
