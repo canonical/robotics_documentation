@@ -79,7 +79,7 @@ we must be located at the root of our directory next to our `snap/` folder.
 Then we simply run the command:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 This will take some time but after some time we must get the file `turtlebot3c_*.snap`.

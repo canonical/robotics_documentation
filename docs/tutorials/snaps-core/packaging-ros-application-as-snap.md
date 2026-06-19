@@ -31,10 +31,10 @@ make it installable on dozens of Linux distributions.
 
 ## Requirements
 
-We will need an up and running Ubuntu 20.04 LTS or similar operating system.
+We will need an up and running Ubuntu 22.04 LTS or similar operating system.
 
 ``` {note}
-Ubuntu 20.04 LTS should be the minimum version as it is still under maintenance.
+Ubuntu 22.04 LTS should be the minimum version as it is still actively maintained.
 The installation could be native or in a VM.
 If using a container, we must be sure that we can install and run systemd,
 snapd and snaps.
@@ -424,7 +424,7 @@ Snapcraft is building the snap in steps:
 To build our snap, we will run:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 This will take some time, but once it’s done we will see:
@@ -631,7 +631,7 @@ apps:
 Once our changes are done, let’s rebuild our snap:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 This time our snap is confined, so we don’t need the `--devmode` flag any more.
@@ -735,7 +735,7 @@ Now let’s rebuild and install our snap.
 The build should be quicker as this has been done before.
 
 ```bash
-snapcraft
+snapcraft pack
 sudo snap install ros2-talker-listener_0.1_amd64.snap --dangerous
 ```
 

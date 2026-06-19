@@ -365,7 +365,7 @@ Building a gadget snap is no different from any other snap.
 We build the snap with snapcraft:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 This gadget snap can be built for ARM64 on AMD64,

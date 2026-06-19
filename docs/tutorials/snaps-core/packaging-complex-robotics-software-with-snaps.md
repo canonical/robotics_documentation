@@ -205,11 +205,22 @@ We can now `ctrl-c` the Gazebo launch file.
 
 We can also:
 
+```{warning}
+Make sure to check your snapcraft version.
+This tutorial is using Noetic which require an older version of snapcraft (8.x/stable).
+```
+
 ```bash
 snapcraft --version
 ```
 
-And it should display a version equal to or above `7.2.9`.
+And it should display a version below `9.0.0`.
+
+You can always refresh snapcraft to the correct version with:
+
+```
+sudo snap refresh snapcraft --channel=8.x/stable
+```
 
 We are now all set up for this developer guide.
 

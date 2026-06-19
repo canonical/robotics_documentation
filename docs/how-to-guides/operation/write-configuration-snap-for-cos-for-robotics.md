@@ -202,7 +202,7 @@ slots:
 Before using the configuration snap, build and install it:
 
 ```BASH
-snapcraft
+snapcraft pack
 snap install my-rob-cos-configuration*.snap --dangerous
 ```
 
