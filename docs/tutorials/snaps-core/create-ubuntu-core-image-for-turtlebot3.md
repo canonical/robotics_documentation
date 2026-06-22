@@ -15,7 +15,7 @@ with all the necessary snaps, and install it on a Raspberry Pi 4.
 
 For this tutorial, you will need:
 
-* [A developer account](https://snapcraft.io/docs/creating-your-developer-account),
+* [A developer account](https://documentation.ubuntu.com/snapcraft/stable/how-to/publishing/authenticate/),
   and be logged in with snapcraft
 * Some basic snap/snapcraft knowledge
 * A [TurtleBot3](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
@@ -365,7 +365,7 @@ Building a gadget snap is no different from any other snap.
 We build the snap with snapcraft:
 
 ```bash
-snapcraft
+snapcraft pack
 ```
 
 This gadget snap can be built for ARM64 on AMD64,

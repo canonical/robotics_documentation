@@ -132,11 +132,11 @@ To do so we must use the command snap connect. An example of the usage would be:
 
     sudo snap connect SNAP_NAME:camera :camera
 
-The command above presupposes that our snap application had the `camera plug declared <https://snapcraft.io/docs/camera-interface>`_. Similarly, we can use the ``snap disconnect`` command to undo the ``connect`` action.
+The command above presupposes that our snap application had the `camera plug declared <https://snapcraft.io/docs/reference/interfaces/camera-interface/>`_. Similarly, we can use the ``snap disconnect`` command to undo the ``connect`` action.
 
 When a snap cannot access a host resource that it was declared to access, checking the connection is usually a good starting point.
 
-One can `request “auto-connect“ on the forum <https://snapcraft.io/docs/process-for-aliases-auto-connections-and-tracks>`_ of an interface that doesn't auto-connect for a snap.
+One can `request “auto-connect“ on the forum <https://snapcraft.io/docs/reference/administration/process-for-aliases-auto-connections-and-tracks/>`_ of an interface that doesn't auto-connect for a snap.
 
 Snappy-debug
 ------------

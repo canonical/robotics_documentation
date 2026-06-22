@@ -54,7 +54,7 @@ Additionally, you could keep your charm local.
 In the case of a device application,
 the application [must be snapped](https://documentation.ubuntu.com/snapcraft/stable/tutorials/craft-a-snap/).
 It can then be deployed publicly to the [Snap Store](https://snapcraft.io/store) or
-privately on the [dedicated Snap Store](https://ubuntu.com/core/docs/dedicated-snap-stores).
+privately on the [dedicated Snap Store](https://ubuntu.com/internet-of-things/appstore/docs/).
 
 ## How can I suggest features to the {{ COS_ROB }}?
 
@@ -93,10 +93,10 @@ provide direct connectivity between the devices and the server.
 No, although {{ COS_ROB }} is recommended for [Ubuntu Core](https://ubuntu.com/core).
 {{ COS_ROB }} is supported on Ubuntu Server,
 Desktop and all the Linux distributions
-[supporting the snapd daemon](https://snapcraft.io/docs/installing-snapd).
+[supporting the snapd daemon](https://snapcraft.io/docs/tutorials/install-the-daemon/).
 
 ## Does my server need to use Ubuntu?
 
 No, although {{ COS_ROB }} is recommended for Ubuntu server.
 {{ COS_ROB }} is supported on all the Linux distributions
-[supporting the snapd daemon](https://snapcraft.io/docs/installing-snapd).
+[supporting the snapd daemon](https://snapcraft.io/docs/tutorials/install-the-daemon/).

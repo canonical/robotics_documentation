@@ -64,7 +64,7 @@ Make sure that these are in good order before attempting to create a snap.
   * `$SNAP_DATA`, typical value: `/var/snap/hello-world/27`. Owned by `root`
   * `$SNAP_USER_DATA`, typical value: `/home/$USER/snap/hello-world/27`.
     Owned by `$USER`
-* Additionally, with the [`home` interface](https://snapcraft.io/docs/home-interface),
+* Additionally, with the [`home` interface](https://snapcraft.io/docs/reference/interfaces/home-interface/),
   your snap could access the real `$HOME` of the user by accessing `$SNAP_REAL_HOME`.
 
 ## Troubleshooting
@@ -140,9 +140,9 @@ If you see something similar to:
 ```
 
 * By default `rospack` and `roslog` write to the `$HOME/.ros`.
-  When strictly confined a snap which doesn’t have the [`home` interface](https://snapcraft.io/docs/home-interface)
+  When strictly confined a snap which doesn’t have the [`home` interface](https://snapcraft.io/docs/reference/interfaces/home-interface/)
   cannot access the host `$HOME`.
-  Also, even with the [`home` plug](https://snapcraft.io/docs/home-interface)
+  Also, even with the [`home` plug](https://snapcraft.io/docs/reference/interfaces/home-interface/)
   the snap cannot access to hidden directories (.directories)
   for security reasons (like .ssh).
   * To solve that,
