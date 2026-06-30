@@ -9,4 +9,5 @@ Snapcraft Extensions
    These extensions help you snap `ROS 2 <https://docs.ros.org/>`_ applications for the
    `Foxy Fitzroy <https://docs.ros.org/en/foxy/Releases/Release-Foxy-Fitzroy.html>`_,
    `Humble Hawksbill <https://docs.ros.org/en/humble/Releases/Release-Humble-Hawksbill.html>`_,
-   `Jazzy Jalisco <https://docs.ros.org/en/jazzy/Releases/Release-Jazzy-Jalisco.html>`_ distributions.
+   `Jazzy Jalisco <https://docs.ros.org/en/jazzy/Releases/Release-Jazzy-Jalisco.html>`_,
+   `Lyrical Luth <https://docs.ros.org/en/rolling/Releases/Release-Lyrical-Luth.html>`_ distributions.
