@@ -202,7 +202,7 @@ systemctl disable bluetooth.service
 If you are using Ubuntu Core, Bluetooth will be disabled by default.
 In order to [enable Bluetooth on Core](https://documentation.ubuntu.com/core/explanation/system-snaps/bluetooth/#bluez),
 you will need the `BlueZ` protocol stack snap installed, the Bluetooth daemons running,
-and the corresponding plugs and slots connected ([thanks to Snaps’ interfaces mechanism](https://snapcraft.io/docs/interfaces)).
+and the corresponding plugs and slots connected ([thanks to Snaps’ interfaces mechanism](https://snapcraft.io/docs/reference/interfaces/)).
 The lower-level part of it comes with the kernel snap,
 but the user-space portion has to be installed as a separate snap.
 This is one less open service to worry about.
@@ -294,8 +294,8 @@ $ ip addr show eth0
 In Ubuntu Core, where every application is a snap,
 you have an extra security layer in terms of network access.
 By design, you have control over whether each snap will get network access
-[as defined in their interfaces](https://snapcraft.io/docs/interfaces) or not.
-Learn more about [snaps’ confinement types](https://snapcraft.io/docs/network-interfaces)
+[as defined in their interfaces](https://snapcraft.io/docs/reference/interfaces/) or not.
+Learn more about [snaps’ confinement types](https://snapcraft.io/docs/explanation/security/snap-confinement/)
 in the Snapcraft documentation.
 
 (limit-physical-connectivity)=
@@ -482,7 +482,7 @@ external hardware, system calls and other kernel features.
 This mechanism by default keeps in check the access that each system component can have.
 Learn more about
 [how applications are confined in Ubuntu Core](https://ubuntu.com/core/docs/snaps-in-ubuntu-core)
-and [how Snap confinement works](https://snapcraft.io/docs/snap-confinement).
+and [how Snap confinement works](https://snapcraft.io/docs/explanation/security/snap-confinement/).
 
 In addition, Core can defend against software corruption or
 running unauthorised applications via its integrated code authenticity validation,
@@ -577,10 +577,10 @@ When using Ubuntu Core,
 you have the ability to control how each snap will interact with your home directory.
 All of the software in Core is delivered via strict snaps,
 and snap strict confinement leverages AppArmor to lock down the filesystem.
-Permissions for snaps and Core are [handled via interfaces](https://snapcraft.io/docs/interfaces),
+Permissions for snaps and Core are [handled via interfaces](https://snapcraft.io/docs/reference/interfaces/),
 and the home interface is not automatically connected when a snap is installed.
 Manual connections give you complete control over what kind of access you allow.
-[Dedicated snap stores](https://ubuntu.com/core/docs/dedicated-snap-stores) also offer
+[Dedicated snap stores](https://ubuntu.com/internet-of-things/appstore/docs/) also offer
 the ability for companies to declare snap connections for
 snaps hosted in their own private store.
 
@@ -599,7 +599,7 @@ snap connect <snap-name>:home :home
 ```
 
 You can even configure a user’s home directory to be something other than /home
-[with a simple system command line option](https://snapcraft.io/docs/system-options#heading--homedirs).
+[with a simple system command line option](https://snapcraft.io/docs/reference/administration/system-options/#system-homedirs).
 
 Finally, to control access to specific files,
 snaps also offer the ‘personal-files’ interface.

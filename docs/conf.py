@@ -252,7 +252,8 @@ redirects = {
     "docs/explanations/snaps/vcstool-and-rosinstall-file/": "../../../../explanations/snaps/vcstool-and-rosinstall-file/",
     "docs/explanations/snaps/debug-the-build-of-a-snap/": "../../../../explanations/snaps/debug-the-build-of-a-snap/",
     "docs/explanations/snaps/debug-a-snap-application/": "../../../../explanations/snaps/debug-a-snap-application/",
-    "docs/explanations/iot-app-store/": "../../../../explanations/dedicated-snap-store/",
+    "docs/explanations/iot-app-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
+    "docs/explanations/dedicated-snap-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
     # The snaps/core tutorials were moved to a subfolder
     "tutorials/snapcraft/": "../../tutorials/snaps-core/",
     "tutorials/packaging-ros-application-as-snap/": "../../tutorials/snaps-core/packaging-ros-application-as-snap/",
@@ -262,7 +263,8 @@ redirects = {
     "tutorials/create-ubuntu-core-image-for-turtlebot3/": "../../tutorials/snaps-core/create-ubuntu-core-image-for-turtlebot3/",
     # These intermediate pages were removed
     "tutorials/ubuntu-pro/": "../../tutorials/ubuntu-pro/ros-esm-intro/",
-    "explanations/iot-app-store/": "../../explanations/dedicated-snap-store/",
+    "explanations/iot-app-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
+    "explanations/dedicated-snap-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
     # The snapcraft references were moved to a subfolder
     "references/plugins/": "../../references/snapcraft/plugins/",
     "references/extensions/": "../../references/snapcraft/extensions/",
@@ -283,14 +285,8 @@ redirects = {
 
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
-    "https://github.com/canonical/ACME/*",
     r"https://developer\.hashicorp\.com/terraform.*",
     "https://linux.die.net/man/1/curl",
-    "https://ubuntu.com/robotics/ros-esm#get-in-touch",
-    "https://ubuntu.com/core/features/secure-boot#get-in-touch",
-    "https://ubuntu.com/robotics#get-in-touch",
-    "https://canonical-juju.readthedocs-hosted.com/en/latest/user/explanation/kubernetes-in-juju/",
-    "https://snapcraft.io/docs/catkin-*",
 ]
 
 
@@ -298,10 +294,11 @@ linkcheck_ignore = [
 
 linkcheck_anchors_ignore_for_url = [
     r"https://github\.com/.*",
-    r"https://snapcraft.io/docs/.*",
-    r"https://ubuntu.com/robotics#get-in-touch",
-    r"https://ubuntu.com/robotics/ros-esm#get-in-touch",
-    r"https://ubuntu.com/core/features/secure-boot#get-in-touch",
+    # Ignore the get-in-touch anchor
+    r"https://ubuntu\.com/robotics$",
+    r"https://ubuntu\.com/robotics/ros-esm$",
+    r"https://ubuntu\.com/core/features/secure-boot$",
+    r"https://www.ros.org/.*",
 ]
 
 # give linkcheck multiple tries on failure

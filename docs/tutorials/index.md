@@ -14,6 +14,20 @@ to Canonical's robotics solutions.
 These tutorials make as few assumptions as possible and are accessible to anyone.
 They are a good place to start learning about a specific solution from scratch.
 
+## ROS 2 development with Workshop
+
+```{include} workshop/index.md
+   :start-after: % Include start summary
+   :end-before: % Include stop summary
+```
+
+```{toctree}
+:includehidden:
+:maxdepth: 2
+
+workshop/index
+```
+
 ## From zero to hero: deploy a robot with snaps and Ubuntu Core
 
 ```{include} snaps-core/index.rst

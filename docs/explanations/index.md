@@ -26,7 +26,6 @@ and get the most out of this ecosystem.
 
 snaps/index
 ubuntu-core
-dedicated-snap-store
 ```
 
 ## Security

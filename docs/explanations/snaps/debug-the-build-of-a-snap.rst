@@ -22,7 +22,7 @@ When the command snapcraft is called, by default snapcraft is launching an insta
     └── stage/
 
 
-Most of these directories correspond to different `lifecycle steps <https://snapcraft.io/docs/parts-lifecycle#heading--steps>`_ of our snap building.
+Most of these directories correspond to different `lifecycle steps <https://documentation.ubuntu.com/snapcraft/9.0/explanation/parts-lifecycle/#lifecycle-steps>`_ of our snap building.
 
 
 Project
