@@ -1,0 +1,27 @@
+name: robotics-docs-dev
+base: ubuntu@24.04
+sdks:
+  - name: opencode
+    channel: latest/stable
+  - name: project-tools
+    plugs:
+      ssh-agent:
+        interface: ssh-agent
+  - name: vscode-remote
+  - name: system
+    plugs:
+      sphinx-build:
+        interface: tunnel
+        endpoint: 8042
+actions:
+  opencode: opencode "$@"
+  docs-html: |
+    make -C docs/ VENVDIR="$HOME/.docs-venv" html
+  docs-run: |
+    make -C docs/ VENVDIR="$HOME/.docs-venv" run
+  docs-clean: |
+    make -C docs/ clean-doc
+  docs-check: |
+    make -C docs/ VENVDIR="$HOME/.docs-venv" spelling linkcheck woke lint-md
+  get-ip: hostname -I | awk '{print $1}'
+  import-ssh-key: ssh-import-id-gh "$@"
