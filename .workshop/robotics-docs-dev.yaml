@@ -3,13 +3,11 @@ base: ubuntu@24.04
 sdks:
   - name: opencode
     channel: latest/stable
+  - name: project-inference-snap
   - name: project-tools
     plugs:
       ssh-agent:
         interface: ssh-agent
-      inference-snap:
-        interface: tunnel
-        endpoint: localhost:8336
   - name: vscode-remote
   - name: system
     plugs:
