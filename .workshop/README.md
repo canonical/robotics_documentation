@@ -36,7 +36,7 @@ workshop run ssh-import-id-gh <GH_HANDLE>
 Connect VS Code to the workshop:
 
 ```bash
-code --folder-uri vscode-remote://ssh-remote+workshop@$(workshop run -- get-ip)/project
+code --folder-uri vscode-remote://ssh-remote+workshop@$(workshop info | awk '/hostname/{print $2}')/project
 ```
 
 Consider installing one of following VS Code extension for opencode:

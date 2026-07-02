@@ -28,5 +28,4 @@ actions:
     make -C docs/ clean-doc
   docs-check: |
     make -C docs/ VENVDIR="$HOME/.docs-venv" spelling linkcheck woke lint-md
-  get-ip: hostname -I | awk '{print $1}'
   ssh-import-id-gh: ssh-import-id-gh "$@"
