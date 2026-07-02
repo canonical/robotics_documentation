@@ -61,8 +61,8 @@ workshop run opencode --continue
 ```
 
 When using an Inference Snap,
-commect the interface:
+connect the interface:
 
 ```bash
-workshop connect robotics-docs-dev/tools:inference-snap robotics-docs-dev/system:inference-snap
+workshop connect robotics-docs-dev/inference-snaps:inference-snap robotics-docs-dev/system:inference-snap
 ```
