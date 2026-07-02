@@ -8,5 +8,8 @@ SKILLS=(
   "documentation-verify"
 )
 
-npx --yes skills add canonical/copilot-collections --yes --global -a opencode \
+# Disable npx skills telemetry
+echo 'export DISABLE_TELEMETRY=1' >> ~/.profile
+
+DISABLE_TELEMETRY=1 npx --yes skills add canonical/copilot-collections --yes --global -a opencode \
   --skill "${SKILLS[@]}"
