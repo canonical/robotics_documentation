@@ -44,6 +44,11 @@ Consider installing one of following VS Code extension for opencode:
 - [sst-dev.opencode](https://marketplace.visualstudio.com/items?itemName=sst-dev.opencode)
 - [FedaykinDev.openchamber](https://marketplace.visualstudio.com/items?itemName=FedaykinDev.openchamber)
 
+Consider also the following extensions:
+
+- [ms-vscode.makefile-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools)
+- [davidanson.vscode-markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
+
 > Note
 > If VS Code refuses the SSH connection after a workshop refresh,
 > clear the stale host key:
