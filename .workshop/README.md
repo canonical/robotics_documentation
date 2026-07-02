@@ -59,3 +59,10 @@ Resume your last opencode session:
 ```bash
 workshop run opencode --continue
 ```
+
+When using an Inference Snap,
+commect the interface:
+
+```bash
+workshop connect robotics-docs-dev/tools:inference-snap robotics-docs-dev/system:inference-snap
+```

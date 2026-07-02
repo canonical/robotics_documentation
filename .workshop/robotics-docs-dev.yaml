@@ -7,12 +7,19 @@ sdks:
     plugs:
       ssh-agent:
         interface: ssh-agent
+      inference-snap:
+        interface: tunnel
+        endpoint: localhost:8336
   - name: vscode-remote
   - name: system
     plugs:
       sphinx-build:
         interface: tunnel
         endpoint: 8042
+    slots:
+      inference-snap:
+        interface: tunnel
+        endpoint: localhost:8336
 actions:
   opencode: opencode "$@"
   docs-html: |
