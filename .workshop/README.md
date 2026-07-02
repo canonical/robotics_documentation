@@ -30,7 +30,7 @@ workshop start robotics-docs-dev
 Import your SSH key from GitHub:
 
 ```bash
-workshop run import-ssh-key <GH_HANDLE>
+workshop run ssh-import-id-gh <GH_HANDLE>
 ```
 
 Connect VS Code to the workshop:
@@ -38,6 +38,11 @@ Connect VS Code to the workshop:
 ```bash
 code --folder-uri vscode-remote://ssh-remote+workshop@$(workshop run -- get-ip)/project
 ```
+
+Consider installing one of following VS Code extension for opencode:
+
+- [sst-dev.opencode](https://marketplace.visualstudio.com/items?itemName=sst-dev.opencode)
+- [FedaykinDev.openchamber](https://marketplace.visualstudio.com/items?itemName=FedaykinDev.openchamber)
 
 > Note
 > If VS Code refuses the SSH connection after a workshop refresh,
