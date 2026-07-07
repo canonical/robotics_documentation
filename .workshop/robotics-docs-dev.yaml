@@ -8,7 +8,6 @@ sdks:
     plugs:
       ssh-agent:
         interface: ssh-agent
-  - name: vscode-remote
   - name: system
     plugs:
       sphinx-build:
