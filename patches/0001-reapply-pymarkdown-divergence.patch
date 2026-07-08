@@ -1,0 +1,66 @@
+diff --git a/docs/_dev/.pymarkdown.json b/docs/_dev/.pymarkdown.json
+--- a/docs/_dev/.pymarkdown.json
++++ b/docs/_dev/.pymarkdown.json
+@@ -1,22 +1,51 @@
+ {
+     "plugins": {
+         "selectively_enable_rules": true,
++        "heading-increment": {
++            "enabled": true
++        },
+         "heading-style": {
+             "enabled": true,
+             "style": "atx"
+         },
++        "list-indent": {
++            "enabled": true
++        },
++        "no-trailing-spaces": {
++            "enabled": true
++        },
++        "no-reversed-links": {
++            "enabled": true
++        },
++        "no-multiple-blanks": {
++            "enabled": true
++        },
++        "line-length": {
++            "enabled": true,
++            "line_length": 85,
++            "code_blocks": false
++        },
+         "commands-show-output": {
+             "enabled": true
+         },
+         "no-missing-space-atx": {
+             "enabled": true
+         },
++        "no-multiple-space-atx": {
++            "enabled": true
++        },
+         "blanks-around-headings": {
+             "enabled": true
+         },
+         "heading-start-left": {
+             "enabled": true
+         },
++        "no-duplicate-heading": {
++            "enabled": false
++        },
++        "single-title": {
++            "enabled": true
++        },
+         "no-trailing-punctuation": {
+             "enabled": true,
+             "punctuation": ".,;。，；"
+@@ -28,6 +57,10 @@
+         "blanks-around-lists": {
+             "enabled": true
+         },
++        "no-inline-html": {
++            "enabled": true,
++            "allowed_elements": ["br"]
++        },
+         "hr-style": {
+             "enabled": true
+         },
