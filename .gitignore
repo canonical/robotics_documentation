@@ -14,3 +14,4 @@ docs/_dev/warnings.txt
 docs/.venv/
 package*.json
 venv/
+.workshop.lock
