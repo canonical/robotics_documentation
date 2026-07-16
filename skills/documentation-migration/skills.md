@@ -68,6 +68,22 @@ make html
 
 ---
 
+## Pattern: track intentional divergence with `patches/`
+
+When this repository intentionally diverges from upstream template files, record the divergence in a dedicated patch note so future migrations can reapply it safely.
+
+### Recommended approach
+
+1. Keep template-owned files as close to upstream as possible.
+2. For each intentional local deviation, add a concise note in `patches/` that includes:
+   - file path(s)
+   - reason for divergence
+   - minimal diff or exact change summary
+   - reapply instructions for next migration
+3. During template upgrades, review `patches/` first and reapply only still-valid divergences.
+
+This prevents accidental loss of project policy and avoids undocumented drift.
+
 ## Pattern: protect project-specific lint policy from future template syncs
 
 If a template file gets overwritten during upgrades (for example `.pymarkdown.json`) but the project needs extra rules:
