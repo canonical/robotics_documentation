@@ -94,42 +94,26 @@ These are mandatory process lessons from:
 
 ---
 
-## Pattern: track intentional divergence with `patches/`
+## Pattern: handle intentional template divergence with `patches/`
 
-When this repository intentionally diverges from upstream template files, record the divergence in a dedicated patch note so future migrations can reapply it safely.
+Use this for **any** file that intentionally differs from `canonical/sphinx-stack` template state.
 
-### Recommended approach
-
-1. Keep template-owned files as close to upstream as possible during the migration.
-2. For each intentional local deviation, add a concise note in `patches/` that includes:
+1. Keep template-owned files as close to upstream as possible during migration.
+2. If a local divergence is required, isolate it in a project-owned layer when practical (wrapper, override, merge step, or post-sync patch).
+3. Record each intentional divergence in `patches/` with:
    - file path(s)
    - reason for divergence
-   - minimal diff or exact change summary
-   - reapply instructions for next migration
-3. During template upgrades, review `patches/` first to identify candidate divergences.
-4. Apply `patches/` changes **only at the very end of the migration and only after explicit user approval**.
-
-This prevents accidental loss of project policy, avoids undocumented drift, and keeps review focused on template parity before local divergences are reintroduced.
-
-## Pattern: handle any intentional divergence from template files
-
-Use this pattern for **any** file that intentionally differs from the upstream template.
-
-1. Keep upstream template-owned files unchanged by default.
-2. If a local divergence is required, isolate it in a project-owned layer when practical (override file, merge step, wrapper, or post-sync patch).
-3. Record the divergence in `patches/` with:
-   - file path(s)
-   - reason
    - exact change or minimal diff
-   - reapply instructions
-4. Reapply approved divergence patches only at the very end of migration, after user approval.
+   - reapply instructions for future migrations
+4. Review `patches/` before each upgrade to identify approved divergences.
+5. Reapply divergence patches **only at the very end of migration and only after explicit user approval**.
 
 ### Untracked divergence rule
 
-If the agent finds a divergence from template state that is **not** recorded in `patches/`, it must ask:
+If a divergence from template state is found and is **not** recorded in `patches/`, ask the user:
 
 - Is this divergence intentional?
-- Should it be tracked in `patches/` for future migrations?
+- Should it be tracked in `patches/`?
 
 Do not silently keep or remove untracked divergences.
 
