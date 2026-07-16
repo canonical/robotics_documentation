@@ -67,14 +67,6 @@ make lint-md
 make html
 ```
 
-### 5) Open PR and monitor CI
-
-- Open a focused PR with a clear scope statement.
-- Watch checks/runs until final state (pass/fail/skipped as expected).
-- Fix failures or report external blockers clearly.
-
----
-
 ## PR123 -> PR124 migration lessons to preserve
 
 These are mandatory process lessons from:
