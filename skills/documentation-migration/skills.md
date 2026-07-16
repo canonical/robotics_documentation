@@ -4,7 +4,7 @@
 
 Use this skill when migrating a documentation repository to a newer upstream template/version while preserving project-specific behavior.
 
-This skill is intentionally **migration-focused** and reusable by any maintainer.
+This skill is intentionally **migration-focused**.
 
 ## Source of truth and upgrade origin
 
