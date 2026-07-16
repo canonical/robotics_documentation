@@ -32,10 +32,16 @@ This skill is intentionally **migration-focused**.
 2. **Local policy survives upgrades**
    - Repository-specific rules must live outside template-owned files where possible.
 
-3. **Small scoped PRs**
+3. **Prefer clean rebase over iteration debt**
+   - If migration scope drifts or corrective commits pile up, restart from base (`main`) in a fresh worktree.
+
+4. **Small scoped PRs**
    - Keep migration, CI fixes, and unrelated cleanup in separate PRs.
 
-4. **No assumed completion**
+5. **Explicit divergence decisions**
+   - Track intentional differences in `patches/`; do not leave implicit behavior changes buried in commit history.
+
+6. **No assumed completion**
    - Validate locally and watch CI to terminal state before declaring done.
 
 ---
@@ -46,6 +52,7 @@ This skill is intentionally **migration-focused**.
 
 - Start from the requested base branch (usually `main`).
 - Use a fresh worktree/branch for each migration scope.
+- If a migration branch becomes noisy (many corrective commits/scope drift), stop and restart from base in a new worktree.
 
 ### 2) Sync template files
 
@@ -66,33 +73,6 @@ make clean-doc
 make lint-md
 make html
 ```
-
-## PR123 -> PR124 migration lessons to preserve
-
-These are mandatory process lessons from:
-- Closed iterative attempt: https://github.com/canonical/robotics_documentation/pull/123
-- Successful merged redo: https://github.com/canonical/robotics_documentation/pull/124
-
-1. **If migration PR scope drifts or iterations pile up, restart clean from `main`.**
-   - PR #123 accumulated many corrective commits and was closed in favor of a clean redo.
-   - PR #124 succeeded by redoing from `main` in a fresh branch/worktree.
-
-2. **Prefer one clean-room migration over long incremental repair chains.**
-   - Re-apply only approved divergences after template parity is established.
-
-3. **Make divergence decisions explicit and reviewable.**
-   - Keep intentional differences documented and patch-tracked.
-   - Do not leave “implicit” project behavior changes buried in commit history.
-
-4. **Separate migration-adjacent fixes into focused follow-up PRs when needed.**
-   - Example: CLA token permission fix was handled in stacked PR #125, not silently bundled.
-
-5. **When blocked by permissions (for workflow files), report the blocker immediately and retry once scope is fixed.**
-   - Don’t claim completion while push/update is still blocked.
-
-6. **If an unrequested implementation is pushed, revert promptly and continue only with explicit approval.**
-
----
 
 ## Pattern: handle intentional template divergence with `patches/`
 
@@ -123,7 +103,7 @@ Do not silently keep or remove untracked divergences.
 
 ### A) Pushing workflow file changes
 
-If PR changes files under `.github/workflows/`, push can fail unless your GitHub CLI auth token includes `workflow` scope.
+If PR changes files under `.github/workflows/`, push can fail unless your GitHub CLI auth token includes `workflow` scope. If blocked, report it immediately and retry once scope is fixed.
 
 Check and refresh as needed:
 
@@ -147,8 +127,10 @@ permissions:
 ## Scope control rules
 
 - Do not bundle unrelated fixes into a migration PR without explicit approval.
+- Keep migration-adjacent fixes (for example CI permission fixes) in separate stacked PRs when requested.
 - If asked to add another change “on top”, use a separate stacked PR.
 - If a request is phrased as a question/proposal, confirm before implementing.
+- If an unrequested implementation is pushed, revert promptly and continue only after explicit approval.
 
 ---
 
