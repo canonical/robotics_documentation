@@ -74,15 +74,16 @@ When this repository intentionally diverges from upstream template files, record
 
 ### Recommended approach
 
-1. Keep template-owned files as close to upstream as possible.
+1. Keep template-owned files as close to upstream as possible during the migration.
 2. For each intentional local deviation, add a concise note in `patches/` that includes:
    - file path(s)
    - reason for divergence
    - minimal diff or exact change summary
    - reapply instructions for next migration
-3. During template upgrades, review `patches/` first and reapply only still-valid divergences.
+3. During template upgrades, review `patches/` first to identify candidate divergences.
+4. Apply `patches/` changes **only at the very end of the migration and only after explicit user approval**.
 
-This prevents accidental loss of project policy and avoids undocumented drift.
+This prevents accidental loss of project policy, avoids undocumented drift, and keeps review focused on template parity before local divergences are reintroduced.
 
 ## Pattern: protect project-specific lint policy from future template syncs
 
