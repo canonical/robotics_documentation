@@ -6,6 +6,13 @@ Use this skill when migrating a documentation repository to a newer upstream tem
 
 This skill is intentionally **migration-focused** and reusable by any maintainer.
 
+## Source of truth and upgrade origin
+
+- Target documentation repository: https://github.com/canonical/robotics_documentation
+- Upstream template to migrate from: https://github.com/canonical/sphinx-stack
+
+**Rule:** run documentation-template upgrades from `canonical/sphinx-stack` as the upstream source of truth (not from ad-hoc local copies).
+
 ---
 
 ## When to use
@@ -42,7 +49,7 @@ This skill is intentionally **migration-focused** and reusable by any maintainer
 
 ### 2) Sync template files
 
-- Copy/update template-owned files from upstream.
+- Copy/update template-owned files from `https://github.com/canonical/sphinx-stack` upstream.
 - Avoid opportunistic formatting or refactors in those files.
 
 ### 3) Re-apply approved project divergences
