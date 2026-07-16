@@ -1,106 +1,108 @@
-# SKILLS.md — Maintainer playbook learned from migration PRs
+# Documentation migration skill
 
-This file captures the practical rules and pitfalls we had to go through while migrating and maintaining this repository.
+## Purpose
 
-It is intended for maintainers and automation agents working on this repo.
+Use this skill when migrating a documentation repository to a newer upstream template/version while preserving project-specific behavior.
+
+This skill is intentionally **migration-focused** and reusable by any maintainer.
 
 ---
 
-## 1) Branching and worktree policy
+## When to use
 
-- Use **git worktrees** for repository work.
-- Start migration/fix PRs from the requested base branch (often `main`) in a fresh worktree.
-- For follow-up requests that should not change an existing PR scope, open a **separate PR**.
-- Do not reuse one branch name for unrelated PR scopes.
+- Upgrading to a new docs template release (for example a Sphinx stack update)
+- Re-syncing repository files with upstream template state
+- Recovering project-specific config lost during a template sync
+- Splitting migration work into follow-up PRs (workflow fix, CI fix, policy fix)
 
-### Canonical pattern
+---
+
+## Core principles
+
+1. **Template parity first**
+   - Keep template-owned files identical to upstream unless a divergence is explicitly approved.
+
+2. **Local policy survives upgrades**
+   - Repository-specific rules must live outside template-owned files where possible.
+
+3. **Small scoped PRs**
+   - Keep migration, CI fixes, and unrelated cleanup in separate PRs.
+
+4. **No assumed completion**
+   - Validate locally and watch CI to terminal state before declaring done.
+
+---
+
+## Recommended migration workflow
+
+### 1) Prepare clean branch
+
+- Start from the requested base branch (usually `main`).
+- Use a fresh worktree/branch for each migration scope.
+
+### 2) Sync template files
+
+- Copy/update template-owned files from upstream.
+- Avoid opportunistic formatting or refactors in those files.
+
+### 3) Re-apply approved project divergences
+
+- Re-introduce only intentional, documented differences.
+- Keep each divergence explicit and easy to review.
+
+### 4) Run local validation
+
+Typical docs checks:
 
 ```bash
-git fetch origin
-git worktree add ../robotics_documentation-<topic> -b <type>/<topic> origin/main
-cd ../robotics_documentation-<topic>
+make clean-doc
+make lint-md
+make html
 ```
 
----
+### 5) Open PR and monitor CI
 
-## 2) Commit and GitHub message conventions
-
-### Commits
-
-- Do **not** prefix commit subjects with `[hermes-agent]`.
-- Set git identity:
-  - `Guillaume beuzeboc <guillaume.beuzeboc@gmail.com>`
-- Commit body must include:
-  - `Model: <actual model used>`
-  - `Co-authored-by: hermes <hermes@beuzeboc.com>`
-
-### GitHub-facing text
-
-- Prefix PR titles/comments/reviews with `[hermes-agent]`.
-- For Markdown comments/bodies, use:
-
-```md
-[hermes-agent]
-
-<message>
-```
-
-- Use `--body-file` with `gh` for multiline Markdown to avoid shell quoting/backtick corruption.
+- Open a focused PR with a clear scope statement.
+- Watch checks/runs until final state (pass/fail/skipped as expected).
+- Fix failures or report external blockers clearly.
 
 ---
 
-## 3) Collaboration safety rules
+## Pattern: protect project-specific lint policy from future template syncs
 
-- **No force-push** unless explicitly requested.
-- Ask before major design trade-offs.
-- If the user asks a question/proposal (not an instruction), treat it as **proposal-only** until explicitly approved.
-- If a push/action was done without explicit approval, revert promptly and transparently.
-- Keep wording precise (grammar/pluralization) in commit/PR text.
+If a template file gets overwritten during upgrades (for example `.pymarkdown.json`) but the project needs extra rules:
 
----
+1. Keep upstream base config unchanged in template-owned location.
+2. Store local overrides in a separate project-owned file.
+3. Merge base + overrides during lint/build runtime.
 
-## 4) Template migration discipline (Sphinx stack)
+### Example layout
 
-- For stack migrations, prioritize **upstream template parity**.
-- If user requests “redo from main”, do a **clean-room redo**:
-  - fresh branch/worktree from `origin/main`
-  - reapply only approved divergences
-  - do not import/cherry-pick previous migration branch work
-- Avoid "nice-to-have" formatting drift in template-owned files.
+- Base (template-owned): `docs/_dev/.pymarkdown.json`
+- Overrides (project-owned): `docs/.pymarkdown.project-overrides.json`
+- Merge helper (project-owned): `docs/merge_pymarkdown_config.py`
+- Lint target uses merged output file.
 
-### Divergence policy
-
-- Keep repository-specific divergences explicit and documented.
-- If a file is mostly template-owned but needs local policy:
-  - keep template base file
-  - keep project overrides in a separate local file
-  - merge at runtime (build/lint step) where practical
-- This prevents future template sync from deleting local policy.
+This prevents local policy from being deleted in future template updates.
 
 ---
 
-## 5) GitHub auth scope vs Actions token permissions
+## GitHub permission pitfalls to verify during migration
 
-These are different systems and are easy to confuse.
+### A) Pushing workflow file changes
 
-### Local CLI token (`gh auth`)
+If PR changes files under `.github/workflows/`, push can fail unless your GitHub CLI auth token includes `workflow` scope.
 
-- Controls what maintainers/agents can push/change from terminal.
-- Workflow file changes under `.github/workflows/*` require `workflow` scope.
-
-Useful commands:
+Check and refresh as needed:
 
 ```bash
-gh auth refresh -h github.com -s repo -s workflow -s read:org
 gh auth status -h github.com
+gh auth refresh -h github.com -s repo -s workflow -s read:org
 ```
 
-### Actions runtime token (`GITHUB_TOKEN`)
+### B) Workflow runtime API access
 
-- Controls what workflows can do during CI.
-- `gh auth` changes do **not** change workflow runtime permissions.
-
-For PR API access in workflows (e.g., "List commits on a pull request"):
+If CI errors with `Resource not accessible by integration` when calling Pull Request APIs, set explicit workflow permissions (this is independent from your local `gh auth` scopes):
 
 ```yaml
 permissions:
@@ -108,57 +110,22 @@ permissions:
   pull-requests: read
 ```
 
-If CI shows `Resource not accessible by integration`, check workflow `permissions:` first.
+---
+
+## Scope control rules
+
+- Do not bundle unrelated fixes into a migration PR without explicit approval.
+- If asked to add another change “on top”, use a separate stacked PR.
+- If a request is phrased as a question/proposal, confirm before implementing.
 
 ---
 
-## 6) PR and CI execution discipline
+## Reusable migration checklist
 
-- Do not declare PR done until checks reach terminal state.
-- `gh pr checks` showing "no checks reported" is not success; continue watching runs.
-- If push is blocked by permissions/scope, report exact blocker immediately and do not claim completion.
-- For docs/migration PRs, run local validation before push (as applicable):
-  - `make clean-doc`
-  - `make lint-md`
-  - `make html`
-
----
-
-## 7) Review-loop behavior
-
-- Address review comments with follow-up commits (avoid history rewrite unless asked).
-- When scope changes, update PR summary/body accordingly.
-- Include direct commit links in review-response comments when relevant.
-
----
-
-## 8) Scope management learned here
-
-When concurrent asks appear (migration PR, workflow migration, CLA fix, docs policy fix):
-
-- keep concerns split into focused PRs when requested
-- avoid bundling unrelated fixes into one PR without explicit approval
-- verify branch base/head before opening additional PRs
-
----
-
-## 9) Recommended file strategy for this repository
-
-For future maintainability:
-
-- Keep this `SKILLS.md` as the human maintainer/agent playbook.
-- `AGENTS.md` is optional; only add it if a toolchain specifically consumes it.
-- If both are used, keep `SKILLS.md` as source-of-truth and keep `AGENTS.md` as a thin pointer.
-
----
-
-## 10) Minimal checklist before pushing
-
-- [ ] Correct branch/worktree and base branch
-- [ ] Scope matches explicit user request
-- [ ] No force-push unless explicitly approved
-- [ ] Commit metadata conventions applied
-- [ ] Required local checks run
-- [ ] If touching workflows, verify `gh auth` includes `workflow`
-- [ ] If CI uses PR APIs, set explicit workflow `permissions`
-- [ ] PR/comment formatting follows `[hermes-agent]` rules
+- [ ] Correct base branch and isolated worktree/branch
+- [ ] Template-owned files synced with minimal drift
+- [ ] Project-specific divergences explicitly reapplied
+- [ ] Local docs checks pass (`clean-doc`, `lint-md`, `html`)
+- [ ] Workflow/auth requirements verified when touching CI
+- [ ] PR scope is focused and reviewable
+- [ ] CI watched until terminal state
