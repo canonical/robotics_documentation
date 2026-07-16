@@ -75,6 +75,33 @@ make html
 
 ---
 
+## PR123 -> PR124 migration lessons to preserve
+
+These are mandatory process lessons from:
+- Closed iterative attempt: https://github.com/canonical/robotics_documentation/pull/123
+- Successful merged redo: https://github.com/canonical/robotics_documentation/pull/124
+
+1. **If migration PR scope drifts or iterations pile up, restart clean from `main`.**
+   - PR #123 accumulated many corrective commits and was closed in favor of a clean redo.
+   - PR #124 succeeded by redoing from `main` in a fresh branch/worktree.
+
+2. **Prefer one clean-room migration over long incremental repair chains.**
+   - Re-apply only approved divergences after template parity is established.
+
+3. **Make divergence decisions explicit and reviewable.**
+   - Keep intentional differences documented and patch-tracked.
+   - Do not leave “implicit” project behavior changes buried in commit history.
+
+4. **Separate migration-adjacent fixes into focused follow-up PRs when needed.**
+   - Example: CLA token permission fix was handled in stacked PR #125, not silently bundled.
+
+5. **When blocked by permissions (for workflow files), report the blocker immediately and retry once scope is fixed.**
+   - Don’t claim completion while push/update is still blocked.
+
+6. **If an unrequested implementation is pushed, revert promptly and continue only with explicit approval.**
+
+---
+
 ## Pattern: track intentional divergence with `patches/`
 
 When this repository intentionally diverges from upstream template files, record the divergence in a dedicated patch note so future migrations can reapply it safely.
