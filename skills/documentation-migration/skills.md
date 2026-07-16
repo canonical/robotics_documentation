@@ -92,22 +92,27 @@ When this repository intentionally diverges from upstream template files, record
 
 This prevents accidental loss of project policy, avoids undocumented drift, and keeps review focused on template parity before local divergences are reintroduced.
 
-## Pattern: protect project-specific lint policy from future template syncs
+## Pattern: handle any intentional divergence from template files
 
-If a template file gets overwritten during upgrades (for example `.pymarkdown.json`) but the project needs extra rules:
+Use this pattern for **any** file that intentionally differs from the upstream template.
 
-1. Keep upstream base config unchanged in template-owned location.
-2. Store local overrides in a separate project-owned file.
-3. Merge base + overrides during lint/build runtime.
+1. Keep upstream template-owned files unchanged by default.
+2. If a local divergence is required, isolate it in a project-owned layer when practical (override file, merge step, wrapper, or post-sync patch).
+3. Record the divergence in `patches/` with:
+   - file path(s)
+   - reason
+   - exact change or minimal diff
+   - reapply instructions
+4. Reapply approved divergence patches only at the very end of migration, after user approval.
 
-### Example layout
+### Untracked divergence rule
 
-- Base (template-owned): `docs/_dev/.pymarkdown.json`
-- Overrides (project-owned): `docs/.pymarkdown.project-overrides.json`
-- Merge helper (project-owned): `docs/merge_pymarkdown_config.py`
-- Lint target uses merged output file.
+If the agent finds a divergence from template state that is **not** recorded in `patches/`, it must ask:
 
-This prevents local policy from being deleted in future template updates.
+- Is this divergence intentional?
+- Should it be tracked in `patches/` for future migrations?
+
+Do not silently keep or remove untracked divergences.
 
 ---
 
