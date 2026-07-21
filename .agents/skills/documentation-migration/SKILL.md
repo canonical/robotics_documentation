@@ -1,3 +1,9 @@
+---
+name: documentation-migration
+description: "Migrate robotics documentation from canonical/sphinx-stack while preserving intentional divergences via patches."
+version: 1.0.0
+---
+
 # Documentation migration skill
 
 ## Purpose
