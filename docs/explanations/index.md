@@ -14,6 +14,19 @@ Canonical's robotics solutions.
 These guides help understand how all the pieces fit together
 and get the most out of this ecosystem.
 
+## Reference architecture
+
+```{include} ref_architecture/reference_architecture.md
+   :start-after: % Include start summary
+   :end-before: % Include stop summary
+```
+
+```{toctree}
+:maxdepth: 2
+
+ref_architecture/reference_architecture
+```
+
 ## Snap & Ubuntu Core
 
 ```{include} snaps/index.rst

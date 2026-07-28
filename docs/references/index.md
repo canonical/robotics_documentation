@@ -66,17 +66,3 @@ ROS ESM <esm-package-list>
 
 observability/index
 ```
-
-## Reference architecture
-
-```{include} ref_architecture/reference_architecture.md
-   :start-after: % Include start summary
-   :end-before: % Include stop summary
-```
-
-```{toctree}
-:maxdepth: 2
-:includehidden:
-
-ref_architecture/reference_architecture
-```
