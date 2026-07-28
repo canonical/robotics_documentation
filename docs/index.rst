@@ -21,7 +21,7 @@ Robotics Documentation
 In this documentation
 =====================
 
-* **First Steps:** :doc:`Canonical Robotics Stack overview <references/ref_architecture/reference_architecture>` 
+* **First Steps:** :doc:`Canonical Robotics Stack overview <explanations/ref_architecture/reference_architecture>`
 * **Packaging & distribution:** :doc:`Package a ROS application as a snap <tutorials/snaps-core/packaging-ros-application-as-snap>` |  :doc:`ROS architectures with snaps <explanations/snaps/ros-architectures-with-snaps>` | :doc:`Deploy a robot with snaps and Ubuntu Core <tutorials/snaps-core/index>` | :doc:`Migrate from Docker to snap <how-to-guides/packaging/migrate_from_docker_to_snap>` | :doc:`Snapcraft plugins <references/snapcraft/plugins>` and :doc:`extensions <references/snapcraft/extensions>` for ROS
 * **Observability & monitoring:** :doc:`Observability for robotics <explanations/observability/what-is-cos-for-robotics>` | :doc:`Monitor your robot fleet <tutorials/observability/index>` | :doc:`Alert rules configuration <explanations/observability/alert-rules-configuration-from-device>` | :doc:`Deploy COS with TLS encryption <how-to-guides/operation/deploy-cos-for-robotics-with-tls-encryption>`
 * **Security & long term support:** :doc:`Harden your robot <how-to-guides/security/hardening-your-robot>` | :doc:`What is ESM for ROS <explanations/security/what-is-ros-esm>` | :doc:`Security vulnerability audits <explanations/security/security-audits>` | :doc:`Check if a CVE is fixed <how-to-guides/maintenance/check-cves>`

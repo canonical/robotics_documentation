@@ -160,6 +160,8 @@ templates_path = ["_templates"]
 # Preserve this during future template updates unless intentionally migrating.
 
 redirects = {
+    # The reference architecture is explanatory content
+    "references/ref_architecture/reference_architecture/": "../../../explanations/ref_architecture/reference_architecture/",
     # The migration from Discourse to ReadTheDoc stripped the 'docs/' prefix
     "docs/tutorials/": "../../tutorials/",
     "docs/tutorials/snapcraft/": "../../../tutorials/snapcraft/",
