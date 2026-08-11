@@ -1,3 +1,4 @@
+(tutorials-snaps-core-packaging-ros-application-as-snap)=
 # Tutorial 1: Packaging our first ROS application as a snap
 
 Robotics developers know app development inside-out,

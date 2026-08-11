@@ -1,10 +1,11 @@
+(tutorials-snaps-core-packaging-complex-robotics-software-with-snaps)=
 # Packaging complex robotics software with snaps
 
 ```{important}
 
  **Before you start**
 
-1. Make sure you have completed [**Tutorial 1: Packaging our first ROS application as a snap**](packaging-ros-application-as-snap.md)
+1. Make sure you have completed {ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-as-snap>`
 before starting this tutorial.
 This tutorial builds on key concepts introduced earlier,
 including the benefits of snaps for ROS applications and
@@ -30,7 +31,7 @@ they bring new concepts and tools that we need to understand first.
 
 ## How to use this developer guide
 
-In [Tutorial 1: Packaging our first ROS application as a snap](packaging-ros-application-as-snap.md)
+In {ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-as-snap>`
 of our developer guide series,
 we introduced the main concepts and learned what snaps can do for ROS applications.
 We also explored the most important features of Snapcraft.
@@ -55,7 +56,7 @@ Addressing those points and more,
 snaps represent an ideal solution to deploy ROS applications to devices and users.
 
 Snapping a simple talker-listener in
-[Tutorial 1: Packaging our first ROS application as a snap](packaging-ros-application-as-snap.md)
+{ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-as-snap>`
 was good enough to see the potential of snaps.
 However, when packaging a more complex application, one might wonder:
 
@@ -89,7 +90,7 @@ for a more interesting real-world scenario.
 2. A basic understanding of the Linux environment (Ubuntu) is also required.
 3. You should have a working knowledge of snaps.
   This means either previous experience with snap and snapcraft,
-  or having followed the [Tutorial 1: Packaging our first ROS application as a snap](packaging-ros-application-as-snap.md).
+  or having followed the {ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-as-snap>`.
 
 ### Setup
 
@@ -224,6 +225,7 @@ sudo snap refresh snapcraft --channel=8.x/stable
 
 We are now all set up for this developer guide.
 
+(identification-of-robot-components)=
 ## Identification of robot components
 
 While we can find many examples to snap various applications,
@@ -1541,7 +1543,7 @@ finally added some advanced behaviour to automatize the map management tasks.
 
 Now that we have learned the ins and outs of the TurtleBot3 snap,
 we can apply some of our fresh knowledge for a quick exercise.
-The exercise as well as the solution are available in the [Developer guide part 2 - exercise](./exercises/exercise_2.md).
+The exercise as well as the solution are available in the {ref}`Developer guide part 2 - exercise <tutorials-snaps-core-exercises-exercise-2>`.
 
 ```{eval-rst}
 
