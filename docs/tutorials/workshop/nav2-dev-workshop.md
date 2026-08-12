@@ -1,3 +1,5 @@
+(tutorials-workshop-nav2-dev-workshop)=
+
 # Customize a workshop for a project
 
 % Include start summary

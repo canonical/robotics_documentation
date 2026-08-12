@@ -1,5 +1,6 @@
 
 (tutorials-observability-deploy-cos-for-robotics-agent-on-your-robot)=
+
 # Deploy {{ COS_ROB }} agent on your robot
 
 ```{warning}
@@ -115,4 +116,5 @@ This is it,
 now your device is registered and being correctly monitored via {{ COS_ROB }}!
 
 If you want to start storing ROS 2 bags, check the following How-to guide:
+
 - {ref}`Host a basic file server for your rosbags <how-to-guides-operation-deploy-caddy>`

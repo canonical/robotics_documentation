@@ -1,4 +1,5 @@
 (tutorials-snaps-core-distribute-ros-apps-with-snap-store)=
+
 # Distribute ROS applications with the Snap Store
 
 ## Distribute ROS applications with the Snap Store
@@ -195,7 +196,8 @@ sudo snap remove yourname-test-ros2-snapstore
 ```
 
 If you had issues following any of the previous steps, please,
-review the developer guide {ref}`part 1 <tutorials-snaps-core-packaging-ros-application-as-snap>` again.
+review the developer guide
+{ref}`part 1 <tutorials-snaps-core-packaging-ros-application-as-snap>` again.
 
 #### Register our snap
 

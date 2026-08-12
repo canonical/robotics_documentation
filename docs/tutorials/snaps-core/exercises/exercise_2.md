@@ -1,4 +1,5 @@
 (tutorials-snaps-core-exercises-exercise-2)=
+
 # Part-2 - exercise: Clean old unused maps over time
 
 > This exercise requires having followed the {ref}`Tutorial 2: <tutorials-snaps-core-packaging-complex-robotics-software-with-snaps>`.
