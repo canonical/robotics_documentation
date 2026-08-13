@@ -197,7 +197,7 @@ sudo snap remove yourname-test-ros2-snapstore
 
 If you had issues following any of the previous steps, please,
 review the developer guide
-{ref}`part 1 <tutorials-snaps-core-packaging-ros-application-as-snap>` again.
+{ref}`part 1 <tutorials-snaps-core-packaging-ros-application-getting-started>` again.
 
 #### Register our snap
 

@@ -1,4 +1,4 @@
-(tutorials-workshop-ros2-dev-workshop)=
+(tutorials-workshop-ros2-dev-getting-started)=
 
 # Getting started with Workshop
 

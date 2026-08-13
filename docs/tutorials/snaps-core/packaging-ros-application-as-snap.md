@@ -1,4 +1,4 @@
-(tutorials-snaps-core-packaging-ros-application-as-snap)=
+(tutorials-snaps-core-packaging-ros-application-getting-started)=
 
 # Tutorial 1: Packaging our first ROS application as a snap
 

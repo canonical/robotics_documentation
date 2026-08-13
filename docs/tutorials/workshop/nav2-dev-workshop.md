@@ -11,7 +11,7 @@ ROS 2-ready workshop for a specific project.
 % Include stop summary
 
 Since this builds upon the
-{ref}`Getting started with Workshop <tutorials-workshop-ros2-dev-workshop>` tutorial,
+{ref}`Getting started with Workshop <tutorials-workshop-ros2-dev-getting-started>` tutorial,
 make sure to complete it first.
 There,
 we've seen that we can use predefined SDKs to set up

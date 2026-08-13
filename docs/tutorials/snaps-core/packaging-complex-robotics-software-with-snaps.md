@@ -6,7 +6,7 @@
 
  **Before you start**
 
-1. Make sure you have completed {ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-as-snap>`
+1. Make sure you have completed {ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-getting-started>`
 before starting this tutorial.
 This tutorial builds on key concepts introduced earlier,
 including the benefits of snaps for ROS applications and
@@ -32,7 +32,7 @@ they bring new concepts and tools that we need to understand first.
 
 ## How to use this developer guide
 
-In {ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-as-snap>`
+In {ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-getting-started>`
 of our developer guide series,
 we introduced the main concepts and learned what snaps can do for ROS applications.
 We also explored the most important features of Snapcraft.
@@ -57,7 +57,7 @@ Addressing those points and more,
 snaps represent an ideal solution to deploy ROS applications to devices and users.
 
 Snapping a simple talker-listener in
-{ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-as-snap>`
+{ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-getting-started>`
 was good enough to see the potential of snaps.
 However, when packaging a more complex application, one might wonder:
 
@@ -92,7 +92,7 @@ for a more interesting real-world scenario.
 3. You should have a working knowledge of snaps.
   This means either previous experience with snap and snapcraft,
   or having followed the
-  {ref}`tutorials-snaps-core-packaging-ros-application-as-snap`.
+  {ref}`tutorials-snaps-core-packaging-ros-application-getting-started`.
 
 ### Setup
 

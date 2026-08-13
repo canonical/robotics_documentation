@@ -7,7 +7,7 @@ using Workshop.
 
 % Include stop summary
 
-* {ref}`Getting started with Workshop <tutorials-workshop-ros2-dev-workshop>`
+* {ref}`Getting started with Workshop <tutorials-workshop-ros2-dev-getting-started>`
 
    ```{include} ros2-dev-workshop.md
    :start-after: % Include start summary

@@ -2,7 +2,7 @@
 
 ``` {important}
 This exercise requires having followed the
-{ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-as-snap>`.
+{ref}`Tutorial 1: Packaging our first ROS application as a snap <tutorials-snaps-core-packaging-ros-application-getting-started>`.
 ```
 
 Let’s do a little exercise.
