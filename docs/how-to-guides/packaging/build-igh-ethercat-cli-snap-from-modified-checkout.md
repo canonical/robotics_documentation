@@ -4,7 +4,7 @@
 
 <!-- vale Canonical.400-Enforce-inclusive-terms = NO -->
 
-The [IgH EtherCAT Master](https://etherlab.org/en_GB) (EtherLab)
+The [IgH EtherCAT Master](https://gitlab.com/etherlab.org/ethercat) (EtherLab)
 is an open-source EtherCAT MainDevice implementation for Linux.
 Alongside its kernel modules it ships `ethercat`,
 a userspace command-line tool for listing SubDevices,
