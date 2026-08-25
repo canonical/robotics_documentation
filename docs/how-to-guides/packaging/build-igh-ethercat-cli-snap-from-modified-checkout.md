@@ -3,8 +3,8 @@
 # Build the IgH EtherCAT CLI snap from a modified checkout
 
 <!-- vale Canonical.400-Enforce-inclusive-terms = NO -->
+
 The [IgH EtherCAT Master](https://etherlab.org/en_GB) (EtherLab)
-<!-- vale Canonical.400-Enforce-inclusive-terms = YES -->
 is an open-source EtherCAT MainDevice implementation for Linux.
 Alongside its kernel modules it ships `ethercat`,
 a userspace command-line tool for listing SubDevices,
@@ -13,6 +13,8 @@ The `ighethercat` snap packages that tool,
 together with the `libethercat` userspace library,
 so that it can be installed on any snap-enabled Ubuntu system
 as a single versioned artifact.
+
+<!-- vale Canonical.400-Enforce-inclusive-terms = YES -->
 
 IgH predates the current EtherCAT terminology,
 so its commands and paths still use the older names
