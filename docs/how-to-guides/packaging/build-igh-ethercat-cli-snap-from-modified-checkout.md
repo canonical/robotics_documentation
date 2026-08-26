@@ -14,14 +14,9 @@ You need:
   (see the {ref}`snaps and Ubuntu Core tutorials <tutorials-snaps-core-learning-roadmap>`).
 - Snapcraft and LXD working on your host.
 - `squashfs-tools` and `binutils`, for `unsquashfs` and `strings`.
-- A clone of the IgH EtherCAT fork that contains the `ighethercat` snap recipe:
-
-  ```bash
-  git clone https://github.com/canonical/simple-ethercat-driver-ros2.git
-  cd simple-ethercat-driver-ros2
-  ```
-
-  All commands below run from the repository root.
+- Your own checkout of the IgH EtherCAT source (`stable-1.6`)
+  containing the changes you want to package.
+  All commands below run from its root.
 ````
 
 <!-- vale Canonical.400-Enforce-inclusive-terms = NO -->
@@ -49,11 +44,8 @@ and keeps the IgH names where they are literal commands or paths.
 ```
 
 The `ighethercat` snap is defined by a Snapcraft recipe, `snap/snapcraft.yaml`,
-kept in a [fork of the IgH EtherCAT repository](https://github.com/canonical/simple-ethercat-driver-ros2).
-By default that recipe fetches the upstream `stable-1.6` sources from GitLab,
-so any edits you make to the IgH code in your own checkout
-are not included in the snap.
-This guide shows how to build the `ighethercat` snap from your local checkout instead,
+that builds the IgH checkout it lives in.
+This guide gives you that recipe, shows how to build the snap from your checkout,
 confirm that your change reached the packaged binary,
 and install and run the result.
 Use it when you are developing or patching the `ethercat` CLI
@@ -71,62 +63,61 @@ ighethercat snap                    Ubuntu host
 +-----------------------+           +--------------------------+
 ```
 
-## The snap recipe
+## Add the snap recipe
 
-`snap/snapcraft.yaml` has a single `ethercat` part that pulls the upstream Git source,
-runs the IgH `./bootstrap` script,
-and builds with the `autotools` plugin using:
-
-```text
---prefix=/usr
---disable-kernel
---disable-eoe
---disable-initd
-```
-
-Because kernel support is disabled,
-only changes under `tool/` (the CLI) and `lib/` (the userspace library)
-affect the snap.
-Changes under `master/` or `devices/` are not built into it.
-
-The snap is classic confined so that the CLI can open
-the host's custom `/dev/EtherCAT0` device.
-It exposes one app, `ighethercat.ethercat`.
-
-## Point the recipe at the local checkout
-
-As committed, the recipe fetches a clean `stable-1.6` tree from GitLab
-and ignores edits in your checkout.
-In the `ethercat` part of `snap/snapcraft.yaml`, replace:
+Save the following as `snap/snapcraft.yaml` in the root of your IgH checkout:
 
 ```yaml
-    source: https://gitlab.com/etherlab.org/ethercat.git
-    source-type: git
-    source-branch: stable-1.6
-```
-
-with:
-
-```yaml
-    source: .
-```
-
-`source-type` and `source-branch` describe Git sources
-and must be removed for a local directory.
-Snapcraft must be run from the repository root:
-`.` then selects the whole repository,
-and a path outside the project directory
-(such as `..` from inside `snap/`)
-is not copied into the LXD build environment.
-
-Give the build a distinguishable version
-so the artifact is not confused with a release build, for example:
-
-```yaml
+name: ighethercat
+base: core24
 version: '1.6.9-dev1'
+summary: IgH EtherCAT command-line tool (CLI) for SDO access and bus diagnostics
+description: |
+  The ethercat command-line tool and libethercat userspace library from the
+  IgH EtherCAT Master. It needs a running IgH kernel MainDevice on the host,
+  reachable through /dev/EtherCAT0.
+license: GPL-2.0+
+grade: stable
+confinement: classic
+
+parts:
+  ethercat:
+    plugin: autotools
+    source: .
+    override-build: |
+      ./bootstrap
+      craftctl default
+    autotools-configure-parameters:
+      - --prefix=/usr
+      - --disable-kernel
+      - --disable-eoe
+      - --disable-initd
+    build-packages:
+      - autoconf
+      - automake
+      - libtool
+      - pkg-config
+      - build-essential
+    build-attributes:
+      - enable-patchelf
+
+apps:
+  ethercat:
+    command: usr/bin/ethercat
 ```
 
-Keep the snap name unchanged.
+The `ethercat` part builds the checkout it lives in (`source: .`)
+with the `autotools` plugin, after running the IgH `./bootstrap` script.
+Kernel support is disabled,
+so only changes under `tool/` (the CLI) and `lib/` (the userspace library)
+affect the snap;
+changes under `master/` or `devices/` are not built into it.
+The snap is classic confined so that the CLI can open
+the host's `/dev/EtherCAT0` device,
+and it exposes one app, `ighethercat.ethercat`.
+
+Use a `version` that distinguishes your build from a release,
+such as `1.6.9-dev1` above.
 
 ## Make your change
 
@@ -154,12 +145,8 @@ git diff -- snap/snapcraft.yaml tool/ lib/
 From the repository root:
 
 ```bash
-snapcraft clean
 snapcraft pack
 ```
-
-Cleaning is required when switching from the remote source to `source: .`,
-otherwise a previously pulled upstream tree can be reused.
 
 The result is `ighethercat_1.6.9-dev1_<arch>.snap`,
 for example `ighethercat_1.6.9-dev1_amd64.snap`.
@@ -243,13 +230,8 @@ unless you understand the target hardware and how to recover it.
 ## Rebuild after further changes
 
 After editing more files under `tool/` or `lib/`,
-rebuild only the `ethercat` part
-instead of discarding the whole build environment:
-
-```bash
-snapcraft clean ethercat
-snapcraft pack
-```
+run `snapcraft pack` again;
+Snapcraft picks up the changed sources.
 
 Bump the `version` in `snap/snapcraft.yaml`
 when you need artifacts that can coexist.
@@ -260,8 +242,8 @@ to rule out cached inputs.
 
 ### The marker is missing from the snap
 
-Confirm that the `ethercat` part contains exactly `source: .`
-with no `source-type` or `source-branch` lines,
+Confirm that `snap/snapcraft.yaml` is in the root of your checkout
+and that you ran Snapcraft from there,
 then run a full clean and rebuild:
 
 ```bash
