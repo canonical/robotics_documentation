@@ -3,6 +3,8 @@
 # Build the IgH EtherCAT CLI snap from a modified checkout
 
 <!-- vale Canonical.400-Enforce-inclusive-terms = NO -->
+<!-- "IgH EtherCAT Master" is the upstream project's official name, so the
+     master/slave inclusive-terms check is disabled for this paragraph only. -->
 
 The [IgH EtherCAT Master](https://gitlab.com/etherlab.org/ethercat) (EtherLab)
 is an open-source EtherCAT MainDevice implementation for Linux.
@@ -11,7 +13,7 @@ a userspace command-line tool for listing SubDevices,
 reading and writing SDOs and diagnosing the bus.
 The `ighethercat` snap packages that tool,
 together with the `libethercat` userspace library,
-so that it can be installed on any snap-enabled Ubuntu system
+so that it can be installed like any snap
 as a single versioned artifact.
 
 <!-- vale Canonical.400-Enforce-inclusive-terms = YES -->
@@ -254,16 +256,6 @@ when you need artifacts that can coexist.
 Do a fully clean build (`snapcraft clean --use-lxd`) before a release
 to rule out cached inputs.
 
-## Restore the release recipe
-
-If the local-source changes are not meant to be committed, restore them:
-
-```bash
-git restore snap/snapcraft.yaml tool/ lib/
-```
-
-The recipe then fetches `stable-1.6` from upstream again.
-
 ## Troubleshooting
 
 ### The marker is missing from the snap
@@ -300,7 +292,9 @@ and check that `/dev/EtherCAT0` exists.
 
 ### The CLI reports an ioctl version mismatch
 
+```{warning}
 The userspace CLI and the host kernel MainDevice
 must use compatible ioctl API versions.
 Build the CLI from an IgH revision that matches the host MainDevice,
 or use a matching host MainDevice.
+```
