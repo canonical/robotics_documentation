@@ -27,7 +27,7 @@ and keeps the IgH names where they are literal commands or paths.
 ```
 
 The `ighethercat` snap is defined by a Snapcraft recipe, `snap/snapcraft.yaml`,
-kept in a fork of the IgH EtherCAT repository.
+kept in a [fork of the IgH EtherCAT repository](https://github.com/canonical/simple-ethercat-driver-ros2).
 By default that recipe fetches the upstream `stable-1.6` sources from GitLab,
 so any edits you make to the IgH code in your own checkout
 are not included in the snap.
