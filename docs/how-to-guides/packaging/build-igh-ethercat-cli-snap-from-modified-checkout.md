@@ -116,9 +116,6 @@ The snap is classic confined so that the CLI can open
 the host's `/dev/EtherCAT0` device,
 and it exposes one app, `ighethercat.ethercat`.
 
-Use a `version` that distinguishes your build from a release,
-such as `1.6.9-dev1` above.
-
 ## Make your change
 
 Edit the IgH source under `tool/` or `lib/`.
