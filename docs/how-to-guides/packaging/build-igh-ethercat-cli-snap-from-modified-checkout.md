@@ -61,8 +61,8 @@ ighethercat snap                    Ubuntu host
   the `ighethercat` snap recipe:
 
    ```bash
-   git clone https://github.com/florcabral/ethercat.git
-   cd ethercat
+   git clone https://github.com/canonical/simple-ethercat-driver-ros2.git
+   cd simple-ethercat-driver-ros2
    ```
 
    The recipe is `snap/snapcraft.yaml`,
