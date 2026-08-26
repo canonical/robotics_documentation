@@ -144,7 +144,7 @@ so this marker lets you test the packaging path independently of hardware state.
 Review the changes before building:
 
 ```bash
-git diff -- snap/snapcraft.yaml tool/
+git diff -- snap/snapcraft.yaml tool/ lib/
 ```
 
 ## Build the snap
@@ -259,7 +259,7 @@ to rule out cached inputs.
 If the local-source changes are not meant to be committed, restore them:
 
 ```bash
-git restore snap/snapcraft.yaml tool/CommandVersion.cpp
+git restore snap/snapcraft.yaml tool/ lib/
 ```
 
 The recipe then fetches `stable-1.6` from upstream again.
