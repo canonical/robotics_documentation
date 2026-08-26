@@ -115,27 +115,6 @@ The snap is classic confined so that the CLI can open
 the host's `/dev/EtherCAT0` device,
 and it exposes one app, `ighethercat.ethercat`.
 
-## Make your change
-
-Edit the IgH source under `tool/` or `lib/`.
-
-To have a change that is easy to verify without an EtherCAT MainDevice,
-add an output line to `CommandVersion::execute()` in `tool/CommandVersion.cpp`,
-after the existing `IgH EtherCAT master` line:
-
-```cpp
-cout << "Dev build: local IgH source packaged by Snapcraft" << endl;
-```
-
-`ethercat version` does not open `/dev/EtherCAT0`,
-so this marker lets you test the packaging path independently of hardware state.
-
-Review the changes before building:
-
-```bash
-git diff -- snap/snapcraft.yaml tool/ lib/
-```
-
 ## Build the snap
 
 From the repository root:
@@ -170,7 +149,6 @@ Expected output:
 
 ```text
 IgH EtherCAT master 1.6.9 unknown
-Dev build: local IgH source packaged by Snapcraft
 ```
 
 `unknown` is expected:
@@ -205,8 +183,6 @@ Snapcraft picks up the changed sources.
 
 Bump the `version` in `snap/snapcraft.yaml`
 when you need artifacts that can coexist.
-Do a fully clean build (`snapcraft clean`) before a release
-to rule out cached inputs.
 
 ## Troubleshooting
 
