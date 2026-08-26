@@ -4,8 +4,7 @@
 
 By the end of this guide you will have built the `ighethercat` snap
 from a local checkout of the IgH EtherCAT source containing your own changes,
-verified that those changes are in the packaged `ethercat` binary,
-and installed and run the resulting snap on your host.
+installed and run it on your host.
 
 ````{important} Before you start
 You need:
