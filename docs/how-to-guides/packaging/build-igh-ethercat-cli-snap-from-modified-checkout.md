@@ -50,7 +50,7 @@ and the packaged tool talks to it through `/dev/EtherCAT0`:
 ighethercat snap                    Ubuntu host
 +-----------------------+           +--------------------------+
 | ethercat CLI          |           | ec_master kernel module  |
-| libethercat userspace | --------> | /dev/EtherCAT0           | --> EtherCAT bus
+| libethercat userspace | <-------> | /dev/EtherCAT0           | <-> EtherCAT bus
 +-----------------------+           +--------------------------+
 ```
 
