@@ -7,6 +7,23 @@ from a local checkout of the IgH EtherCAT source containing your own changes,
 verified that those changes are in the packaged `ethercat` binary,
 and installed and run the resulting snap on your host.
 
+````{important} Before you start
+You need:
+
+- Familiarity with snaps and Snapcraft
+  (see the {ref}`snaps and Ubuntu Core tutorials <tutorials-snaps-core-learning-roadmap>`).
+- Snapcraft and LXD working on your host.
+- `squashfs-tools` and `binutils`, for `unsquashfs` and `strings`.
+- A clone of the IgH EtherCAT fork that contains the `ighethercat` snap recipe:
+
+  ```bash
+  git clone https://github.com/canonical/simple-ethercat-driver-ros2.git
+  cd simple-ethercat-driver-ros2
+  ```
+
+  All commands below run from the repository root.
+````
+
 <!-- vale Canonical.400-Enforce-inclusive-terms = NO -->
 <!-- "IgH EtherCAT Master" is the upstream project's official name, so the
      master/slave inclusive-terms check is disabled for this paragraph only. -->
@@ -53,30 +70,6 @@ ighethercat snap                    Ubuntu host
 | libethercat userspace | <-------> | /dev/EtherCAT0           | <-> EtherCAT bus
 +-----------------------+           +--------------------------+
 ```
-
-````{important} Before you start
-1. This guide assumes you are familiar with snaps and Snapcraft.
-  If you are new to snaps, start with the
-  {ref}`snaps and Ubuntu Core tutorials <tutorials-snaps-core-learning-roadmap>`,
-  in particular
-  [What is a snap?](/tutorials/snaps-core/packaging-ros-application-as-snap.md#what-is-a-snap).
-2. Snapcraft and LXD are installed and working on your Ubuntu host,
-  as set up in the tutorials above.
-3. You have a clone of the IgH EtherCAT repository that contains
-  the `ighethercat` snap recipe:
-
-   ```bash
-   git clone https://github.com/canonical/simple-ethercat-driver-ros2.git
-   cd simple-ethercat-driver-ros2
-   ```
-
-   The recipe is `snap/snapcraft.yaml`,
-   and all commands below run from the repository root.
-
-The artifact checks also use `unsquashfs` and `strings`,
-from the `squashfs-tools` and `binutils` packages.
-
-````
 
 ## The snap recipe
 
@@ -161,8 +154,8 @@ git diff -- snap/snapcraft.yaml tool/ lib/
 From the repository root:
 
 ```bash
-snapcraft clean --use-lxd
-snapcraft pack --use-lxd
+snapcraft clean
+snapcraft pack
 ```
 
 Cleaning is required when switching from the remote source to `source: .`,
@@ -254,13 +247,13 @@ rebuild only the `ethercat` part
 instead of discarding the whole build environment:
 
 ```bash
-snapcraft clean ethercat --use-lxd
-snapcraft pack --use-lxd
+snapcraft clean ethercat
+snapcraft pack
 ```
 
 Bump the `version` in `snap/snapcraft.yaml`
 when you need artifacts that can coexist.
-Do a fully clean build (`snapcraft clean --use-lxd`) before a release
+Do a fully clean build (`snapcraft clean`) before a release
 to rule out cached inputs.
 
 ## Troubleshooting
@@ -272,8 +265,8 @@ with no `source-type` or `source-branch` lines,
 then run a full clean and rebuild:
 
 ```bash
-snapcraft clean --use-lxd
-snapcraft pack --use-lxd
+snapcraft clean
+snapcraft pack
 ```
 
 ### `slaves` cannot open `/dev/EtherCAT0`
