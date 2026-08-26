@@ -18,11 +18,13 @@ as a single versioned artifact.
 
 <!-- vale Canonical.400-Enforce-inclusive-terms = YES -->
 
+```{note}
 IgH predates the current EtherCAT terminology,
 so its commands and paths still use the older names
 (for example `ethercat slaves` and `master/`).
 This guide uses MainDevice and SubDevice in prose
 and keeps the IgH names where they are literal commands or paths.
+```
 
 The `ighethercat` snap is defined by a Snapcraft recipe, `snap/snapcraft.yaml`,
 kept in a fork of the IgH EtherCAT repository.
