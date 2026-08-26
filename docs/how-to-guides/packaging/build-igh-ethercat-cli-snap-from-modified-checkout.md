@@ -2,6 +2,11 @@
 
 # Build the IgH EtherCAT CLI snap from a modified checkout
 
+By the end of this guide you will have built the `ighethercat` snap
+from a local checkout of the IgH EtherCAT source containing your own changes,
+verified that those changes are in the packaged `ethercat` binary,
+and installed and run the resulting snap on your host.
+
 <!-- vale Canonical.400-Enforce-inclusive-terms = NO -->
 <!-- "IgH EtherCAT Master" is the upstream project's official name, so the
      master/slave inclusive-terms check is disabled for this paragraph only. -->
