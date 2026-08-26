@@ -269,20 +269,6 @@ snapcraft clean --use-lxd
 snapcraft pack --use-lxd
 ```
 
-### Snapcraft cannot access LXD
-
-Confirm that your user can run `lxc list`.
-If you were just added to the `lxd` group,
-log out and back in before retrying.
-
-### Installation says classic confinement is required
-
-Install with both flags:
-
-```bash
-sudo snap install --dangerous --classic ./ighethercat_*.snap
-```
-
 ### `slaves` cannot open `/dev/EtherCAT0`
 
 The snap does not provide or start the kernel MainDevice.
@@ -298,3 +284,6 @@ must use compatible ioctl API versions.
 Build the CLI from an IgH revision that matches the host MainDevice,
 or use a matching host MainDevice.
 ```
+
+For general Snapcraft and snap installation problems,
+see the {ref}`snap FAQ and troubleshooting page <reference-snapcraft-faq-troubleshooting>`.
