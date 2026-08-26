@@ -13,7 +13,6 @@ You need:
 - Familiarity with snaps and Snapcraft
   (see the {ref}`snaps and Ubuntu Core tutorials <tutorials-snaps-core-learning-roadmap>`).
 - Snapcraft and LXD working on your host.
-- `squashfs-tools` and `binutils`, for `unsquashfs` and `strings`.
 - Your own checkout of the IgH EtherCAT source (`stable-1.6`)
   containing the changes you want to package.
   All commands below run from its root.
@@ -148,26 +147,6 @@ snapcraft pack
 The result is `ighethercat_1.6.9-dev1_<arch>.snap`,
 for example `ighethercat_1.6.9-dev1_amd64.snap`.
 
-## Verify the change reached the snap
-
-Check the packaged metadata:
-
-```bash
-unsquashfs -cat ighethercat_1.6.9-dev1_*.snap meta/snap.yaml
-```
-
-It should report `version: 1.6.9-dev1` and `confinement: classic`.
-
-Check that the compiled CLI contains the marker:
-
-```bash
-unsquashfs -cat ighethercat_1.6.9-dev1_*.snap usr/bin/ethercat \
-  | strings \
-  | grep -F 'Dev build: local IgH source packaged by Snapcraft'
-```
-
-If nothing is printed, see [Troubleshooting](#troubleshooting) before installing.
-
 ## Install and run the snap
 
 A locally built snap is unsigned, and this one is classic confined,
@@ -175,12 +154,6 @@ so installation needs both `--dangerous` and `--classic`:
 
 ```bash
 sudo snap install --dangerous --classic ./ighethercat_1.6.9-dev1_*.snap
-```
-
-```{warning}
-`--dangerous` skips Snap Store signature verification
-and classic confinement gives the application broad host access.
-Only install local snaps you built yourself or received from a trusted source.
 ```
 
 If a previous local revision of `ighethercat` is installed,
@@ -221,7 +194,7 @@ snap run ighethercat.ethercat sdos --position 0
 snap run ighethercat.ethercat upload --position 0 --type uint32 0x1000 0
 ```
 
-Avoid `download`, register writes, state changes and SII writes
+Avoid SDO writes (`ethercat download`), register writes, state changes and SII writes
 unless you understand the target hardware and how to recover it.
 
 ## Rebuild after further changes
@@ -237,7 +210,7 @@ to rule out cached inputs.
 
 ## Troubleshooting
 
-### The marker is missing from the snap
+### Your change is missing from the installed snap
 
 Confirm that `snap/snapcraft.yaml` is in the root of your checkout
 and that you ran Snapcraft from there,
