@@ -42,14 +42,6 @@ This guide uses MainDevice and SubDevice in prose
 and keeps the IgH names where they are literal commands or paths.
 ```
 
-The `ighethercat` snap is defined by a Snapcraft recipe, `snap/snapcraft.yaml`,
-that builds the IgH checkout it lives in.
-This guide gives you that recipe, shows how to build the snap from your checkout,
-confirm that your change reached the packaged binary,
-and install and run the result.
-Use it when you are developing or patching the `ethercat` CLI
-and want to deploy the modified tool as a snap.
-
 The snap carries only the userspace CLI and library.
 The IgH kernel MainDevice, kernel modules and NIC drivers stay on the host,
 and the packaged tool talks to it through `/dev/EtherCAT0`:
@@ -125,6 +117,7 @@ snapcraft pack
 
 The result is `ighethercat_1.6.9-dev1_<arch>.snap`,
 for example `ighethercat_1.6.9-dev1_amd64.snap`.
+After further edits under `tool/` or `lib/`, run `snapcraft pack` again.
 
 ## Install and run the snap
 
@@ -175,15 +168,6 @@ snap run ighethercat.ethercat upload --position 0 --type uint32 0x1000 0
 Avoid SDO writes (`ethercat download`), register writes, state changes and SII writes
 unless you understand the target hardware and how to recover it.
 
-## Rebuild after further changes
-
-After editing more files under `tool/` or `lib/`,
-run `snapcraft pack` again;
-Snapcraft picks up the changed sources.
-
-Bump the `version` in `snap/snapcraft.yaml`
-when you need artifacts that can coexist.
-
 ## Troubleshooting
 
 ### Your change is missing from the installed snap
@@ -196,13 +180,6 @@ then run a full clean and rebuild:
 snapcraft clean
 snapcraft pack
 ```
-
-### `slaves` cannot open `/dev/EtherCAT0`
-
-The snap does not provide or start the kernel MainDevice.
-Configure and start a compatible IgH MainDevice on the host
-and check that `/dev/EtherCAT0` exists.
-`ethercat version` works without the device.
 
 ### The CLI reports an ioctl version mismatch
 
