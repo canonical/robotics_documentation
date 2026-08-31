@@ -127,9 +127,6 @@ so installation needs both `--dangerous` and `--classic`:
 sudo snap install --dangerous --classic ./ighethercat_1.6.9-dev1_*.snap
 ```
 
-If a previous local revision of `ighethercat` is installed,
-remove it first with `sudo snap remove ighethercat`.
-
 Run the CLI through its snap-qualified name
 so an `ethercat` binary installed on the host cannot be selected by mistake:
 
