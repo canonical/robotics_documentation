@@ -2,12 +2,11 @@
 
 # Build the IgH EtherCAT CLI snap from a modified checkout
 
-By the end of this guide you will have built the `ighethercat` snap
+By the end of this guide, you will have built the `ighethercat` snap
 from a local checkout of the IgH EtherCAT source containing your own changes,
 installed and run it on your host.
 
-````{important} Before you start
-You need:
+````{important} Before you start, you'll need:
 
 - Familiarity with snaps and Snapcraft
   (see the {ref}`snaps and Ubuntu Core tutorials <tutorials-snaps-core-learning-roadmap>`).
@@ -25,7 +24,7 @@ The [IgH EtherCAT Master](https://gitlab.com/etherlab.org/ethercat) (EtherLab)
 is an open-source EtherCAT MainDevice implementation for Linux.
 Alongside its kernel modules it ships `ethercat`,
 a userspace command-line tool for listing SubDevices,
-reading and writing SDOs and diagnosing the bus.
+reading and writing SDOs, and diagnosing the bus.
 The `ighethercat` snap packages that tool,
 together with the `libethercat` userspace library,
 so that it can be installed like any snap
@@ -108,7 +107,7 @@ and it exposes one app, `ighethercat.ethercat`.
 
 ## Build the snap
 
-From the repository root:
+After making your changes, from the repository root, run:
 
 ```bash
 snapcraft pack
@@ -147,7 +146,7 @@ neither of which is available in a local-source build.
 ## Connect to an EtherCAT bus
 
 Bus commands need a running IgH MainDevice on the host.
-Check that its device exists:
+First, check that its device exists:
 
 ```bash
 test -e /dev/EtherCAT0 && echo 'EtherCAT device is available'
@@ -161,7 +160,7 @@ snap run ighethercat.ethercat sdos --position 0
 snap run ighethercat.ethercat upload --position 0 --type uint32 0x1000 0
 ```
 
-Avoid SDO writes (`ethercat download`), register writes, state changes and SII writes
+Avoid SDO writes (`ethercat download`), register writes, state changes, and SII writes,
 unless you understand the target hardware and how to recover it.
 
 ## Troubleshooting
