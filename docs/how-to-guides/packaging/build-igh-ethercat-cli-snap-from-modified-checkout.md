@@ -156,7 +156,7 @@ sudo snap connect \
 
 The manual connection keeps the snap strictly confined
 while permitting access to `/dev/EtherCATn`.
-`custom-device` is a super-privileged interface,
+`custom-device` is a [super-privileged interface](https://snapcraft.io/docs/explanation/interfaces/super-privileged-interfaces/#reference-operations-interfaces-super-privileged-interfaces),
 so distributing this snap through the Snap Store
 and making the connection automatic require Store review.
 
