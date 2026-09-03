@@ -36,7 +36,6 @@ configuration.
 
 ![Workshop to host ROS 2 communication](../../assets/images/ros-2-workshop-networking/workshop-to-host.svg)
 
-
 `````{tab-set}
 ````{tab-item} Fast DDS (default)
 
@@ -97,7 +96,7 @@ other by hostname.
 
 ![Workshop to Workshop ROS 2 communication](../../assets/images/ros-2-workshop-networking/workshop-to-workshop.svg)
 
-Run `workshop info` to find a workshop's hostname: 
+Run `workshop info` to find a workshop's hostname:
 
 ```text
 hostname:  demos-jazzy-dev.workshop-tutorial.wp
@@ -158,7 +157,8 @@ Swap publisher and subscriber to verify both directions.
 
 ## Workshop to robot
 
-The robot is on the same LAN as the Workshop host, but the workshop itself is behind the `workshopbr0` bridge.
+The robot is on the same LAN as the Workshop host,
+but the workshop itself is behind the `workshopbr0` bridge.
 
 ![Workshop to robot ROS 2 communication](../../assets/images/ros-2-workshop-networking/workshop-to-robot.svg)
 
