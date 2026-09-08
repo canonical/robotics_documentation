@@ -285,7 +285,7 @@ Reconfigure the robot whenever a different host or Workshop subnet is used.
 First determine:
 
 - `HOST_LAN_IP`: the Workshop host address reachable from the robot.
-- `HOST_LAN_INTERFACE`: the host network interface reachable from the robtot.
+- `HOST_LAN_INTERFACE`: the host network interface reachable from the robot.
 - `WORKSHOP_IP`: the Workshop's address on `workshopbr0`.
 - `ROBOT_IP`: the robot's LAN address.
 
