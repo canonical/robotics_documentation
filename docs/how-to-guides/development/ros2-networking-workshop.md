@@ -419,6 +419,14 @@ On the Workshop host, enable IPv4 forwarding:
 sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
+In case you have Docker installed,
+enable incoming traffic from the host network interface to the worlshop bridge:
+
+```
+sudo iptables -A FORWARD -i HOST_LAN_INTERFACE -o workshopbr0 -j ACCEPT
+```
+
+
 On the robot, route the workshop subnet through the Workshop host:
 
 ```bash
