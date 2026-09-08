@@ -285,6 +285,7 @@ Reconfigure the robot whenever a different host or workshop subnet is used.
 First determine:
 
 - `HOST_LAN_IP`: the Workshop host address reachable from the robot.
+- `HOST_LAN_INTERFACE`: the host network interface reachable from the robtot.
 - `WORKSHOP_IP`: the workshop's address on `workshopbr0`.
 - `ROBOT_IP`: the robot's LAN address.
 
@@ -292,6 +293,13 @@ On the Workshop host, enable IPv4 forwarding:
 
 ```bash
 sudo sysctl -w net.ipv4.ip_forward=1
+```
+
+In case you have Docker installed,
+enable incoming traffic from the host network interface to the worlshop bridge:
+
+```
+sudo iptables -A FORWARD -i HOST_LAN_INTERFACE -o workshopbr0 -j ACCEPT
 ```
 
 On the robot, route the workshop subnet through the Workshop host:
