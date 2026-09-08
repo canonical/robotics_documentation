@@ -296,7 +296,7 @@ sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
 In case you have Docker installed,
-enable incoming traffic from the host network interface to the worlshop bridge:
+enable incoming traffic from the host network interface to the Workshop bridge:
 
 ```
 sudo iptables -A FORWARD -i HOST_LAN_INTERFACE -o workshopbr0 -j ACCEPT
