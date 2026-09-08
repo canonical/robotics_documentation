@@ -181,7 +181,7 @@ Use DDS Router when the robot and workshop nodes must remain on Fast DDS.
 
 [Fast DDS Discovery Server](https://fast-dds.docs.eprosima.com/en/latest/fastdds/discovery/discovery_server.html)
 helps with discovery only.
-it does not transport user data and won't help establishing a connection to the `workshopbr0`.
+It does not transport user data and won't help establish a connection to `workshopbr0`.
 
 Here we need an [eProsima DDS Router](https://eprosima-dds-router.readthedocs.io/en/latest/rst/formalia/titlepage.html#overview)
 instance on both the robot and the workshop to relay ROS 2 traffic in both directions.
