@@ -255,12 +255,15 @@ ros2 topic echo /robot_test std_msgs/msg/Int32
 
 Then swap publisher and subscriber.
 
+```{note}
 `discovery-trigger: any` is important. The default trigger is `reader`, which
 does not relay a publisher-only topic until a subscriber is discovered on the
 same side.
+```
 
-In case it doesn't work,
-make sure the router is reachable from the other peer, example:
+If it doesn't work,
+verify that the robot router is reachable from the Workshop:
+
 ```bash
 # from the Workshop
 nc -zv ROBOT_IP 11666
