@@ -63,7 +63,7 @@ Swap publisher and subscriber to verify both directions.
 
 ````{tab-item} Zenoh
 
-Install and select `rmw_zenoh_cpp` on the host and in the workshop.
+[Install and select](https://docs.ros.org/en/ros2_documentation/jazzy/Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh.html) `rmw_zenoh_cpp` on the host and in the workshop.
 Enable peer discovery because the default ROS Zenoh configuration
 disables multicast scouting:
 
