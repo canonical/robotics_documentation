@@ -14,3 +14,4 @@ robotics applications using Workshop.
    :maxdepth: 1
 
    ros2-git
+   ros2-networking-workshop
