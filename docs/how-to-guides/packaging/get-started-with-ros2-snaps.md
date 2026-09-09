@@ -54,7 +54,7 @@ description: |
 # Each ROS 2 LTS distribution has a corresponding base in the core** series.
 # View the compatible bases at:
 # https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions
-base: core24
+base: core26
 
 # use 'strict' once you have the right plugs and slots
 confinement: devmode
@@ -67,7 +67,7 @@ apps:
     command: ros2 launch demo_nodes_cpp talker_listener.launch.py
     # The ROS extensions establish common settings for all ROS snaps.
     # Learn more about it at https://canonical-robotics.readthedocs-hosted.com/en/latest/references/snapcraft/extensions/
-    extensions: [ros2-jazzy-ros-core]
+    extensions: [ros2-lyrical-ros-core]
 
 # The parts to build the snap.
 parts:
@@ -76,7 +76,7 @@ parts:
     # Learn more about the plugin at https://documentation.ubuntu.com/snapcraft/stable/reference/plugins/colcon_plugin
     plugin: colcon
     source: https://github.com/ros2/demos.git
-    source-branch: jazzy
+    source-branch: lyrical
     source-subdir: demo_nodes_cpp
 ```
 
@@ -88,7 +88,7 @@ It retrieves the source code from a specific branch and packages only a sub-dire
 of this large collection of demos.
 It then invokes a plain `ros2 launch` command to start the talker-listener demo.
 The last point to which I would like to draw your attention to is that this template
-uses `core24` and ROS 2 Jazzy.
+uses `core26` and ROS 2 Lyrical.
 Should you be using a different ROS 2 distribution,
 you will find links to the documentation right at your fingertip to help you
 in your endeavor.
