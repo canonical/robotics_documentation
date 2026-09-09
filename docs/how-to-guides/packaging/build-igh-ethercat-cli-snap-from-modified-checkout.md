@@ -10,10 +10,10 @@ installed and run it on your host.
 
 - Familiarity with snaps and Snapcraft
   (see the {ref}`snaps and Ubuntu Core tutorials <tutorials-snaps-core-learning-roadmap>`).
-- Snapcraft and LXD working on your host.
+- Snapcraft and LXD installed and operational on your host.
 - Your own checkout of the IgH EtherCAT source (`stable-1.6`)
   containing the changes you want to package.
-  All commands below run from its root.
+  All commands below must be run from its root directory.
 ````
 
 <!-- vale Canonical.400-Enforce-inclusive-terms = NO -->
@@ -22,12 +22,12 @@ installed and run it on your host.
 
 The [IgH EtherCAT Master](https://gitlab.com/etherlab.org/ethercat) (EtherLab)
 is an open-source EtherCAT MainDevice implementation for Linux.
-Alongside its kernel modules it ships `ethercat`,
-a userspace command-line tool for listing SubDevices,
+Alongside its kernel modules, it ships `ethercat`,
+a user-space command-line tool for listing SubDevices,
 reading and writing SDOs, and diagnosing the bus.
-The `ighethercat` snap packages that tool,
-together with the `libethercat` userspace library,
-so that it can be installed like any snap
+The `ighethercat` snap packages that tool
+along with the `libethercat` user-space library,
+allowing it to be installed like any snap
 as a single versioned artifact.
 
 <!-- vale Canonical.400-Enforce-inclusive-terms = YES -->
@@ -40,9 +40,9 @@ This guide uses MainDevice and SubDevice in prose
 and keeps the IgH names where they are literal commands or paths.
 ```
 
-The snap carries only the userspace CLI and library.
-The IgH kernel MainDevice, kernel modules and NIC drivers stay on the host,
-and the packaged tool talks to it through `/dev/EtherCAT0`:
+The snap contains only the user-space CLI and library.
+The IgH kernel MainDevice, kernel modules, and NIC drivers remain on the host,
+and the packaged tool communicates with it via `/dev/EtherCAT0`:
 
 ```text
 ighethercat snap                    Ubuntu host
@@ -113,14 +113,14 @@ apps:
 ```
 
 The `ethercat` part builds the checkout it lives in (`source: .`)
-with the `autotools` plugin, after running the IgH `./bootstrap` script.
+using the `autotools` plugin, after running the IgH `./bootstrap` script.
 Kernel support is disabled,
-so only changes under `tool/` (the CLI) and `lib/` (the userspace library)
+so only changes under `tool/` (the CLI) and `lib/` (the user-space library)
 affect the snap;
-changes under `master/` or `devices/` are not built into it.
+changes under `master/` or `devices/` are not included in the build.
 The snap is strictly confined and exposes one app, `ighethercat.ethercat`.
 Its [`custom-device` interface](https://snapcraft.io/docs/reference/interfaces/custom-device-interface/)
-grants access only to the host's `/dev/EtherCATn` character devices.
+grants access exclusively to the host's `/dev/EtherCATn` character devices.
 The matching slot lets you connect the interface locally without a gadget snap.
 Unlike a filesystem-only interface,
 `custom-device` grants both AppArmor and device control group access to matching devices.
@@ -135,12 +135,12 @@ snapcraft pack
 
 The result is `ighethercat_1.6.9-dev1_<arch>.snap`,
 for example `ighethercat_1.6.9-dev1_amd64.snap`.
-After further edits under `tool/` or `lib/`, run `snapcraft pack` again.
+After making further edits under `tool/` or `lib/`, run `snapcraft pack` again.
 
 ## Install, connect and run the snap
 
 A locally built snap is unsigned,
-so installation needs `--dangerous`:
+so installation requires `--dangerous`:
 
 ```bash
 sudo snap install --dangerous ./ighethercat_1.6.9-dev1_*.snap
@@ -158,10 +158,10 @@ The manual connection keeps the snap strictly confined
 while permitting access to `/dev/EtherCATn`.
 `custom-device` is a [super-privileged interface](https://snapcraft.io/docs/explanation/interfaces/super-privileged-interfaces/#reference-operations-interfaces-super-privileged-interfaces),
 so distributing this snap through the Snap Store
-and making the connection automatic require Store review.
+and making the connection automatic requires Store review.
 
-Run the CLI through its snap-qualified name
-so an `ethercat` binary installed on the host cannot be selected by mistake:
+Run the CLI using its snap-qualified name
+so an `ethercat` binary installed on the host is not selected by mistake:
 
 ```bash
 snap run ighethercat.ethercat version
@@ -214,7 +214,7 @@ snapcraft pack
 ### The CLI reports an ioctl version mismatch
 
 ```{warning}
-The userspace CLI and the host kernel MainDevice
+The user-space CLI and the host kernel MainDevice
 must use compatible ioctl API versions.
 Build the CLI from an IgH revision that matches the host MainDevice,
 or use a matching host MainDevice.
