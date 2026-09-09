@@ -27,7 +27,6 @@ using Workshop.
 
 ros2-dev-workshop.md
 nav2-dev-workshop.md
-
 ```
 
 Built for AI workflows.
