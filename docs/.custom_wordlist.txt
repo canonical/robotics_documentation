@@ -73,6 +73,7 @@ libpulsecommon
 LiDAR
 LXD
 macOS
+MainDevice
 MicroK8s
 middleware
 minimize
@@ -114,6 +115,7 @@ scalability
 scalable
 scalable
 SDKs
+SDOs
 security
 security-docs
 Semgrep
@@ -127,6 +129,8 @@ snapstore
 SoCs
 Spotify
 subfolder
+SubDevice
+SubDevices
 sudo
 superset
 superset
@@ -153,6 +157,7 @@ UDPv
 uncommented
 URDF
 usb
+userspace
 Vcstool
 vel
 VPN
