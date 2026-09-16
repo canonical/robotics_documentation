@@ -80,3 +80,17 @@ observability/index
 
 ref_architecture/reference_architecture
 ```
+
+## Snap CI workflows
+
+```{include} snap-ci/index.md
+   :start-after: % Include start summary
+   :end-before: % Include stop summary
+```
+
+```{toctree}
+:maxdepth: 2
+:includehidden:
+
+snap-ci/index
+```

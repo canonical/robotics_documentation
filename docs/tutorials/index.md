@@ -55,3 +55,17 @@ snaps-core/index
 
 observability/index
 ```
+
+## Set up a CI pipeline for your snap
+
+```{include} snap-ci-with-github-actions.md
+   :start-after: % Include start summary
+   :end-before: % Include stop summary
+```
+
+```{toctree}
+:includehidden:
+:maxdepth: 2
+
+snap-ci-with-github-actions
+```
