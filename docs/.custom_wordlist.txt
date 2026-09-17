@@ -12,6 +12,7 @@ BagFileserver
 Blackbox
 blocklisted
 blocklisting
+boolean
 bootable
 BringUp
 Caddy
@@ -29,6 +30,7 @@ config
 containerized
 Coverity
 cpp
+cron
 CVEs
 de
 debian
@@ -118,6 +120,7 @@ SDOs
 security
 security-docs
 Semgrep
+semver
 sequential_nav
 SHA
 snapcore
@@ -128,6 +131,7 @@ snapstore
 SoCs
 Spotify
 subfolder
+stdout
 SubDevice
 SubDevices
 sudo

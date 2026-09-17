@@ -39,3 +39,4 @@ developed and maintained by Canonical.
    vcstool-and-rosinstall-file
    debug-the-build-of-a-snap
    debug-a-snap-application
+   snap-ci-workflows-use-cases
