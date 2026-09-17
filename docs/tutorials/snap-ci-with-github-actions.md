@@ -17,7 +17,7 @@ repository.
 In this tutorial, you will:
 
 - Add a complete CI pipeline to a snap project with a single workflow file.
-- Build your snap on every pull request and push.
+- Build your snap on every pull request and push to `main`.
 - Verify that the built snap installs and runs.
 - Publish your snap to the Snap Store `edge` channel on every push to `main`.
 - Publish your snap to the `candidate` channel when you tag a release.
@@ -133,7 +133,7 @@ to protect your pipeline from upstream changes.
 Commit the file and push it to a new branch:
 
 ```bash
-git checkout -b add-snap-ci
+git switch -c add-snap-ci
 git add .github/workflows/snap.yaml
 git commit -m "ci: add snap CI pipeline"
 git push origin add-snap-ci
@@ -182,9 +182,11 @@ The output lists a new revision on the `latest/edge` channel.
 When pushing a git tag to the repository,
 it publishes to the `candidate` channel instead of `edge`.
 
-Tag a release and push the tag:
+Tag a release on the `main` branch and push the tag:
 
 ```bash
+git switch -c main
+git pull origin main
 git tag v0.1.0
 git push origin v0.1.0
 ```

@@ -23,6 +23,7 @@ are published to the same track defined by `snap-track`.
 ```yaml
 jobs:
   publish:
+    needs: [build]
     permissions:
       contents: read
     uses: canonical/robotics-actions-workflows/.github/workflows/publish.yaml@main

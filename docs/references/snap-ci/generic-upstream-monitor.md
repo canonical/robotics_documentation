@@ -41,7 +41,11 @@ jobs:
         curl -s https://example.com/latest-version.txt
       script-compare-versions: |
         # Versions are single integers here; print 1 only when upstream is newer.
-        [ "${1}" -gt "${2}" ] && echo 1
+        # Use an if statement: a bare '[ ... ] && echo 1' would exit 1
+        # when versions are equal, failing the workflow step.
+        if [ "${1}" -gt "${2}" ]; then
+          echo 1
+        fi
 ```
 
 ## Inputs

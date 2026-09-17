@@ -79,8 +79,7 @@ push the branch and open the pull request.
 ```{note}
 Pull requests created with the default `GITHUB_TOKEN`
 do not trigger further workflow runs.
-Use a Personal Access Token or GitHub App token
-if you expect the bump pull request to start your build and test CI.
+One must thus manually trigger it.
 ```
 
 ## Outputs

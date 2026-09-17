@@ -23,6 +23,7 @@ through the `lxd-image` input.
 ```yaml
 jobs:
   test:
+    needs: [build]
     permissions:
       contents: read
     uses: canonical/robotics-actions-workflows/.github/workflows/test.yaml@main
