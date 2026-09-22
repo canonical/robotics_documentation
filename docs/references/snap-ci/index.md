@@ -45,7 +45,7 @@ jobs:
 | {ref}`publish <references-snap-ci-publish>` | Publish the built snap to the Snap Store. |
 | {ref}`promote <references-snap-ci-promote>` | Promote a snap from one channel to another. |
 | {ref}`generic-upstream-monitor <references-snap-ci-generic-upstream-monitor>` | Monitor upstream for new versions with custom scripts. |
-| {ref}`upstream-gh-tag-monitor <references-snap-ci-upstream-gh-tag-monitor>` | Monitor an upstream GitHub repository for new tags. |
+| {ref}`upstream-gh-tag-monitor <references-snap-ci-upstream-gh-tag-monitor>` | Monitor an upstream GitHub repository for new releases. |
 | {ref}`bump-snap-version <references-snap-ci-bump-snap-version>` | Open a pull request that bumps the snap version. |
 | {ref}`channel-risk-sync-monitor <references-snap-ci-channel-risk-sync-monitor>` | Monitor snaps waiting for channel promotion. |
 
