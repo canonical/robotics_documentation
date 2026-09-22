@@ -22,3 +22,4 @@ robotics applications using snaps.
    config-a-snap-pull-from-a-server
    config-a-snap-using-content-snap
    config-a-snap-make-config-overwritable
+   build-igh-ethercat-cli-snap-from-modified-checkout

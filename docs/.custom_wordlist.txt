@@ -24,7 +24,9 @@ charmstore
 CIs
 CMake
 CMD
+Codespaces
 colcon
+Conda
 config
 containerized
 Coverity
@@ -56,6 +58,7 @@ Gmail
 gmapping
 GPG
 Grafana
+GUIs
 hardening
 Hawksbill
 hostname
@@ -72,6 +75,7 @@ libpulsecommon
 LiDAR
 LXD
 macOS
+MainDevice
 MicroK8s
 middleware
 minimize
@@ -84,14 +88,17 @@ Nav
 NetBird
 Ninjemys
 Noetic
+onboarding
 oneshot
 OpenSSH
 OpenStack
 OTA
 overwritable
+Pixi
 PlotJuggler
 PYTHONPATH
 qtcreator
+refreshable
 reusability
 roboticists
 Robotis
@@ -113,6 +120,7 @@ scalability
 scalable
 scalable
 SDKs
+SDOs
 security
 security-docs
 Semgrep
@@ -126,6 +134,8 @@ snapstore
 SoCs
 Spotify
 subfolder
+SubDevice
+SubDevices
 sudo
 superset
 superset
@@ -152,6 +162,8 @@ UDPv
 uncommented
 URDF
 usb
+userspace
+Vagrantfile
 Vcstool
 vel
 VPN
