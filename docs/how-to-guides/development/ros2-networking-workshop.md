@@ -7,7 +7,7 @@ depending on where the other ROS 2 nodes run.
 
 This guide covers three cases:
 
-- [Workshop to its host](#workshop-to-host)
+- [Workshop to the host](#workshop-to-host)
 - [Workshop to another Workshop](#workshop-to-workshop)
 - [Workshop to a robot on the host's LAN](#workshop-to-robot)
 
@@ -31,7 +31,7 @@ stale or empty graph even when nodes can exchange data.
 
 ## Workshop to host
 
-Nodes in a Workshop can communicate with ROS 2 nodes on its host without additional
+Nodes in a Workshop can communicate with ROS 2 nodes on the host without additional
 configuration.
 
 ![Workshop to host ROS 2 communication](../../assets/images/ros-2-workshop-networking/workshop-to-host.svg)
