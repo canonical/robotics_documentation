@@ -185,7 +185,7 @@ it publishes to the `candidate` channel instead of `edge`.
 Tag a release on the `main` branch and push the tag:
 
 ```bash
-git switch -c main
+git switch main
 git pull origin main
 git tag v0.1.0
 git push origin v0.1.0
