@@ -40,8 +40,6 @@ jobs:
       script-get-upstream-version: |
         curl -s https://example.com/latest-version.txt
       script-compare-versions: |
-        # Versions are single integers here; print 1 only when upstream is newer.
-        # when versions are equal, failing the workflow step.
         if [ "${1}" -gt "${2}" ]; then
           echo 1
         fi
@@ -67,7 +65,8 @@ jobs:
 
 This workflow takes no secrets.
 The `GITHUB_TOKEN` is used to open issues
-and is available to the scripts as the `GH_TOKEN` environment variable.
+and is available to the `script-get-upstream-version` script
+as the `GH_TOKEN` environment variable.
 
 ## Outputs
 

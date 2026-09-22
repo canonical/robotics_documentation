@@ -19,6 +19,8 @@ while keeping it under manual control through a `workflow_dispatch` trigger.
 - A `SNAPSTORE_LOGIN` repository secret holding your store credential,
   as set up in the
   {ref}`snap CI tutorial <tutorials-snap-ci-with-github-actions>`.
+  The credential must include the `package_release` ACL and,
+  if restricted with `--channels`, must allow the target channel.
 
 ## Create the promotion workflow
 

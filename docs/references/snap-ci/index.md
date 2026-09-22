@@ -49,6 +49,18 @@ jobs:
 | {ref}`bump-snap-version <references-snap-ci-bump-snap-version>` | Open a pull request that bumps the snap version. |
 | {ref}`channel-risk-sync-monitor <references-snap-ci-channel-risk-sync-monitor>` | Monitor snaps waiting for channel promotion. |
 
+## Snap name and version resolution
+
+The `promote`, `bump-snap-version` and monitoring workflows
+read the snap name and version from the `snapcraft.yaml` file.
+They look for it, in order, at `.snapcraft.yaml`,
+`build-aux/snap/snapcraft.yaml`, `snap/snapcraft.yaml` and `snapcraft.yaml`
+under the `snapcraft-source-subdir` directory.
+The snap version is the `source-tag` of the part referenced by `adopt-info`
+when both are defined,
+and the top-level `version` field otherwise.
+The upstream monitors compare this value to the upstream version.
+
 ## Permissions
 
 Each reusable workflow follows the principle of least privilege.
@@ -99,9 +111,7 @@ and `pull-requests: write` to push the version-bump branch
 and open the pull request.
 Pull requests created with the default `GITHUB_TOKEN`
 do not trigger further workflow runs.
-Use a
-[Personal Access Token or GitHub App token](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#granting-additional-permissions)
-if you expect the bump pull request to start your build and test CI.
+One must thus manually trigger it.
 ```
 
 ```{toctree}

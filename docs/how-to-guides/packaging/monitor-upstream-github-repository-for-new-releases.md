@@ -16,7 +16,9 @@ newer than the one in your `snapcraft.yaml`.
   typically through a `version` field
   or a `source-tag` on the relevant part.
 - The upstream project must publish its releases
-  as tags or releases on GitHub.
+  as [GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)
+  in a public repository.
+  Pre-releases and drafts are ignored.
 
 ## Create the monitoring workflow
 
@@ -64,7 +66,7 @@ Run the workflow manually once:
 2. Select the **upstream-monitor** workflow in the sidebar.
 3. Select **Run workflow** and confirm.
 
-If the latest upstream tag is newer than the snap version,
+If the latest upstream release is newer than the snap version,
 a new issue appears in your repository,
 titled `[CI] Found version '<version>' upstream`.
 Running the workflow again does not create a duplicate
@@ -80,6 +82,6 @@ Follow the
 {ref}`version-bump guide <how-to-guides-packaging-automate-version-bump-pull-requests>`
 to set it up and trigger it after each monitoring issue.
 
-If the upstream project does not publish tags on GitHub,
+If the upstream project does not publish releases on GitHub,
 use the {ref}`generic-upstream-monitor <references-snap-ci-generic-upstream-monitor>`
 workflow with your own version-retrieval and comparison scripts instead.

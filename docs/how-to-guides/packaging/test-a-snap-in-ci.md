@@ -83,8 +83,8 @@ jobs:
       snapstore-login: ${{ secrets.SNAPSTORE_LOGIN }}
 ```
 
-The value must be a valid LXD image alias,
-as listed by `lxc image list images:`.
+The value must be an image alias from an LXD remote,
+For example one listed by `lxc image list ubuntu:`.
 
 ## Tune the installation
 

@@ -17,8 +17,9 @@ The reusable workflows support this through the `runs-on` input.
   {ref}`snap CI tutorial <tutorials-snap-ci-with-github-actions>`.
 - A self-hosted runner
   [registered with your repository](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
-  The runner must be able to run Snapcraft builds,
-  which on Ubuntu requires the `lxd` or `snapcraft` build environment.
+  The build action installs snapd, LXD and Snapcraft on the runner,
+  so it needs an Ubuntu host with passwordless `sudo`
+  for the runner user and the ability to run LXD.
 
 ## Build and test on a self-hosted runner
 

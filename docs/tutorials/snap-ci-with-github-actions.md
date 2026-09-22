@@ -205,7 +205,7 @@ You now have a complete CI pipeline for your snap:
 
 - Pull requests build and test the snap.
 - Pushes to `main` additionally publish the snap to `latest/edge`.
-- Tags additionally publish the snap to `latest/candidate`.
+- Tags publish the snap to `latest/candidate`.
 
 ## Next steps
 

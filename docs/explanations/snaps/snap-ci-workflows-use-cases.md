@@ -32,7 +32,7 @@ The workflow behaves differently depending on the event:
 - On **pushes** and manual triggers (`workflow_dispatch`),
   the snap is built,
   tested and released on the Snap Store on the `edge` risk channel.
-- On **tags**, the snap is additionally released
+- On **tags**, the snap is released
   on the `candidate` risk channel.
 
 Promotion from `candidate` to `stable`
@@ -71,7 +71,7 @@ in sync with upstream can prove tedious.
 The recommended approach is
 to pin the source code version at a given tag
 (`parts.<part>.source-tag` in the `snapcraft.yaml`)
-and to solely update the snap on new upstream tags.
+and to solely update the snap on new upstream releases.
 
 Two monitoring workflows support this maintenance model:
 
