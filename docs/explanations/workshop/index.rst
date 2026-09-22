@@ -13,4 +13,4 @@ provides managed LXD-based development environments with integrated ROS 2 SDKs.
 .. toctree::
    :maxdepth: 3
 
-   workshop-comparaison
+   workshop-comparison

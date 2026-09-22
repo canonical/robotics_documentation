@@ -20,7 +20,7 @@ and minimally affected by the host, not that every environment is identical.
 <!-- pyml disable-num-lines 8 line-length -->
 | Approach | ROS 2 support | Main benefit | Main limitation |
 | --- | --- | --- | --- |
-| [Workshop](#workshop-main-benefits-and-limitations) | Canonical's ROS 2 SDKs | Integrated Ubuntu environment with controlled host access | No macOS or Windows support |
+| [Workshop](#workshop-main-benefits-and-limitations) | Canonical's ROS 2 SDKs | Integrated Ubuntu environment with controlled host access | No macOS or Windows native support |
 | [Bare metal](#workshop-compared-with-bare-metal) | Official ROS 2 packages | Direct access to devices, graphics, and networking | Cannot use multiple ROS 2 LTS releases simultaneously |
 | [Docker](#workshop-compared-with-docker) | Official ROS container images | Mature images, CI, and ecosystem | Requires manual setup of all integrations, device access, GUIs, and networking |
 | [Dev Containers](#workshop-compared-with-dev-containers) | No dedicated support; can use the official ROS 2 Docker images | Declarative configuration and strong editor-integrated onboarding | Runtime behaviour and specification support depend on the backend |
@@ -62,7 +62,7 @@ environments difficult.
 <!-- pyml disable-num-lines 7 line-length -->
 | Aspect | Workshop | Bare metal |
 | --- | --- | --- |
-| *ROS 2* | Runs any ROS 2 distribution in its own Ubuntu, independently of the host version | Uses binary packages for ROS 2 releases supported by the host Ubuntu release |
+| *ROS 2* | Runs each supported ROS 2 distribution in its own Ubuntu, independently of the host version | Uses binary packages for ROS 2 releases supported by the host Ubuntu release |
 | *Environment lifecycle* | Keeps project dependencies inside refreshable, disposable environments | Installs dependencies on the shared host, where state accumulates and requires manual maintenance |
 | *Hardware & GUI access* | Explicitly exposes selected host devices and desktop resources | Provides direct access to devices and graphics |
 | *Networking* | Exposed to the host through an LXD bridge | Uses the host LAN interfaces directly |
