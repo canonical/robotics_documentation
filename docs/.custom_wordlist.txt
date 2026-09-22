@@ -92,6 +92,7 @@ OpenSSH
 OpenStack
 OTA
 overwritable
+passwordless
 PlotJuggler
 PYTHONPATH
 qtcreator
