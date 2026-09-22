@@ -96,9 +96,6 @@ other by hostname.
 
 ![Workshop to Workshop ROS 2 communication](../../assets/images/ros-2-workshop-networking/workshop-to-workshop.svg)
 
-With `demos-jazzy-dev` the Workshop name and `workshop-tutorial` the
-project directory name.
-
 `````{tab-set}
 ````{tab-item} Fast DDS (default)
 
