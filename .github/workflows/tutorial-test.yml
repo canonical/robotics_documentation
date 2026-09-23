@@ -23,6 +23,9 @@ on:
         required: true
         type: string
         default: 'openrouter/moonshotai/kimi-k3'
+  # TODO remove
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: read
