@@ -22,3 +22,11 @@ robotics applications using snaps.
    config-a-snap-pull-from-a-server
    config-a-snap-using-content-snap
    config-a-snap-make-config-overwritable
+   build-igh-ethercat-cli-snap-from-modified-checkout
+   test-a-snap-in-ci
+   promote-snap-from-candidate-to-stable
+   monitor-snaps-pending-promotion-to-stable
+   publish-snap-to-specific-track-and-risk
+   monitor-upstream-github-repository-for-new-releases
+   automate-version-bump-pull-requests
+   run-snap-ci-on-self-hosted-runners

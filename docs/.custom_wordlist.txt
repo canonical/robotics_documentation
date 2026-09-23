@@ -12,6 +12,7 @@ BagFileserver
 Blackbox
 blocklisted
 blocklisting
+boolean
 bootable
 BringUp
 Caddy
@@ -29,6 +30,7 @@ config
 containerized
 Coverity
 cpp
+cron
 CVEs
 de
 debian
@@ -72,6 +74,7 @@ libpulsecommon
 LiDAR
 LXD
 macOS
+MainDevice
 MicroK8s
 middleware
 minimize
@@ -89,6 +92,7 @@ OpenSSH
 OpenStack
 OTA
 overwritable
+passwordless
 PlotJuggler
 PYTHONPATH
 qtcreator
@@ -113,9 +117,11 @@ scalability
 scalable
 scalable
 SDKs
+SDOs
 security
 security-docs
 Semgrep
+semver
 sequential_nav
 SHA
 snapcore
@@ -126,6 +132,9 @@ snapstore
 SoCs
 Spotify
 subfolder
+stdout
+SubDevice
+SubDevices
 sudo
 superset
 superset
@@ -152,6 +161,7 @@ UDPv
 uncommented
 URDF
 usb
+userspace
 Vcstool
 vel
 VPN
