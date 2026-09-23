@@ -63,6 +63,10 @@ jobs:
         if: always()
         env:
           RESULT: ${{ steps.test.outputs.RESULT || 'fail' }}
+          # Use the resolved absolute paths from the test step; fall back to the
+          # job-level env values if the test step never ran.
+          REPORT_FILE: ${{ steps.test.outputs.REPORT_FILE || env.REPORT_FILE }}
+          ENV_FILE: ${{ steps.test.outputs.ENV_FILE || env.ENV_FILE }}
         run: .github/workflows/tutorial-test/report-to-issue.sh
 
       - name: Upload report artifact
@@ -71,6 +75,6 @@ jobs:
         with:
           name: tutorial-test-report
           path: |
-            ${{ env.REPORT_FILE }}
-            ${{ env.ENV_FILE }}
+            ${{ steps.test.outputs.REPORT_FILE || env.REPORT_FILE }}
+            ${{ steps.test.outputs.ENV_FILE || env.ENV_FILE }}
           if-no-files-found: warn

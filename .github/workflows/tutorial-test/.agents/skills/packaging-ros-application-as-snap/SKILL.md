@@ -49,6 +49,22 @@ continuous-integration runner. Building with the LXD backend
 to run this tutorial on CI. Do not report "the tutorial does not mention the
 build backend" or any multipass-vs-LXD difference as a finding.
 
+## CI runner environment (already prepared)
+
+The test machine is prepared before the agent runs, to mimic a working user
+machine. Do **not** report any of the following as a tutorial problem:
+
+- The `runner` user is added to the `lxd` group so `lxc` works; if a plain
+  `lxc`/`lxd` command still returns a socket permission error, prefix it with
+  `sg lxd -c "..."` (new group membership needs a fresh login shell).
+- Hosted runners ship Docker, whose iptables `FORWARD` policy is `DROP`; this
+  blocks LXD container networking. The preparation step already adds
+  `DOCKER-USER` accept rules for the `lxdbr0` bridge. If `snapcraft pack` (LXD
+  backend) fails with "no network access" while creating the instance, this is
+  a CI-environment networking concern, not a tutorial defect.
+- snapd, snapcraft, and LXD are typically pre-installed; `snap install`
+  reporting "already installed" is expected, not a finding.
+
 ## Output values that naturally vary
 
 Do not report differences in the following, which vary between runs:

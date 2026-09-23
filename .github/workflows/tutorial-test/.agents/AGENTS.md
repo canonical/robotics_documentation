@@ -10,9 +10,15 @@ broken, missing, or has drifted out of date.
   a time, using your shell tool.
 - Follow the instructions **exactly as written**. Do not silently fix, skip, or
   reorder steps. If a step is wrong or ambiguous, record it as a finding.
+- Run everything from your **current working directory**. When the tutorial
+  clones a repository, clone it into your current working directory, not `$HOME`
+  or `/`.
 - You are running on a fresh, throwaway machine with full access. Prefer the
-  tutorial's own commands. Do not pre-install or pre-configure anything the
-  tutorial itself does not tell you to set up.
+  tutorial's own commands. The environment may already have been prepared with
+  some prerequisites (for example snapd/snapcraft/LXD and container
+  networking); if the tutorial asks you to install or configure something that
+  is already present, that is fine — confirm it works and move on. Do not report
+  already-installed prerequisites as a finding.
 - Commands may legitimately require `sudo`; that is fine.
 - Treat the tutorial as the source of truth for a *reader*. A "finding" is
   anything that would confuse, block, or mislead a reader: a command that
