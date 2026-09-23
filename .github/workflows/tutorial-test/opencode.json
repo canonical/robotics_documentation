@@ -5,10 +5,12 @@
     ".agents/AGENTS.md",
     ".agents/skills/**/*.md"
   ],
-  "tools": {
-    "write": true,
-    "edit": true,
-    "bash": true
+  "permission": {
+    "*": "allow",
+    "external_directory": "allow",
+    "bash": "allow",
+    "edit": "allow",
+    "read": "allow"
   },
   "autoupdate": false,
   "share": "disabled"

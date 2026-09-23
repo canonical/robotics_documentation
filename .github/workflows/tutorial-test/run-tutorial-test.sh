@@ -53,6 +53,9 @@ echo "::group::Capture environment for the report"
 echo "::endgroup::"
 
 echo "::group::Run tutorial test"
+# Always start from an existing (empty) report so downstream steps never fail
+# reading it even if the agent produces no output at all.
+: > "${REPORT_FILE}"
 PROMPT_FILE="$(mktemp)"
 cat > "${PROMPT_FILE}" <<EOF
 Follow the tutorial at "${TUTORIAL_PATH}" step by step, exactly as a reader
@@ -63,8 +66,10 @@ instructions, and finish with a report that begins with a "## Result: PASS" or
 "## Findings", and "## Suggested changes" sections.
 EOF
 
-# `--pure` isolates the run from any external/global plugins.
-if opencode run --pure --model "${OPENCODE_MODEL}" "$(cat "${PROMPT_FILE}")" | tee "${REPORT_FILE}"; then
+# `--pure` isolates the run from any external/global plugins; `--auto`
+# auto-approves permission requests so a headless CI run never blocks waiting
+# for approval (this machine is disposable).
+if opencode run --pure --auto --model "${OPENCODE_MODEL}" "$(cat "${PROMPT_FILE}")" | tee "${REPORT_FILE}"; then
   echo "opencode run completed."
 else
   echo "::warning::opencode run exited non-zero; continuing so we can report it."

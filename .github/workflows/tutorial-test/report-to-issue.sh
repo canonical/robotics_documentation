@@ -20,6 +20,19 @@ TUTORIAL_NAME="$(basename "${TUTORIAL_PATH}" .md)"
 DATE_UTC="$(date -u '+%Y-%m-%d %H:%M UTC')"
 RUN_URL="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}"
 
+# Print the report file, or a placeholder when it is missing/empty. Never
+# abort (this script runs with `set -e`) just because the agent produced no
+# output.
+print_report() {
+  if [ -f "${REPORT_FILE}" ] && [ -s "${REPORT_FILE}" ]; then
+    cat "${REPORT_FILE}"
+  else
+    echo "_No report was produced. The AI tester may have failed before running"
+    echo "the tutorial (see the 'Run the tutorial with an AI agent' step log in"
+    echo "the CI run for the underlying error)._"
+  fi
+}
+
 # Always publish the report to the CI job summary (success and failure).
 {
   echo "# Tutorial test report"
@@ -38,7 +51,7 @@ RUN_URL="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-}/actions
   fi
   echo "## Report"
   echo
-  cat "${REPORT_FILE}"
+  print_report
 } >> "${GITHUB_STEP_SUMMARY}"
 
 # Only open an issue when the tutorial is broken.
@@ -65,7 +78,7 @@ ISSUE_BODY_FILE="$(mktemp)"
   fi
   echo "## Report"
   echo
-  cat "${REPORT_FILE}"
+  print_report
   echo
   echo "---"
   echo "_Filed automatically by the tutorial-test workflow. Known-acceptable"
