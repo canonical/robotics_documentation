@@ -12,6 +12,7 @@ BagFileserver
 Blackbox
 blocklisted
 blocklisting
+boolean
 bootable
 BringUp
 Caddy
@@ -29,6 +30,7 @@ config
 containerized
 Coverity
 cpp
+cron
 CVEs
 de
 debian
@@ -90,6 +92,7 @@ OpenSSH
 OpenStack
 OTA
 overwritable
+passwordless
 PlotJuggler
 PYTHONPATH
 qtcreator
@@ -118,6 +121,7 @@ SDOs
 security
 security-docs
 Semgrep
+semver
 sequential_nav
 SHA
 snapcore
@@ -128,6 +132,7 @@ snapstore
 SoCs
 Spotify
 subfolder
+stdout
 SubDevice
 SubDevices
 sudo
