@@ -35,31 +35,41 @@ Use a hybrid judgement:
   the meaningful content must be equivalent.
 - When there is no explicit expected output, judge from context whether the
   step achieved its stated goal.
-- A step only fails if it would genuinely block or mislead a reader. Known
-  deviations listed in the skill files are **expected** and must **not** be
-  reported as findings.
+- A step only blocks the tutorial if it would genuinely stop or mislead a
+  reader. Known deviations listed in the skill files are **expected** and must
+  **not** be reported as findings.
+
+## Choosing a result
+
+Pick exactly one result:
+
+- **`PASS`** — the tutorial ran end-to-end and there is nothing worth changing:
+  no findings and no meaningful suggested changes.
+- **`WARN`** — the tutorial completed and works, but you have findings or
+  suggested changes a maintainer should act on (for example a renamed flag, an
+  output that drifted, a confusing or missing step, a stale link). Use `WARN`
+  whenever `## Suggested changes` is anything other than "None."
+- **`FAIL`** — the tutorial is broken or blocked: a step errors in a way a
+  reader cannot get past, or produces a clearly wrong result.
+
+When in doubt between `PASS` and `WARN`, choose `WARN` — it is better to
+surface a possible improvement than to stay silent.
 
 ## Report format
 
-When you have finished (or cannot continue), you must finish your reply with a
-report in **exactly** this structure so that it can be parsed automatically:
+While you work, **do not** print a live task list, todo list, or running
+commentary — your reply is captured verbatim and published, so only the final
+report matters. Work silently and emit **exactly one** report at the very end.
+
+When you have finished (or cannot continue), end your reply with a single report
+in **exactly** this structure so that it can be parsed automatically. The report
+must start with the result line — one of `## Result: PASS`, `## Result: WARN`,
+or `## Result: FAIL` — followed immediately by the sections below, and nothing
+else after it.
+
+Then include these sections, in this order (markdown, free-form):
 
 ```text
-## Result: PASS
-```
-
-or, if you found any real problems:
-
-```text
-## Result: FAIL
-```
-
-Then include these sections (markdown, free-form):
-
-```text
-## Environment
-- Runner image, tool versions, and any other relevant environment facts.
-
 ## Steps performed
 - A numbered list of every step you executed and its status (ok / failed / skipped).
 
@@ -68,9 +78,14 @@ Then include these sections (markdown, free-form):
   the step it occurred in. If there are no problems, write "No findings."
 
 ## Suggested changes
-- Concrete edits that would fix each finding. If none, write "None."
+- Concrete edits that would fix each finding or improve the tutorial. If none,
+  write "None."
 ```
 
-The `## Result:` line is mandatory and must appear exactly once, as either
-`## Result: PASS` or `## Result: FAIL`. Only use `FAIL` when you found at least
-one real finding. Do not include a `## Result:` line anywhere else in your reply.
+Do **not** add an `## Environment` section — the surrounding tooling already
+records the environment; adding your own would duplicate it.
+
+The `## Result:` line is mandatory, must appear exactly once, and must be the
+first line of the report. Do not emit a `## Result:` line, a `# Todos` list, or
+any `## Steps performed` / `## Findings` / `## Suggested changes` heading
+anywhere else in your reply.

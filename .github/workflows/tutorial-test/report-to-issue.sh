@@ -25,7 +25,14 @@ RUN_URL="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-}/actions
 # output.
 print_report() {
   if [ -f "${REPORT_FILE}" ] && [ -s "${REPORT_FILE}" ]; then
-    cat "${REPORT_FILE}"
+    # The agent's streamed reply may include live commentary / task lists before
+    # the final report. Print only the report: from the first `## Result:` line
+    # onward (falls back to the whole file if no result line is present).
+    if grep -qE '^## Result:' "${REPORT_FILE}"; then
+      awk '/^## Result:/{found=1} found' "${REPORT_FILE}"
+    else
+      cat "${REPORT_FILE}"
+    fi
   else
     echo "_No report was produced. The AI tester may have failed before running"
     echo "the tutorial (see the 'Run the tutorial with an AI agent' step log in"
@@ -33,7 +40,18 @@ print_report() {
   fi
 }
 
-# Always publish the report to the CI job summary (success and failure).
+# Print the captured environment facts as a nested metadata list (indented so
+# it does not add its own `##` heading that would collide with the agent's
+# report sections).
+print_env() {
+  if [ -f "${ENV_FILE:-}" ]; then
+    sed 's/^/  /' "${ENV_FILE}"
+  fi
+}
+
+# Always publish the report to the CI job summary (success and failure). The
+# agent's report already contains its own `##` sections, so the wrapper only
+# adds metadata bullets and never emits a competing heading.
 {
   echo "# Tutorial test report"
   echo
@@ -42,41 +60,39 @@ print_report() {
   echo "- **Model:** ${OPENCODE_MODEL:-unknown}"
   echo "- **Date:** ${DATE_UTC}"
   echo "- **Run:** ${RUN_URL}"
-  echo
-  if [ -f "${ENV_FILE:-}" ]; then
-    echo "## Environment"
-    echo
-    cat "${ENV_FILE}"
-    echo
-  fi
-  echo "## Report"
+  echo "- **Environment:**"
+  print_env
   echo
   print_report
 } >> "${GITHUB_STEP_SUMMARY}"
 
-# Only open an issue when the tutorial is broken.
-if [ "${RESULT}" != "fail" ]; then
-  echo "Tutorial test passed; no issue opened."
+# Open an issue when the tutorial is broken (FAIL) or when it works but has
+# findings/suggestions worth acting on (WARN). PASS opens no issue.
+echo "RESULT=${RESULT}"
+if [ "${RESULT}" != "fail" ] && [ "${RESULT}" != "warn" ]; then
+  echo "Tutorial test result is '${RESULT}'; not opening an issue."
   exit 0
 fi
 
-ISSUE_TITLE="Tutorial test failing: ${TUTORIAL_NAME}"
+if [ "${RESULT}" = "fail" ]; then
+  ISSUE_TITLE="Tutorial test failing: ${TUTORIAL_NAME}"
+  ISSUE_INTRO="The automated tutorial test for **${TUTORIAL_NAME}** found problems."
+else
+  ISSUE_TITLE="Tutorial test feedback: ${TUTORIAL_NAME}"
+  ISSUE_INTRO="The automated tutorial test for **${TUTORIAL_NAME}** completed, but found things worth changing."
+fi
+echo "Result is '${RESULT}'; opening a GitHub issue."
+
 ISSUE_BODY_FILE="$(mktemp)"
 {
-  echo "The automated tutorial test for **${TUTORIAL_NAME}** found problems."
+  echo "${ISSUE_INTRO}"
   echo
   echo "- **Tutorial:** \`${TUTORIAL_PATH}\`"
   echo "- **Date:** ${DATE_UTC}"
   echo "- **Model:** ${OPENCODE_MODEL:-unknown}"
   echo "- **CI run:** ${RUN_URL}"
-  echo
-  if [ -f "${ENV_FILE:-}" ]; then
-    echo "## Environment"
-    echo
-    cat "${ENV_FILE}"
-    echo
-  fi
-  echo "## Report"
+  echo "- **Environment:**"
+  print_env
   echo
   print_report
   echo
@@ -91,10 +107,18 @@ for LABEL in tutorial-test documentation; do
   gh label create "${LABEL}" --force >/dev/null 2>&1 || true
 done
 
-gh issue create \
-  --title "${ISSUE_TITLE}" \
-  --label "tutorial-test" \
-  --label "documentation" \
-  --body-file "${ISSUE_BODY_FILE}"
+# Create the issue. If this fails, surface the error and fail the step loudly
+# rather than silently skipping the report the run was meant to produce.
+if ISSUE_URL="$(gh issue create \
+    --title "${ISSUE_TITLE}" \
+    --label "tutorial-test" \
+    --label "documentation" \
+    --body-file "${ISSUE_BODY_FILE}")"; then
+  echo "Opened issue: ${ISSUE_URL}"
+else
+  echo "::error::Failed to open the GitHub issue for the failing tutorial test." >&2
+  rm -f "${ISSUE_BODY_FILE}"
+  exit 1
+fi
 
 rm -f "${ISSUE_BODY_FILE}"

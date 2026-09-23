@@ -103,8 +103,12 @@ rm -f "${PROMPT_FILE}"
 echo "::endgroup::"
 
 # Surface the result to the workflow regardless of the agent's exit code.
+# Precedence: FAIL > WARN > PASS. A missing result line is treated as FAIL so
+# that an unparseable run is surfaced rather than silently green.
 if grep -qE '^## Result: *FAIL' "${REPORT_FILE}"; then
   echo "RESULT=fail" >> "${GITHUB_OUTPUT}"
+elif grep -qE '^## Result: *WARN' "${REPORT_FILE}"; then
+  echo "RESULT=warn" >> "${GITHUB_OUTPUT}"
 elif grep -qE '^## Result: *PASS' "${REPORT_FILE}"; then
   echo "RESULT=pass" >> "${GITHUB_OUTPUT}"
 else
