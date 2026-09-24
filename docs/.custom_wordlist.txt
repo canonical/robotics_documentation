@@ -1,5 +1,6 @@
 ABI
 activatable
+agentic
 Alertmanager
 AMCL
 ament
