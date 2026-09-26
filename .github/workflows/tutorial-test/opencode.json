@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "{env:OPENCODE_MODEL}",
+  "instructions": [
+    ".agents/AGENTS.md",
+    ".agents/skills/**/*.md"
+  ],
+  "permission": {
+    "*": "allow",
+    "external_directory": "allow",
+    "bash": "allow",
+    "edit": "allow",
+    "read": "allow"
+  },
+  "autoupdate": false,
+  "share": "disabled"
+}
