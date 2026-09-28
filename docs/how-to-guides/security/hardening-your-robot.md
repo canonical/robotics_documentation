@@ -716,7 +716,7 @@ Because the effectiveness of the technique depends on
 the amount of randomised address space,
 it is recommended to apply full randomisation to
 reduce the likelihood of a successful attack.
-Full randomisation [is already the default in Ubuntu](https://wiki.ubuntu.com/Security/Features#Address_Space_Layout_Randomisation_.28ASLR.29);
+Full randomisation [is already the default in Ubuntu](https://documentation.ubuntu.com/security/security-features/process-memory/aslr/);
 you can ensure this configuration is permanent by
 adding the following lines to `/etc/sysctl.conf` in Desktop,
 or `/etc/sysctl.d/10-kernel-hardening.conf` in Core:
@@ -832,7 +832,7 @@ kernel.modules_disabled = 0
 Secure boot configurations will prevent kernels with unsigned modules,
 so there would be no way to dynamically load a rootkit.
 Ubuntu Core has secure boot enabled by default and thus mitigates these related attacks.
-It’s also possible to [enable secure boot in Desktop](https://wiki.ubuntu.com/UEFI/SecureBoot).
+It’s also possible to [enable secure boot in Desktop](https://documentation.ubuntu.com/security/security-features/platform-protections/secure-boot/).
 
 #### You can flexibly configure the kernel on Ubuntu Core with gadget snaps
 
