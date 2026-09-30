@@ -148,4 +148,3 @@ so the entire ROS 2 environment must be provisioned and maintained manually.
 | *Networking* | Exposed to the host through an LXD bridge | Must be configured in the `Vagrantfile`; available networking modes depend on the selected provider |
 | *Host* | Linux with snapd and WSL2 | Depends on provider, host architecture, and box availability |
 | *IDE integration* | CLI, VS Code extension, and SSH-based editor workflows | Usually remote development over SSH |
-
