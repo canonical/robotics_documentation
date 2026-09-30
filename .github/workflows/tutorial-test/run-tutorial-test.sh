@@ -27,6 +27,9 @@ WORK_DIR="${HOME}/tutorial-test"
 mkdir -p "${WORK_DIR}"
 
 export OPENCODE_CONFIG="${REPO_ROOT}/.github/workflows/tutorial-test/opencode.json"
+# Absolute path to the tester's instruction/skill files; opencode resolves
+# `instructions` globs relative to the process CWD, so feed it absolute paths.
+export TUTORIAL_TEST_AGENTS_DIR="${REPO_ROOT}/.github/workflows/tutorial-test/.agents"
 # The tester config loads its instructions relative to its own directory; the
 # agent itself runs from a clean HOME dir so artifacts (clones, builds) stay
 # out of the repo and relative commands behave like a real user's shell.

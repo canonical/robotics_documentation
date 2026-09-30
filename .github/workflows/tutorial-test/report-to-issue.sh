@@ -66,6 +66,20 @@ print_env() {
   print_report
 } >> "${GITHUB_STEP_SUMMARY}"
 
+# The agent can misjudge a PASS even when it left useful feedback. Promote a
+# PASS to WARN whenever the report's "## Suggested changes" section is not a
+# plain "None.", so that feedback always surfaces as an issue.
+if [ "${RESULT}" = "pass" ] && [ -f "${REPORT_FILE}" ] && [ -s "${REPORT_FILE}" ]; then
+  SUGGESTIONS="$(awk '/^## Suggested changes/{f=1;next} /^## /{f=0} f' "${REPORT_FILE}" | tr -d '[:space:]')"
+  case "${SUGGESTIONS}" in
+    ""|"-None."|"None."|"-None"|"None") : ;;
+    *)
+      echo "PASS report contains suggested changes; promoting RESULT to 'warn'."
+      RESULT="warn"
+      ;;
+  esac
+fi
+
 # Open an issue when the tutorial is broken (FAIL) or when it works but has
 # findings/suggestions worth acting on (WARN). PASS opens no issue.
 echo "RESULT=${RESULT}"
