@@ -25,13 +25,14 @@ Make sure that these are in good order before attempting to create a snap.
   This tool builds and tests your ROS workspace inside an ephemeral,
   isolated container with a clean ROS environment.
 
-## Which base should I use (`core18`, `core20`, `core22` or `core24`)?
+## Which base should I use (`core18`, `core20`, `core22`, `core24` or `core26`)?
 
 * You should use the base that corresponds to your ROS version. That is,
   * `core18` for ROS Melodic and ROS 2 Dashing.
   * `core20` for ROS Noetic and ROS 2 Foxy.
   * `core22` for ROS 2 Humble.
   * `core24` for ROS 2 Jazzy.
+  * `core26` for ROS 2 Lyrical.
 
 ## For ROS 1, do I have to expose `roscore` from my snap?
 
@@ -133,7 +134,7 @@ If you see something similar to:
   Don’t worry, even if you see this error,
   the messages are going to be transmitted (just not through shared memory).
   If you want to use the shared memory of ROS 2 within snap,
-  visit: [ROS 2 shared memory in snap](#how-tos-packaging-ros-2-shared-memory-in-snaps)
+  visit: [ROS 2 shared memory in snap](#how-to-guides-packaging-ros-2-shared-memory-in-snaps)
 
 ## At runtime, the snap shows an error similar to
 
@@ -185,7 +186,7 @@ GPG key server: keyserver.ubuntu.com
 
 ## ROS snap with shared memory doesn't receive or send data on topic
 
-* If you have properly followed the [ROS snap and shared memory how to guide](#how-tos-packaging-ros-2-shared-memory-in-snaps)
+* If you have properly followed the [ROS snap and shared memory how to guide](#how-to-guides-packaging-ros-2-shared-memory-in-snaps)
   but still have problems,
   make sure that the different processes publishing/subscribing ROS 2 data over
   shared memory are using the same `USER`.
