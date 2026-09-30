@@ -14,6 +14,7 @@ robotics applications using Workshop.
    :maxdepth: 1
 
    ros2-git
+   ros2-networking-workshop
 
 Built for AI workflows.
 Workshop publishes [LLM-readable docs](https://ubuntu.com/workshop/docs/reference/ai-agents/#ref-ai-discovery),
