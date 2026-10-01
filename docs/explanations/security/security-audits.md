@@ -52,6 +52,7 @@ the publication and remediation of multiple High severity CVEs, such as:
 - [CVE-2024-39835 - Code injection vulnerability in roslaunch](https://nvd.nist.gov/vuln/detail/CVE-2024-39835)
 - [CVE-2024-41148 - Code injection vulnerability in rostopic](https://nvd.nist.gov/vuln/detail/CVE-2024-41148)
 - [CVE-2024-41921 - Code injection vulnerability in rostopic](https://nvd.nist.gov/vuln/detail/CVE-2024-41921)
+- [CVE-2024-42002  - Unsafe use of eval() method in ros2 topic hz tool](https://nvd.nist.gov/vuln/detail/cve-2024-42002)
 
 These fixes demonstrate the value of continuous auditing,
 as well as Canonical's commitment to raising the security baseline
