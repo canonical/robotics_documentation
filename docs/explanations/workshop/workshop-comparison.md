@@ -21,7 +21,7 @@ and minimally affected by the host, not that every environment is identical.
 | Approach | ROS 2 support | Main benefit | Main limitation |
 | --- | --- | --- | --- |
 | [Workshop](#workshop-main-benefits-and-limitations) | Canonical's ROS 2 SDKs | Integrated Ubuntu environment with controlled host access | No macOS or Windows native support |
-| [Host](#workshop-compared-with-host) | Official ROS 2 packages | Direct access to devices, graphics, and networking | Cannot use multiple ROS 2 LTS releases simultaneously |
+| [Host](#workshop-compared-with-host) | Official ROS 2 packages | Direct access to devices, graphics, and networking | Binary packages are limited to ROS 2 releases supported by the host Ubuntu release |
 | [Docker](#workshop-compared-with-docker) | Official ROS container images | Mature images, CI, and ecosystem | Requires manual setup of all integrations, device access, GUIs, and networking |
 | [Dev Containers](#workshop-compared-with-dev-containers) | No dedicated support; can use the official ROS 2 Docker images | Declarative configuration and strong editor-integrated onboarding | Runtime behaviour and specification support depend on the backend |
 | [Pixi](#workshop-compared-with-pixi) | ROS 2 packages provided by RoboStack | Lightweight, lock-file-based cross-platform environments | No OS isolation and ROS 2 dependencies use the Conda and RoboStack ecosystem |
@@ -78,11 +78,11 @@ but requires manual setup for integrations, devices, GUIs, and networking.
 <!-- pyml disable-num-lines 8 line-length -->
 | Aspect | Workshop | Docker |
 | --- | --- | --- |
-| *Environment model* | Development-focused Ubuntu system container | Container created to run an application |
+| *Environment model* | Development-focused Ubuntu system container by default, with an experimental LXD VM runtime | Container created to run an application |
 | *ROS 2* | Provided by ROS 2 SDKs | Official ROS images |
 | *Hardware & GUI access* | Standardised through [Workshop interfaces](https://ubuntu.com/workshop/docs/explanation/interfaces/concepts/) | Configured through devices, capabilities, mounts, sockets, etc |
 | *Environment lifecycle* | Launch, refresh, and restore lifecycle | Requires recreating the container and defining runtime configuration in Docker Compose or equivalent |
-| *Deployment alignment* | Reproduces the target Ubuntu deployment environment | Strong alignment with CI and deployment images |
+| *Deployment alignment* | Can align the Ubuntu user space, SDKs, and dependencies with the target environment | Strong alignment with CI and deployment images |
 | *Host* | Linux with snapd and WSL2 | Linux, macOS, and Windows, depending on Docker Engine support |
 
 (workshop-compared-with-dev-containers)=
@@ -96,7 +96,7 @@ but runtime behaviour and specification support depend on the selected backend.
 | Aspect | Workshop | Dev Containers |
 | --- | --- | --- |
 | *Environment definition* | Workshop definition and SDK channels | `devcontainer.json`, and an image or Dockerfile |
-| *Runtime model* | LXD system container managed by Workshop | Behaviour comes from the selected container backend (mostly Docker) |
+| *Runtime model* | LXD system container by default, with an experimental LXD VM runtime | Behavior comes from the selected container backend (mostly Docker) |
 | *ROS 2* | Provided by ROS 2 SDKs | Can use the official ROS images |
 | *IDE integration* | CLI, VS Code extension, and SSH-based editor workflows | Strong editor-integrated onboarding with VS Code |
 | *Hardware & GUI access* | Standardised through [Workshop interfaces](https://ubuntu.com/workshop/docs/explanation/interfaces/concepts/) | Requires maintaining custom configurations in `devcontainer.json` |
@@ -119,7 +119,7 @@ which can prevent the environment from running on older hosts.
 <!-- pyml disable-num-lines 10 line-length -->
 | Aspect | Workshop | Pixi |
 | --- | --- | --- |
-| *Environment model* | Ubuntu-based system container | Cross-platform package environment |
+| *Environment model* | Ubuntu-based system container by default, with an experimental LXD VM runtime | Cross-platform package environment |
 | *ROS 2* | Provided by ROS 2 SDKs | Only the subset of ROS 2 packages from the RoboStack ecosystem |
 | *Reproducibility* | Workshop definition and SDK channels | Manifest and lock file |
 | *Host* | Linux with snapd and WSL2 | Linux, macOS, and Windows on supported architectures |
@@ -141,10 +141,10 @@ so the entire ROS 2 environment must be provisioned and maintained manually.
 <!-- pyml disable-num-lines 9 line-length -->
 | Aspect | Workshop | Vagrant |
 | --- | --- | --- |
-| *Isolation* | LXD system container | Usually a VM, provider-dependent |
+| *Isolation* | LXD system container by default; experimental LXD VM runtime available | Usually a VM, provider-dependent |
 | *ROS 2* | Provided by ROS 2 SDKs | No official ROS 2 boxes, must be maintained manually |
 | *Environment lifecycle* | Refreshable and resettable workshops | VM lifecycle managed through Vagrant commands |
-| *Hardware & GUI access* | Explicit interface connections | USB, PCI, graphics, and networking depend on the provider |
+| *Hardware & GUI access* | Controlled through Workshop interfaces; connections can be automatic or manual depending on the interface | USB, PCI, graphics, and networking depend on the provider |
 | *Networking* | Exposed to the host through an LXD bridge | Must be configured in the `Vagrantfile`; available networking modes depend on the selected provider |
 | *Host* | Linux with snapd and WSL2 | Depends on provider, host architecture, and box availability |
 | *IDE integration* | CLI, VS Code extension, and SSH-based editor workflows | Usually remote development over SSH |
