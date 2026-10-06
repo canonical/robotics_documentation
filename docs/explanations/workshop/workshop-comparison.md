@@ -7,7 +7,7 @@ integration, isolation, reproducibility, platform coverage,
 and operational complexity.
 
 This explanation compares [Workshop](https://ubuntu.com/workshop/docs/)
-with a bare-metal workspace,
+with a host workspace,
 Vagrant, Docker, Dev Containers, and Pixi.
 It compares their general ROS 2 and IDE integration, ease of use,
 reproducibility, main benefits, and limitations.
@@ -21,7 +21,7 @@ and minimally affected by the host, not that every environment is identical.
 | Approach | ROS 2 support | Main benefit | Main limitation |
 | --- | --- | --- | --- |
 | [Workshop](#workshop-main-benefits-and-limitations) | Canonical's ROS 2 SDKs | Integrated Ubuntu environment with controlled host access | No macOS or Windows native support |
-| [Bare metal](#workshop-compared-with-bare-metal) | Official ROS 2 packages | Direct access to devices, graphics, and networking | Cannot use multiple ROS 2 LTS releases simultaneously |
+| [Host](#workshop-compared-with-host) | Official ROS 2 packages | Direct access to devices, graphics, and networking | Cannot use multiple ROS 2 LTS releases simultaneously |
 | [Docker](#workshop-compared-with-docker) | Official ROS container images | Mature images, CI, and ecosystem | Requires manual setup of all integrations, device access, GUIs, and networking |
 | [Dev Containers](#workshop-compared-with-dev-containers) | No dedicated support; can use the official ROS 2 Docker images | Declarative configuration and strong editor-integrated onboarding | Runtime behaviour and specification support depend on the backend |
 | [Pixi](#workshop-compared-with-pixi) | ROS 2 packages provided by RoboStack | Lightweight, lock-file-based cross-platform environments | No OS isolation and ROS 2 dependencies use the Conda and RoboStack ecosystem |
@@ -51,16 +51,16 @@ and minimally affected by the host, not that every environment is identical.
 The following sections compare Workshop with each alternative in more detail,
 covering only the aspects relevant to each comparison.
 
-(workshop-compared-with-bare-metal)=
+(workshop-compared-with-host)=
 
-### Workshop compared with bare metal
+### Workshop compared with host
 
-Bare metal provides direct access to hardware and networking, but shares host
+The host provides direct access to hardware and networking, but shares host
 state and makes supporting multiple ROS 2 LTS releases and reproducing
 environments difficult.
 
 <!-- pyml disable-num-lines 7 line-length -->
-| Aspect | Workshop | Bare metal |
+| Aspect | Workshop | Host |
 | --- | --- | --- |
 | *ROS 2* | Runs each supported ROS 2 distribution in its own Ubuntu, independently of the host version | Uses binary packages for ROS 2 releases supported by the host Ubuntu release |
 | *Environment lifecycle* | Keeps project dependencies inside refreshable, disposable environments | Installs dependencies on the shared host, where state accumulates and requires manual maintenance |
