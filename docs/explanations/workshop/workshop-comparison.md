@@ -36,6 +36,7 @@ and minimally affected by the host, not that every environment is identical.
 - Supports CLI workflows, [VS Code extension](https://ubuntu.com/workshop/docs/how-to/develop-with-workshops/connect-vscode/#how-vscode-connect-remote)
   and editor workflows over SSH.
 - Adds low overhead thanks to LXD system containers.
+- [SDKs](https://ubuntu.com/workshop/docs/explanation/sdks/concepts/) are composable to fit specific use cases.
 
 **Limitations:**
 
@@ -66,7 +67,7 @@ environments difficult.
 | *Environment lifecycle* | Keeps project dependencies inside refreshable, disposable environments | Installs dependencies on the shared host, where state accumulates and requires manual maintenance |
 | *Hardware & GUI access* | Explicitly exposes selected host devices and desktop resources | Provides direct access to devices and graphics |
 | *Networking* | Exposed to the host through an LXD bridge | Uses the host LAN interfaces directly |
-| *Reproducibility* | Workshop definition controls the base, SDKs, and integrations | Requires installation automation or a managed host image |
+| *Environment definition* | Workshop definition controls the base, SDKs, and integrations | Requires installation automation or a managed host image |
 
 (workshop-compared-with-docker)=
 
@@ -98,7 +99,7 @@ but runtime behaviour and specification support depend on the selected backend.
 | *Environment definition* | Workshop definition and SDK channels | `devcontainer.json`, and an image or Dockerfile |
 | *Runtime model* | LXD system container by default, with an experimental LXD VM runtime | Behavior comes from the selected container backend (mostly Docker) |
 | *ROS 2* | Provided by ROS 2 SDKs | Can use the official ROS images |
-| *IDE integration* | CLI, VS Code extension, and SSH-based editor workflows | Strong editor-integrated onboarding with VS Code |
+| *IDE integration* | CLI, VS Code extension, and SSH-based editor workflows | Editor-integrated onboarding with VS Code |
 | *Hardware & GUI access* | Standardised through [Workshop interfaces](https://ubuntu.com/workshop/docs/explanation/interfaces/concepts/) | Requires maintaining custom configurations in `devcontainer.json` |
 | *Host* | Linux with snapd and WSL2 | Same host support as the selected container runtime, plus browser-based environments through GitHub Codespaces |
 
@@ -121,7 +122,7 @@ which can prevent the environment from running on older hosts.
 | --- | --- | --- |
 | *Environment model* | Ubuntu-based system container by default, with an experimental LXD VM runtime | Cross-platform package environment |
 | *ROS 2* | Provided by ROS 2 SDKs | Only the subset of ROS 2 packages from the RoboStack ecosystem |
-| *Reproducibility* | Workshop definition and SDK channels | Manifest and lock file |
+| *Environment definition* | Workshop definition and SDK channels | Manifest and lock file |
 | *Host* | Linux with snapd and WSL2 | Linux, macOS, and Windows on supported architectures |
 | *Hardware & GUI access* | Explicitly exposed from the host | Direct host access |
 | *Networking* | Exposed to the host through an LXD bridge | Direct host access |
@@ -143,7 +144,7 @@ so the entire ROS 2 environment must be provisioned and maintained manually.
 | --- | --- | --- |
 | *Isolation* | LXD system container by default; experimental LXD VM runtime available | Usually a VM, provider-dependent |
 | *ROS 2* | Provided by ROS 2 SDKs | No official ROS 2 boxes, must be maintained manually |
-| *Environment lifecycle* | Refreshable and resettable workshops | VM lifecycle managed through Vagrant commands |
+| *Environment lifecycle* | Launch, refresh, and restore lifecycle | VM lifecycle managed through Vagrant commands |
 | *Hardware & GUI access* | Controlled through Workshop interfaces; connections can be automatic or manual depending on the interface | USB, PCI, graphics, and networking depend on the provider |
 | *Networking* | Exposed to the host through an LXD bridge | Must be configured in the `Vagrantfile`; available networking modes depend on the selected provider |
 | *Host* | Linux with snapd and WSL2 | Depends on provider, host architecture, and box availability |
