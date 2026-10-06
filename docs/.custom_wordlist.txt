@@ -28,6 +28,7 @@ CMake
 CMD
 Codespaces
 colcon
+composable
 Conda
 config
 containerized

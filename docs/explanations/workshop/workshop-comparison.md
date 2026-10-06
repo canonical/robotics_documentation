@@ -36,7 +36,8 @@ and minimally affected by the host, not that every environment is identical.
 - Supports CLI workflows, [VS Code extension](https://ubuntu.com/workshop/docs/how-to/develop-with-workshops/connect-vscode/#how-vscode-connect-remote)
   and editor workflows over SSH.
 - Adds low overhead thanks to LXD system containers.
-- [SDKs](https://ubuntu.com/workshop/docs/explanation/sdks/concepts/) are composable to fit specific use cases.
+- [SDKs](https://ubuntu.com/workshop/docs/explanation/sdks/concepts/)
+are composable to fit specific use cases.
 
 **Limitations:**
 
