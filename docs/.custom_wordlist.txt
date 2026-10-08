@@ -26,7 +26,10 @@ charmstore
 CIs
 CMake
 CMD
+Codespaces
 colcon
+composable
+Conda
 config
 containerized
 Coverity
@@ -59,6 +62,7 @@ Gmail
 gmapping
 GPG
 Grafana
+GUIs
 hardening
 Hawksbill
 hostname
@@ -89,15 +93,18 @@ Nav
 NetBird
 Ninjemys
 Noetic
+onboarding
 oneshot
 OpenSSH
 OpenStack
 OTA
 overwritable
 passwordless
+Pixi
 PlotJuggler
 PYTHONPATH
 qtcreator
+refreshable
 reusability
 roboticists
 Robotis
@@ -164,6 +171,7 @@ uncommented
 URDF
 usb
 userspace
+Vagrantfile
 Vcstool
 vel
 VPN

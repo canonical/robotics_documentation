@@ -53,3 +53,16 @@ security/index
 
 observability/index
 ```
+
+## Workshop
+
+```{include} workshop/index.rst
+   :start-after: .. Include start summary
+   :end-before: .. Include stop summary
+```
+
+```{toctree}
+:maxdepth: 2
+
+workshop/index
+```
