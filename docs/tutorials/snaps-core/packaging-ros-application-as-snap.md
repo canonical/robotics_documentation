@@ -720,7 +720,7 @@ we will add `daemon: simple` in our `snapcraft.yaml`.
 ```diff
 apps:
   ros2-talker-listener:
-    command: opt/ros/humble/bin/ros2 launch talker-listener talker_listener.launch.py
+    command: opt/ros/humble/bin/ros2 launch talker-listener talker_listener.launch
 +   daemon: simple
     plugs: [network, network-bind]
     extensions: [ros2-humble]
