@@ -1,0 +1,26 @@
+# Periodically test a documentation tutorial with an AI agent and report
+# findings as GitHub issues.
+name: AI tutorial test
+
+on:
+  schedule:
+    # Monthly, on the 1st at 06:00 UTC.
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+  # TODO remove
+  pull_request:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  tutorial-test:
+    permissions:
+      contents: read
+      issues: write
+    uses: canonical/robotics-actions-workflows/.github/workflows/tutorial-test.yaml@feat/tutorial-test-with-ai
+    with:
+      tutorial-path: docs/tutorials/snaps-core/packaging-ros-application-as-snap.md
+      skill-path: .github/tutorial-test/skills/packaging-ros-application-as-snap/SKILL.md
+    secrets:
+      openrouter-api-key: ${{ secrets.OPENROUTER_API_KEY }}
