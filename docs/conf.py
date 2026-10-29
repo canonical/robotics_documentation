@@ -33,9 +33,9 @@ copyright = f"{datetime.date.today().year} CC-BY-SA, {author}"
 # To disable the title, set it to an empty string.
 html_title = project + " documentation"
 
-# Public documentation URL, including RTD language and version path segments
-# (e.g. https://ubuntu.com/robotics/docs/en/latest/). Reused as canonical URL below.
-docs_url = f"https://ubuntu.com/robotics/docs/{os.environ.get('READTHEDOCS_LANGUAGE', 'en')}/{os.environ.get('READTHEDOCS_VERSION', 'local')}/"
+# Public documentation URL, including the RTD version path segment
+# (e.g. https://ubuntu.com/robotics/docs/latest/). Reused as canonical URL below.
+docs_url = f"https://ubuntu.com/robotics/docs/{os.environ.get('READTHEDOCS_VERSION', 'local')}/"
 
 # Documentation website URL
 ogp_site_url = docs_url
