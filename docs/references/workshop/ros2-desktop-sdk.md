@@ -4,7 +4,7 @@
 
 The `ros2` SDK is used to set up a ROS 2 desktop development environment.
 
-In [Workshop](https://canonical-workshop.readthedocs-hosted.com/),
+In [Workshop](https://ubuntu.com/workshop/docs/),
 it sets up a full fledge ROS 2 environment
 and also attempts to install the project dependencies using Rosdep.
 We detail hereafter what the `ros2-desktop` SDK contains and what does it configure.
@@ -46,5 +46,5 @@ it installs the project dependencies using `rosdep install`.
 ## Example
 
 Please refer to the tutorial
-['ROS 2 development using Workshop'](../../tutorials/workshop/ros2-dev-workshop.md)
+['ROS 2 development using Workshop'](#tutorials-workshop-ros2-dev-getting-started)
 for a complete example of using Workshop for ROS 2 development.

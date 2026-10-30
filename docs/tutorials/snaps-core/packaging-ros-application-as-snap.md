@@ -1,3 +1,5 @@
+(tutorials-snaps-core-packaging-ros-application-getting-started)=
+
 # Tutorial 1: Packaging our first ROS application as a snap
 
 Robotics developers know app development inside-out,
@@ -841,7 +843,7 @@ There are more features and advanced development tips that we have yet to cover.
 The [turtlebot3 snap example](https://ubuntu.com/blog/how-to-set-up-turtlebot3-in-minutes-with-snaps)
 shows how we can use snap to make your robot software easily installable.
 
-Visit the [robotics documentation](/index) to go further.
+Visit the {ref}`robotics documentation <docs-index>` to go further.
 If you have any questions or need help,
 you can visit and post your question on the
 [Ubuntu robotics forum](https://discourse.ubuntu.com/c/project/robotics/121).

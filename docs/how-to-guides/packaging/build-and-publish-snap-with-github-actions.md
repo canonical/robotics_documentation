@@ -2,7 +2,17 @@
 sequential_nav: next
 ---
 
+(how-to-guides-packaging-build-and-publish-snap-with-github-actions)=
+
 # Build and publish a snap with GitHub Actions
+
+```{tip}
+This guide builds a snap CI pipeline from individual GitHub Actions steps.
+To get the same result with a single, maintained workflow,
+use the {ref}`snap CI reusable workflows <references-snap-ci>` instead —
+the {ref}`snap CI tutorial <tutorials-snap-ci-with-github-actions>`
+walks you through the setup.
+```
 
 When deploying a [robotics application with snap](https://ubuntu.com/robotics/docs),
 keeping the deployment synchronised with development progress is a high priority.
