@@ -33,10 +33,12 @@ copyright = f"{datetime.date.today().year} CC-BY-SA, {author}"
 # To disable the title, set it to an empty string.
 html_title = project + " documentation"
 
+# Public documentation URL, including RTD language and version path segments
+# (e.g. https://ubuntu.com/robotics/docs/en/latest/). Reused as canonical URL below.
+docs_url = f"https://ubuntu.com/robotics/docs/{os.environ.get('READTHEDOCS_LANGUAGE', 'en')}/{os.environ.get('READTHEDOCS_VERSION', 'local')}/"
+
 # Documentation website URL
-ogp_site_url = os.environ.get(
-    "READTHEDOCS_CANONICAL_URL", "https://canonical-robotics.readthedocs-hosted.com/"
-)
+ogp_site_url = docs_url
 
 # Preview name of the documentation website
 # TODO: To use a different name for the project in previews, update the next line.
@@ -113,17 +115,18 @@ html_context = {
 # Project slug
 # TODO: If your documentation is hosted on https://documentation.ubuntu.com/,
 #       uncomment and set to the RTD slug.
-# slug = ''
+slug = "robotics/docs"
 
 #######################
 # Sitemap configuration: https://sphinx-sitemap.readthedocs.io/
 #######################
 
-# Use RTD canonical URL to ensure duplicate pages have a specific canonical URL
-html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
+# Use the public documentation URL as the canonical URL
+html_baseurl = docs_url
 
 # sphinx-sitemap uses html_baseurl to generate the full URL for each page:
 sitemap_url_scheme = "{link}"
+sitemap_filename = "doc-sitemap.xml"
 
 # Include `lastmod` dates in the sitemap:
 sitemap_show_lastmod = True
@@ -318,6 +321,7 @@ html_css_files = [
 # Adds custom JavaScript files, located remotely or in 'html_static_path'.
 html_js_files = [
     "bundle.js",
+    "js/overwrite_links.js",
 ]
 
 # Appends extra markup to the end of every document written in reST
