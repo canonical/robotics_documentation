@@ -41,7 +41,6 @@ docs_url = f"https://ubuntu.com/robotics/docs/{os.environ.get('READTHEDOCS_VERSI
 ogp_site_url = docs_url
 
 # Preview name of the documentation website
-# TODO: To use a different name for the project in previews, update the next line.
 ogp_site_name = project
 
 # Preview image URL
