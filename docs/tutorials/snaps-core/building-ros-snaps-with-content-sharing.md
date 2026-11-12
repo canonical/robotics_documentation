@@ -48,7 +48,7 @@ These snaps could then be used on a variety of different robots,
 potentially varying only slightly in their configuration.
 
 This multi-snap design is exactly the theme of this guide.
-For a detailed comparison of the [different architectures with snaps](https://ubuntu.com/robotics/docs/en/latest/explanations/snaps/ros-architectures-with-snaps/)
+For a detailed comparison of the {ref}`different architectures with snaps <explanations-snaps-ros-architectures-with-snaps>`
 you can check the documentation.
 
 ## Rationalising a multi-snap deployment with content sharing

@@ -191,6 +191,8 @@ on another robot as long as the interface is standardised (same topic names, uni
 - Might require additional [interfaces](https://snapcraft.io/docs/reference/interfaces/)
 - Need coordination between the releases of the snaps
 
+(multi-snaps-using-content-sharing)=
+
 ## Multi snaps using content sharing
 
 In the previous section we showed that

@@ -4,8 +4,8 @@
 
 ## Distribute ROS applications with the Snap Store
 
-In [part 1](https://ubuntu.com/robotics/docs/en/latest/tutorials/snaps-core/packaging-ros-application-as-snap/)
-and [part 2](https://ubuntu.com/robotics/docs/en/latest/tutorials/snaps-core/packaging-complex-robotics-software-with-snaps/)
+In {ref}`part 1 <tutorials-snaps-core-packaging-ros-application-getting-started>`
+and {ref}`part 2 <tutorials-snaps-core-packaging-complex-robotics-software-with-snaps>`
 of our developer guide series,
 we learned about what snaps can do for ROS applications by
 exploring the use of snap and snapcraft in complex robotics applications.
@@ -63,7 +63,7 @@ A basic understanding of the Linux environment (Ubuntu) is also required.
 Finally, we expect the reader to have a working knowledge of snaps.
 This means either previous experience with `snap` and `snapcraft`,
 or having followed the
-[Deployment Guide - PART 1](https://ubuntu.com/robotics/docs/en/latest/tutorials/snaps-core/packaging-ros-application-as-snap/).
+{ref}`Deployment Guide - PART 1 <tutorials-snaps-core-packaging-ros-application-getting-started>`.
 
 #### Setup
 
@@ -89,18 +89,18 @@ or any other, dependencies.
 
 ### Globally distribute our first snap
 
-In [part 1](https://ubuntu.com/robotics/docs/en/latest/tutorials/snaps-core/packaging-ros-application-as-snap/)
+In {ref}`part 1 <tutorials-snaps-core-packaging-ros-application-getting-started>`
 we covered the creation of a strictly confined
 [ROS 2 Humble talker-listener snap](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap/tree/confined).
 For this guide, we will reuse the same example.
 
 Let's recall what we did during
-[part 1](https://ubuntu.com/robotics/docs/en/latest/tutorials/snaps-core/packaging-ros-application-as-snap/).
+{ref}`part 1 <tutorials-snaps-core-packaging-ros-application-getting-started>`.
 
 #### Creation of our snap
 
 We will first download the work done in
-[part 1](https://ubuntu.com/robotics/docs/en/latest/tutorials/snaps-core/packaging-ros-application-as-snap/).
+{ref}`part 1 <tutorials-snaps-core-packaging-ros-application-getting-started>`.
 We will then adapt the snap to make it unique before finally testing our snap.
 
 ##### ROS 2 humble talker listener snap
