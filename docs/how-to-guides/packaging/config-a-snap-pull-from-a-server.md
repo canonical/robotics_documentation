@@ -32,7 +32,7 @@ They are the parameters we will be configuring from the server.
 ## Requirements
 
 This how-to-guide is assuming that we are familiar with robotics snaps.
-Please [refer to our tutorials](https://ubuntu.com/robotics/docs)
+Please [refer to our tutorials](#tutorials-snaps-core-learning-roadmap)
 to learn more about robotics snaps.
 
 Additionally, this how-to-guide will require a [GitHub account](https://github.com/)

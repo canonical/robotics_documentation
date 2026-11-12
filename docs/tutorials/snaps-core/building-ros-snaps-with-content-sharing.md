@@ -459,7 +459,7 @@ our application snaps to simplify the deployment of robots to market.
 It will also cover various aspects of the security,
 operation and management of snaps.
 
-You can also visit the [robotics documentation](https://ubuntu.com/robotics/docs)
+You can also visit the [robotics documentation](#docs-index)
 to find out more about snaps and the other services offered by Canonical,
 such as [ROS ESM](https://ubuntu.com/robotics/ros-esm).
 If you have any questions or need help,
