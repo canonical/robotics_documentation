@@ -69,7 +69,7 @@ or having followed the
 
 In terms of setup,
 we require a more minimal setup than we used in
-{ref}`part 2 <tutorials-snaps-core-packaging-complex-robotics-software-with-snaps>`.
+[part 2](#tutorials-snaps-core-packaging-complex-robotics-software-with-snaps).
 
 We will need an up and running Ubuntu Desktop
 (20.04 being the minimum version, as it is still under maintenance).
