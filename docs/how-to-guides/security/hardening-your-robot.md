@@ -869,7 +869,7 @@ For more information about
 
 You may also consider reading the following materials:
 
-- {ref}`Distributing ROS apps with snaps <tutorials-snaps-core-packaging-ros-application-getting-started>`
+- [Distributing ROS apps with snaps](#tutorials-snaps-core-packaging-ros-application-getting-started)
 - [Ubuntu Core documentation](https://ubuntu.com/core/docs)
 - Key considerations when [choosing a robot’s operating system](https://ubuntu.com/engage/robot-operating-system-choice)
 - [ROS Expanded Security Maintenance](https://ubuntu.com/robotics/ros-esm)
