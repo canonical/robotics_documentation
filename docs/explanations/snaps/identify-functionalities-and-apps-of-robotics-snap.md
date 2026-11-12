@@ -1,3 +1,5 @@
+(explanations-snaps-identify-functionalities-and-apps-of-robotics-snap)=
+
 # Identify functionalities and applications of a robotics snap
 
 Since snap is meant to deploy applications, we must define our robot applications.

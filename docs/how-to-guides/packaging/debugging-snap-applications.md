@@ -25,11 +25,11 @@ the modified source code as described in the `setup` section below.
 
 Since the build of the snap itself can go wrong.
 `Snapcraft` offers multiple ways to introspect the instance state and files.
-The Explanation Documentation: [*Debug snap build*](https://ubuntu.com/robotics/docs/en/latest/explanations/snaps/debug-the-build-of-a-snap/),
+The Explanation Documentation: [*Debug snap build*](#explanations-snaps-debug-the-build-of-a-snap),
 is a great place to learn about this.
 When the build went right and this is the run-time that is causing issues,
 snap also offers multiple ways to debug it.
-The Explanation Documentation: [*Debug a snap application*](https://ubuntu.com/robotics/docs/en/latest/explanations/snaps/debug-a-snap-application/),
+The Explanation Documentation: [*Debug a snap application*](#explanations-snaps-debug-a-snap-application),
 is a great place to learn about this.
 
 ## Setup

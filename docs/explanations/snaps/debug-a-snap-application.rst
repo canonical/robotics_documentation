@@ -1,3 +1,5 @@
+.. _explanations-snaps-debug-a-snap-application:
+
 Debug a snap application
 ========================
 

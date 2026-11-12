@@ -1,3 +1,5 @@
+(tutorials-snaps-core-building-ros-snaps-with-content-sharing)=
+
 # Part 4: Building ROS snaps with content sharing
 
 ## How to use this developer guide
