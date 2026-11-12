@@ -242,7 +242,7 @@ Thus, **we must think of our robot software as an application and**
 to call in 5 different terminals.
 
 To start snapping our stack we first need to
-[identify the various functionalities and applications of our robot application](https://ubuntu.com/robotics/docs/identify-functionalities-and-applications-of-a-robotics-snap).
+[identify the various functionalities and applications of our robot application](https://ubuntu.com/robotics/docs/en/latest/explanations/snaps/identify-functionalities-and-apps-of-robotics-snap/).
 
 We are going to apply the methodology to the TurtleBot3.
 This way, we will have a clear example of the functionalities and snap
@@ -527,7 +527,7 @@ since TurtleBot3 messages are hosted on a different repository.
 Here we will define one [snapcraft part](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html)
 for our ROS workspace.
 For this snapcraft part, we will use the [`catkin` plugin](https://documentation.ubuntu.com/snapcraft/8.14/reference/plugins/catkin_plugin/).
-As seen in the [previous part of this guide](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-1),
+As seen in the [previous part of this guide](https://ubuntu.com/robotics/docs/en/latest/tutorials/snaps-core/packaging-ros-application-as-snap/),
 the `catkin` plugin comes in handy with the [`ros-noetic` snapcraft extensions](https://documentation.ubuntu.com/snapcraft/8.14/reference/extensions/ros-1-extension/).
 
 The source is used to retrieve the source tree to build.
@@ -540,7 +540,7 @@ to pull all the repositories that we need based on a
 [rosinstall file](https://docs.ros.org/en/independent/api/rosinstall/html/rosinstall_file_format.html).
 
 A detailed explanation of this process can be found in the
-[Vcstool and rosinstall file documentation](https://ubuntu.com/robotics/docs/vcstool-and-rosinstall-file).
+[Vcstool and rosinstall file documentation](https://ubuntu.com/robotics/docs/en/latest/explanations/snaps/vcstool-and-rosinstall-file/).
 
 ##### Writing our turtlebot3 part
 
@@ -805,11 +805,11 @@ and pass-through specific environment variables to support building and running 
 
 There are snap environment variables,
 like `$SNAP` and `$SNAP_INSTANCE_NAME` used to identify the snap and its location.
-The [*Snap environment variables*](https://ubuntu.com/robotics/docs/snap-environment-variables)
+The [*Snap environment variables*](https://ubuntu.com/robotics/docs/en/latest/explanations/snaps/snap-environment-variables/)
 documentation is a great place to learn about these.
 
 Additionally, snaps define environment variables specific to data and file storage.
-The [*Snap data and file storage documentation*](https://ubuntu.com/robotics/docs/snap-data-and-file-storage)
+The [*Snap data and file storage documentation*](https://ubuntu.com/robotics/docs/en/latest/explanations/snaps/snap-data-and-file-storage/)
 is a great place to learn about these.
 
 ### Local files part
@@ -977,7 +977,7 @@ These snap services can use multiple new features that
 will come in handy for our application.
 
 `Snap` and `snapcraft` offer great features to orchestrate daemon applications.
-The [*Application orchestration*](https://ubuntu.com/robotics/docs/application-orchestration)
+The [*Application orchestration*](https://ubuntu.com/robotics/docs/en/latest/explanations/snaps/application-orchestration/)
 documentation is a great place to learn more about orchestration.
 
 The orchestration features that we are going to use for the TurtleBot3 are:
@@ -1221,7 +1221,7 @@ Adding such behaviour is going to require a new feature from snap: `hooks`.
 `Hooks` are executable files that run within a snap’s confined environment
 when a certain action occurs.
 They are typically used for configurations.
-The documentation on [*snap configurations and hooks*](https://ubuntu.com/robotics/docs/snap-configurations-and-hooks)
+The documentation on [*snap configurations and hooks*](https://ubuntu.com/robotics/docs/en/latest/explanations/snaps/snap-configurations-and-hooks/)
 explains this in detail.
 
 ### Adding TurtleBot3 hooks

@@ -681,7 +681,7 @@ We will now face this log:
 ```
 
 The error that we see is related to the
-[shared memory transport not being able to create its file](https://ubuntu.com/robotics/docs/ros-2-shared-memory-in-snaps).
+[shared memory transport not being able to create its file](https://ubuntu.com/robotics/docs/en/latest/how-to-guides/packaging/ros-2-shared-memory-in-snaps/).
 This is expected.
 We will cover how to manage shared memory in our snaps later.
 For now, even with the shared memory failing,

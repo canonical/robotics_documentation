@@ -111,7 +111,7 @@ In the next section, we will see how to let the user customize this configuratio
 For the user to be able to customize the configuration file,
 it must be in a location that the snap can access and
 where a user can edit this configuration.
-We use [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage)
+We use [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/en/latest/explanations/snaps/snap-data-and-file-storage/)
 to store the editable YAML file.
 
 The following diagram illustrates the configuration file workflow.

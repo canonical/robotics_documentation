@@ -20,4 +20,4 @@ Ubuntu Core is ideal for embedded devices because it manages itself.
 
 [Learn more about the security features of Ubuntu Core and Snaps](https://ubuntu.com/core/docs/security-and-sandboxing)
 
-[Review guidelines for hardening Ubuntu Core on your robot](https://canonical-robotics.readthedocs-hosted.com/en/latest/explanations/security/securing-ros-robotic-platforms)
+[Review guidelines for hardening Ubuntu Core on your robot](https://ubuntu.com/robotics/docs/en/latest/how-to-guides/security/hardening-your-robot/)

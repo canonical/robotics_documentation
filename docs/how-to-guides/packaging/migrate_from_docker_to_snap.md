@@ -374,4 +374,4 @@ To learn more about the core snap concepts look at the next resources:
 * [apps](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html)
 * [extensions](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/#reference-extensions)
 * [plugs and interfaces](https://snapcraft.io/docs/explanation/interfaces/all-about-interfaces/)
-* [How to deploy robotic applications with snaps](https://canonical-robotics.readthedocs-hosted.com/en/latest/tutorials/snaps-core/)
+* [How to deploy robotic applications with snaps](https://ubuntu.com/robotics/docs/en/latest/tutorials/snaps-core/)
