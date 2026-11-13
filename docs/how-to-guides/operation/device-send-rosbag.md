@@ -8,7 +8,7 @@ rosbags to the {{ COS_ROB }} server.
 
 We thus assume that a {{ COS_ROB }} server is up and running.
 You may refer to the tutorial
-{ref}`Deploy {{ COS_ROB }} server in the cloud <tutorials-observability-deploy-cos-for-robotics-server-in-the-cloud>`.
+[Deploy {{ COS_ROB }} server in the cloud](#tutorials-observability-deploy-cos-for-robotics-server-in-the-cloud).
 to do so.
 
 In addition, a cloud storage must be deployed and integrated with {{ COS_ROB }}.
@@ -17,7 +17,7 @@ Pick the tab below corresponding to the storage solution you deployed.
 The following assumes that a file server
 is deployed and integrated with {{ COS_ROB }}.
 You may refer to the how-to
-{ref}`Deploy a file server for {{ COS_ROB }} <how-to-guides-operation-deploy-caddy>`.
+[Deploy a file server for {{ COS_ROB }}](#how-to-guides-operation-deploy-caddy).
 to do so.
 
 ## Setting up the agent
