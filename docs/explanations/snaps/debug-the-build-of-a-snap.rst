@@ -1,3 +1,5 @@
+.. _explanations-snaps-debug-the-build-of-a-snap:
+
 Debug the build of a snap
 =========================
 

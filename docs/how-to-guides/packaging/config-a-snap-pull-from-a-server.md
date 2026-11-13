@@ -32,7 +32,7 @@ They are the parameters we will be configuring from the server.
 ## Requirements
 
 This how-to-guide is assuming that we are familiar with robotics snaps.
-Please [refer to our tutorials](https://ubuntu.com/robotics/docs)
+Please [refer to our tutorials](#tutorials-snaps-core-learning-roadmap)
 to learn more about robotics snaps.
 
 Additionally, this how-to-guide will require a [GitHub account](https://github.com/)
@@ -46,7 +46,7 @@ installed is also required.
 
 To get the initial configuration, we will use the snap [`install` hook](https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install).
 The following diagram shows how the `install` hook will pull the configuration
-from a server and place it in [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage).
+from a server and place it in [`$SNAP_COMMON`](#explanations-snaps-snap-data-and-file-storage-topic-guide).
 Once this is done, our snap will be installed and configured.
 
 ![Configuration Diagram](https://assets.ubuntu.com/v1/eef74552-configure-a-snap-pull-config.jpg)
@@ -105,10 +105,10 @@ we can write a script – that will be invoked by the
 [`install` hook](https://snapcraft.io/docs/reference/development/supported-snap-hooks/#heading--install)
 – to download it and place it appropriately
 in our snap.
-For instance, in [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage).
+For instance, in [`$SNAP_COMMON`](#explanations-snaps-snap-data-and-file-storage-topic-guide).
 Since the `install` hook runs as root, we cannot use any user-specific snap
 writable environment.
-The [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage)
+The [`$SNAP_COMMON`](#explanations-snaps-snap-data-and-file-storage-topic-guide)
 directory is the same for `root` or any user and will be read-accessible from any user.
 
 First, let us write the script to download the configuration and place it.

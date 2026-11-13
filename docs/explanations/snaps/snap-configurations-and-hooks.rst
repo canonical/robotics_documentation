@@ -1,3 +1,5 @@
+.. _explanations-snaps-snap-configurations-and-hooks:
+
 Snap configurations and hooks
 =============================
 
