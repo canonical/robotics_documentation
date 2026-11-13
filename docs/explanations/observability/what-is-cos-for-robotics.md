@@ -85,7 +85,7 @@ The applications expected on the servers can be:
 
 On devices,
 the {{ COS_ROB }} consists of a set of [snap](https://snapcraft.io/docs) packages.
-Snaps packages are particularly suited for [robotics](https://ubuntu.com/robotics/docs)
+Snaps packages are particularly suited for [robotics](#docs-index)
 and their limited resources reducing the need for on device operations.
 Installed snaps will benefit from seamless updates and rollback from the
 [Snap Store](https://snapcraft.io/store).

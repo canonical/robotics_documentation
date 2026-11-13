@@ -33,7 +33,7 @@ They are the parameters present in the configuration file that are overwritable.
 ## Requirements
 
 This how-to-guide is assuming that we are familiar with robotics snaps.
-Please [refer to our tutorials](https://ubuntu.com/robotics/docs)
+Please [refer to our tutorials](#tutorials-snaps-core-learning-roadmap)
 to learn more about robotics snaps.
 
 An up and running Ubuntu (minimum 20.04) with
@@ -111,7 +111,7 @@ In the next section, we will see how to let the user customize this configuratio
 For the user to be able to customize the configuration file,
 it must be in a location that the snap can access and
 where a user can edit this configuration.
-We use [`$SNAP_COMMON`](https://ubuntu.com/robotics/docs/snap-data-and-file-storage)
+We use [`$SNAP_COMMON`](#explanations-snaps-snap-data-and-file-storage-topic-guide)
 to store the editable YAML file.
 
 The following diagram illustrates the configuration file workflow.

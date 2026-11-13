@@ -14,7 +14,7 @@ the {ref}`snap CI tutorial <tutorials-snap-ci-with-github-actions>`
 walks you through the setup.
 ```
 
-When deploying a [robotics application with snap](https://ubuntu.com/robotics/docs),
+When deploying a [robotics application with snap](#tutorials-snaps-core-learning-roadmap),
 keeping the deployment synchronised with development progress is a high priority.
 It’s best accomplished with a CI/CD pipeline that will automatically deploy
 your latest developments to your devices.

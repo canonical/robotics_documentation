@@ -4,8 +4,8 @@
 
 ## Distribute ROS applications with the Snap Store
 
-In [part 1](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-1)
-and [part 2](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-2)
+In [part 1](#tutorials-snaps-core-packaging-ros-application-getting-started)
+and [part 2](#tutorials-snaps-core-packaging-complex-robotics-software-with-snaps)
 of our developer guide series,
 we learned about what snaps can do for ROS applications by
 exploring the use of snap and snapcraft in complex robotics applications.
@@ -63,13 +63,13 @@ A basic understanding of the Linux environment (Ubuntu) is also required.
 Finally, we expect the reader to have a working knowledge of snaps.
 This means either previous experience with `snap` and `snapcraft`,
 or having followed the
-[Deployment Guide - PART 1](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-1).
+[Deployment Guide - PART 1](#tutorials-snaps-core-packaging-ros-application-getting-started).
 
 #### Setup
 
 In terms of setup,
 we require a more minimal setup than we used in
-[part 2](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-1).
+[part 2](#tutorials-snaps-core-packaging-complex-robotics-software-with-snaps).
 
 We will need an up and running Ubuntu Desktop
 (20.04 being the minimum version, as it is still under maintenance).
@@ -89,18 +89,18 @@ or any other, dependencies.
 
 ### Globally distribute our first snap
 
-In [part 1](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-1)
+In [part 1](#tutorials-snaps-core-packaging-ros-application-getting-started)
 we covered the creation of a strictly confined
 [ROS 2 Humble talker-listener snap](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap/tree/confined).
 For this guide, we will reuse the same example.
 
 Let's recall what we did during
-[part 1](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-1).
+[part 1](#tutorials-snaps-core-packaging-ros-application-getting-started).
 
 #### Creation of our snap
 
 We will first download the work done in
-[part 1](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-1).
+[part 1](#tutorials-snaps-core-packaging-ros-application-getting-started).
 We will then adapt the snap to make it unique before finally testing our snap.
 
 ##### ROS 2 humble talker listener snap
@@ -197,7 +197,7 @@ sudo snap remove yourname-test-ros2-snapstore
 
 If you had issues following any of the previous steps, please,
 review the developer guide
-{ref}`part 1 <tutorials-snaps-core-packaging-ros-application-getting-started>` again.
+[part 1](#tutorials-snaps-core-packaging-ros-application-getting-started) again.
 
 #### Register our snap
 
