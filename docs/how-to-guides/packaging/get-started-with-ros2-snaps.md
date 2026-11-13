@@ -66,7 +66,7 @@ apps:
   ros2-talker-listener:
     command: ros2 launch demo_nodes_cpp talker_listener.launch.py
     # The ROS extensions establish common settings for all ROS snaps.
-    # Learn more about it at https://canonical-robotics.readthedocs-hosted.com/en/latest/references/snapcraft/extensions/
+    # Learn more about it at https://ubuntu.com/robotics/docs/en/latest/references/snapcraft/extensions/
     extensions: [ros2-lyrical-ros-core]
 
 # The parts to build the snap.

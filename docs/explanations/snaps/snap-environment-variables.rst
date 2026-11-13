@@ -1,3 +1,5 @@
+.. _explanations-snaps-snap-environment-variables:
+
 Snap environment variables
 ==========================
 

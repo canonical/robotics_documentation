@@ -31,7 +31,7 @@ our goal will be to create an Ubuntu Core image that is
 ready to be installed and used on a TurtleBot3 robot equipped with a Raspberry Pi 4.
 
 The image will include all the TurtleBot3c snaps that we prepared in the
-[Tutorial part 4: Building ROS snaps with content sharing](https://ubuntu.com/robotics/docs/ros-deployment-with-snaps-part-4):
+[Tutorial part 4: Building ROS snaps with content sharing](#tutorials-snaps-core-building-ros-snaps-with-content-sharing):
 
 * [Turtlebot3c-bringup](https://snapcraft.io/turtlebot3c-bringup):
   The core components for the TurtleBot3
@@ -168,7 +168,7 @@ Let’s add the TurtleBot3c snaps to our `turtlebot3c-model.json`:
 ```
 
 Note that we’ve also added the `ros-noetic-robot` snap.
-We need it since we are using the TurtleBot3c [ROS snap content-sharing approach](https://canonical-robotics.readthedocs-hosted.com/en/latest/explanations/snaps/ros-architectures-with-snaps/#multi-snaps-using-content-sharing)
+We need it since we are using the TurtleBot3c [ROS snap content-sharing approach](#explanations-snaps-ros-architectures-with-snaps-multi-snaps-using-content-sharing)
 that depends on `ros-noetic-robot` to provide the ROS libraries.
 
 #### Networking snaps

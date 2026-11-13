@@ -1,3 +1,5 @@
+(tutorials-snaps-core-building-ros-snaps-with-content-sharing)=
+
 # Part 4: Building ROS snaps with content sharing
 
 ## How to use this developer guide
@@ -48,7 +50,7 @@ These snaps could then be used on a variety of different robots,
 potentially varying only slightly in their configuration.
 
 This multi-snap design is exactly the theme of this guide.
-For a detailed comparison of the [different architectures with snaps](https://ubuntu.com/robotics/docs/ros-architectures-with-snaps)
+For a detailed comparison of the [different architectures with snaps](#explanations-snaps-ros-architectures-with-snaps)
 you can check the documentation.
 
 ## Rationalising a multi-snap deployment with content sharing
@@ -457,7 +459,7 @@ our application snaps to simplify the deployment of robots to market.
 It will also cover various aspects of the security,
 operation and management of snaps.
 
-You can also visit the [robotics documentation](https://ubuntu.com/robotics/docs)
+You can also visit the [robotics documentation](#docs-index)
 to find out more about snaps and the other services offered by Canonical,
 such as [ROS ESM](https://ubuntu.com/robotics/ros-esm).
 If you have any questions or need help,

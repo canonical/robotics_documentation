@@ -37,7 +37,7 @@ These are the parameters we will be configuring from the configuration snap.
 ## Requirements
 
 This how-to-guide is assuming that we are familiar with robotics snaps.
-Please [refer to our tutorials](https://ubuntu.com/robotics/docs)
+Please [refer to our tutorials](#tutorials-snaps-core-learning-roadmap)
 to learn more about robotics snaps.
 
 An up and running Ubuntu (minimum 20.04) with [snapcraft](https://snapcraft.io/snapcraft)

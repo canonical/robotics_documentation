@@ -1,3 +1,5 @@
+.. _explanations-snaps-application-orchestration:
+
 Applications orchestration
 ==========================
 

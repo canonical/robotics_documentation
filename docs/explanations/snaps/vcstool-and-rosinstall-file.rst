@@ -1,3 +1,5 @@
+.. _explanations-snaps-vcstool-and-rosinstall-file:
+
 Vcstool and rosinstall file
 ===========================
 
