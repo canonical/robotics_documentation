@@ -1,5 +1,5 @@
-# Canonical theme (still needed for Furo theme and custom templates)
-canonical-sphinx~=0.6
+# Ulwazi theme
+ulwazi~=1.0
 
 # Extensions previously auto-loaded by canonical-sphinx
 myst-parser~=4.0    # v5.0.0 causes version conflicts
@@ -24,6 +24,7 @@ sphinx-youtube-links~=0.1
 # Other dependencies
 packaging~=26.1
 sphinxcontrib-svg2pdfconverter[CairoSVG]~=2.1
+sphinx-modern-pdf-style~=0.1
 sphinx-last-updated-by-git~=0.3
 sphinx-sitemap~=2.9
 sphinx-llm~=0.4
