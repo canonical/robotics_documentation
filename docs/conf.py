@@ -11,17 +11,18 @@ import textwrap
 # A complete list of built-in Sphinx configuration values:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 #
-# The Sphinx Stack uses the Canonical Sphinx theme to keep all documentation consistent
+# The Sphinx Stack uses the Ulwazi theme to keep all documentation consistent
 # and on brand:
-# https://github.com/canonical/canonical-sphinx
+# https://github.com/canonical/ulwazi
 
 #######################
 # Project information #
 #######################
 
-# Project name
-# TODO: Update with the official name of your project or product (e.g., "Ubuntu Server")
-project = "Robotics"
+# Project name; rendered on the banner as the link to the documentation home page
+# TODO: Update with the official name of your project or product, followed by
+#       "documentation" (e.g., "Ubuntu Server documentation")
+project = "Robotics documentation"
 
 # Author name; used in the default copyright statement in the page footer
 author = "Canonical Ltd."
@@ -29,9 +30,11 @@ author = "Canonical Ltd."
 # The year in the copyright statement
 copyright = f"{datetime.date.today().year} CC-BY-SA, {author}"
 
-# Sidebar documentation title
-# To disable the title, set it to an empty string.
-html_title = project + " documentation"
+# Documentation title; appended to each page's title
+html_title = project
+
+# HTML theme
+html_theme = "ulwazi"
 
 # Public documentation URL, including the RTD version path segment
 # (e.g. https://ubuntu.com/robotics/docs/latest/). Reused as canonical URL below.
@@ -54,14 +57,6 @@ ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 # Dictionary of values to pass into the Sphinx context for all pages:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_context
 html_context = {
-    # Product page URL; can be different from product docs URL
-    # TODO: Change to your product website URL, dropping the 'https://' prefix (e.g.,
-    #       'ubuntu.com/lxd'). If there's no such website, remove the {{ product_page }}
-    #       link from the _templates/header.html file.
-    "product_page": "ubuntu.com/robotics",
-    # Product tag image; the orange part of your logo, shown in the page header
-    # TODO: To add a tag image, uncomment and update as needed.
-    # 'product_tag': '_static/tag.png',
     # Your Discourse instance URL
     # TODO: Change to your Discourse instance URL or leave empty.
     "discourse": "https://discourse.ubuntu.com",
@@ -71,45 +66,29 @@ html_context = {
     # Your Matrix channel URL
     # TODO: Change to your Matrix channel URL or leave empty.
     "matrix": "https://matrix.to/#/#documentation:ubuntu.com",
-    # Your documentation GitHub repository URL If set, links for viewing the
-    # documentation source files and creating GitHub issues are added at the bottom of
-    # each page.
+    # Your documentation GitHub repository URL, without a trailing slash. Used for
+    # the feedback button and the links for editing and viewing the page source.
     # TODO: Change to your documentation GitHub repository URL or leave empty.
-    "github_url": "https://github.com/canonical/robotics_documentation/",
-    # Docs branch in the repo; used in links for viewing the source files
-    "repo_default_branch": "main",
-    # Docs location in the repo; used in links for viewing the source files
-    "repo_folder": "/docs/",
-    # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
-    # Valid options: none, prev, next, both
-    "sequential_nav": "both",
-    # TODO: To enable listing contributors on individual pages, set to True
-    "display_contributors": False,
-    # Required for feedback button
-    "github_issues": "enabled",
+    "github_url": "https://github.com/canonical/robotics_documentation",
+    # Shows the feedback button and the page source links at the top of each page
+    "feedback": True,
+    # Banner logo; the title and link match the parent product page
+    "logo_title": "Ubuntu",
+    "logo_link_URL": "https://ubuntu.com/robotics",
+    "logo_img_URL": "https://assets.ubuntu.com/v1/82818827-CoF_white.svg",
+    # Google Tag Manager container ID; overrides the Ulwazi default so that
+    # analytics stay in the container used by ubuntu.com/robotics/docs
+    "tag_id": "GTM-KNX3CJC",
     # Passes the top-level 'author' value to the theme
     "author": author,
-    # Documentation license information
+    # Documentation license information, displayed in the footer
     "license": {
-        # TODO: Specify your project's license.
-        # For the name, we recommend using the standard shorthand identifier from
-        # https://spdx.org/licenses
-        "name": "CC-BY-SA",
-        # TODO: Link directly to your project's license statement.
-        "url": "",
+        # The SPDX identifier of the license; see https://spdx.org/licenses
+        "name": "CC-BY-SA-3.0",
+        # Link to the project's license statement
+        "url": "https://github.com/canonical/robotics_documentation/blob/main/LICENSE",
     },
 }
-
-# TODO: To enable the edit button on pages, uncomment and change the link to a
-# public repository on GitHub or Launchpad. Any of the following link domains
-# are accepted:
-# - https://github.com/example-org/example"
-# - https://launchpad.net/example
-# - https://git.launchpad.net/example
-#
-# html_theme_options = {
-# 'source_edit_link': 'https://github.com/canonical/sphinx-stack',
-# }
 
 # Project slug
 # TODO: If your documentation is hosted on https://documentation.ubuntu.com/,
@@ -144,7 +123,6 @@ sitemap_excludes = [
 ################################
 
 html_static_path = ["_static"]
-templates_path = ["_templates"]
 
 #############
 # Redirects #
@@ -282,8 +260,10 @@ linkcheck_workers = 1
 # Custom Sphinx extensions; see
 # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 extensions = [
-    "canonical_sphinx",
-    "notfound.extension",
+    # Keep "ulwazi" before "sphinx_modern_pdf_style"; the PDF branding defaults
+    # depend on this order. Ulwazi also sets up the sphinx-notfound-page extension.
+    "ulwazi",
+    "myst_parser",
     "sphinx_design",
     "sphinx_reredirects",
     "sphinx_tabs.tabs",
@@ -293,6 +273,7 @@ extensions = [
     "sphinx_contributor_listing",
     "sphinx_filtered_toctree",
     "sphinx_llm.txt",
+    "sphinx_modern_pdf_style",
     "sphinx_related_links",
     "sphinx_roles",
     "sphinx_terminal",
@@ -304,6 +285,10 @@ extensions = [
     "sphinx_sitemap",
     "sphinxcontrib.mermaid",
 ]
+
+# Enables the PDF styling provided by sphinx-modern-pdf-style; Ulwazi doesn't
+# handle PDF builds itself
+set_modern_pdf_config = True
 
 # Excludes files or directories from processing
 exclude_patterns = [
