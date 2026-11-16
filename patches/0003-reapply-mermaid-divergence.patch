@@ -1,0 +1,23 @@
+diff --git a/docs/conf.py b/docs/conf.py
+index 0082546..bbfdaef 100644
+--- a/docs/conf.py
++++ b/docs/conf.py
+@@ -194,6 +194,7 @@ extensions = [
+     "sphinxcontrib.cairosvgconverter",
+     "sphinx.ext.intersphinx",
+     "sphinx_sitemap",
++    "sphinxcontrib.mermaid",
+ ]
+ 
+ # Excludes files or directories from processing
+diff --git a/docs/requirements.txt b/docs/requirements.txt
+index 87f9825..bff8bc9 100644
+--- a/docs/requirements.txt
++++ b/docs/requirements.txt
+@@ -26,3 +26,6 @@ sphinx-modern-pdf-style~=0.1
+ # Vale dependencies
+ rst2html
+ vale==3.13.0.0
++
++# Robotics documentation dependencies; not part of the Sphinx Stack
++sphinxcontrib-mermaid
