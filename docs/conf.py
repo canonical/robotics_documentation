@@ -258,11 +258,7 @@ linkcheck_workers = 1
 
 # Custom MyST syntax extensions; see
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
-# NOTE: By default, the following MyST extensions are enabled:
-#   - substitution
-#   - deflist
-#   - linkify
-# myst_enable_extensions = set()
+myst_enable_extensions = {"substitution"}
 
 # Custom Sphinx extensions; see
 # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
