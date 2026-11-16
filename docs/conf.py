@@ -75,6 +75,7 @@ html_context = {
     # Banner logo; the title and link match the parent product page
     "logo_title": "Ubuntu",
     "logo_link_URL": "https://ubuntu.com/robotics",
+    "product_page": docs_url.removeprefix("https://"),
     "logo_img_URL": "https://assets.ubuntu.com/v1/82818827-CoF_white.svg",
     # Google Tag Manager container ID; overrides the Ulwazi default so that
     # analytics stay in the container used by ubuntu.com/robotics/docs
@@ -82,6 +83,12 @@ html_context = {
     # Passes the top-level 'author' value to the theme
     "author": author,
     # Documentation license information, displayed in the footer
+    "footer": {
+        "license": True,
+        "entries": [
+            '<a href="#tracker-settings" class="js-revoke-cookie-manager">Manage your tracker settings</a>',
+        ],
+    },
     "license": {
         # The SPDX identifier of the license; see https://spdx.org/licenses
         "name": "CC-BY-SA-3.0",
