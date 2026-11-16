@@ -18,30 +18,30 @@ For example,
 if you are working with `Xenial` and its corresponding version ROS Kinetic,
 run the command:
 
-`````{tabs}
+`````{tab-set}
 
-````{tab}  ROS Foxy
+````{tab-item}  ROS Foxy
 
 ```bash
 sudo apt install ros-foxy-ros-base
 ```
 ````
 
-````{tab} ROS Noetic
+````{tab-item} ROS Noetic
 
 ```bash
 sudo apt install ros-noetic-ros-base
 ```
 
 ````
-````{tab} ROS Melodic
+````{tab-item} ROS Melodic
 
 ```bash
 sudo apt install ros-melodic-ros-base
 ```
 
 ````
-````{tab} ROS Kinetic
+````{tab-item} ROS Kinetic
 
 ```bash
 sudo apt install ros-kinetic-ros-base
