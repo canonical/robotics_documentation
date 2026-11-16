@@ -1,9 +1,9 @@
-Ubuntu Robotics documentation
-=============================
+Canonical robotics documentation
+================================
 
-Source for the `Ubuntu Robotics documentation site <https://canonical-robotics.readthedocs-hosted.com/en/latest/>`__, built with Sphinx and bootstrapped from the `Canonical sphinx-stack template <https://github.com/canonical/sphinx-stack>`__. This repository documents the Ubuntu Robotics stack; it is not the template itself.
+Source for the `Canonical robotics documentation site <https://canonical-robotics.readthedocs-hosted.com/en/latest/>`__, built with Sphinx and bootstrapped from the `Canonical sphinx-stack template <https://github.com/canonical/sphinx-stack>`__. This repository documents the Canonical robotics stack; it is not the template itself.
 
-This repository contains the documentation for Canonical's Ubuntu Robotics stack,
+This repository contains the documentation for the Canonical robotics stack,
 including packaging and distribution with snaps, observability with COS for
 Robotics, security hardening, and ROS ESM guidance.
 
@@ -163,6 +163,6 @@ Notes for maintainers
 Resources
 ---------
 
-* `Ubuntu Robotics documentation site <https://canonical-robotics.readthedocs-hosted.com/>`_
-* `Ubuntu Robotics on Ubuntu.com <https://ubuntu.com/robotics>`_
+* `Canonical robotics documentation site <https://canonical-robotics.readthedocs-hosted.com/>`_
+* `Canonical robotics on Ubuntu.com <https://ubuntu.com/robotics>`_
 * `Canonical sphinx-stack template <https://github.com/canonical/sphinx-stack>`_

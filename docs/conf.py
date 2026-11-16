@@ -228,9 +228,9 @@ redirects = {
 # <first sentence of home page>".
 llms_txt_description = textwrap.dedent(
     """\
-    This is the documentation for Ubuntu Robotics, covering the Ubuntu Robotics
-    stack, packaging, deployment, operations, and reference material for
-    maintainers and users.
+    This is the documentation for Canonical robotics, covering the Canonical
+    robotics stack, packaging, deployment, operations, and reference material
+    for maintainers and users.
     """
 )
 
