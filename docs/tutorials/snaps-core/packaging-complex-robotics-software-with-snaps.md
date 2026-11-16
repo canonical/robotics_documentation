@@ -103,8 +103,8 @@ Since this developer guide builds a snap for a robot, we will need:
 - Depending on our current OS,
   we can choose between the following Native setup and the Multipass setup.
 
-`````{tabs}
-````{group-tab} Option 1: Native Setup
+`````{tab-set}
+````{tab-item} Option 1: Native Setup
 
 The Native setup will need [Ubuntu 20.04](https://releases.ubuntu.com/focal/).
 This is because we will need the TurtleBot3 simulation to run.
@@ -124,7 +124,7 @@ With the running Ubuntu 20.04, follow the next step to install all the dependenc
 
 ````
 
-````{group-tab} Option 2: Multipass
+````{tab-item} Option 2: Multipass
 
   If a native setup is not possible, we will use a Virtual Machine.
   In this case, we are going to use [Multipass](https://documentation.ubuntu.com/multipass/stable/)

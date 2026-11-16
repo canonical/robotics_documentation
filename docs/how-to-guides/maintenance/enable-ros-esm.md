@@ -36,9 +36,9 @@ In order to enable these services, you will need:
 
 Once you have your Ubuntu Pro token, make sure your Pro client is up to date:
 
-`````{tabs}
+`````{tab-set}
 
-````{tab}  Ubuntu 20.04 and later
+````{tab-item}  Ubuntu 20.04 and later
 
 ```bash
 
@@ -52,7 +52,7 @@ This is because the `ubuntu-advantage-tools` package has been deprecated in favo
 
 ````
 
-````{tab} Ubuntu 18.04 and below
+````{tab-item} Ubuntu 18.04 and below
 
 ```bash
 sudo apt update && sudo apt upgrade
@@ -185,9 +185,9 @@ You will be prompted to enable the `ros` service first, as `ros-updates` depends
 ROS ESM provides its own distribution and `rosdep` files.
 Let's make sure you install `rosdep` from ESM and re-initialise it as follows:
 
-`````{tabs}
+`````{tab-set}
 
-````{tab}  Noetic/Foxy (Python3)
+````{tab-item}  Noetic/Foxy (Python3)
 
 ```bash
 sudo apt install python3-rosdep
@@ -197,7 +197,7 @@ rosdep update
 ```
 ````
 
-````{tab} Kinetic/Melodic (Python2)
+````{tab-item} Kinetic/Melodic (Python2)
 
 ```bash
 sudo apt install python-rosdep

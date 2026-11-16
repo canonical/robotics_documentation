@@ -78,9 +78,9 @@ If you already have upstream ROS installed and initialised
 you’ll need to make sure you install `rosdep` from ESM and
 re-initialise it as follows:
 
-`````{tabs}
+`````{tab-set}
 
-````{tab}  Noetic/Foxy (Python3)
+````{tab-item}  Noetic/Foxy (Python3)
 
 ```bash
 sudo apt install python3-rosdep
@@ -90,7 +90,7 @@ rosdep update
 ```
 ````
 
-````{tab} Kinetic/Melodic (Python2)
+````{tab-item} Kinetic/Melodic (Python2)
 
 ```bash
 sudo apt install python-rosdep
