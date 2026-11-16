@@ -319,6 +319,6 @@ allowing for full TLS.
 ## Security considerations
 
 Before and after deploying {{ COS_ROB }} with TLS,
-review the {ref}`Security considerations for {{ COS_ROB }} <explanations-observability-security-considerations-for-cos>`
+review the [Security considerations for {{ COS_ROB }}](#explanations-observability-security-considerations-for-cos)
 page for important guidance on CA distribution, certificate renewal,
 device key protection, and known limitations.
