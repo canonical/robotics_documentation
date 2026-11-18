@@ -7,7 +7,7 @@ sequential_nav: none
 % Include start summary
 
 **Explanations and clarifications** of the core concepts and key topics that underpin
-Canonical's robotics solutions.
+{{ UBUNTU_ROBOTICS }} solutions.
 
 % Include stop summary
 

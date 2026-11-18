@@ -2,7 +2,7 @@
 
 % Include start summary
 
-This page outlines the reference architecture of the Canonical robotics stack,
+This page outlines the reference architecture of the {{ UBUNTU_ROBOTICS }} stack,
 detailing the essential components and their roles across development, deployment,
 and observability phases of a robot development.
 
@@ -10,17 +10,17 @@ and observability phases of a robot development.
 
 ```{note}
 This document is intended for developers and engineers working with
-the Canonical robotics stack, including those involved in the development,
+the {{ UBUNTU_ROBOTICS }} stack, including those involved in the development,
 packaging, deployment and observability of ROS snap applications.
 It provides a **high-level overview** of the architecture and its components,
 serving as a guide for understanding how they interact within the ecosystem.
 ```
 
-## Canonical Robotics Stack Overview
+## {{ UBUNTU_ROBOTICS }} Stack Overview
 
 ![ref architecture](./reference_architecture.jpg)
 
-The Canonical robotics stack streamlines the lifecycle of
+The {{ UBUNTU_ROBOTICS }} stack streamlines the lifecycle of
 robotics applications through the following key phases:
 
 1. **Development and Packaging**: Developers use Snapcraft to create and

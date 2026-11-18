@@ -7,7 +7,7 @@ sequential_nav: none
 % Include start summary
 
 **Step-by-step tutorials** for a hands-on introduction
-to Canonical's robotics solutions.
+to {{ UBUNTU_ROBOTICS }} solutions.
 
 % Include stop summary
 

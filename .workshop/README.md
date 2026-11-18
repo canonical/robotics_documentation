@@ -1,6 +1,6 @@
 # Workshop
 
-This Workshop environment is for contributing to the [Ubuntu Robotics documentation](https://canonical-robotics.readthedocs-hosted.com/en/latest/).
+This Workshop environment is for contributing to the [Ubuntu for Robotics documentation](https://canonical-robotics.readthedocs-hosted.com/en/latest/).
 It provides a self-contained Sphinx build environment and an opencode AI coding agent,
 so you can write, preview,
 and validate docs without any local setup.

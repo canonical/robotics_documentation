@@ -228,9 +228,9 @@ redirects = {
 # <first sentence of home page>".
 llms_txt_description = textwrap.dedent(
     """\
-    This is the documentation for Ubuntu Robotics, covering the Ubuntu Robotics
-    stack, packaging, deployment, operations, and reference material for
-    maintainers and users.
+    This is the documentation for Ubuntu for Robotics, covering the Ubuntu for
+    Robotics stack, packaging, deployment, operations, and reference material
+    for maintainers and users.
     """
 )
 
@@ -364,7 +364,7 @@ if "discourse_prefix" not in html_context and "discourse" in html_context:
 
 myst_heading_anchors = 2
 
-myst_substitutions = {"COS_ROB": "COS for robotics", "COS": "COS Lite"}
+myst_substitutions = {"COS_ROB": "COS for robotics", "COS": "COS Lite", "UBUNTU_ROBOTICS": "Ubuntu for Robotics"}
 
 # Configuration for Intersphinx projects
 #
