@@ -1,0 +1,80 @@
+# Periodically test a documentation tutorial with an AI agent and report
+# findings as GitHub issues.
+name: AI tutorial test
+
+on:
+  schedule:
+    # Monthly, on the 1st at 06:00 UTC.
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+    inputs:
+      tutorial_path:
+        description: 'Path to the tutorial to test'
+        required: true
+        type: string
+        default: 'docs/tutorials/snaps-core/packaging-ros-application-as-snap.md'
+      runner_image:
+        description: 'Runner image (host); snapcraft builds in an LXD container regardless'
+        required: true
+        type: string
+        default: 'ubuntu-latest'
+      model:
+        description: 'Model to drive the tester (provider/model)'
+        required: true
+        type: string
+        default: 'openrouter/moonshotai/kimi-k3'
+  # TODO remove
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ inputs.tutorial_path || 'default' }}
+  cancel-in-progress: false
+
+jobs:
+  tutorial-test:
+    name: Test tutorial
+    runs-on: ${{ inputs.runner_image || 'ubuntu-latest' }}
+    timeout-minutes: 60
+    env:
+      TUTORIAL_PATH: ${{ inputs.tutorial_path || 'docs/tutorials/snaps-core/packaging-ros-application-as-snap.md' }}
+      OPENCODE_MODEL: ${{ inputs.model || 'openrouter/moonshotai/kimi-k3' }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      REPORT_FILE: tutorial-report.md
+      ENV_FILE: tutorial-env.txt
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run the tutorial with an AI agent
+        id: test
+        run: .github/workflows/tutorial-test/run-tutorial-test.sh
+        # The job must stay green even if the tutorial is broken or the agent
+        # errors; findings are reported via the job summary and an issue.
+        continue-on-error: true
+
+      - name: Publish report and open an issue on failure
+        if: always()
+        env:
+          RESULT: ${{ steps.test.outputs.RESULT || 'fail' }}
+          # Use the resolved absolute paths from the test step; fall back to the
+          # job-level env values if the test step never ran.
+          REPORT_FILE: ${{ steps.test.outputs.REPORT_FILE || env.REPORT_FILE }}
+          ENV_FILE: ${{ steps.test.outputs.ENV_FILE || env.ENV_FILE }}
+        run: .github/workflows/tutorial-test/report-to-issue.sh
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tutorial-test-report
+          path: |
+            ${{ steps.test.outputs.REPORT_FILE || env.REPORT_FILE }}
+            ${{ steps.test.outputs.ENV_FILE || env.ENV_FILE }}
+          if-no-files-found: warn
