@@ -6,7 +6,7 @@ sequential_nav: none
 
 % Include start summary
 
-**How-to guides** to achieve specific goals with Canonical's robotics stack.
+**How-to guides** to achieve specific goals with the {{ UBUNTU_ROBOTICS }} stack.
 
 % Include stop summary
 
