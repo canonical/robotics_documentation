@@ -131,7 +131,6 @@ security
 security-docs
 Semgrep
 semver
-sequential_nav
 SHA
 snapcore
 Snapcraft

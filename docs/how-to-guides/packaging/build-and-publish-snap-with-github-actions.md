@@ -1,7 +1,3 @@
----
-sequential_nav: next
----
-
 (how-to-guides-packaging-build-and-publish-snap-with-github-actions)=
 
 # Build and publish a snap with GitHub Actions

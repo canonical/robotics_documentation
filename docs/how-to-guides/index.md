@@ -1,7 +1,3 @@
----
-sequential_nav: none
----
-
 # How-to guides
 
 % Include start summary

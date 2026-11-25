@@ -67,7 +67,7 @@ html_context = {
     # Brand configuration for the leftmost entry in the banner
     # TODO: If your project falls under a different product page, update the title, URL,
     #       and logo if necessary.
-    "logo_title": "Ubuntu",
+    "logo_title": "Robotics",
     "logo_link_URL": "https://ubuntu.com/robotics",
     "logo_img_URL": "https://assets.ubuntu.com/v1/82818827-CoF_white.svg",
     # Google Tag Manager container ID; overrides the Ulwazi default so that

@@ -1,5 +1,3 @@
-:sequential_nav: next
-
 Development
 ===========
 

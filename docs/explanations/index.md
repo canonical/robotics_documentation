@@ -1,7 +1,3 @@
----
-sequential_nav: none
----
-
 # Explanation
 
 % Include start summary

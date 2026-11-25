@@ -1,7 +1,3 @@
----
-sequential_nav: none
----
-
 # Reference
 
 % Include start summary
