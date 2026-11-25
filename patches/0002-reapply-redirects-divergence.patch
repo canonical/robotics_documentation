@@ -1,0 +1,105 @@
+diff --git a/docs/conf.py b/docs/conf.py
+index 0082546..4fd1a89 100644
+--- a/docs/conf.py
++++ b/docs/conf.py
+@@ -110,16 +110,72 @@ sitemap_excludes = [
+ # Redirects #
+ #############
+ 
+-# Add redirects to the 'redirects.txt' file
+-# https://sphinxext-rediraffe.readthedocs.io/en/latest/
++# To set up redirects: https://documatt.gitlab.io/sphinx-reredirects/usage.html
++# For example: 'explanation/old-name.html': '../how-to/prettify.html',
+ 
+ # To set up redirects in the Read the Docs project dashboard:
+ # https://docs.readthedocs.io/en/stable/guides/redirects.html
+ 
+-rediraffe_redirects = "redirects.txt"
+-
+-# Strips '/index.html' from destination URLs when building with 'dirhtml'
+-rediraffe_dir_only = True
++# Known divergence from upstream sphinx-stack template:
++# keep using the existing in-repo redirects mapping with sphinx-reredirects
++# (inline ``redirects`` dict) rather than sphinx-rerediraffe + redirects.txt.
++# Preserve this during future template updates unless intentionally migrating.
++
++redirects = {
++    # The migration from Discourse to ReadTheDoc stripped the 'docs/' prefix
++    "docs/tutorials/": "../../tutorials/",
++    "docs/tutorials/snapcraft/": "../../../tutorials/snapcraft/",
++    "docs/tutorials/packaging-ros-application-as-snap/": "../../../tutorials/packaging-ros-application-as-snap/",
++    "docs/tutorials/packaging-complex-robotics-software-with-snaps/": "../../../tutorials/packaging-complex-robotics-software-with-snaps/",
++    "docs/tutorials/distribute-ros-apps-with-snap-store/": "../../../tutorials/distribute-ros-apps-with-snap-store/",
++    "docs/tutorials/building-ros-snaps-with-content-sharing/": "../../../tutorials/building-ros-snaps-with-content-sharing/",
++    "docs/tutorials/create-ubuntu-core-image-for-turtlebot3/": "../../../tutorials/create-ubuntu-core-image-for-turtlebot3/",
++    "docs/tutorials/ubuntu-pro/ros-esm-intro/": "../../../../tutorials/ubuntu-pro/ros-esm-intro/",
++    "docs/how-to-guides/": "../../how-to-guides/",
++    "docs/how-to-guides/packaging/build-and-publish-snap-with-github-actions/": "../../../../how-to-guides/packaging/build-and-publish-snap-with-github-actions/",
++    "docs/how-to-guides/packaging/migrate_from_docker_to_snap": "../../../../how-to-guides/packaging/migrate_from_docker_to_snap",
++    "docs/how-to-guides/packaging/ros-2-shared-memory-in-snaps": "../../../../how-to-guides/packaging/ros-2-shared-memory-in-snaps",
++    "docs/how-to-guides/packaging/ros-distributions-with-no-extensions/": "../../../../how-to-guides/packaging/ros-distributions-with-no-extensions/",
++    "docs/how-to-guides/packaging/config-a-snap-pull-from-a-server.html": "../../../../how-to-guides/packaging/config-a-snap-pull-from-a-server.html",
++    "docs/how-to-guides/packaging/config-a-snap-using-content-snap": "../../../../how-to-guides/packaging/config-a-snap-using-content-snap/",
++    "docs/how-to-guides/packaging/config-a-snap-make-config-overwritable": "../../../../how-to-guides/packaging/config-a-snap-make-config-overwritable/",
++    "docs/references/snapcraft/": "../../../references/snapcraft/",
++    "docs/references/plugins/": "../../../references/plugins/",
++    "docs/references/extensions/": "../../../references/extensions/",
++    "docs/references/faq/": "../../../references/faq/",
++    "docs/explanations/": "../../explanations/",
++    "docs/explanations/ubuntu-core/": "../../../explanations/ubuntu-core/",
++    "docs/explanations/security/securing-ros-robotic-platforms/": "../../../../explanations/security/securing-ros-robotic-platforms/",
++    "docs/explanations/snaps/ros-architectures-with-snaps/": "../../../../explanations/snaps/ros-architectures-with-snaps/",
++    "docs/explanations/snaps/identify-functionalities-and-apps-of-robotics-snap/": "../../../../explanations/snaps/identify-functionalities-and-apps-of-robotics-snap/",
++    "docs/explanations/snaps/snap-configurations-and-hooks/": "../../../../explanations/snaps/snap-configurations-and-hooks/",
++    "docs/explanations/snaps/snap-data-and-file-storage/": "../../../../explanations/snaps/snap-data-and-file-storage/",
++    "docs/explanations/snaps/snap-environment-variables/": "../../../../explanations/snaps/snap-environment-variables/",
++    "docs/explanations/snaps/application-orchestration/": "../../../../explanations/snaps/application-orchestration/",
++    "docs/explanations/snaps/vcstool-and-rosinstall-file/": "../../../../explanations/snaps/vcstool-and-rosinstall-file/",
++    "docs/explanations/snaps/debug-the-build-of-a-snap/": "../../../../explanations/snaps/debug-the-build-of-a-snap/",
++    "docs/explanations/snaps/debug-a-snap-application/": "../../../../explanations/snaps/debug-a-snap-application/",
++    "docs/explanations/iot-app-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
++    "docs/explanations/dedicated-snap-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
++    # The snaps/core tutorials were moved to a subfolder
++    "tutorials/snapcraft/": "../../tutorials/snaps-core/",
++    "tutorials/packaging-ros-application-as-snap/": "../../tutorials/snaps-core/packaging-ros-application-as-snap/",
++    "tutorials/packaging-complex-robotics-software-with-snaps/": "../../tutorials/snaps-core/packaging-complex-robotics-software-with-snaps/",
++    "tutorials/distribute-ros-apps-with-snap-store/": "../../tutorials/snaps-core/distribute-ros-apps-with-snap-store/",
++    "tutorials/building-ros-snaps-with-content-sharing/": "../../tutorials/snaps-core/building-ros-snaps-with-content-sharing/",
++    "tutorials/create-ubuntu-core-image-for-turtlebot3/": "../../tutorials/snaps-core/create-ubuntu-core-image-for-turtlebot3/",
++    # These intermediate pages were removed
++    "tutorials/ubuntu-pro/": "../../tutorials/ubuntu-pro/ros-esm-intro/",
++    "explanations/iot-app-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
++    "explanations/dedicated-snap-store/": "https://ubuntu.com/internet-of-things/appstore/docs/",
++    # The snapcraft references were moved to a subfolder
++    "references/plugins/": "../../references/snapcraft/plugins/",
++    "references/extensions/": "../../references/snapcraft/extensions/",
++    # The unique ESM tutorial was broken down into how-tos & explanations
++    "tutorials/ubuntu-pro/ros-esm-intro/": "../../../explanations/security/what-is-ros-esm/",
++    "explanations/security/securing-ros-robotic-platforms/": "../../../how-to-guides/security/hardening-your-robot/",
++    "explanations/security/hardening-your-robot/": "../../../how-to-guides/security/hardening-your-robot/",
++}
+ 
+ 
+ ############################
+@@ -181,7 +237,7 @@ extensions = [
+     "ulwazi",
+     "myst_parser",
+     "sphinx_design",
+-    "sphinx_rerediraffe",
++    "sphinx_reredirects",
+     "sphinxcontrib.jquery",
+     "sphinxext.opengraph",
+     "sphinx_config_options",
+diff --git a/docs/requirements.txt b/docs/requirements.txt
+index 87f9825..099553c 100644
+--- a/docs/requirements.txt
++++ b/docs/requirements.txt
+@@ -7,7 +7,7 @@ sphinx-autobuild==2024.10.3
+ sphinx-design==0.6.1
+ sphinxcontrib-jquery~=4.1
+ sphinxext-opengraph~=0.13
+-sphinx-rerediraffe~=0.1
++sphinx-reredirects==0.1.6    # replaces sphinx-rerediraffe; see 'Redirects' in conf.py
+ 
+ # Extra extensions, previously bundled as canonical-sphinx-extensions
+ sphinx-config-options~=0.1

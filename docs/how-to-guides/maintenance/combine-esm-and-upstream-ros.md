@@ -12,8 +12,8 @@ all dependencies not already satisfied.
 
 In a sourced ROS ESM environment, execute the following:
 
-`````{tabs}
-````{tab} Noetic/Melodic
+`````{tab-set}
+````{tab-item} Noetic/Melodic
 
 ```bash
 sudo apt install python-rosinstall-generator
@@ -66,7 +66,7 @@ catkin_make_isolated
 ```
 ````
 
-````{tab} Foxy
+````{tab-item} Foxy
 
 ```bash
 sudo apt install python3-rosinstall-generator
@@ -119,7 +119,7 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 ````
 
-````{tab} Kinetic
+````{tab-item} Kinetic
 
 ```bash
 sudo apt install python-rosinstall-generator

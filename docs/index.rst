@@ -5,7 +5,6 @@ Robotics Documentation
 
 .. toctree::
   :hidden:
-  :maxdepth: 3
 
   tutorials/index
   how-to-guides/index

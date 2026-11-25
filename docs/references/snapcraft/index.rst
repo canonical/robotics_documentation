@@ -1,5 +1,3 @@
-:sequential_nav: next
-
 .. _reference-snapcraft-home:
 
 Snapcraft

@@ -1,7 +1,3 @@
----
-sequential_nav: none
----
-
 # Tutorials
 
 % Include start summary
