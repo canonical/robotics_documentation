@@ -1,0 +1,34 @@
+#!/bin/sh
+set -eu
+export TURTLEBOT3_MODEL=waffle_pi LDS_MODEL=LDS-01
+ros2="$SNAP/opt/ros/lyrical/bin/ros2"
+maps="$SNAP_COMMON/map"
+clock=$(snapctl get use-sim-time)
+case "$clock" in
+    ''|false) clock=false ;;
+    true) ;;
+    *) echo "use-sim-time must be true or false" >&2; exit 1 ;;
+esac
+
+case "$1" in
+    bringup) exec "$ros2" launch turtlebot3_bringup robot.launch.py ;;
+    key) exec "$SNAP/opt/ros/snap/lib/turtlebot3_teleop/teleop_keyboard" ;;
+    mapping) exec "$ros2" launch slam_toolbox online_async_launch.py use_sim_time:="$clock" ;;
+    save-map)
+        mkdir -p "$maps"
+        prefix="$maps/map-$(date -u +%Y%m%dT%H%M%S%NZ)"
+        "$SNAP/opt/ros/lyrical/lib/nav2_map_server/map_saver_cli" \
+            -f "$prefix" --fmt pgm --ros-args -p use_sim_time:="$clock"
+        ln -sfn "$(basename "$prefix").yaml" "$maps/current_map.yaml"
+        ;;
+    navigation)
+        if ! test -f "$maps/current_map.yaml"; then
+            echo "Save a map before starting navigation." >&2
+            exit 1
+        fi
+        exec "$ros2" launch nav2_bringup bringup_launch.py \
+            params_file:="$SNAP/opt/ros/snap/share/turtlebot3_navigation2/param/waffle_pi.yaml" \
+            use_sim_time:="$clock" map:="$maps/current_map.yaml"
+        ;;
+    *) echo "Unknown robot application: $1" >&2; exit 1 ;;
+esac

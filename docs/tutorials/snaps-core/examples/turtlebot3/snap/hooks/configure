@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+case "$(snapctl get use-sim-time)" in
+    ''|true|false) ;;
+    *) echo "use-sim-time must be true or false" >&2; exit 1 ;;
+esac

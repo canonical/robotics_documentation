@@ -1,69 +1,43 @@
 (tutorials-snaps-core-exercises-exercise-2)=
 
-# Part-2 - exercise: Clean old unused maps over time
+# Part 2 exercise: Clean up unused maps
 
-> This exercise requires having followed the {ref}`Tutorial 2: <tutorials-snaps-core-packaging-complex-robotics-software-with-snaps>`.
+Extend the {ref}`Part 2 snap <tutorials-snaps-core-packaging-complex-robotics-software-with-snaps>`
+with a timer that deletes saved maps older than 30 days, except the active
+map. A map is a pair of files, not just the YAML file.
 
-This exercise is meant for developers to train on solving a problem with snaps.
-One can apply the freshly learned knowledge to a practical problem.
+````{dropdown} One solution
 
-## Assignment
+Save the following script as `scripts/map-cleaner` and make it executable.
+The `commands` part copies it to the root of the snap.
 
-With the `mapping` daemon we might create a lot of maps.
-Over time, this could become an issue.
-All the maps image might take too much space on our disk and
-if they are old they are most probably not necessary any more.
-Our snap could embed another application that would check once in a while
-if there is any old map that we don’t need any more.
-
-The assignment is to add a new background process that runs every day.
-This process must identify maps that are no longer used and older than one month.
-Finally, we must delete those old maps.
-
-We might want to have a look at the `timer` feature of daemons,
-presented [in the documentation](https://snapcraft.io/docs/how-to-guides/manage-snaps/control-services/).
-
-## Outcome
-
-Our snap must have one more daemon called `map-cleaner`.
-We shouldn’t have to call this application manually.
-The `map-cleaner` daemon should clean up our old and unused maps once a day.
-
-## Solution
-
-````{dropdown} Click here for the solution
-
-First we must create a script that cleans up the maps.
-Our maps are located in `$SNAP_USER_COMMON`.
-Every map consists of two files, the `PGM` and the `YAML`.
-Since our map symlink points to the `YAML` we will use
-these files to identify the maps to delete.
-
-Our `snap/local/map_cleaner.sh` script will look like:
-
-```bash
-#!/usr/bin/bash
-# path to the last map
-CURRENT_MAP=$(readlink -f $SNAP_USER_COMMON/map/current_map.yaml)
-# get the list of YAML files older than a month except for the current map
-LIST_OF_FILES=$(find $SNAP_USER_COMMON/map -maxdepth 1 -type f -mtime +30 -name "*.yaml" ! -path $CURRENT_MAP)
-# delete the YAML files
-rm -f $LIST_OF_FILES
-# delete the associated PGM
-echo $LIST_OF_FILES | sed 's/yaml/pgm/' | xargs rm -f
+```sh
+#!/bin/sh
+set -eu
+dir="$SNAP_COMMON/map"
+test -d "$dir" || exit 0
+active=$(readlink -e "$dir/current_map.yaml")
+find "$dir" -maxdepth 1 -type f -name 'map-*.yaml' -mtime +30 \
+    ! -path "$active" -exec sh -ec '
+        for yaml do
+            rm -- "$yaml" "${yaml%.yaml}.pgm"
+        done
+    ' sh {} +
 ```
 
-After making the `map_cleaner.sh` script executable,
-we can add the following to our `snapcraft.yaml`:
+If the active map cannot be resolved, the command fails before deleting
+anything. Add a timed service to `apps`:
 
 ```yaml
   map-cleaner:
-    command: usr/bin/map_cleaner.sh
-    daemon: simple
-    timer: "04:00" # runs every day at 4 am
+    command: map-cleaner
+    daemon: oneshot
+    timer: "04:00"
 ```
 
-In order to “speed up” the tests,
-we can of course replace the timer: `04:00` with timer: `00:00-24:00/288`
-to run it every 5 minutes and remove the `-mtime +30` option in the find command.
+Rebuild and reinstall. In a disposable VM, save three maps. Use `touch -d
+'32 days ago'` on one obsolete pair and on the active pair (not the symlink).
+Start the service once with `sudo snap start turtlebot3-lyrical.map-cleaner`.
+Only the obsolete, aged pair should disappear. Verify that Nav2 can still
+load the active map.
 ````
