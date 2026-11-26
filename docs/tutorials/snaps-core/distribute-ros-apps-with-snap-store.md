@@ -99,16 +99,17 @@ Let's recall what we did during
 
 #### Creation of our snap
 
-We will first download the Lyrical version of the recipe introduced in
+We will first download the strictly confined recipe introduced in
 [part 1](#tutorials-snaps-core-packaging-ros-application-getting-started).
 We will then adapt the snap to make it unique before finally testing our snap.
 
 ##### ROS 2 Lyrical talker-listener snap
 
 To avoid repeating the work from the previous developer guide,
-create a project directory and save {download}`the Lyrical recipe
+create a fresh project directory and save {download}`the Lyrical recipe
 <examples/talker-listener/snap/snapcraft.yaml>` as `snap/snapcraft.yaml`
-inside it. Run the build commands from the project directory.
+inside it. This starts from the confined app before the daemon and exercise
+changes in Part 1. Run the build commands from the project directory.
 
 This snap is using the [demo_nodes_cpp](https://github.com/ros2/demos/tree/3bc83863f1135cfaea0dfda1483d2c4645a7c0d6/demo_nodes_cpp)
 package from the

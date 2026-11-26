@@ -15,6 +15,12 @@ mkdir "$work/src"
 for pkg in bringup description node teleop navigation2; do
     cp -R "$work/robot/turtlebot3_$pkg" "$work/src/"
 done
+# The pinned TurtleBot3 source still uses legacy header names.
+sed -i -E 's@^(#include <(message_filters/[^>]+|tf2/LinearMath/Quaternion|tf2_ros/transform_broadcaster))\.h>@\1.hpp>@' \
+    "$work/src/turtlebot3_node/include/turtlebot3_node/odometry.hpp" \
+    "$work/src/turtlebot3_node/include/turtlebot3_node/turtlebot3.hpp"
+sed -i -E 's/^([[:space:]]+"(joint_states|imu)")\);$/\1, qos);/' \
+    "$work/src/turtlebot3_node/src/odometry.cpp"
 mkdir "$work/src/hls_lfcd_lds_driver"
 git -C "$work/lidar" archive --format=tar --output="$work/lidar.tar" HEAD
 tar xf "$work/lidar.tar" -C "$work/src/hls_lfcd_lds_driver"

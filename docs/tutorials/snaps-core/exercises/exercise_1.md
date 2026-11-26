@@ -39,13 +39,14 @@ By the end of this exercise, you will have a new command available:
       ros-demos:
         plugin: colcon
         source: https://github.com/ros2/demos.git
-        source-branch: humble
+        source-commit: 3bc83863f1135cfaea0dfda1483d2c4645a7c0d6
         source-subdir: demo_nodes_cpp
-    -   stage-packages: [ros-humble-ros2launch]
-    +   stage-packages: [ros-humble-ros2launch, ros-humble-ros2topic]
+        build-packages: [build-essential]
+    -    stage-packages: [ros-lyrical-ros2launch]
+    +    stage-packages: [ros-lyrical-ros2launch, ros-lyrical-ros2topic]
     ```
 
-    - We add our dependency (`ros-humble-ros2topic`) to the `stage-packages` list.
+    - We add our dependency (`ros-lyrical-ros2topic`) to the `stage-packages` list.
     `Stage-packages` are packages that are required to run the part.
     Here we decided to add our dependency to our already existing `ros-demos` part
     for simplicity.
@@ -57,15 +58,15 @@ By the end of this exercise, you will have a new command available:
     ```diff
     apps:
       ros2-talker-listener:
-        command: opt/ros/humble/bin/ros2 launch talker-listener talker_listener.launch.py
+        command: opt/ros/lyrical/bin/ros2 launch demo_nodes_cpp talker_listener_launch.py
         daemon: simple
+        extensions: [ros2-lyrical]
         plugs: [network, network-bind]
-        extensions: [ros2-humble]
 
-    + ros2topic:
-    +   command: opt/ros/humble/bin/ros2 topic
-    +   plugs: [network, network-bind]
-    +   extensions: [ros2-humble]
+    +  ros2topic:
+    +    command: opt/ros/lyrical/bin/ros2 topic
+    +    extensions: [ros2-lyrical]
+    +    plugs: [network, network-bind]
     ```
 
     - We added another application entry to our snap. We kept the plugs and extensions and simply exposed the `ros2 topic` command.
@@ -73,7 +74,8 @@ By the end of this exercise, you will have a new command available:
   * Build and install the new snap:
 
     ```bash
-    snapcraft pack
+    export SNAPCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS=1
+    snapcraft pack --use-lxd
     sudo snap install ros2-talker-listener_0.1_*.snap --dangerous
     ```
 

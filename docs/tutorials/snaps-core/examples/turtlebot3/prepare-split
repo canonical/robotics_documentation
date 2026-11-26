@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+import argparse
+import shutil
+from pathlib import Path
+
+import yaml
+
+
+VARIANTS = {
+    "bringup": (
+        {"core"},
+        {"turtlebot3_bringup", "turtlebot3_description", "turtlebot3_node", "hls_lfcd_lds_driver"},
+        {"ros2launch"},
+    ),
+    "teleop": (
+        {"teleop", "key", "joy"},
+        {"turtlebot3_teleop"},
+        {"ros2launch", "joy", "teleop-twist-joy", "topic-tools", "ros2service"},
+    ),
+    "nav": (
+        {"mapping", "navigation", "save-map"},
+        {"turtlebot3_navigation2"},
+        {"ros2launch", "slam-toolbox", "nav2-map-server", "topic-tools-interfaces", "ros2service"},
+    ),
+}
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Create one standalone TurtleBot3 snap project.")
+    parser.add_argument("component", choices=VARIANTS)
+    parser.add_argument("destination", type=Path)
+    args = parser.parse_args()
+    root = Path(__file__).resolve().parent
+    app_names, packages, debs = VARIANTS[args.component]
+    missing = sorted(name for name in packages if not (root / "src" / name).is_dir())
+    if missing:
+        parser.error(f"Run prepare-workspace first; missing packages: {', '.join(missing)}")
+    if args.destination.exists():
+        parser.error(f"Destination already exists: {args.destination}")
+
+    recipe = yaml.safe_load((root / "snap/snapcraft.yaml").read_text())
+    recipe["name"] = f"turtlebot3-lyrical-{args.component}"
+    recipe["summary"] = f"TurtleBot3 ROS 2 Lyrical {args.component}"
+    recipe["description"] = f"The {args.component} component of the TurtleBot3 tutorial stack."
+    recipe["apps"] = {name: app for name, app in recipe["apps"].items() if name in app_names}
+    recipe["parts"]["robot"]["stage-packages"] = [f"ros-lyrical-{deb}" for deb in sorted(debs)]
+    if args.component != "bringup":
+        del recipe["plugs"]
+
+    shutil.copytree(root / "snap/hooks", args.destination / "snap/hooks")
+    shutil.copytree(root / "scripts", args.destination / "scripts")
+    for package in sorted(packages):
+        shutil.copytree(root / "src" / package, args.destination / "src" / package)
+    (args.destination / "snap/snapcraft.yaml").write_text(yaml.safe_dump(recipe, sort_keys=False))
+
+
+if __name__ == "__main__":
+    main()

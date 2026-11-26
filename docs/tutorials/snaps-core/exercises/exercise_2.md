@@ -34,32 +34,34 @@ The `map-cleaner` daemon should clean up our old and unused maps once a day.
 ````{dropdown} Click here for the solution
 
 First we must create a script that cleans up the maps.
-Our maps are located in `$SNAP_USER_COMMON`.
+Our maps are located in `$SNAP_COMMON/map`.
 Every map consists of two files, the `PGM` and the `YAML`.
 Since our map symlink points to the `YAML` we will use
 these files to identify the maps to delete.
 
-Our `snap/local/map_cleaner.sh` script will look like:
+Our `scripts/map-cleaner` script will look like:
 
 ```bash
-#!/usr/bin/bash
-# path to the last map
-CURRENT_MAP=$(readlink -f $SNAP_USER_COMMON/map/current_map.yaml)
-# get the list of YAML files older than a month except for the current map
-LIST_OF_FILES=$(find $SNAP_USER_COMMON/map -maxdepth 1 -type f -mtime +30 -name "*.yaml" ! -path $CURRENT_MAP)
-# delete the YAML files
-rm -f $LIST_OF_FILES
-# delete the associated PGM
-echo $LIST_OF_FILES | sed 's/yaml/pgm/' | xargs rm -f
+#!/bin/sh
+set -eu
+dir="$SNAP_COMMON/map"
+test -d "$dir" || exit 0
+active=$(readlink -e "$dir/current_map.yaml")
+find "$dir" -maxdepth 1 -type f -mtime +30 -name 'map-*.yaml' ! -path "$active" \
+    -exec sh -ec '
+        for yaml do
+            rm -f -- "$yaml" "${yaml%.yaml}.pgm"
+        done
+    ' sh {} +
 ```
 
-After making the `map_cleaner.sh` script executable,
+After making `scripts/map-cleaner` executable,
 we can add the following to our `snapcraft.yaml`:
 
 ```yaml
   map-cleaner:
-    command: usr/bin/map_cleaner.sh
-    daemon: simple
+    command: map-cleaner
+    daemon: oneshot
     timer: "04:00" # runs every day at 4 am
 ```
 
