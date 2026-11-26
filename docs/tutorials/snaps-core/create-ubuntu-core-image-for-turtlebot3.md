@@ -35,7 +35,7 @@ Start from the official Core 26 **Pi arm64** model. It selects compatible
 tracks for the `pi` gadget and `pi-kernel`, and declares `core26` as its base.
 Keep these entries. Set both publisher fields to your own developer ID.
 Use `grade: dangerous` only for this development image: it allows the two
-locally built, unasserted snaps.
+locally built snaps without Store signatures.
 
 ```bash
 curl -fLo pi-model.json https://raw.githubusercontent.com/snapcore/models/dc34064508c7df17b38c7fd44d235d4d525383e9/ubuntu-core-26-pi-arm64.json
@@ -67,7 +67,7 @@ ubuntu-image snap --output-dir image \
 ls -lh image/*.img
 ```
 
-Use Raspberry Pi Imager's **Use custom** option to write the resulting disk
+In Raspberry Pi Imager, select **Use custom** to write the resulting disk
 image to a spare SD card. Confirm the destination: writing the image erases
 that card. Insert the card in the Pi, boot with a network connection, and
 complete console-conf. Use the SSH address shown on the console.

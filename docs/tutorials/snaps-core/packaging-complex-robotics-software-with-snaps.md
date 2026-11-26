@@ -9,6 +9,7 @@ Only the simulator or the hardware driver should publish odometry and scans
 at any one time.
 
 (identification-of-robot-components)=
+
 ## Decide which processes belong in the snap
 
 * **Bringup** launches the robot state publisher, base driver and lidar driver.
