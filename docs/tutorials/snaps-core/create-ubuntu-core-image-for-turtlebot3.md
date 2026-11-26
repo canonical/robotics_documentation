@@ -559,7 +559,7 @@ snap connections turtlebot3-lyrical-bringup
 sudo snap start --enable turtlebot3-lyrical-bringup.core
 ```
 
-ROS 2 nodes discover each other through DDS rather than a ROS master.
+By default, ROS 2 nodes discover each other through DDS without a central server.
 Keep the robot and computer on the same hotspot network, use the same
 `ROS_DOMAIN_ID` on both, and make sure discovery is not restricted to localhost.
 With the same default domain on both devices, no address needs to be set.
