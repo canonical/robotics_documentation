@@ -77,14 +77,15 @@ We’ll be using those extensions in this guide.
 Just like in {ref}`part 2 <tutorials-snaps-core-packaging-complex-robotics-software-with-snaps>`,
 we will be deploying a robotics software stack using snaps and snapcraft.
 Following the [TurtleBot3](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
-example, we will divide the monolithic snap presented in part 2 into three (3)
-standalone snaps, namely:
+example, we will split the monolithic snap presented in part 2 into a system
+of four (4) snaps, namely:
 
 * turtlebot3-lyrical-bringup: The robot specific snap required to bring the robot up.
   We may also refer to it as the ‘brain’ snap.
 * turtlebot3-lyrical-teleop: A teleoperation snap allowing us to drive our robot.
 * turtlebot3-lyrical-nav: A snap that contains both the mapping and
   autonomous navigation functionality.
+* A foundational snap.
 
 The foundational snap is the basis for the content sharing design and,
 as its name suggests, it's a snap by itself.
@@ -94,6 +95,8 @@ As a matter of fact, they live in a separate snap of their own,
 a snap that only contains libraries and
 a few executables (think ros2 run/launch) but exposes no applications.
 
+We will design the four snaps so that they are standalone,
+yet loosely integrated to one another offering some ease of use for the final user.
 We will build the three application snaps standalone first, then connect
 them to the same foundational snap.
 The image below shows a preliminary idea of what we will build in this tutorial.
@@ -118,8 +121,8 @@ Since we are reusing part 2 examples, the setup is the same.
 Please {ref}`refer back <tutorials-snaps-core-packaging-complex-robotics-software-with-snaps>`
 for the details of the setup either on your machine or in a virtual machine.
 
-The ROS content sharing feature we are going to employ later
-is only available on snapcraft version 8.x.
+The ROS 2 Lyrical content sharing extension we are going to employ later
+requires Snapcraft 9 with experimental extensions enabled.
 Make sure that you have the right version of snapcraft installed with:
 
 ```bash
@@ -148,13 +151,24 @@ Following the same dotted lines, we will consider the following functionalities:
   or the ability for the robot to create a representation of
   its environment and autonomously navigate in it.
 
-We will reuse the pinned upstream ROS 2 TurtleBot3 workspace and tutorial
-launchers from Part 2. Each separate snap will build only the packages it
-needs and keep the same app names and ROS interfaces.
+As a matter of fact, we will reuse the very same
+[TurtleBot3](https://github.com/ROBOTIS-GIT/turtlebot3)
+project’s source code from part 2.
+We will also reuse our tutorial's launchers and configuration so that the
+aforementioned functionalities can be launched individually.
 
 ### Snapping the TurtleBot3
 
-With the functionalities clearly identified, we can create the snaps.
+With the functionalities clearly identified,
+we shall now move on to creating the snaps.
+
+We can follow the same template from our previous tutorial,
+change the names of the 3 snaps and include only the respective apps and daemons.
+
+In the following sections we will copy the `snapcraft.yaml`
+defined in the developer guide part 2 and adapt it to generate 3 different snaps;
+"Bringup", "Teleoperation", and "Navigation and Mapping".
+
 Use the prepared Part 2 project under
 `docs/tutorials/snaps-core/examples/turtlebot3` as the starting point.
 The `prepare-split` helper copies the launchers and hooks, filters the colcon
@@ -168,24 +182,82 @@ export SNAPCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS=1
 
 #### BringUp
 
-For the BringUp snap, keep just the `core` app and the upstream robot driver,
-model and lidar packages. Keep the two serial plugs so the drivers can access
-OpenCR and the lidar. The resulting app is still a disabled-by-default daemon.
+First, change the name to `turtlebot3-lyrical-bringup` and
+adapt the summary and description based on the separation we described before.
+
+```yaml
+name: turtlebot3-lyrical-bringup
+summary: TurtleBot3 ROS 2 Lyrical bringup
+description: The bringup component of the TurtleBot3 tutorial stack.
+```
+
+Next, we can simplify the workspace craft part because we only need
+the upstream robot driver, model and lidar packages. For the `colcon` plugin,
+keep only those packages in `src`.
+
+Remove everything related to the teleoperation,
+navigation and mapping from the original file.
+In fact, in the BringUp snap we want to keep the `core` app and nothing else.
+Keep the two serial plugs so the drivers can access OpenCR and the lidar.
+The resulting app is still a disabled-by-default daemon.
+
+```yaml
+apps:
+  core:
+    command: bin/robot-app bringup
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind, opencr, lidar]
+    daemon: simple
+    install-mode: disable
+```
 
 ```bash
 ./prepare-split bringup ../bringup-project
 (cd ../bringup-project && snapcraft pack --use-lxd)
 ```
 
-This produces `turtlebot3-lyrical-bringup`. At this stage the extension is
-`ros2-lyrical`, so the snap contains its own ROS runtime.
+Note that we have not enabled content sharing just yet.
+The `ros2-lyrical` extension includes the required ROS dependencies inside the snap.
+Let’s continue with the other 2 snaps and
+afterwards we will show how to enable content sharing.
 
 #### Teleoperation
 
-For the Teleoperation snap, remove the robot drivers, mapping and navigation.
-Keep `teleop`, `key`, and `joy`. The multiplexer remains a daemon, while the
-keyboard and joystick commands select its input on demand. The `joy` app
-keeps the `joystick` interface, and all three apps keep their network plugs.
+Apply the snap rename and adapt the summary and the description:
+
+```yaml
+name: turtlebot3-lyrical-teleop
+summary: TurtleBot3 ROS 2 Lyrical teleop
+description: The teleop component of the TurtleBot3 tutorial stack.
+```
+
+Keep only `turtlebot3_teleop` in the colcon workspace.
+
+We can now remove all the `navigation` and `mapping` sections,
+as well as the `core` which is now in the `bringup` snap.
+
+This leaves us with the `teleop`, `key` and `joy` sections.
+The `joy` app keeps the `joystick` interface, and all three apps keep their
+network plugs.
+
+The final result looks like this:
+
+```yaml
+apps:
+  teleop:
+    command: bin/robot-app teleop
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
+    daemon: simple
+  key:
+    command: bin/robot-app key
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
+  joy:
+    command: bin/robot-app joy
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind, joystick]
+```
 
 ```bash
 ./prepare-split teleop ../teleop-project
@@ -194,9 +266,43 @@ keeps the `joystick` interface, and all three apps keep their network plugs.
 
 #### Mapping and Navigation
 
-Our third snap contains the Nav2 configuration and the SLAM Toolbox and Nav2
-runtime packages. Keep both services, their disabled install mode, and the
-map-saving stop commands. The map now belongs to this snap's `$SNAP_COMMON`.
+Our third snap will contain the mapping and navigation bits.
+The steps are the same as before.
+First change the name and the description:
+
+```yaml
+name: turtlebot3-lyrical-nav
+summary: TurtleBot3 ROS 2 Lyrical nav
+description: The nav component of the TurtleBot3 tutorial stack.
+```
+
+Keep the `turtlebot3_navigation2` package in `src` and stage the SLAM Toolbox
+and Nav2 tools.
+Remove the unrelated apps and keep only `mapping`, `navigation` and `save-map`.
+Keep both services' disabled install mode and the map-saving stop commands.
+The map now belongs to this snap's `$SNAP_COMMON`.
+
+```yaml
+apps:
+  mapping:
+    command: bin/robot-app mapping
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
+    daemon: simple
+    install-mode: disable
+    stop-command: bin/robot-app save-map
+    post-stop-command: bin/robot-app install-map
+  save-map:
+    command: bin/robot-app save-map
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
+  navigation:
+    command: bin/robot-app navigation
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
+    daemon: simple
+    install-mode: disable
+```
 
 ```bash
 ./prepare-split nav ../nav-project

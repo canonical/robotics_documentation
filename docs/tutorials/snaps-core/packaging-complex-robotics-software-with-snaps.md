@@ -96,15 +96,21 @@ for a more interesting real-world scenario.
 
 ### Setup
 
-We can use native Ubuntu 26.04 or an Ubuntu 26.04 VM. In both cases,
-install Snapcraft and initialise LXD as in Part 1. We also need Git to prepare
-our workspace and ROS 2 Lyrical on the host for the simulation, not for the
-snap runtime.
+Since this developer guide builds a snap for a robot, we will need:
+
+- TurtleBot3 [Gazebo](https://gazebosim.org/) simulation running under ROS 2 Lyrical.
+- Git to prepare our workspace, and Snapcraft and LXD as in Part 1.
+- Depending on our current OS,
+  we can choose between the following Native setup and the Multipass setup.
 
 `````{tabs}
 ````{group-tab} Option 1: Native Setup
 
-On Ubuntu 26.04, configure the Lyrical APT repository using the
+The Native setup will need Ubuntu 26.04.
+This is because we will need the TurtleBot3 simulation to run.
+We don’t intend to embed the simulation into our snap.
+
+With the running Ubuntu 26.04, configure the Lyrical APT repository using the
 [ROS 2 Lyrical installation instructions](https://docs.ros.org/en/lyrical/Get-Started/Installation/Ubuntu-Install-Debs.html).
 Install the simulator and desktop tools:
 
@@ -136,16 +142,20 @@ system and ensure that ROS 2 discovery works between the simulator and VM.
 
 ### Setup Check
 
-In the same shell in which you installed the simulator, run:
+We can make sure that everything is properly installed by launching:
 
 ```bash
 source /opt/ros/lyrical/setup.bash
 TURTLEBOT3_MODEL=waffle_pi ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 ```
 
-The TurtleBot3 should appear in the Gazebo world. Press **Ctrl+C** to stop
-it. Check that `snapcraft extensions` lists `ros2-lyrical` for `core26`.
+We should then see the TurtleBot3 simulated in the `turtlebot3_world` environment.
+We can now press **Ctrl+C** to stop the Gazebo launch.
+
+Check that `snapcraft extensions` lists `ros2-lyrical` for `core26`.
 The extension requires explicit opt-in while experimental.
+
+We are now all set up for this developer guide.
 
 (identification-of-robot-components)=
 
@@ -298,21 +308,47 @@ since we won’t have a map created on the very first install.
 
 #### TurtleBot3 ROS workspace presentation
 
-Having identified the applications, we can identify the packages needed to
-build the ROS workspace. Some come from pinned source and the rest come from
-the Lyrical package repository. Snapcraft puts all required runtime packages
-in the snap, not on the target system.
+We have now seen the different applications that the TurtleBot3 snap will
+have to make its applications easy and error-proof to use.
+
+In the section above we covered the methodology used to define our snap application.
+**We must think in terms of functionalities once deployed**.
+The usage of a deployed application can differ from the usage that a developer
+would have of the same ROS workspace.
+
+It’s now time to look at what’s inside the TurtleBot3 repositories.
+This way we will identify how to expand a traditional ROS workspace into
+an application-oriented workspace.
+
+Some packages come from pinned source and the rest come from the Lyrical
+package repository. Snapcraft puts the required runtime packages in the snap.
 
 #### TurtleBot3
 
-The [ROBOTIS TurtleBot3 repository](https://github.com/ROBOTIS-GIT/turtlebot3)
-provides `turtlebot3_bringup`, `turtlebot3_description`, `turtlebot3_node`,
-`turtlebot3_teleop` and `turtlebot3_navigation2`. We also build the upstream
-LDS-01 driver for the physical robot. For simulation, Gazebo replaces the
-hardware bringup, so we leave `core` stopped.
+This is the [official repository from ROBOTIS](https://github.com/ROBOTIS-GIT/turtlebot3),
+which contains most of the TurtleBot3 packages. The main packages for this demo are:
+
+- `turtlebot3_bringup`: Contains robot launch files for different configurations.
+- `turtlebot3_description`: Contains URDF files as well as meshes.
+- `turtlebot3_node`: Interfaces with the physical TurtleBot3.
+- `turtlebot3_navigation2`: Contains launch files and parameters for Nav2.
+- `turtlebot3_teleop`: Contains the node to control TurtleBot3 with a keyboard.
+
+All these ROS packages contain `package.xml`,
+effectively listing all the build time and run-time dependencies.
+Recall that these `package.xml` files are used by Snapcraft to
+automatically pull dependencies.
+If we were to use a different robot stack we should make sure that similarly,
+the `package.xml` is properly listing the dependencies.
+
+We also build the upstream LDS-01 driver for the physical robot. For simulation,
+Gazebo replaces the hardware bringup, so we leave `core` stopped.
 
 #### TurtleBot3 messages
 
+Additionally, the [`turtlebot3_msgs`](https://github.com/ROBOTIS-GIT/turtlebot3_msgs)
+repository is another official repository from ROBOTIS and
+contains the TurtleBot3 message definitions.
 The `turtlebot3_msgs` interface package is available as a Lyrical binary.
 Snapcraft resolves it from the `package.xml` dependencies. The keyboard,
 joystick, and navigation publishers use `geometry_msgs/msg/TwistStamped`
@@ -320,14 +356,21 @@ so the multiplexer and TurtleBot3 agree on the type of the velocity command.
 
 #### TurtleBot3c
 
-The tutorial's glue lives in the {download}`TurtleBot3 snap recipe <examples/turtlebot3/snap/snapcraft.yaml>`
-rather than a fork of the ROS packages. The `teleop` daemon runs the ROS 2
-`topic_tools` multiplexer, combining `/key_vel`, `/joy_vel` and `/nav_vel`
-into `/cmd_vel`. The multiplexer forwards just the selected input.
+Instead of using a TurtleBot3c fork for Lyrical, we provide the
+{download}`TurtleBot3 snap recipe <examples/turtlebot3/snap/snapcraft.yaml>`
+and the tutorial's launcher to expose applications for bringup,
+teleoperation, mapping and navigation.
+
+We indeed use a topic multiplexer called `topic_tools/mux`
+responsible for routing the desired robot control topic to
+the `/cmd_vel` topic (see figure below).
+This way our TurtleBot3 could be controlled by a joystick, a keyboard,
+or even the navigation depending on what we desire without interfering with each other.
 
 ![/cmd_vel mux](https://assets.ubuntu.com/v1/c59f2f80-teleop-mux.png)
 
-For example, select the keyboard input using the ROS 2 service:
+Selecting the topic which is going to be redirected
+can be done with the following command:
 
 ```bash
 ros2 service call /mux/select topic_tools_interfaces/srv/MuxSelect "{topic: '/key_vel'}"
@@ -343,12 +386,15 @@ This is the first step to writing our `snapcraft.yaml` file.
 The following section is going to cover how to snap applications, step by step.
 The complete example is in `docs/tutorials/snaps-core/examples/turtlebot3`
 in the tutorial repository.
+We can refer to it at any time in case we have questions
+regarding the content of a file.
 
 ### Completing our snapcraft.yaml
 
 From the [tutorial source repository](https://github.com/canonical/robotics_documentation),
 change to `docs/tutorials/snaps-core/examples/turtlebot3`.
-As in Part 1, start with the metadata, base and confinement.
+As in Part 1, we first need to complete the metadata along with the base
+and [`strict` confinement](https://snapcraft.io/docs/explanation/security/snap-confinement/).
 The full recipe is below; we'll go through each part and app in turn.
 
 ```{literalinclude} examples/turtlebot3/snap/snapcraft.yaml
@@ -385,7 +431,12 @@ called by our snap launchers, such as `ros-lyrical-ros2launch`,
 ##### Building the core app
 
 `core` calls `ros2 launch turtlebot3_bringup robot.launch.py` to start the
-hardware drivers and robot state publisher. The `opencr` and `lidar` plugs
+hardware drivers and robot state publisher.
+This application must be running in the background when we want to use the
+physical robot. Remember that since it’s a ROS application we will need a
+ROS environment, which the extension sets up for us.
+
+The `opencr` and `lidar` plugs
 give the app access to the serial ports. Connect them to the matching slots
 before enabling the service on hardware. We use `install-mode: disable`
 so installation alone does not start the robot.
@@ -395,7 +446,8 @@ so leave `core` stopped.
 
 ##### Building the teleop app
 
-The `teleop` daemon runs the ROS 2 `topic_tools` multiplexer. The multiplexer
+The `teleop` app will be running our teleoperation multiplexer.
+The ROS 2 `topic_tools` multiplexer
 has three input topics and a single `/cmd_vel` output. This service starts
 at installation so the keyboard and joystick apps can use it when needed.
 It uses the `network` and `network-bind` plugs because control commands
@@ -403,18 +455,24 @@ can also originate on a different device.
 
 #### Building the key app
 
+This app must publish a `/key_vel` topic based on the keyboard input.
 `key` calls the upstream `teleop_keyboard` executable, installed by colcon
 under `opt/ros/snap/lib/turtlebot3_teleop`. It remaps `cmd_vel` to `/key_vel`
 and selects that input. This app needs a terminal, not a daemon.
 
 ##### Building the joy app
 
+The major differences are that this is going to be published on the
+`/joy_vel` topic and that we need access to the joystick.
 `joy` uses `teleop_twist_joy` and the `joy` node. The launch argument
 `publish_stamped_twist:=true` matches the other publishers and
 `joy_vel:=/joy_vel` gives the joystick a separate input to the multiplexer.
 The snap's [joystick interface](https://snapcraft.io/docs/reference/interfaces/joystick-interface/)
 allows it to read the controller. Check `snap connections turtlebot3-lyrical`
 and connect the `joystick` plug if needed.
+
+Now we have all the applications necessary for teleoperation whether we
+use a keyboard or a joystick.
 
 ##### Building the mapping app
 
@@ -424,9 +482,11 @@ install because it is only needed while surveying a new environment.
 
 ##### Building the navigation app
 
-`navigation` starts Nav2 using the selected model's parameters and
-the last saved map. It also starts disabled: before the first mapping
-session there is no map to load. After creating a map you can start it with:
+Finally, our last application, `navigation`.
+It starts Nav2 using the selected model's parameters and the last saved map.
+It also starts disabled.
+The reason is that when we first install our snap, we won’t have created any map.
+This way we can create our first map and then activate our navigation daemon:
 
 ```bash
 sudo snap start turtlebot3-lyrical.navigation
@@ -434,29 +494,67 @@ sudo snap start turtlebot3-lyrical.navigation
 
 ## Application scripts
 
-The apps need some behaviour beyond starting a ROS node. For example,
-navigation should use the most recent map, and mapping should save it
-without asking users to run ROS commands. We can do this with environment
-variables, local files, launcher scripts and daemon scripts.
+So far we have defined our parts as well as our different applications in our snap.
+Nothing there was new.
+It was simply an application of the basic ROS/snap knowledge to the TurtleBot3 case.
+
+Let’s say that we want our snap `navigation` daemon to
+always use the latest recorded map.
+Or that we want the mapping to automatically save the map without
+having to manually call a ROS service to save the map.
+
+For these, we can use additional features of `snap` and `snapcraft`.
+These features will make our applications much more
+integrated and easier for the final user.
+The features that we will describe below are:
+
+- Environment variables.
+- Local file parts.
+- Launcher scripts.
+- Daemon scripts.
 
 ### Snap environment variables
 
-`$SNAP` is the installed snap's read-only location; use it to refer to
-executables and shipped assets. `$SNAP_COMMON` holds writable system
-data shared by a snap's revisions, which is where we keep maps.
-See {ref}`explanations-snaps-snap-environment-variables` and
-{ref}`explanations-snaps-snap-data-and-file-storage-topic-guide`.
+Environment variables are widely used across Linux to provide convenient access
+to system and application properties.
+Both `snapcraft` and `snapd` consume, set,
+and pass-through specific environment variables to support building and running snaps.
+
+There are snap environment variables,
+like `$SNAP` and `$SNAP_INSTANCE_NAME` used to identify the snap and its location.
+The [*Snap environment variables*](#explanations-snaps-snap-environment-variables)
+documentation is a great place to learn about these.
+
+Additionally, snaps define environment variables specific to data and file storage.
+The [*Snap data and file storage documentation*](#explanations-snaps-snap-data-and-file-storage-topic-guide)
+is a great place to learn about these.
+We keep our maps in `$SNAP_COMMON`, whose data is shared across snap revisions.
 
 ### Local files part
 
-Colcon builds the ROS packages. Our own launcher doesn't need to be built,
-so we ship it using the
+In order to create additional behaviour for a snap, we need to add scripts.
+These scripts could be for example responsible for calling
+the ROS node in charge of saving the map.
+
+To import all these local files into our snap we will need an additional
+`snapcraft` [part](https://documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/index.html).
+They are used to declare pieces of code that will be pulled into your snap package.
+
+Our `robot` part uses the `colcon` plugin to build and install our ROS packages.
+In order to simply import scripts into our snap we will need a different plugin,
+the
 [`dump` plugin](https://documentation.ubuntu.com/snapcraft/stable/common/craft-parts/reference/plugins/dump_plugin/).
+
+As its name suggests, the `dump` plugin is simply used to
+"dump" the specified sources in a specified location into our snap.
+Usually, the dumped files are scripts, configuration files, binaries etc.
 
 ### Adding scripts to our snap’s part
 
-The `commands` part copies files from `scripts`. The `organize` key maps
-the source path to its location in the staged snap:
+In our case we will simply need to dump our launcher from `scripts` into
+the `bin` of our snap.
+
+We will then need to add the following part to the `snapcraft.yaml`:
 
 ```yaml
 commands:
@@ -466,11 +564,18 @@ commands:
     robot-app: bin/robot-app
 ```
 
+The `organize` keyword is a key/value pair,
+the key represents the path of a file inside the selected source of
+the part and the value represents the file's destination in the stage area.
+
 ### Launcher scripts
 
-We cannot pass extra arguments to a system service with `snap start`.
-A launcher gives the service a place to read configuration, construct
-ROS launch arguments, and check whether files exist before starting.
+Since the core application is a daemon,
+we cannot pass it extra arguments with `snap start`.
+For this reason we will use a launcher script.
+This way, we will not only be able to specify ROS arguments,
+but also do some extra work before starting the application.
+For example, verifying that a file exists before calling a command.
 
 #### Adding scripts’ launcher
 
@@ -482,6 +587,7 @@ The example provides a launcher with a subcommand for each app:
 
 #### Using scripts
 
+Now, let’s use our script in `snapcraft.yaml` instead of the “raw” commands.
 Each app calls `bin/robot-app` with the corresponding subcommand.
 For example, `navigation` uses `command: bin/robot-app navigation`.
 The app's ROS extension, network plugs and daemon settings still belong
@@ -489,12 +595,23 @@ in the snap recipe, not in the launcher.
 
 #### Daemon scripts
 
-Snap services can run additional commands around their lifecycle.
+In TurtleBot3 we already have a few daemons.
+These snap services can use multiple new features that
+will come in handy for our application.
+
+`Snap` and `snapcraft` offer great features to orchestrate daemon applications.
+The [*Application orchestration*](#explanations-snaps-application-orchestration)
+documentation is a great place to learn more about orchestration.
+
 `stop-command` runs before stopping the service, and `post-stop-command`
 runs afterward. This distinction matters because a map saver must receive
 the map while the mapping node is still publishing it.
 
 #### Applying daemon scripts to TurtleBot3
+
+We have already made our applications run in the background,
+but we don’t want the user to have to call ROS nodes manually to save a map.
+Let’s make this automatic!
 
 Use the first lifecycle command to save the map and the second to install it.
 That makes an ordinary `snap stop` sufficient to finish a mapping session.
@@ -505,6 +622,11 @@ The Nav2 `map_saver_cli` writes a PGM image and its YAML metadata. The
 `stop-command: bin/robot-app save-map` calls it with a temporary file prefix.
 The script creates a readiness marker only once the map saver succeeds, so
 a failed save does not replace the previous map.
+
+Now our map will be saved automatically whenever we stop our
+mapping service with `sudo snap stop turtlebot3-lyrical.mapping`.
+It would be better to keep all the maps created and simply mark one as the current one.
+This way we could even restore a previous one later.
 
 #### Install the last map
 
@@ -525,6 +647,7 @@ multiplexer publishes `/cmd_vel`.
 Before starting the keyboard, joystick, or navigation app, the launcher
 calls `/mux/select` with a `topic_tools_interfaces/srv/MuxSelect` request.
 The selected input is `/key_vel`, `/joy_vel`, or `/nav_vel`, respectively.
+Once selected the topic is forwarded to `/cmd_vel`.
 For example, the service call for joystick control is:
 
 ```bash
@@ -625,10 +748,16 @@ daemon at boot with `sudo snap start --enable turtlebot3-lyrical.navigation`.
 Use `sudo snap disable turtlebot3-lyrical` to stop all of the snap's apps and
 services. Check them with `snap services turtlebot3-lyrical`.
 
+We have now presented every single step to snap a TurtleBot3 software stack.
+We went from application identification to actual snapping and
+finally added some advanced behaviour to automate map management.
+
 ## Exercise
 
-Now try the map cleanup exercise. It adds a timed service that preserves
-the map selected by `current_map.yaml` while removing old maps.
+Now that we have learned the ins and outs of the TurtleBot3 snap,
+we can apply some of our fresh knowledge for a quick exercise.
+The exercise as well as the solution are available in the
+{ref}`Developer guide part 2 - exercise <tutorials-snaps-core-exercises-exercise-2>`.
 
 ```{toctree}
 :hidden:
@@ -636,8 +765,6 @@ the map selected by `current_map.yaml` while removing old maps.
 
 Part 2 exercise <exercises/exercise_2>
 ```
-
-Continue to {doc}`exercises/exercise_2` when the mapping test passes.
 
 ## Next Steps: Debugging
 

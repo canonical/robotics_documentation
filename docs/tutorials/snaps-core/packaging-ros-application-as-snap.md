@@ -33,10 +33,10 @@ make it installable on dozens of Linux distributions.
 
 ## Requirements
 
-We will need a running Ubuntu 26.04 LTS system.
+We will need an up and running Ubuntu 26.04 LTS system.
 
 ``` {note}
-The installation can be native or in a VM.
+The installation could be native or in a VM.
 If using a container, we must be sure that we can install and run systemd,
 snapd and snaps.
 ```
@@ -420,7 +420,7 @@ Snapcraft is building the snap in steps:
    are required for the build but not for the snap.
 
 The Lyrical extension is experimental, so enable it before building.
-Run these commands from the project directory and keep the same shell for later builds:
+To build our snap, we will run these commands from the project directory:
 
 ```bash
 export SNAPCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS=1
@@ -439,8 +439,8 @@ This `.snap` file is our packaged application.
 
 If we could install `snapd` on our current distribution,
 it means that we can install our freshly built snap.
-The target system does not need to be running Ubuntu 26.04 LTS,
-but its version of `snapd` must support the `core26` base.
+We don’t need to be running Ubuntu 26.04 LTS to run this ROS 2 Lyrical snap,
+but our version of `snapd` must support the `core26` base.
 We don’t even need to install ROS on our host system to install and run the snap.
 
 Snaps bundle all their dependencies as well as their “`core`” which make them host-agnostic.

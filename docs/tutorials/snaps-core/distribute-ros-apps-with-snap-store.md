@@ -92,14 +92,14 @@ or any other, dependencies.
 
 In [part 1](#tutorials-snaps-core-packaging-ros-application-getting-started)
 we covered the creation of a strictly confined ROS 2 talker-listener snap.
-For this guide, we will reuse the same example, adapted to ROS 2 Lyrical.
+For this guide, we will reuse the same example.
 
 Let's recall what we did during
 [part 1](#tutorials-snaps-core-packaging-ros-application-getting-started).
 
 #### Creation of our snap
 
-We will first download the strictly confined recipe introduced in
+We will first download the work done in
 [part 1](#tutorials-snaps-core-packaging-ros-application-getting-started).
 We will then adapt the snap to make it unique before finally testing our snap.
 

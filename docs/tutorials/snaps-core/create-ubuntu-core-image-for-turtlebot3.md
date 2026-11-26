@@ -374,13 +374,14 @@ a hotspot called "turtlebot3c" so we can connect to it.
 
 Building a gadget snap is no different from any other snap.
 
-On Ubuntu 26.04 amd64, build the gadget for arm64 using the Pi gadget's
-`rpi-amd64` platform:
+We build the snap with snapcraft:
 
 ```bash
 snapcraft pack --use-lxd --platform=rpi-amd64
 ```
 
+This gadget snap can be built for arm64 on amd64,
+so you can call it on your amd64 host with the `rpi-amd64` platform as shown above.
 On an arm64 build host, use `--platform=rpi` instead.
 
 We now have our gadget snap: `turtlebot3c-pi_26-1_arm64.snap`.
