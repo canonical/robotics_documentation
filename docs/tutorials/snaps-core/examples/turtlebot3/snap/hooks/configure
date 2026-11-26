@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+case "$(snapctl get simulation)" in
+    ''|true|false) ;;
+    *) echo "simulation must be true or false" >&2; exit 1 ;;
+esac
+case "$(snapctl get turtlebot3-model)" in
+    ''|burger|waffle|waffle_pi) ;;
+    *) echo "turtlebot3-model must be burger, waffle, or waffle_pi" >&2; exit 1 ;;
+esac

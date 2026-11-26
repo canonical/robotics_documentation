@@ -1,0 +1,27 @@
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")"
+if test -e src; then
+    echo "src already exists; prepare the workspace in a fresh project." >&2
+    exit 1
+fi
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+git clone --quiet https://github.com/ROBOTIS-GIT/turtlebot3.git "$work/robot"
+git -C "$work/robot" checkout --quiet 0d4e59cf34da9c0661f80008bb0fa02636c713b2
+git clone --quiet https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver.git "$work/lidar"
+git -C "$work/lidar" checkout --quiet d32aabfb5382fe1fe4b4b21d657310e08dfbff40
+mkdir "$work/src"
+for pkg in bringup description node teleop navigation2; do
+    cp -R "$work/robot/turtlebot3_$pkg" "$work/src/"
+done
+# The pinned TurtleBot3 source still uses legacy header names.
+sed -i -E 's@^(#include <(message_filters/[^>]+|tf2/LinearMath/Quaternion|tf2_ros/transform_broadcaster))\.h>@\1.hpp>@' \
+    "$work/src/turtlebot3_node/include/turtlebot3_node/odometry.hpp" \
+    "$work/src/turtlebot3_node/include/turtlebot3_node/turtlebot3.hpp"
+sed -i -E 's/^([[:space:]]+"(joint_states|imu)")\);$/\1, qos);/' \
+    "$work/src/turtlebot3_node/src/odometry.cpp"
+mkdir "$work/src/hls_lfcd_lds_driver"
+git -C "$work/lidar" archive --format=tar --output="$work/lidar.tar" HEAD
+tar xf "$work/lidar.tar" -C "$work/src/hls_lfcd_lds_driver"
+mv "$work/src" src

@@ -77,13 +77,13 @@ We’ll be using those extensions in this guide.
 Just like in {ref}`part 2 <tutorials-snaps-core-packaging-complex-robotics-software-with-snaps>`,
 we will be deploying a robotics software stack using snaps and snapcraft.
 Following the [TurtleBot3](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
-example, we will divide the monolithic snap presented in part 2 into four (4)
-standalone snaps, namely:
+example, we will split the monolithic snap presented in part 2 into a system
+of four (4) snaps, namely:
 
-* turtlebot3c-core: The robot specific snap required to bring the robot up.
+* turtlebot3-lyrical-bringup: The robot specific snap required to bring the robot up.
   We may also refer to it as the ‘brain’ snap.
-* turtlebot3c-teleop: A teleoperation snap allowing us to drive our robot.
-* turtlebot3c-nav: A snap that contains both the mapping and
+* turtlebot3-lyrical-teleop: A teleoperation snap allowing us to drive our robot.
+* turtlebot3-lyrical-nav: A snap that contains both the mapping and
   autonomous navigation functionality.
 * A foundational snap.
 
@@ -97,6 +97,8 @@ a few executables (think ros2 run/launch) but exposes no applications.
 
 We will design the four snaps so that they are standalone,
 yet loosely integrated to one another offering some ease of use for the final user.
+We will build the three application snaps standalone first, then connect
+them to the same foundational snap.
 The image below shows a preliminary idea of what we will build in this tutorial.
 
 ![TurtleBot3c multi snap system diagram](https://assets.ubuntu.com/v1/f2b8ff8f-tb3_multi_snap_system.png)
@@ -119,8 +121,8 @@ Since we are reusing part 2 examples, the setup is the same.
 Please {ref}`refer back <tutorials-snaps-core-packaging-complex-robotics-software-with-snaps>`
 for the details of the setup either on your machine or in a virtual machine.
 
-The ROS content sharing feature we are going to employ later
-is only available on snapcraft version 8.x.
+The ROS 2 Lyrical content sharing extension we are going to employ later
+requires Snapcraft 9 with experimental extensions enabled.
 Make sure that you have the right version of snapcraft installed with:
 
 ```bash
@@ -150,13 +152,10 @@ Following the same dotted lines, we will consider the following functionalities:
   its environment and autonomously navigate in it.
 
 As a matter of fact, we will reuse the very same
-[TurtleBot3c](https://github.com/canonical/turtlebot3c/tree/noetic-devel)
-project’s source code.
-Turtlebot3c is a collection of launch files and
-configuration files organised so that the aforementioned functionalities
-can be launched individually.
-This is something that is not necessarily doable out-of-the-box from the official
-[TurtleBot3](https://www.turtlebot.com/) code base.
+[TurtleBot3](https://github.com/ROBOTIS-GIT/turtlebot3)
+project’s source code from part 2.
+We will also reuse our tutorial's launchers and configuration so that the
+aforementioned functionalities can be launched individually.
 
 ### Snapping the TurtleBot3
 
@@ -166,169 +165,155 @@ we shall now move on to creating the snaps.
 We can follow the same template from our previous tutorial,
 change the names of the 3 snaps and include only the respective apps and daemons.
 
-In the following sections we will clone the `snapcraft.yaml`
+In the following sections we will copy the `snapcraft.yaml`
 defined in the developer guide part 2 and adapt it to generate 3 different snaps;
 "Bringup", "Teleoperation", and "Navigation and Mapping".
 
+Use the prepared Part 2 project under
+`docs/tutorials/snaps-core/examples/turtlebot3` as the starting point.
+The `prepare-split` helper copies the launchers and hooks, filters the colcon
+workspace and runtime packages, and writes each component's `snapcraft.yaml`.
+Install the YAML module for this helper:
+
+```bash
+sudo apt install python3-yaml
+export SNAPCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS=1
+```
+
 #### BringUp
 
-The full "BringUp" `snapcraft.yaml` can be found here <https://github.com/canonical/turtlebot3c-snap/tree/feature/multi-snap/turtlebot3c-bringup-snap/snap>.
-
-First, change the name to `turtlebot3c-bringup` and
+First, change the name to `turtlebot3-lyrical-bringup` and
 adapt the summary and description based on the separation we described before.
 
 ```yaml
-name: turtlebot3c-bringup
-summary: Turtlebot3c core snap
-description: |
-  This snap automatically spawn a roscore and the core components for the
-  Turtlebot3 (controller, robot_state_publisher etc).
+name: turtlebot3-lyrical-bringup
+summary: TurtleBot3 ROS 2 Lyrical bringup
+description: The bringup component of the TurtleBot3 tutorial stack.
 ```
 
 Next, we can simplify the workspace craft part because we only need
-to clone a specific sub-directory from a single repository.
-
-So let’s use the `source-subdir` for cloning and
-focus only on the `turtlebot3c_bringup` folder.
-
-```yaml
-parts:
-  workspace:
-    plugin: catkin
-    source: https://github.com/ubuntu-robotics/turtlebot3c.git
-    source-subdir: turtlebot3c_bringup
-```
+the upstream robot driver, model and lidar packages. For the `colcon` plugin,
+keep only those packages in `src`.
 
 Remove everything related to the teleoperation,
 navigation and mapping from the original file.
-In fact, in the BringUp snap we want to keep the `core_launcher` app and nothing else.
+In fact, in the BringUp snap we want to keep the `core` app and nothing else.
+Keep the two serial plugs so the drivers can access OpenCR and the lidar.
+The resulting app is still a disabled-by-default daemon.
 
 ```yaml
 apps:
   core:
+    command: bin/robot-app bringup
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind, opencr, lidar]
     daemon: simple
-    environment:
-      ROS_HOME: $SNAP_USER_DATA/ros
-      # LD_LIBRARY_PATH: "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack"
-    command-chain: [usr/bin/ros_network.sh]
-    command: usr/bin/core_launcher.sh
-    plugs: [network, network-bind, raw-usb]
-    extensions: [ros1-noetic]
+    install-mode: disable
+```
+
+```bash
+./prepare-split bringup ../bringup-project
+(cd ../bringup-project && snapcraft pack --use-lxd)
 ```
 
 Note that we have not enabled content sharing just yet.
-The snap works already by having all the required ROS dependencies inside.
+The `ros2-lyrical` extension includes the required ROS dependencies inside the snap.
 Let’s continue with the other 2 snaps and
 afterwards we will show how to enable content sharing.
 
 #### Teleoperation
 
-The full Teleoperation `snapcraft.yaml` can be found here <https://github.com/canonical/turtlebot3c-snap/tree/feature/multi-snap/turtlebot3c-teleop-snap/snap>.
-
 Apply the snap rename and adapt the summary and the description:
 
 ```yaml
-name: turtlebot3c-teleop
-summary: Turtlebot3c teleop snap
-description: |
-  This snap automatically contains a teleoperation app along with selectors for controlling the Turtlebot3 with the keyboard or a joystick.
+name: turtlebot3-lyrical-teleop
+summary: TurtleBot3 ROS 2 Lyrical teleop
+description: The teleop component of the TurtleBot3 tutorial stack.
 ```
 
-Adapt the `source-subdir`:
-
-```yaml
-    source-subdir: turtlebot3c_teleop
-```
+Keep only `turtlebot3_teleop` in the colcon workspace.
 
 We can now remove all the `navigation` and `mapping` sections,
 as well as the `core` which is now in the `bringup` snap.
 
 This leaves us with the `teleop`, `key` and `joy` sections.
+The `joy` app keeps the `joystick` interface, and all three apps keep their
+network plugs.
 
 The final result looks like this:
 
 ```yaml
 apps:
-  core:
+  teleop:
+    command: bin/robot-app teleop
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
     daemon: simple
-    environment:
-      ROS_HOME: $SNAP_USER_DATA/ros
-      # LD_LIBRARY_PATH: "$LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/blas:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/lapack"
-    command-chain: [usr/bin/ros_network.sh]
-    command: roslaunch turtlebot3c_teleop turtlebot3c_teleop.launch
-    plugs: [network, network-bind]
-    extensions: [ros1-noetic]
-
   key:
-    environment:
-      ROS_HOME: $SNAP_USER_DATA/ros
-    command-chain: [usr/bin/ros_network.sh, usr/bin/mux_select_key_vel.sh]
-    command: roslaunch turtlebot3c_teleop key.launch
+    command: bin/robot-app key
+    extensions: [ros2-lyrical]
     plugs: [network, network-bind]
-    extensions: [ros1-noetic]
-
   joy:
-    environment:
-      ROS_HOME: $SNAP_USER_DATA/ros
-    command-chain: [usr/bin/ros_network.sh, usr/bin/mux_select_joy_vel.sh]
-    command: roslaunch turtlebot3c_teleop joy.launch
+    command: bin/robot-app joy
+    extensions: [ros2-lyrical]
     plugs: [network, network-bind, joystick]
-    extensions: [ros1-noetic]
+```
+
+```bash
+./prepare-split teleop ../teleop-project
+(cd ../teleop-project && snapcraft pack --use-lxd)
 ```
 
 #### Mapping and Navigation
 
 Our third snap will contain the mapping and navigation bits.
 The steps are the same as before.
-
-The final result is here <https://github.com/canonical/turtlebot3c-snap/tree/feature/multi-snap/turtlebot3c-nav-snap/snap>.
-
 First change the name and the description:
 
 ```yaml
-name: turtlebot3c-nav
-version: '0.1'
-license: GPL-3.0
-summary: Turtlebot3c mapping and navigation snap
-description: |
-  This snap provides apps to create a map and if a map is available run localization/planning so that the  Turtlebot3 can navigate in the map.
+name: turtlebot3-lyrical-nav
+summary: TurtleBot3 ROS 2 Lyrical nav
+description: The nav component of the TurtleBot3 tutorial stack.
 ```
 
-Adapt the `source-subdir`:
-
-```yaml
-    source-subdir: turtlebot3c_2dnav
-```
-
-Remove the unrelated apps and keep only the `mapping` and `navigation` apps:
+Keep the `turtlebot3_navigation2` package in `src` and stage the SLAM Toolbox
+and Nav2 tools.
+Remove the unrelated apps and keep only `mapping`, `navigation` and `save-map`.
+Keep both services' disabled install mode and the map-saving stop commands.
+The map now belongs to this snap's `$SNAP_COMMON`.
 
 ```yaml
 apps:
   mapping:
-    environment:
-      ROS_HOME: $SNAP_USER_DATA/ros
-    command-chain: [usr/bin/ros_network.sh, usr/bin/mux_select_key_vel.sh]
-    command: usr/bin/mapping_launcher.sh
+    command: bin/robot-app mapping
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
     daemon: simple
     install-mode: disable
-    stop-command: usr/bin/save_map.sh
-    post-stop-command: usr/bin/install_last_map.sh
+    stop-command: bin/robot-app save-map
+    post-stop-command: bin/robot-app install-map
+  save-map:
+    command: bin/robot-app save-map
+    extensions: [ros2-lyrical]
     plugs: [network, network-bind]
-    extensions: [ros1-noetic]
-
   navigation:
-    environment:
-      ROS_HOME: $SNAP_USER_DATA/ros
-      # map server need pulseaudio
-      # Defining this var here overwrite the extension definition,
-      # thus we need to respecify the extension paths
-      LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$LD_LIBRARY_PATH"
-    command-chain: [usr/bin/ros_network.sh, usr/bin/mux_select_nav_vel.sh]
-    command: usr/bin/navigation_launcher.sh
+    command: bin/robot-app navigation
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
     daemon: simple
     install-mode: disable
-    plugs: [network, network-bind]
-    extensions: [ros1-noetic]
+```
+
+```bash
+./prepare-split nav ../nav-project
+(cd ../nav-project && snapcraft pack --use-lxd)
+```
+
+Before rebuilding, keep a copy of each standalone artifact so you can compare
+sizes. The component recipes are generated from the same Part 2 recipe:
+
+```{literalinclude} examples/turtlebot3/prepare-split
+:language: python
 ```
 
 ## Using content sharing
@@ -339,61 +324,66 @@ are not using the ROS foundational snap.
 
 The snaps are working and could be already used in a robot,
 but in order to gain the advantages of the content sharing we need to change
-the extensions from `ros1-noetic` to the `ros1-noetic-robot`.
+the extensions from `ros2-lyrical` to `ros2-lyrical-ros-base`.
 It’s a single line of change,
 but it enables a different extension that will make sure all
-the ROS packages contained in the `ros-noetic-robot` meta-package are
+the ROS packages contained in the `ros-lyrical-ros-base` snap are
 connected from the foundational snap into your newly created multiple snaps.
 
 ```diff
--   extensions: [ros1-noetic]
-+   extensions: [ros1-noetic-robot]
+-   extensions: [ros2-lyrical]
++   extensions: [ros2-lyrical-ros-base]
 ```
 
 [The Ubuntu Robotics Community](https://snapcraft.io/publisher/ubuntu-robotics-community)
 maintains multiple ROS foundational variants based on [REP-2001](https://ros.org/reps/rep-2001.html)
-such as `ros-core`, `ros-base`, `desktop` for multiple ROS distro
-(e.g. Noetic, Foxy, Humble).
+such as `ros-core`, `ros-base`, and `desktop` for multiple ROS distributions.
 
 For more details and
 all the possible extensions you can use as foundational please check
 [the documentation](https://snapcraft.io/docs/supported-extensions)
-and search for extensions with a name including
-"Content Sharing" (e.g. "ROS2 Humble Content Sharing").
+and look for the ROS 2 Lyrical content-sharing extensions.
 
 After changing the extension to make use of content sharing,
-we can re-create the snaps using snapcraft and install them.
+rebuild all three projects with `snapcraft pack --use-lxd`.
+Keep the first builds in a separate directory so the new builds do not
+overwrite them. Install the content provider and the three new builds
+with `snap install --dangerous` for the local files.
 Once done, let us verify that the content sharing interface is connected.
-With the turtlebot3c-bringup snap as an example run,
+With the turtlebot3-lyrical-bringup snap as an example run,
 
 ```bash
-$ snap connections turtlebot3c-bringup
+$ snap connections turtlebot3-lyrical-bringup
 Interface            Plug                              Slot                         Notes
-content[ros-noetic]  turtlebot3c-bringup:ros-noetic    ros-noetic-robot:ros-noetic  -
-network              turtlebot3c-bringup:network       :network                     -
-network-bind         turtlebot3c-bringup:network-bind  :network-bind                -
-raw-usb              turtlebot3c-bringup:raw-usb       -                            -
+content[ros-lyrical-ros-base]  turtlebot3-lyrical-bringup:ros-lyrical-ros-base  ros-lyrical-ros-base:ros-lyrical-ros-base  -
+network              turtlebot3-lyrical-bringup:network       :network                     -
+network-bind         turtlebot3-lyrical-bringup:network-bind  :network-bind                -
+serial-port          turtlebot3-lyrical-bringup:opencr       -                            -
 ```
 
-As we can see, the interface `content[ros-noetic]` is automatically connected.
-Our snap plug (`turtlebot3c-bringup:ros-noetic`) is connected
-to the slot (`ros-noetic-robot:ros-noetic`) of the `ros-noetic-robot` snap
-which provides the ROS Noetic stack.
+The `content[ros-lyrical-ros-base]` interface connects our snap's plug
+to the slot of the `ros-lyrical-ros-base` snap that supplies the ROS 2 Lyrical
+runtime. If the slot column is `-`, install and connect the provider:
+
+```bash
+sudo snap install ros-lyrical-ros-base
+sudo snap connect turtlebot3-lyrical-bringup:ros-lyrical-ros-base ros-lyrical-ros-base:ros-lyrical-ros-base
+```
 
 ### Your ROS snap with and without content sharing
 
 It’s worth looking more in detail at what happens when the content sharing method
-is used by the `ros1-noetic-robot` extension.
+is used by the `ros2-lyrical-ros-base` extension.
 
 ![ROS snap w/o content sharing](https://assets.ubuntu.com/v1/a8b2c915-ros_snap_w-o_content-sharing.png)
 
-Remember that when using the `ros1-noetic` extension,
+Remember that when using the `ros2-lyrical` extension,
 all the dependencies of your ROS packages are read from the `package.xml` files and
 installed using `apt`.
 They will be shipped with your snap as usual.
 
 When you switch to the new foundational snaps,
-such as `ros1-noetic-robot`,
+such as `ros-lyrical-ros-base`,
 most of the basic ROS packages are already installed,
 so when reading the `package.xml` files the snapcraft process skips those and
 only installs the missing ones inside the snap.
@@ -413,19 +403,22 @@ There are some very important advantages to this approach:
 See below for a size comparison of the snaps before and
 after the use of content sharing that we described in this guide.
 
-| | Without using foundational snap | Using foundational snap | |
-| -------- | :-------: | :-------: | :------- |
-| Name | Size (Mb) | Size (Mb) | |
-| | | | |
-| turtlebot3c-bringup | 205 | 5 | |
-| turtlebot3c-nav | 296 | 61 | |
-| turtlebot3c-teleop | 133 | 2 | |
-| ros-noetic-robot | | 161 | |
-| | | | |
-| | 634 | 229 | **total** |
+| Snap | Standalone size | Content-sharing size |
+| --- | --- | --- |
+| `turtlebot3-lyrical-bringup` | Measure | Measure |
+| `turtlebot3-lyrical-nav` | Measure | Measure |
+| `turtlebot3-lyrical-teleop` | Measure | Measure |
+| `ros-lyrical-ros-base` | Not installed | Count once |
 
-For a deployment of the full navigation stack,
-a bringup and a teleop we have a size reduction of 64%.
+Measure the files with `ls -lh` after building both versions on the same
+architecture. Include one copy of the provider in the second total.
+
+Do not run the monolithic snap at the same time. To repeat the Part 2 test in
+simulation, leave `core` stopped, set `simulation=true` on
+`turtlebot3-lyrical-nav`, and use `turtlebot3-lyrical-teleop.key` to drive.
+Use the split `mapping` and `navigation` services to save and reload the map.
+For Part 5, build the component snaps on arm64 and publish those revisions to
+a test channel under snap names you own, as in Part 3.
 
 ## Conclusion
 

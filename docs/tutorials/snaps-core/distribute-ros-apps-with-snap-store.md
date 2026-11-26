@@ -41,7 +41,7 @@ In this guide, we will learn:
 * Ways for the final user or device to benefit from the updates.
 
 While covering the theoretical aspects of distributing ROS snaps,
-we will apply all this knowledge to the [ROS 2 Humble talker-listener example](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap/tree/confined)
+we will apply all this knowledge to the ROS 2 Lyrical talker-listener example
 as a practical use case.
 
 We will cover the use of the public Snap Store in this developer guide.
@@ -71,14 +71,15 @@ In terms of setup,
 we require a more minimal setup than we used in
 [part 2](#tutorials-snaps-core-packaging-complex-robotics-software-with-snaps).
 
-We will need an up and running Ubuntu Desktop
-(20.04 being the minimum version, as it is still under maintenance).
+We will need an up and running Ubuntu 26.04 Desktop.
 This tutorial cannot be followed inside a container or a headless environment.
 
 On top of this OS we will need to:
 
 * [Install and initialise LXD.](https://ubuntu.com/lxd/install)
 * [Install snapcraft.](https://snapcraft.io/snapcraft)
+
+Check that `snapcraft extensions` lists `ros2-lyrical` for `core26`.
 
 Additionally, we will need an [Ubuntu One](https://login.ubuntu.com/+description)
 account for the [Snap Store](https://snapcraft.io/).
@@ -90,8 +91,7 @@ or any other, dependencies.
 ### Globally distribute our first snap
 
 In [part 1](#tutorials-snaps-core-packaging-ros-application-getting-started)
-we covered the creation of a strictly confined
-[ROS 2 Humble talker-listener snap](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap/tree/confined).
+we covered the creation of a strictly confined ROS 2 talker-listener snap.
 For this guide, we will reuse the same example.
 
 Let's recall what we did during
@@ -103,19 +103,15 @@ We will first download the work done in
 [part 1](#tutorials-snaps-core-packaging-ros-application-getting-started).
 We will then adapt the snap to make it unique before finally testing our snap.
 
-##### ROS 2 humble talker listener snap
+##### ROS 2 Lyrical talker-listener snap
 
 To avoid repeating the work from the previous developer guide,
-we will clone the ROS 2 humble talker-listener snap repository:
+create a fresh project directory and save {download}`the Lyrical recipe
+<examples/talker-listener/snap/snapcraft.yaml>` as `snap/snapcraft.yaml`
+inside it. This starts from the confined app before the daemon and exercise
+changes in Part 1. Run the build commands from the project directory.
 
-```bash
-git clone https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap.git -b confined
-```
-
-This repository mostly contains the file `snap/snapcraft.yaml`,
-which is the entry point to create the snap through Snapcraft.
-
-This snap is using the [demo_nodes_cpp](https://github.com/ros2/demos/tree/humble/demo_nodes_cpp)
+This snap is using the [demo_nodes_cpp](https://github.com/ros2/demos/tree/3bc83863f1135cfaea0dfda1483d2c4645a7c0d6/demo_nodes_cpp)
 package from the
 [ROS 2 demo](https://github.com/ros2/demos.git) repository.
 
@@ -146,7 +142,8 @@ Now our snap will be unique, we can build it to make sure everything is working 
 The first step is to build the snap with the `snapcraft` command:
 
 ```bash
-snapcraft pack
+export SNAPCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS=1
+snapcraft pack --use-lxd
 ```
 
 Even if the snap had been built previously,
@@ -367,7 +364,7 @@ This may require source-code changes and/or `snapcraft.yaml` changes.
 
 For this example,
 we are going to use a different launch file for our talker listener.
-The ROS 2 demo talker listener is also available via [an XML launch file](https://github.com/ros2/demos/blob/humble/demo_nodes_cpp/launch/topics/talker_listener.launch.xml).
+The ROS 2 demo talker listener is also available via [an XML launch file](https://github.com/ros2/demos/blob/3bc83863f1135cfaea0dfda1483d2c4645a7c0d6/demo_nodes_cpp/launch/topics/talker_listener_launch.xml).
 To simulate our update,
 we are going to replace the Python launch file with the XML one.
 
@@ -377,14 +374,14 @@ To update the launch file that we use in our snap,
 we are going to change the file `snap/snapcraft.yaml` as follows:
 
 ```diff
-name: ros2-talker-listener
+name: yourname-test-ros2-snapstore
 -version: '0.1'
 +version: '0.2'
 [...]
 apps:
   ros2-talker-listener:
--  command: opt/ros/humble/bin/ros2 launch demo_nodes_cpp talker_listener.launch.py
-+  command: opt/ros/humble/bin/ros2 launch demo_nodes_cpp talker_listener.launch.xml
+-    command: opt/ros/lyrical/bin/ros2 launch demo_nodes_cpp talker_listener_launch.py
++    command: opt/ros/lyrical/bin/ros2 launch demo_nodes_cpp talker_listener_launch.xml
 ```
 
 In addition to changing the launch file, we have also increased the snap version.
@@ -393,7 +390,7 @@ This is not a snap requirement, but will be convenient for our users!
 Now that we have modified our `snapcraft.yaml` we can rebuild it with the command:
 
 ```bash
-snapcraft pack
+snapcraft pack --use-lxd
 ```
 
 A second snap file was generated this time and we can now distribute this update.

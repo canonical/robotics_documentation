@@ -33,11 +33,11 @@ ready to be installed and used on a TurtleBot3 robot equipped with a Raspberry P
 The image will include all the TurtleBot3c snaps that we prepared in the
 [Tutorial part 4: Building ROS snaps with content sharing](#tutorials-snaps-core-building-ros-snaps-with-content-sharing):
 
-* [Turtlebot3c-bringup](https://snapcraft.io/turtlebot3c-bringup):
+* `turtlebot3-lyrical-bringup`:
   The core components for the TurtleBot3
-* [Turtlebot3c-nav](https://snapcraft.io/turtlebot3c-nav):
+* `turtlebot3-lyrical-nav`:
   The navigation components for the TurtleBot3
-* [Turtlebot3c-teleop](https://snapcraft.io/turtlebot3c-teleop):
+* `turtlebot3-lyrical-teleop`:
   The teleoperation components of the Turtlebot3
 
 Additionally, for convenience,
@@ -77,12 +77,12 @@ The model contains:
 * Other required or optional snaps that implement the device functionalities.
 
 In our case, we will build a Raspberry Pi 4 image,
-and we will pick core20 as the version of the Ubuntu Core image.
+and we will pick Ubuntu Core 26.
 While the Ubuntu Core version can be chosen independently
 of the base version of the snaps,
 it will still include the corresponding version of the base snap.
-In this example, all of our snaps are using core20 since we are using ROS Noetic.
-We thus pick the corresponding Ubuntu Core image, core20,
+In this example, our TurtleBot3 snaps use `core26` for ROS 2 Lyrical.
+We thus pick the corresponding Ubuntu Core image,
 to spare the installation of a different core snap.
 
 ### Metadata
@@ -91,18 +91,18 @@ First, we get the reference model for the Raspberry Pi 4.
 Provided as a reference, it will serve as a good starting point for our own model:
 
 ```bash
-wget -O turtlebot3c-model.json https://raw.githubusercontent.com/snapcore/models/master/ubuntu-core-20-pi-arm64.json
+wget -O turtlebot3c-model.json https://raw.githubusercontent.com/snapcore/models/dc34064508c7df17b38c7fd44d235d4d525383e9/ubuntu-core-26-pi-arm64.json
 ```
 
 Open the file `turtlebot3c-model.json` and
 change the `model` field with the name `turtlebot3c-pi-arm64`:
 
 ```diff
--    "model": "ubuntu-core-20-pi-arm64",
+-    "model": "ubuntu-core-26-pi-arm64",
 +    "model": "turtlebot3c-pi-arm64",
 ```
 
-In the same file, change the `authority` and `brand-id` with your own ID.
+In the same file, change `authority-id` and `brand-id` to your own ID.
 It can be retrieved with:
 
 ```bash
@@ -112,64 +112,60 @@ snapcraft whoami
 ### List of snaps
 
 From the snaps already listed in the model,
-we leave the Raspberry Pi `gadget`, `pi-kernel`, `snapd` and `core20` snaps.
+we leave the Raspberry Pi `gadget`, `pi-kernel`, `snapd` and `core26` snaps.
+Set the `console-conf` entry's `presence` to `required` for first-boot setup.
 
 When adding snaps to the model, an ID is requested.
 This is the unique ID provided by the [Snap Store](https://snapcraft.io/store).
 We use the command `snap info` to get ID:
 
 ```bash
-$ snap info core20
-name:   core20
-summary:   Runtime environment based on Ubuntu 20.04
-publisher: Canonical✓
-store-url: https://snapcraft.io/core20
-contact:   https://github.com/snapcore/core20/issues
-license:   unset
-description: |
-  The base snap based on the Ubuntu 20.04 release.
-type:      base
-snap-id:   DLqre5XGLbDqg9jPtiAhRRjDuPVa5X1q
-tracking:  latest/stable
+$ snap info core26
+name:   core26
+[...]
+snap-id:   cUqM61hRuZAJYmIS898Ux66VY61gBbZf
 [...]
 ```
 
-Here, the snap ID is `DLqre5XGLbDqg9jPtiAhRRjDuPVa5X1q`.
+Here, the snap ID is `cUqM61hRuZAJYmIS898Ux66VY61gBbZf`.
 
 #### TurtleBot3c snaps
 
-Let’s add the TurtleBot3c snaps to our `turtlebot3c-model.json`:
+Let’s add the TurtleBot3c snaps to our `turtlebot3c-model.json`.
+Use the names and Store IDs of your Part 4 snaps, not the IDs of older
+Noetic snaps. Replace the three placeholders below with those IDs.
+Make sure the specified channel contains the Lyrical revision for arm64.
 
 ```json
     {
-    "name": "ros-noetic-robot",
+    "name": "ros-lyrical-ros-base",
     "type": "app",
     "default-channel": "latest/stable",
-    "id": "hRIlEoo1gAoRqfWCrTmdNeioKT1DwQrn"
+    "id": "r4G1mfGSqkLOLL9jPKEe51vIQzyhd2Ha"
     },
    {
-   "name":"turtlebot3c-bringup",
+   "name":"turtlebot3-lyrical-bringup",
    "type":"app",
    "default-channel":"latest/beta",
-   "id":"9QxPQq7N15yTrRVuy8s4NFCWmkZRjtOa"
+   "id":"BRINGUP_SNAP_ID"
    },
    {
-   "name":"turtlebot3c-nav",
+   "name":"turtlebot3-lyrical-nav",
    "type":"app",
    "default-channel":"latest/beta",
-   "id":"LJzR5xevdtU54wLeciVWXdhlKy1L4TrX"
+   "id":"NAV_SNAP_ID"
    },
    {
-   "name":"turtlebot3c-teleop",
+   "name":"turtlebot3-lyrical-teleop",
    "type":"app",
    "default-channel":"latest/beta",
-   "id":"m37jVvixxcn5YVD1t4wxfBKgx6nX4esy"
+   "id":"TELEOP_SNAP_ID"
    }
 ```
 
-Note that we’ve also added the `ros-noetic-robot` snap.
+Note that we’ve also added the `ros-lyrical-ros-base` snap.
 We need it since we are using the TurtleBot3c [ROS snap content-sharing approach](#explanations-snaps-ros-architectures-with-snaps-multi-snaps-using-content-sharing)
-that depends on `ros-noetic-robot` to provide the ROS libraries.
+that depends on `ros-lyrical-ros-base` to provide the ROS libraries.
 
 #### Networking snaps
 
@@ -186,7 +182,7 @@ We add the networking snaps to the `turtlebot3c-model.json`:
 ```json
 { "name": "network-manager",
   "type": "app",
-  "default-channel": "20/stable",
+  "default-channel": "26/stable",
   "id": "RmBXKl6HO6YOC2DE4G2q1JzWImC04EUy"
 },
 { "name": "wifi-hotspot-config",
@@ -196,7 +192,7 @@ We add the networking snaps to the `turtlebot3c-model.json`:
 },
 { "name": "avahi",
   "type": "app",
-"default-channel": "latest/stable"
+  "default-channel": "26/stable",
   "id": "dVK2PZeOLKA7vf1WPCap9F8luxTk9Oll"
 }
 ```
@@ -285,10 +281,10 @@ in our gadget snap for the TurtleBot3c snaps.
 Let us retrieve the template of the `pi-gadget` snap to kickstart our own:
 
 ```bash
-git clone https://github.com/snapcore/pi-gadget.git -b 20-arm64
+git clone https://github.com/snapcore/pi-gadget.git -b 26
 ```
 
-We picked the branch `20-arm64` to get the `core20` version.
+We picked branch `26` for the `core26` gadget targeting arm64.
 
 In the `snapcraft.yaml` of the pi-gadget snap that we’ve just cloned,
 change the name to “turtlebot3-pi”:
@@ -302,6 +298,19 @@ Note that at the end of the `snapcraft.yaml`,
 all the slots available are declared (serial, `spi`, `i2c`, etc.).
 For security consideration, we should remove the one that we don’t need.
 However, we leave this as an exercise to the reader.
+
+Add two serial slots under the existing `slots` mapping in `snapcraft.yaml`.
+These paths are the launch defaults for OpenCR and LDS-01.
+Confirm the paths on your robot before building the gadget.
+
+```yaml
+  opencr:
+    interface: serial-port
+    path: /dev/ttyACM0
+  lidar:
+    interface: serial-port
+    path: /dev/ttyUSB0
+```
 
 We can now proceed with the gadget connections customisation.
 
@@ -319,15 +328,18 @@ to connect the various interfaces.
 volumes:
   [...]
 +connections:
-+  # turtlebot3c-bringup
-+  - plug: 9QxPQq7N15yTrRVuy8s4NFCWmkZRjtOa:raw-usb
++  # turtlebot3-lyrical-bringup
++  - plug: BRINGUP_SNAP_ID:opencr
++    slot: system:opencr
++  - plug: BRINGUP_SNAP_ID:lidar
++    slot: system:lidar
 
-+  # turtlebot3c-teleop
-+  - plug: m37jVvixxcn5YVD1t4wxfBKgx6nX4esy:joystick
++  # turtlebot3-lyrical-teleop
++  - plug: TELEOP_SNAP_ID:joystick
 
 +  # wifi-hotspot-config
 +  - plug: 9s6xjXubw4a2yA0TE1aIyK90kewEzhYf:network-manager
-+  slot: RmBXKl6HO6YOC2DE4G2q1JzWImC04EUy:service
++    slot: RmBXKl6HO6YOC2DE4G2q1JzWImC04EUy:service
 ```
 
 Doing so, all the interfaces of our snap stack
@@ -365,13 +377,14 @@ Building a gadget snap is no different from any other snap.
 We build the snap with snapcraft:
 
 ```bash
-snapcraft pack
+snapcraft pack --use-lxd --platform=rpi-amd64
 ```
 
-This gadget snap can be built for ARM64 on AMD64,
-so you can call it on your AMD64 host.
+This gadget snap can be built for arm64 on amd64,
+so you can call it on your amd64 host with the `rpi-amd64` platform as shown above.
+On an arm64 build host, use `--platform=rpi` instead.
 
-We now have our gadget snap: `turtlebot3c-pi_20-1_arm64.snap`.
+We now have our gadget snap: `turtlebot3c-pi_26-1_arm64.snap`.
 Let’s integrate it in our model!
 
 In the `turtlebot3-model.json`,
@@ -381,7 +394,7 @@ replace the previous gadget snap with our custom one:
 -    {
 -        "name": "pi",
 -        "type": "gadget",
--        "default-channel": "20/stable",
+-        "default-channel": "26/stable",
 -        "id": "YbGa9O3dAXl88YLI6Y1bGG74pwBxZyKg"
 -    },
 +    {
@@ -393,11 +406,11 @@ replace the previous gadget snap with our custom one:
 Here we don’t define the `id` since we are providing the gadget snap
 locally and not from the [Snap Store](https://snapcraft.io/store).
 Additionally, because we use a local gadget snap that is unsigned,
-we can only mark the grade in the `turtlebot3c-model.yaml` as “`dangerous`”:
+we must set the grade in `turtlebot3c-model.json` to `dangerous`:
 
 ```diff
--grade: "strict"
-+grade: "dangerous"
+-"grade": "signed",
++"grade": "dangerous",
 ```
 
 Since we modified the model, let’s sign it again:
@@ -412,8 +425,9 @@ As we see in the following diagram,
 we have in the image the basic `snapd`, `turltebot3c-pi` and `pi-kernel` snaps.
 Additionally, we have the `network-manager`,
 `avahi` and `wifi-hotspot-config` snaps to set up and manage the network.
-Finally, we have the `ros-noetic-robot` snap providing the ROS libraries to our
-`turtlebot3c-bringup`, `turtlebot3c-teleop` and `turtlebot3c-nav` snaps.
+Finally, we have the `ros-lyrical-ros-base` snap providing the ROS libraries to our
+`turtlebot3-lyrical-bringup`, `turtlebot3-lyrical-teleop`, and
+`turtlebot3-lyrical-nav` snaps.
 
 ![TurtleBot3c Ubuntu Core image](https://assets.ubuntu.com/v1/ce66139b-TurtleBot3c%20Ubuntu%20Core%20image.png)
 
@@ -427,14 +441,14 @@ on an SD card from the model that we prepared.
 Install the tool as a snap:
 
 ```bash
-snap install ubuntu-image
+sudo snap install ubuntu-image --classic
 ```
 
 In our case, we provide the `turtlebot3c.model`
 that we signed as well as our local gadget snap:
 
 ```bash
-ubuntu-image snap turtlebot3c.model --snap ./pi-gadget/turtlebot3c-pi_24-1_arm64.snap
+ubuntu-image snap turtlebot3c.model --snap ./pi-gadget/turtlebot3c-pi_26-1_arm64.snap
 ```
 
 This generates the `pi.img` file.
@@ -524,32 +538,40 @@ The TurtleBot3 is now ready to operate!
 Now that we are connected to the robot,
 we can teleoperate it from our computer over the network.
 
-First, we need to install `turtlebot3c-teleop` on our computer.
+First, we need to install the Lyrical `turtlebot3-lyrical-teleop` snap
+on our computer from the same channel as the image.
 
 ```bash
-sudo snap install turtlebot3c-teleop
+sudo snap install turtlebot3-lyrical-teleop --channel=latest/beta
 ```
 
-Make sure to disable the `core` application,
-since it’s already running on the robot.
+Disable the laptop's `teleop` daemon so only the robot runs the multiplexer.
+On the robot, verify the serial connections and start its `core` service.
+Substitute your actual snap names if they differ.
 
 ```bash
-sudo snap stop --disable turtlebot3c-teleop
+sudo snap stop --disable turtlebot3-lyrical-teleop.teleop
 ```
 
-We make our `ROS_MASTER_URI` point to the robot with:
+On the robot:
 
 ```bash
-export ROS_MASTER_URI=”http://turtlebot3c.local:11311”
+snap connections turtlebot3-lyrical-bringup
+sudo snap start --enable turtlebot3-lyrical-bringup.core
 ```
 
-after what, we can use the keyboard to teleoperate our robot with:
+By default, ROS 2 nodes discover each other through DDS without a central server.
+Keep the robot and computer on the same hotspot network, use the same
+`ROS_DOMAIN_ID` on both, and make sure discovery is not restricted to localhost.
+With the same default domain on both devices, no address needs to be set.
+We can then use the keyboard to teleoperate our robot with:
 
 ```bash
-turtlebot3c-teleop.key
+turtlebot3-lyrical-teleop.key
 ```
 
-We have now tested our custom Ubuntu Core image with success.
+If the robot responds to keyboard commands and stops on command, the
+teleoperation test for our custom Ubuntu Core image passed.
 
 ## Conclusion
 

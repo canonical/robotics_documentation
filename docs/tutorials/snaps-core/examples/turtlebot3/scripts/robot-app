@@ -1,0 +1,80 @@
+#!/bin/sh
+set -eu
+model=$(snapctl get turtlebot3-model)
+export TURTLEBOT3_MODEL="${model:-waffle_pi}" LDS_MODEL=LDS-01
+export FASTDDS_BUILTIN_TRANSPORTS=UDPv4
+ros="$SNAP/opt/ros/lyrical"
+if ! test -x "$ros/bin/ros2"; then
+    ros="$SNAP/opt/ros/underlay_ws/opt/ros/lyrical"
+fi
+ros2="$ros/bin/ros2"
+maps="$SNAP_COMMON/map"
+clock=$(snapctl get simulation)
+case "$clock" in
+    ''|false) clock=false ;;
+    true) ;;
+    *) echo "simulation must be true or false" >&2; exit 1 ;;
+esac
+
+select_velocity() {
+    response=$(timeout 15 "$ros2" service call /mux/select topic_tools_interfaces/srv/MuxSelect \
+        "{topic: '$1'}")
+    printf '%s\n' "$response"
+    printf '%s\n' "$response" | grep -q 'success=True'
+}
+
+case "$1" in
+    bringup)
+        if test "$clock" = true; then
+            echo "Leave the core service stopped in simulation; Gazebo supplies the robot drivers." >&2
+            exit 1
+        fi
+        exec "$ros2" launch turtlebot3_bringup robot.launch.py
+        ;;
+    teleop)
+        exec "$SNAP/opt/ros/lyrical/lib/topic_tools/mux" \
+            /cmd_vel /key_vel /joy_vel /nav_vel
+        ;;
+    key)
+        select_velocity /key_vel
+        exec "$SNAP/opt/ros/snap/lib/turtlebot3_teleop/teleop_keyboard" \
+            --ros-args -r cmd_vel:=/key_vel
+        ;;
+    joy)
+        select_velocity /joy_vel
+        exec "$ros2" launch teleop_twist_joy teleop-launch.py \
+            joy_config:=xbox publish_stamped_twist:=true joy_vel:=/joy_vel
+        ;;
+    mapping) exec "$ros2" launch slam_toolbox online_async_launch.py use_sim_time:="$clock" ;;
+    save-map)
+        mkdir -p "$maps"
+        rm -f "$maps/pending-map.yaml" "$maps/pending-map.pgm" "$maps/pending-map.ready"
+        "$SNAP/opt/ros/lyrical/lib/nav2_map_server/map_saver_cli" \
+            -f "$maps/pending-map" --fmt pgm --ros-args -p use_sim_time:="$clock"
+        touch "$maps/pending-map.ready"
+        ;;
+    install-map)
+        test -f "$maps/pending-map.ready" || exit 0
+        rm "$maps/pending-map.ready"
+        stamp="map-$(date -u +%Y%m%dT%H%M%S%NZ)"
+        sed "s/^image:.*/image: $stamp.pgm/" "$maps/pending-map.yaml" > "$maps/$stamp.yaml"
+        mv "$maps/pending-map.pgm" "$maps/$stamp.pgm"
+        rm "$maps/pending-map.yaml"
+        ln -sfn "$stamp.yaml" "$maps/current_map.next"
+        mv -Tf "$maps/current_map.next" "$maps/current_map.yaml"
+        ;;
+    navigation)
+        if ! test -f "$maps/current_map.yaml"; then
+            echo "Save a map before starting navigation." >&2
+            exit 1
+        fi
+        select_velocity /nav_vel
+        params="$SNAP_COMMON/nav2.yaml"
+        sed 's/cmd_vel_out_topic: "cmd_vel"/cmd_vel_out_topic: "\/nav_vel"/' \
+            "$SNAP/opt/ros/snap/share/turtlebot3_navigation2/param/$TURTLEBOT3_MODEL.yaml" > "$params"
+        exec "$ros2" launch nav2_bringup bringup_launch.py \
+            params_file:="$params" \
+            use_sim_time:="$clock" map:="$maps/current_map.yaml"
+        ;;
+    *) echo "Unknown robot application: $1" >&2; exit 1 ;;
+esac

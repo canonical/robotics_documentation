@@ -33,10 +33,9 @@ make it installable on dozens of Linux distributions.
 
 ## Requirements
 
-We will need an up and running Ubuntu 22.04 LTS or similar operating system.
+We will need an up and running Ubuntu 26.04 LTS system.
 
 ``` {note}
-Ubuntu 22.04 LTS should be the minimum version as it is still actively maintained.
 The installation could be native or in a VM.
 If using a container, we must be sure that we can install and run systemd,
 snapd and snaps.
@@ -187,6 +186,8 @@ We will address the confinement topic later in this guide.
 `Snapcraft` is not only a tool to build snaps, but more generally a developer tool,
 meaning that we will use it to build, upload and share our snaps.
 
+Check that `snapcraft extensions` lists `ros2-lyrical` for `core26`.
+
 ### LXD
 
 [`LXD`](https://linuxcontainers.org/lxd/introduction/)
@@ -222,26 +223,22 @@ $ lxc profile list
 
 ## First `ROS 2` snap
 
-Our first snap will be a basic ROS 2 Humble talker-listener.
-We are going to use [`ros2_demos: demo_nodes_cpp`](https://github.com/ros2/demos/tree/humble/demo_nodes_cpp).
+Our first snap will be a basic ROS 2 Lyrical talker-listener.
+We are going to use [`ros2_demos: demo_nodes_cpp`](https://github.com/ros2/demos/tree/3bc83863f1135cfaea0dfda1483d2c4645a7c0d6/demo_nodes_cpp).
 It contains a talker publishing a message and a listener subscribing to it.
 Both nodes can be launched with the help of the
-[`talker_listener.launch.py`](https://github.com/ros2/demos/blob/humble/demo_nodes_cpp/launch/topics/talker_listener.launch.py).
+[`talker_listener_launch.py`](https://github.com/ros2/demos/blob/3bc83863f1135cfaea0dfda1483d2c4645a7c0d6/demo_nodes_cpp/launch/topics/talker_listener_launch.py).
 
 ### Understanding the `snapcraft.yaml` file
 
-First clone the package
-[from GitHub](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap.git):
+First, create a project directory and save {download}`the Lyrical recipe
+<examples/talker-listener/snap/snapcraft.yaml>` as `snap/snapcraft.yaml` inside it.
+The downloaded recipe is the strictly confined version we will build later.
+For our first build, change `confinement` to `devmode`, remove `grade`,
+and remove the app's `plugs` line.
 
-```bash
-git clone https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap.git
-```
-
-The repository contains a snap folder with a `snapcraft.yaml` file.
 Snaps are defined in a single `YAML` file placed in our project.
-Let’s explore our
-[`snapcraft.yaml`](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap/blob/main/snap/snapcraft.yaml)
-and break it down in the next section:
+Let’s explore our `snapcraft.yaml` and break it down in the next section:
 
 ### Metadata
 
@@ -253,9 +250,8 @@ This data is used in the presentation of our app in the Snap Store
 ```yaml
 name: ros2-talker-listener
 version: '0.1'
-summary: ROS 2 Talker/Listener Example
-description: |
-    This example launches a ROS 2 talker and listener.
+summary: ROS 2 Lyrical talker and listener
+description: Launch two nodes that exchange messages on the chatter topic.
 ```
 
 The `name` must be unique in the Snap Store in case we later want to publish it.
@@ -283,13 +279,12 @@ As snap developers, we should consider it,
 but our users will be able to install the final snap independently of their OS version.
 
 ```yaml
-base: core22
+base: core26
 ```
 
-[core22](https://snapcraft.io/core22) is the current standard base for snap
-building and
-is based on [Ubuntu 22.04 LTS](http://releases.ubuntu.com/22.04/).
-It is therefore the base for ROS 2 Humble snaps.
+[core26](https://snapcraft.io/core26) is based on
+[Ubuntu 26.04 LTS](https://releases.ubuntu.com/26.04/).
+It is the base for ROS 2 Lyrical snaps.
 
 * For more information about core versions, please refer to the
   [Snapcraft `base` documentation](https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/specify-a-base/).
@@ -324,9 +319,10 @@ parts:
   ros-demos:
     plugin: colcon
     source: https://github.com/ros2/demos.git
-    source-branch: humble
+    source-commit: 3bc83863f1135cfaea0dfda1483d2c4645a7c0d6
     source-subdir: demo_nodes_cpp
-    stage-packages: [ros-humble-ros2launch]
+    build-packages: [build-essential]
+    stage-packages: [ros-lyrical-ros2launch]
 ```
 
 Snapcraft relies on well known and well established ROS tools such as,
@@ -337,12 +333,12 @@ allow us to identify such tools.
 The packages we’re building must have `install` rules,
 or else Snapcraft won’t know which components to place into the snap.
 We should make sure we install binaries, libraries, header files, launch files, etc.
-Here, we selected the `humble` branch of
-[ros2-demos GitHub repository](https://github.com/ros2/demos/tree/humble) as `source-branch`.
+Here, we pin a commit from the `lyrical` branch of the
+[ros2-demos GitHub repository](https://github.com/ros2/demos/tree/lyrical) with `source-commit`.
 Since `ros2-demos` contains multiple packages,
 we select `demo_nodes_cpp` with the `source-subdir` entry.
 
-We notice that `ros-humble-ros2launch` is listed as a `stage-packages`.
+We notice that `ros-lyrical-ros2launch` is listed in `stage-packages`.
 Stage packages are packages required to run the `part`.
 Usually this exec dependency is missing from the `package.xml` hence we must
 specify it.
@@ -363,8 +359,8 @@ These are the commands and services exposed to end users.
 ```yaml
 apps:
   ros2-talker-listener:
-    command: opt/ros/humble/bin/ros2 launch demo_nodes_cpp talker_listener.launch.py
-    extensions: [ros2-humble]
+    command: opt/ros/lyrical/bin/ros2 launch demo_nodes_cpp talker_listener_launch.py
+    extensions: [ros2-lyrical]
 ```
 
 The entry under apps is the app name that should be exposed to the end users.
@@ -387,8 +383,8 @@ This specifies the path to the binary to be run, along with arguments.
 This is resolved relative to the root of
 our snap contents (hence there is no ‘`/`’ before `opt`).
 
-Finally, the [`ros2-humble extension`](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/)
-will set our ROS 2 humble build and runtime environment.
+Finally, the [`ros2-lyrical` extension](https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/ros-2-extensions/)
+will set our ROS 2 Lyrical build and runtime environment.
 This way we don’t have to source manually our ROS 2 environment.
 
 * For more information about ROS extensions,
@@ -423,10 +419,12 @@ Snapcraft is building the snap in steps:
    The prime step exists because the staging area might still contain files that
    are required for the build but not for the snap.
 
-To build our snap, we will run:
+The Lyrical extension is experimental, so enable it before building.
+To build our snap, we will run these commands from the project directory:
 
 ```bash
-snapcraft pack
+export SNAPCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS=1
+snapcraft pack --use-lxd
 ```
 
 This will take some time, but once it’s done we will see:
@@ -441,7 +439,8 @@ This `.snap` file is our packaged application.
 
 If we could install `snapd` on our current distribution,
 it means that we can install our freshly built snap.
-We don’t need to be running Ubuntu 22.04 LTS to run this ROS 2 Humble snap.
+We don’t need to be running Ubuntu 26.04 LTS to run this ROS 2 Lyrical snap,
+but our version of `snapd` must support the `core26` base.
 We don’t even need to install ROS on our host system to install and run the snap.
 
 Snaps bundle all their dependencies as well as their “`core`” which make them host-agnostic.
@@ -609,31 +608,24 @@ By changing the confinement level and adding the `grade` and `plugs`,
 in our `snapcraft.yaml`.
 We will confine our application.
 
-We can find the updated code from the
-[confined branch](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap/tree/confined).
+To return to the confined configuration in the downloaded recipe,
+make these changes to our `snapcraft.yaml`:
 
-To switch to the confined branch:
-
-```bash
-git switch confined
-```
-
-Our `snapcraft.yaml` file should have these modifications:
-
-```yaml
+```diff
 -confinement: devmode
 +confinement: strict
 +grade: stable
-apps:
-  ros2-talker-listener:
-  command: opt/ros/humble/bin/ros2 launch talker-listener talker_listener.launch.py
-+ plugs: [network, network-bind]
+ apps:
+   ros2-talker-listener:
+     command: opt/ros/lyrical/bin/ros2 launch demo_nodes_cpp talker_listener_launch.py
+     extensions: [ros2-lyrical]
++    plugs: [network, network-bind]
 ```
 
 Once our changes are done, let’s rebuild our snap:
 
 ```bash
-snapcraft pack
+snapcraft pack --use-lxd
 ```
 
 This time our snap is confined, so we don’t need the `--devmode` flag any more.
@@ -714,30 +706,23 @@ This means that one snap containing multiple commands can
 have some running as daemon and
 others running as simple commands.
 
-To turn our [talker-publisher into a simple daemon](https://github.com/ubuntu-robotics/ros2-humble-talker-listener-snap/tree/daemon),
+To turn our talker-listener into a simple daemon,
 we will add `daemon: simple` in our `snapcraft.yaml`.
 
 ```diff
 apps:
   ros2-talker-listener:
-    command: opt/ros/humble/bin/ros2 launch talker-listener talker_listener.launch.py
-+   daemon: simple
+    command: opt/ros/lyrical/bin/ros2 launch demo_nodes_cpp talker_listener_launch.py
++    daemon: simple
+    extensions: [ros2-lyrical]
     plugs: [network, network-bind]
-    extensions: [ros2-humble]
-```
-
-That’s it.
-To switch to this version of the file run:
-
-```bash
-git switch daemon
 ```
 
 Now let’s rebuild and install our snap.
 The build should be quicker as this has been done before.
 
 ```bash
-snapcraft pack
+snapcraft pack --use-lxd
 sudo snap install ros2-talker-listener_0.1_amd64.snap --dangerous
 ```
 

@@ -1,0 +1,71 @@
+name: turtlebot3-lyrical
+base: core26
+version: '0.1'
+summary: Bring up, drive and navigate a TurtleBot3 Waffle Pi
+description: Run the ROBOTIS drivers, keyboard and joystick teleoperation, SLAM and Nav2 on ROS 2 Lyrical.
+grade: stable
+confinement: strict
+
+plugs:
+  opencr:
+    interface: serial-port
+  lidar:
+    interface: serial-port
+
+parts:
+  robot:
+    plugin: colcon
+    source: src
+    build-packages: [build-essential]
+    stage-packages:
+      - ros-lyrical-ros2launch
+      - ros-lyrical-slam-toolbox
+      - ros-lyrical-nav2-map-server
+      - ros-lyrical-joy
+      - ros-lyrical-teleop-twist-joy
+      - ros-lyrical-topic-tools
+      - ros-lyrical-ros2service
+  commands:
+    plugin: dump
+    source: scripts
+    organize:
+      robot-app: bin/robot-app
+
+apps:
+  core:
+    command: bin/robot-app bringup
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind, opencr, lidar]
+    daemon: simple
+    install-mode: disable
+  teleop:
+    command: bin/robot-app teleop
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
+    daemon: simple
+  key:
+    command: bin/robot-app key
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
+  joy:
+    command: bin/robot-app joy
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind, joystick]
+  mapping:
+    command: bin/robot-app mapping
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
+    daemon: simple
+    install-mode: disable
+    stop-command: bin/robot-app save-map
+    post-stop-command: bin/robot-app install-map
+  save-map:
+    command: bin/robot-app save-map
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
+  navigation:
+    command: bin/robot-app navigation
+    extensions: [ros2-lyrical]
+    plugs: [network, network-bind]
+    daemon: simple
+    install-mode: disable
